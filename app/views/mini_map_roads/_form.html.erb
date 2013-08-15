@@ -1,0 +1,41 @@
+<%= form_for(@mini_map_road) do |f| %>
+  <% if @mini_map_road.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mini_map_road.errors.count, "error") %> prohibited this mini_map_road from being saved:</h2>
+
+      <ul>
+      <% @mini_map_road.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_mini_map_id %><br />
+    <%= f.collection_select(:start_mini_map_id, MiniMap.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :end_mini_map_id %><br />
+    <%= f.collection_select(:end_mini_map_id, MiniMap.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br />
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :built_point %><br />
+    <%= f.number_field :built_point %>
+  </div>
+  <div class="field">
+    <%= f.label :active_flg %><br />
+    <%= f.check_box :active_flg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

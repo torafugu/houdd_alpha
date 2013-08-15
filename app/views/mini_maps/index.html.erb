@@ -1,0 +1,35 @@
+<h1>Listing mini_maps</h1>
+
+<table>
+  <tr>
+    <th><%= label :mini_map, :id %></th>
+    <th><%= label :mini_map, :houdd_user %></th>
+    <th><%= label :mini_map, :name %></th>
+    <th><%= label :mini_map, :size %></th>
+    <th><%= label :mini_map, :hq_flg %></th>
+    <th><%= label :mini_map, :type_symbol %></th>
+    <th><%= label :mini_map, :find_root_flg %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mini_maps.each do |mini_map| %>
+  <tr>
+    <td><%= mini_map.id %></td>
+    <td><%= mini_map.houdd_user.name unless mini_map.houdd_user.blank? %></td>
+    <td><%= mini_map.name %></td>
+    <td><%= mini_map.size %></td>
+    <td><%= mini_map.hq_flg %></td>
+    <td><%= mini_map.type_symbol %></td>
+    <td><%= mini_map.find_root_flg %></td>
+    <td><%= link_to 'Show', mini_map %></td>
+    <td><%= link_to 'Edit', edit_mini_map_path(mini_map) %></td>
+    <td><%= link_to 'Destroy', mini_map, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mini map', new_mini_map_path %>

@@ -1,0 +1,83 @@
+<script type="text/processing" data-processing-target="show_mini_map_sp_resources_canvas">
+int RECT_SIZE = 40;
+int MAP_WIDTH = <%= @mini_map.size %> * RECT_SIZE;
+int MAP_HEIGHT = <%= @mini_map.size %> * RECT_SIZE;
+int xOffset = 1;
+int yOffset = 1;
+
+ArrayList mapCells = new ArrayList();
+HashMap<String, PImage> terrainWhiteHashMap = new HashMap<String, PImage>();
+HashMap<String, PImage> resourceHashMap = new HashMap<String, PImage>();
+
+<% Terrain.all.each do |terrain| %>
+PImage <%= terrain.img_file_white %> = loadImage("/assets/<%= terrain.img_file_white %>.png");
+terrainWhiteHashMap.put("<%= terrain.id %>", <%= terrain.img_file_white %>);
+<% end %>
+PImage const_capital = loadImage("/assets/const_capital.png");
+
+<% SpResource.all.each do |resource| %>
+PImage <%= resource.img_file %> = loadImage("/assets/<%= resource.img_file %>.png");
+resourceHashMap.put("<%= resource.id %>", <%= resource.img_file %>);
+<% end %>
+
+void setup() {
+  frameRate(3);
+  size(MAP_WIDTH + xOffset * 2, MAP_HEIGHT + yOffset * 2);
+  <% @mini_map.mini_map_cells.each do |cell| %>
+  mapCells.add(new MapCell(<%= cell.x %>, <%= cell.y %>, "<%= cell.terrain_id %>", "<%= cell.sp_resource_id unless cell.sp_resource.nil? %>"));
+  <% end %>
+}
+
+void draw() {
+  background(255);
+  fill(0);
+
+  // Draw map
+  for (int n = 0; n < mapCells.size(); n++) {
+    (MapCell)mapCells.get(n).draw();
+  }
+
+  // Draw map section line
+  stroke(128);
+  strokeWeight(1);
+  for (int x = 0; x <= MAP_WIDTH; x = x + RECT_SIZE) {
+    for (int y = 0; y <= MAP_HEIGHT; y = y + RECT_SIZE) {
+      line(x, 0, x, MAP_HEIGHT);
+      line(0, y, MAP_WIDTH, y);
+    }
+  }
+}
+
+class MapCell {
+  int gridX;
+  int gridY;
+  int mapX;
+  int mapY;
+  String terrain;
+  String resource;
+
+  MapCell(int x, int y, String t, String r) {
+    gridX = x;
+    gridY = y;
+    mapX = x * RECT_SIZE + xOffset;
+    mapY = y * RECT_SIZE + yOffset;
+    terrain = t;
+    resource = r;
+  }
+
+  void draw() {
+    image(terrainWhiteHashMap.get(terrain), mapX, mapY, RECT_SIZE, RECT_SIZE);
+    if (!resource.equals('')) {
+      image(resourceHashMap.get(resource), mapX, mapY, RECT_SIZE, RECT_SIZE);
+    }
+  }
+}
+</script>
+
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <h3>地形マップ</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  <canvas id="show_mini_map_sp_resources_canvas"></canvas>
+</div>

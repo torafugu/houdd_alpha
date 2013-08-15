@@ -1,0 +1,35 @@
+<h1>Listing mini_map_roads</h1>
+
+<table>
+  <tr>
+    <th><%= label :mini_map_road, :id %></th>
+    <th><%= label :mini_map_road, :start_mini_map_id %></th>
+    <th><%= label :mini_map_road, :end_mini_map_id %></th>
+    <th><%= label :mini_map_road, :distance %></th>
+    <th><%= label :mini_map_road, :level %></th>
+    <th><%= label :mini_map_road, :built_point %></th>
+    <th><%= label :mini_map_road, :active_flg %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mini_map_roads.each do |mini_map_road| %>
+  <tr>
+    <td><%= mini_map_road.id %></td>
+    <td><%= mini_map_road.start_mini_map.name unless mini_map_road.start_mini_map.blank? %></td>
+    <td><%= mini_map_road.end_mini_map.name unless mini_map_road.end_mini_map.blank? %></td>
+    <td><%= mini_map_road.distance %></td>
+    <td><%= mini_map_road.level %></td>
+    <td><%= mini_map_road.built_point %></td>
+    <td><%= mini_map_road.active_flg %></td>
+    <td><%= link_to 'Show', mini_map_road %></td>
+    <td><%= link_to 'Edit', edit_mini_map_road_path(mini_map_road) %></td>
+    <td><%= link_to 'Destroy', mini_map_road, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mini map road', new_mini_map_road_path %>

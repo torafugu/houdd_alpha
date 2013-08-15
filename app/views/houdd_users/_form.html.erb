@@ -1,0 +1,53 @@
+<%= form_for(@houdd_user) do |f| %>
+  <% if @houdd_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@houdd_user.errors.count, "error") %> prohibited this houdd_user from being saved:</h2>
+
+      <ul>
+      <% @houdd_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_flg %><br />
+    <%= f.check_box :admin_flg %>
+  </div>
+  <div class="field">
+    <%= f.label :login_id %><br />
+    <%= f.text_field :login_id %>
+  </div>
+  <div class="field">
+    <%= f.label :login_pw %><br />
+    <%= f.text_field :login_pw %>
+  </div>
+  <div class="field">
+    <%= f.label :last_login_at %><br />
+    <%= f.datetime_select :last_login_at %>
+  </div>
+  <div class="field">
+    <%= f.label :active_flg %><br />
+    <%= f.check_box :active_flg %>
+  </div>
+  <div class="field">
+    <%= f.label :allot_for_item %><br />
+    <%= f.number_field :allot_for_item %>
+  </div>
+  <div class="field">
+    <%= f.label :allot_for_const %><br />
+    <%= f.number_field :allot_for_const %>
+  </div>
+  <div class="field">
+    <%= f.label :allot_for_research %><br />
+    <%= f.number_field :allot_for_research %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

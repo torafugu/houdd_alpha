@@ -1,0 +1,20 @@
+rails g scaffold fortress_cell mini_map:references symbol:string x:integer y:integer trap_id:integer squad_id:integer
+
+rails g model production_que houdd_user:references symbol:string que_id:integer priority:integer allotment:integer destroy_flg:boolean
+
+rails g scaffold construction terrain:references symbol:string name:string food:integer production:integer money:integer rq_prod_point:integer rq_days:integer
+
+rails g scaffold sp_resource terrain:references symbol:string name:string food:integer production:integer money:integer frequency_rate:integer
+
+rails g scaffold terrain symbol:string name:string food:integer production:integer money:integer frequency_rate:integer continuity_mod:integer
+
+rails g scaffold mini_map_road start_mini_map_id:integer end_mini_map_id:integer distance:integer level:integer built_point:integer active_flg:boolean
+
+rails g scaffold mini_map_cell mini_map:references x:integer y:integer terrain:references sp_resource:references construction:references built_point:integer const_active_flg:boolean capital_flg:boolean
+
+rails g scaffold houdd_user name:string admin_flg:boolean login_id:string login_pw:string last_login_at:datetime active_flg:boolean allot_for_item:integer allot_for_const:integer allot_for_research:integer
+
+rails generate controller admin_page
+
+rails generate controller my_page
+

@@ -1,0 +1,40 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <h3>ミニマップ管理</h3>
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>マップ名称</th>
+        <th>ユーザー</th>
+        <th>状態</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mini_maps.each do |mini_map| %>
+      <tr>
+        <td><%= mini_map.name %></td>
+        <td><%= mini_map.houdd_user.name %></td>
+        <td><%= mini_map.status_txt %></td>
+        <td>
+          <% if mini_map.status %>
+          セル自動生成
+          <%= link_to 'セル編集', mini_map.id.to_s + "/edit_mini_map_cells" %>
+          <% else %>
+          <a href="javascript:void(0)" id="link_to_generate_map_cells_<%= mini_map.id.to_s %>">セル自動生成</a>
+          セル編集
+          <% end %>
+          <%= link_to '道路設定(' + mini_map.mini_map_roads.size.to_s + ')', mini_map.id.to_s + "/road_index" %><br />
+          <% if mini_map.fortress_status %>
+          要塞セル自動生成
+          <%= link_to '要塞セル編集', mini_map.id.to_s + "/show_fortress_cells" %>
+          <% else %>
+          要塞セル自動生成
+          要塞セル編集
+          <% end %>         
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

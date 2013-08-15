@@ -1,0 +1,37 @@
+<%= form_for(@research) do |f| %>
+  <% if @research.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@research.errors.count, "error") %> prohibited this research from being saved:</h2>
+
+      <ul>
+      <% @research.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :houdd_user %><br />
+    <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :allotment %><br />
+    <%= f.number_field :allotment %>
+  </div>
+  <div class="field">
+    <%= f.label :invested_point %><br />
+    <%= f.number_field :invested_point %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

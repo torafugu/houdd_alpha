@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :mini_map, :houdd_user %>:</b>
+  <%= @mini_map.houdd_user.name unless @mini_map.houdd_user.blank? %>
+</p>
+
+<p>
+  <b><%= label :mini_map, :name %>:</b>
+  <%= @mini_map.name %>
+</p>
+
+<p>
+  <b><%= label :mini_map, :size %>:</b>
+  <%= @mini_map.size %>
+</p>
+
+<p>
+  <b><%= label :mini_map, :hq_flg %>:</b>
+  <%= @mini_map.hq_flg %>
+</p>
+
+<p>
+  <b><%= label :mini_map, :type_symbol %>:</b>
+  <%= @mini_map.type_symbol %>
+</p>
+
+<p>
+  <b><%= label :mini_map, :find_root_flg %>:</b>
+  <%= @mini_map.find_root_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_mini_map_path(@mini_map) %> |
+<%= link_to 'Back', mini_maps_path %>

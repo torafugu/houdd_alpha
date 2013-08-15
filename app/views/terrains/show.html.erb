@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :terrain, :symbol %>:</b>
+  <%= @terrain.symbol %>
+</p>
+
+<p>
+  <b><%= label :terrain, :name %>:</b>
+  <%= @terrain.name %>
+</p>
+
+<p>
+  <b><%= label :terrain, :food %>:</b>
+  <%= @terrain.food %>
+</p>
+
+<p>
+  <b><%= label :terrain, :production %>:</b>
+  <%= @terrain.production %>
+</p>
+
+<p>
+  <b><%= label :terrain, :money %>:</b>
+  <%= @terrain.money %>
+</p>
+
+<p>
+  <b><%= label :terrain, :frequency_rate %>:</b>
+  <%= @terrain.frequency_rate %>
+</p>
+
+<p>
+  <b><%= label :terrain, :continuity_mod %>:</b>
+  <%= @terrain.continuity_mod %>
+</p>
+
+
+<%= link_to 'Edit', edit_terrain_path(@terrain) %> |
+<%= link_to 'Back', terrains_path %>

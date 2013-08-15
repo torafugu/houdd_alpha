@@ -1,0 +1,47 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    <h3>エラーが発生しました。</h3>
+    <ul>
+      <% flash[:errors].full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <h3>道路管理</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  <%= form_tag({:action => 'update_roads'}, {:method => :put}) do %>
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>目的地</th>
+        <th>距離</th>
+        <th>レベル</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for road in @roads %>
+      <tr>
+        <td>
+          <%= hidden_field_tag("roads[][id]", road.id) %>
+          <%= hidden_field_tag("roads[][start_mini_map_id]", @mini_map.id) %>
+          <%= select_tag("roads[][end_mini_map_id]", options_from_collection_for_select(@mini_maps, :id, :name, road.end_mini_map_id)) %>
+        </td>
+        <td><%= text_field_tag("roads[][distance]", road.distance, :class=>'number3') %></td>
+        <td><%= text_field_tag("roads[][level]", road.level, :class=>'number3') %></td>
+        <td><input id="delete_road_<%= road.id %>" type="button" value="削除" /></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <div class='indent1'>
+    <%= submit_tag "更新", confirm: '更新してよろしいですか?' %>
+    <input id="add_row_of_road" type="button" value="行追加" />
+  </div>
+  <% end %>
+</div>

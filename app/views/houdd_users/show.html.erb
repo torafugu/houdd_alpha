@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :houdd_user, :name %>:</b>
+  <%= @houdd_user.name %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :admin_flg %>:</b>
+  <%= @houdd_user.admin_flg %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :login_id %>:</b>
+  <%= @houdd_user.login_id %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :login_pw %>:</b>
+  <%= @houdd_user.login_pw %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :last_login_at %>:</b>
+  <%= @houdd_user.last_login_at %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :active_flg %>:</b>
+  <%= @houdd_user.active_flg %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :allot_for_item %>:</b>
+  <%= @houdd_user.allot_for_item %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :allot_for_const %>:</b>
+  <%= @houdd_user.allot_for_const %>
+</p>
+
+<p>
+  <b><%= label :houdd_user, :allot_for_research %>:</b>
+  <%= @houdd_user.allot_for_research %>
+</p>
+
+
+<%= link_to 'Edit', edit_houdd_user_path(@houdd_user) %> |
+<%= link_to 'Back', houdd_users_path %>

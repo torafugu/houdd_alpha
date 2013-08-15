@@ -1,0 +1,37 @@
+<h1>Listing terrains</h1>
+
+<table>
+  <tr>
+    <th><%= label :terrain, :id %></th>
+    <th><%= label :terrain, :symbol %></th>
+    <th><%= label :terrain, :name %></th>
+    <th><%= label :terrain, :food %></th>
+    <th><%= label :terrain, :production %></th>
+    <th><%= label :terrain, :money %></th>
+    <th><%= label :terrain, :frequency_rate %></th>
+    <th><%= label :terrain, :continuity_mod %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @terrains.each do |terrain| %>
+  <tr>
+    <td><%= terrain.id %></td>
+    <td><%= terrain.symbol %></td>
+    <td><%= terrain.name %></td>
+    <td><%= terrain.food %></td>
+    <td><%= terrain.production %></td>
+    <td><%= terrain.money %></td>
+    <td><%= terrain.frequency_rate %></td>
+    <td><%= terrain.continuity_mod %></td>
+    <td><%= link_to 'Show', terrain %></td>
+    <td><%= link_to 'Edit', edit_terrain_path(terrain) %></td>
+    <td><%= link_to 'Destroy', terrain, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Terrain', new_terrain_path %>

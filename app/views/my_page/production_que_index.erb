@@ -1,0 +1,53 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    <h3>エラーが発生しました。</h3>
+    <ul>
+      <% flash[:errors].full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <h3>生産管理</h3>
+  総生産工数：<%= @houdd_user.productions_total %> (未割り当て工数：<%= @remaining_production %>)<br />
+  <br />
+  <%= form_tag({:action => 'update_production_ques'}, {:method => :put}) do %>
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>生産物</th>
+        <th>状態</th>
+        <th>生産工数</th>
+        <th>優先順位</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for production_que in @production_ques %>
+      <tr>
+        <td>
+          <%= hidden_field_tag("production_ques[][id]", production_que.id) %>
+          <%= production_que.item_txt %>
+        </td>
+        <td><%= production_que.status_txt %></td>
+        <td>
+          <div class="number">
+            <%= text_field_tag("production_ques[][allotment]", production_que.allotment, :class=>'number4') %>
+          </div>
+        </td>
+        <td>
+          <div class="number">
+            <%= text_field_tag("production_ques[][priority]", production_que.priority, :class=>'number3') %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <div class='indent1'>
+    <%= submit_tag "更新", confirm: '更新してよろしいですか?' %>
+  </div>
+  <% end %>
+</div>

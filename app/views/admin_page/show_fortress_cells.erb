@@ -1,0 +1,52 @@
+<script type="text/processing" data-processing-target="show_fortress_cells_canvas">
+int RECT_SIZE = 20;
+int MAP_WIDTH = <%= Math::sqrt(@mini_map.fortress_cells.size) %> * RECT_SIZE;
+int MAP_HEIGHT = <%= Math::sqrt(@mini_map.fortress_cells.size) %> * RECT_SIZE;
+
+ArrayList fortressCells = new ArrayList();
+PImage concreteImg = loadImage("/assets/fortress_concrete.png");
+
+void setup() {
+  frameRate(3);
+  size(MAP_WIDTH, MAP_HEIGHT);
+  <% @mini_map.fortress_cells.each do |cell| %>
+  fortressCells.add(new FortressCell(<%= cell.x %>, <%= cell.y %>, "<%= cell.symbol %>")); 
+  <% end %>
+}
+
+void draw() {
+  background(0);
+  fill(0);
+
+  // Draw fortress
+  for (int n = 0; n < fortressCells.size(); n++) {
+    (FortressCell)fortressCells.get(n).draw();
+  }
+}
+
+class FortressCell {
+  int fortressX;
+  int fortressY;
+  String material;
+  
+  FortressCell(int x, int y, String m) {
+    fortressX = x;
+    fortressY = y;
+    material = m;
+  }
+
+  void draw() {
+    if (material.equals("concrete") == true) {
+      image(concreteImg, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    }
+  }
+}
+</script>
+
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <h3>要塞セル</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  <canvas id="show_fortress_cells_canvas"></canvas>
+</div>

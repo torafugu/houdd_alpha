@@ -1,0 +1,41 @@
+<%= form_for(@mini_map) do |f| %>
+  <% if @mini_map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mini_map.errors.count, "error") %> prohibited this mini_map from being saved:</h2>
+
+      <ul>
+      <% @mini_map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :houdd_user %><br />
+    <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :hq_flg %><br />
+    <%= f.check_box :hq_flg %>
+  </div>
+  <div class="field">
+    <%= f.label :type_symbol %><br />
+    <%= f.text_field :type_symbol %>
+  </div>
+  <div class="field">
+    <%= f.label :find_root_flg %><br />
+    <%= f.check_box :find_root_flg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

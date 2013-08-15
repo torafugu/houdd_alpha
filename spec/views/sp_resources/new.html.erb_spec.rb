@@ -1,0 +1,30 @@
+require 'spec_helper'
+
+describe "sp_resources/new" do
+  before(:each) do
+    assign(:sp_resource, stub_model(SpResource,
+      :terrain => nil,
+      :symbol => "MyString",
+      :name => "MyString",
+      :food => 1,
+      :production => 1,
+      :money => 1,
+      :frequency_rate => 1
+    ).as_new_record)
+  end
+
+  it "renders new sp_resource form" do
+    render
+
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "form[action=?][method=?]", sp_resources_path, "post" do
+      assert_select "input#sp_resource_terrain[name=?]", "sp_resource[terrain]"
+      assert_select "input#sp_resource_symbol[name=?]", "sp_resource[symbol]"
+      assert_select "input#sp_resource_name[name=?]", "sp_resource[name]"
+      assert_select "input#sp_resource_food[name=?]", "sp_resource[food]"
+      assert_select "input#sp_resource_production[name=?]", "sp_resource[production]"
+      assert_select "input#sp_resource_money[name=?]", "sp_resource[money]"
+      assert_select "input#sp_resource_frequency_rate[name=?]", "sp_resource[frequency_rate]"
+    end
+  end
+end

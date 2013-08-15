@@ -1,0 +1,302 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'
+    month_names:
+    - 
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: ! '%{count}年弱'
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: ! '%{count}分以内'
+      less_than_x_seconds:
+        one: 1秒以内
+        other: ! '%{count}秒以内'
+      over_x_years:
+        one: 1年以上
+        other: ! '%{count}年以上'
+      x_days:
+        one: 1日
+        other: ! '%{count}日'
+      x_minutes:
+        one: 1分
+        other: ! '%{count}分'
+      x_months:
+        one: 1ヶ月
+        other: ! '%{count}ヶ月'
+      x_seconds:
+        one: 1秒
+        other: ! '%{count}秒'
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute}%{message}'
+    messages:
+      accepted: を受諾してください。
+      blank: を入力してください。
+      present: は入力しないでください。
+      confirmation: と%{attribute}の入力が一致しません。
+      empty: を入力してください。
+      equal_to: は%{count}にしてください。
+      even: は偶数にしてください。
+      exclusion: は予約されています。
+      greater_than: は%{count}より大きい値にしてください。
+      greater_than_or_equal_to: は%{count}以上の値にしてください。
+      inclusion: は一覧にありません。
+      invalid: は不正な値です。
+      less_than: は%{count}より小さい値にしてください。
+      less_than_or_equal_to: は%{count}以下の値にしてください。
+      not_a_number: は数値で入力してください。
+      not_an_integer: は整数で入力してください。
+      odd: は奇数にしてください。
+      record_invalid: バリデーションに失敗しました。 %{errors}
+      restrict_dependent_destroy:
+        one: "%{record}が存在しているので削除出来ません。"
+        many: "%{record}が存在しているので削除出来ません。"
+        other:
+      taken: はすでに存在します。
+      too_long: は%{count}文字以内で入力してください。
+      too_short: は%{count}文字以上で入力してください。
+      wrong_length: は%{count}文字で入力してください。
+      other_than: "は%{count}以外の値にしてください。"
+    template:
+      body: 次の項目を確認してください。
+      header:
+        one: ! '%{model}にエラーが発生しました。'
+        other: ! '%{model}に%{count}個のエラーが発生しました。'
+  helpers:
+    select:
+      prompt: 選択してください。
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%n%u'
+        precision: 0
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n%u'
+        units:
+          byte: バイト
+          gb: ギガバイト
+          kb: キロバイト
+          mb: メガバイト
+          tb: テラバイト
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: と
+      two_words_connector: と
+      words_connector: と
+  time:
+    am: 午前
+    formats:
+      default: ! '%Y/%m/%d %H:%M:%S'
+      long: ! '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      short: ! '%y/%m/%d %H:%M'
+    pm: 午後
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      models:
+        houdd_user:
+          attributes:
+            allotment_is_not_100: '工数割り当て比率の合計が100%ではありません。'
+        mini_map_cell:
+          attributes:
+            more_than_map_size: 'はマップのサイズを超えています。'
+            not_allowed_terrain: 'は指定された地形で許可されていません。'
+        mini_map_road:
+          attributes:
+            same_start_and_end: '出発ミニマップと到着ミニマップが同じです。'
+        production_que:
+          attributes:
+            allotment_is_greater_than : '割り当て生産工数が総生産工数より大きくなっています。'
+      <<: *errors
+    attributes:
+      houdd_user:
+        name: '名前'
+        admin_flg: '管理者フラグ'
+        login_id: 'ログインID'
+        login_pw: 'ログインパスワード'
+        last_login_at: '最終ログイン日'
+        active_flg: '有効フラグ'
+        allot_for_item: 'アイテム製造への工数割り当て比率'
+        allot_for_const: '建設への工数割り当て比率'
+        allot_for_research: '研究への工数割り当て比率'
+      research:
+        symbol: 'シンボル'
+        name: '名前'
+        level: 'レベル'
+        allotment: '割り当て率'
+        invested_point: '投入済みポイント'
+      mini_map:
+        houdd_user: 'houdd_user'
+        name: '名前'
+        hq_flg: '本拠地フラグ'
+        size: 'サイズ'
+        type_symbol: 'タイプシンボル'
+        cells_blank: '空'
+        cells_filled: '設定済'
+        find_root_flg: '新ルート探索フラグ'
+      mini_map_cell:
+        mini_map: 'mini_map'
+        x: 'x座標'
+        y: 'y座標'
+        terrain: '地形'
+        sp_resource: '資源'
+        construction: '建築物'
+        capital_flg: '首都フラグ'
+      mini_map_road:
+        start_mini_map_id: '出発ミニマップ'
+        end_mini_map_id: '終点ミニマップ'
+        distance: '距離'
+        level: 'レベル'
+        built_point: '投下済みポイント'
+        active_flg: '有効フラグ'
+        active: '使用可能'
+        construct: '建設中'
+        destroy: '取り壊し中'
+        disable: '使用不能'
+      terrain:
+        symbol: 'シンボル'
+        name: '名前'
+        food: '食料'
+        production: '生産力'
+        money: '貨幣'
+        frequency_rate: 'マップ内出現率'
+        continuity_mod: '連続出現率修正'
+      sp_resource:
+        terrain: '地形'
+        symbol: 'シンボル'
+        name: '名前'
+        food: '食料'
+        production: '生産力'
+        money: '貨幣'
+        frequency_rate: 'マップ内出現率'
+      construction:
+        terrain: '地形'
+        symbol: 'シンボル'
+        name: '名前'
+        food: '食料'
+        production: '生産力'
+        money: '貨幣'
+        rq_prod_point: '必要生産力'
+        rq_days: '必要日数'
+      production_que:
+        mini_map_road: '道路'
+        construct: '建設中'
+        destroy: '取り壊し中'
+    symbols:
+
+
+
+
+
+

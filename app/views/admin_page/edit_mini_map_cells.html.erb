@@ -1,0 +1,258 @@
+<script type="text/processing" data-processing-target="edit_mini_map_cells_canvas">
+int RECT_SIZE = 40;
+int MAP_WIDTH = <%= @mini_map.size %> * RECT_SIZE;
+int MAP_HEIGHT = <%= @mini_map.size %> * RECT_SIZE;
+int CANVAS_WIDTH = 11 * RECT_SIZE;
+int CANVAS_HEIGHT = MAP_HEIGHT + 2.3 * RECT_SIZE;
+int WORKBENCH_TITLE_HEIGHT = MAP_HEIGHT + RECT_SIZE;
+int WORKBENCH_MAPCHIP_HEIGHT = MAP_HEIGHT + RECT_SIZE * 1.2;
+int WORKBENCH_X_OFFSET = 10;
+Iterator<String, PImage> mapChipIt;
+int xOffset = 1;
+int yOffset = 1;
+int selectedX = null;
+int selectedY = null;
+int selectedTerrainID = null;
+int mapChipLastX = null;
+int selectedMapChipIndex = null;
+
+int MAP_MODE_TERRAIN = 1;
+int MAP_MODE_RESOURCE = 2;
+int MAP_MODE_CONSTRUCTION = 3;
+int mapMode = MAP_MODE_TERRAIN;
+ArrayList mapCells = new ArrayList();
+HashMap<String, PImage> terrainHashMap = new HashMap<String, PImage>();
+HashMap<String, PImage> terrainWhiteHashMap = new HashMap<String, PImage>();
+HashMap<String, PImage> resourceHashMap = new HashMap<String, PImage>();
+HashMap<String, PImage> constructHashMap = new HashMap<String, PImage>();
+HashMap resourceTerrainHashMap<String, String> = new HashMap<String, String>();
+HashMap constructionTerrainHashMap<String, String> = new HashMap<String, String>();
+ArrayList mapChipIDs;
+
+PImage blankImg = loadImage("/assets/map_white.png");
+
+<% Terrain.all.each do |terrain| %>
+PImage <%= terrain.img_file %> = loadImage("/assets/<%= terrain.img_file %>.png");
+PImage <%= terrain.img_file_white %> = loadImage("/assets/<%= terrain.img_file_white %>.png");
+terrainHashMap.put("<%= terrain.id %>", <%= terrain.img_file %>);
+terrainWhiteHashMap.put("<%= terrain.id %>", <%= terrain.img_file_white %>);
+  <% terrain.sp_resources.each do |resource| %>
+  resourceTerrainHashMap.put("<%= resource.id %>", "<%= terrain.id %>");
+  <% end %>
+  <% terrain.constructions.each do |construction| %>
+  constructionTerrainHashMap.put("<%= construction.id %>", "<%= terrain.id %>");
+  <% end %>
+<% end %>
+
+<% SpResource.all.each do |resource| %>
+PImage <%= resource.img_file %> = loadImage("/assets/<%= resource.img_file %>.png");
+resourceHashMap.put("<%= resource.id %>", <%= resource.img_file %>);
+<% end %>
+
+<% Construction.all.each do |construct| %>
+PImage <%= construct.img_file %> = loadImage("/assets/<%= construct.img_file %>.png");
+constructHashMap.put("<%= construct.id %>", <%= construct.img_file %>);
+<% end %>
+PImage const_capital = loadImage("/assets/const_capital.png");
+
+void setup() {
+  frameRate(3);
+  size(CANVAS_WIDTH + xOffset * 2, CANVAS_HEIGHT + yOffset * 2);
+}
+
+void draw() {
+  background(255);
+  fill(0);
+
+  // Draw map
+  for (int n = 0; n < mapCells.size(); n++) {
+    (MapCell)mapCells.get(n).draw();
+  }
+
+  // Draw map section line
+  stroke(128);
+  strokeWeight(1);
+  for (int x = 0; x <= MAP_WIDTH; x = x + RECT_SIZE) {
+    for (int y = 0; y <= MAP_HEIGHT; y = y + RECT_SIZE) {
+      line(x, 0, x, MAP_HEIGHT);
+      line(0, y, MAP_WIDTH, y);
+    }
+  }
+  
+  // line(MAP_WIDTH, MAP_WIDTH, 0, MAP_HEIGHT - 1);
+
+  // Draw map selection
+  if (selectedX != null && selectedY != null) {
+    noFill();
+    stroke(255, 99, 71); // tomato
+    strokeWeight(2);
+    rect(selectedX, selectedY, RECT_SIZE, RECT_SIZE);
+  }
+
+  // Draw workbench
+  textSize(12);
+  int workbench_x_cursor = 10;
+  mapChipIDs = new ArrayList();
+  if (mapMode == MAP_MODE_TERRAIN) {
+    text("<%=t 'activerecord.attributes.mini_map_cell.terrain' %>:", WORKBENCH_X_OFFSET, WORKBENCH_TITLE_HEIGHT);
+    mapChipIt = terrainHashMap.entrySet().iterator();
+    while (mapChipIt.hasNext()) {
+      Map.Entry me = (Map.Entry)mapChipIt.next();
+      image(me.getValue(), workbench_x_cursor, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
+      mapChipIDs.add(me.getKey());
+      workbench_x_cursor = workbench_x_cursor + RECT_SIZE + WORKBENCH_X_OFFSET;
+    }
+  } else if (mapMode == MAP_MODE_RESOURCE) {
+    text("<%=t 'activerecord.attributes.mini_map_cell.sp_resource' %>:", WORKBENCH_X_OFFSET, MAP_HEIGHT + RECT_SIZE);
+    mapChipIt = resourceHashMap.entrySet().iterator();
+    while (mapChipIt.hasNext()) {
+      Map.Entry me = (Map.Entry)mapChipIt.next();
+      if (selectedTerrainID != null && selectedTerrainID.equals(resourceTerrainHashMap.get(me.getKey()))) {
+        image(me.getValue(), workbench_x_cursor, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
+        mapChipIDs.add(me.getKey());
+        workbench_x_cursor = workbench_x_cursor + RECT_SIZE + WORKBENCH_X_OFFSET;
+      }
+    }
+  } else if (mapMode == MAP_MODE_CONSTRUCTION) {
+    text("<%=t 'activerecord.attributes.mini_map_cell.construction' %>:", WORKBENCH_X_OFFSET, MAP_HEIGHT + RECT_SIZE);
+    mapChipIt = constructHashMap.entrySet().iterator();
+    while (mapChipIt.hasNext()) {
+      Map.Entry me = (Map.Entry)mapChipIt.next();
+      if (selectedTerrainID != null && selectedTerrainID.equals(constructionTerrainHashMap.get(me.getKey()))) {
+        image(me.getValue(), workbench_x_cursor, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
+        mapChipIDs.add(me.getKey());
+        workbench_x_cursor = workbench_x_cursor + RECT_SIZE + WORKBENCH_X_OFFSET;
+      }
+    }
+  }
+  mapChipLastX = workbench_x_cursor;
+
+  // Draw map chip selection
+  if (selectedMapChipIndex != null) {
+    noFill();
+    stroke(255, 99, 71); // tomato
+    strokeWeight(2);
+    rect(selectedMapChipIndex * (RECT_SIZE + WORKBENCH_X_OFFSET) + WORKBENCH_X_OFFSET, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
+  }
+}
+
+void setMapMode(int m) {
+  mapMode = m;
+}
+
+void clearMapCells() {
+  mapCells = new ArrayList();
+  selectedMapChipIndex = null;
+  $('#update_map_cell_mapchip_id').val('');
+}
+
+void setMapCell(int x, int y, String terrain, String resource, String construction, boolean capitalFlg) {
+  mapCells.add(new MapCell(x, y, terrain, resource, construction, capitalFlg));
+}
+
+class MapCell {
+  int gridX;
+  int gridY;
+  int mapX;
+  int mapY;
+  String terrain;
+  String resource;
+  String construction;
+  boolean capitalFlg; 
+
+  MapCell(int x, int y, String t, String r, String c, boolean ca) {
+    gridX = x;
+    gridY = y;
+    mapX = x * RECT_SIZE + xOffset;
+    mapY = y * RECT_SIZE + yOffset;
+    terrain = t;
+    resource = r;
+    construction = c;
+    capitalFlg = ca;
+  }
+
+  void draw() {
+    if (mapMode == MAP_MODE_TERRAIN) {
+      if (capitalFlg == true) {
+        image(const_capital, mapX, mapY, RECT_SIZE, RECT_SIZE);
+      } else {
+        image(terrainHashMap.get(terrain), mapX, mapY, RECT_SIZE, RECT_SIZE);
+      }
+    } else if (mapMode == MAP_MODE_RESOURCE) {
+      image(terrainWhiteHashMap.get(terrain), mapX, mapY, RECT_SIZE, RECT_SIZE);
+      if (!resource.equals('')) {
+        image(resourceHashMap.get(resource), mapX, mapY, RECT_SIZE, RECT_SIZE);
+      }
+    } else if (mapMode == MAP_MODE_CONSTRUCTION) {
+      image(terrainWhiteHashMap.get(terrain), mapX, mapY, RECT_SIZE, RECT_SIZE);
+      if (!construction.equals('')) {
+        image(constructHashMap.get(construction), mapX, mapY, RECT_SIZE, RECT_SIZE);
+      }
+    }
+  }
+
+  boolean isPointed(int x, int y) {
+    if (gridX == x && gridY == y) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+void mousePressed() {
+  if (mouseX < MAP_WIDTH && mouseY < MAP_HEIGHT) {
+    int mapX = int(mouseX / RECT_SIZE);
+    int mapY = int(mouseY / RECT_SIZE);
+    selectedX = mapX * RECT_SIZE;
+    selectedY = mapY * RECT_SIZE;
+    $('#update_map_cell_x').val(mapX);
+    $('#update_map_cell_y').val(mapY);
+    for (int i = 0; i < mapCells.size(); i++) {
+      mapCell = (MapCell)mapCells.get(i);
+      if (mapCell.isPointed(mapX, mapY) == true) {
+        selectedTerrainID = mapCell.terrain;
+      }
+    }
+
+  } else if (WORKBENCH_X_OFFSET <= mouseX && WORKBENCH_MAPCHIP_HEIGHT <= mouseY && mouseY <= WORKBENCH_MAPCHIP_HEIGHT + RECT_SIZE) {
+    for (int x = WORKBENCH_X_OFFSET; x < mapChipLastX; x = x + RECT_SIZE + WORKBENCH_X_OFFSET) {
+      if (x <= mouseX && mouseX <= x + RECT_SIZE) {
+        selectedMapChipIndex = int(mouseX / (RECT_SIZE + WORKBENCH_X_OFFSET));
+        $('#update_map_cell_mapchip_id').val(mapChipIDs.get(selectedMapChipIndex));
+      }
+    }
+  }
+}
+
+int getSelectedX() {
+  return selectedX;
+}
+
+int getSelectedY() {
+  return selectedY;
+}
+
+int getSelectedMapChipIndex() {
+  return selectedMapChipIndex;
+}
+</script>
+
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <h3>ミニマップ編集</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  編集モード:<%= radio_button 'edit_mini_map_cells', 'mode', 1, {} %>地形 
+  <%= radio_button 'edit_mini_map_cells', 'mode', 2, {} %>資源 
+  <%= radio_button 'edit_mini_map_cells', 'mode', 3, {} %>建築物<br />
+  <canvas id="edit_mini_map_cells_canvas"></canvas>
+  <div class='indent1'>
+    <%= form_tag "update_map_cell", :id => "update_map_cell", :method => "put" do %>
+    <input id="update_map_cell_btn" type="button" value="更新" /><br />
+    <%= hidden_field :update_map_cell, :x %>
+    <%= hidden_field :update_map_cell, :y %>
+    <%= hidden_field :update_map_cell, :mapchip_id %>
+    <% end %>
+  </div>
+</div>

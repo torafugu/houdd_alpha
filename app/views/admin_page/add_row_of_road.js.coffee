@@ -1,0 +1,1 @@
+$('tbody').append('<tr><td><%= hidden_field_tag("roads[][start_mini_map_id]", @mini_map.id) %><%= select_tag("roads[][end_mini_map_id]", options_from_collection_for_select(@mini_maps, :id, :name)) %></td><td><%= text_field_tag("roads[][distance]",nil ,:class=>'number3') %></td><td><%= text_field_tag("roads[][level]",nil , :class=>'number3') %></td><td></td></tr>')

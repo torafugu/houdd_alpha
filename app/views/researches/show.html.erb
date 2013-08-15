@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :research, :houdd_user %>:</b>
+  <%= @research.houdd_user.name unless @research.houdd_user.blank? %>
+</p>
+
+<p>
+  <b><%= label :research, :symbol %>:</b>
+  <%= @research.symbol %>
+</p>
+
+<p>
+  <b><%= label :research, :level %>:</b>
+  <%= @research.level %>
+</p>
+
+<p>
+  <b><%= label :research, :allotment %>:</b>
+  <%= @research.allotment %>
+</p>
+
+<p>
+  <b><%= label :research, :invested_point %>:</b>
+  <%= @research.invested_point %>
+</p>
+
+
+<%= link_to 'Edit', edit_research_path(@research) %> |
+<%= link_to 'Back', researches_path %>

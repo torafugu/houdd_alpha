@@ -1,0 +1,53 @@
+<%= form_for(@mini_map_cell) do |f| %>
+  <% if @mini_map_cell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mini_map_cell.errors.count, "error") %> prohibited this mini_map_cell from being saved:</h2>
+
+      <ul>
+      <% @mini_map_cell.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mini_map %><br />
+    <%= f.text_field :mini_map %>
+  </div>
+  <div class="field">
+    <%= f.label :x %><br />
+    <%= f.number_field :x %>
+  </div>
+  <div class="field">
+    <%= f.label :y %><br />
+    <%= f.number_field :y %>
+  </div>
+  <div class="field">
+    <%= f.label :terrain %><br />
+    <%= f.text_field :terrain %>
+  </div>
+  <div class="field">
+    <%= f.label :sp_resource %><br />
+    <%= f.text_field :sp_resource %>
+  </div>
+  <div class="field">
+    <%= f.label :construction %><br />
+    <%= f.text_field :construction %>
+  </div>
+  <div class="field">
+    <%= f.label :built_point %><br />
+    <%= f.number_field :built_point %>
+  </div>
+  <div class="field">
+    <%= f.label :const_active_flg %><br />
+    <%= f.check_box :const_active_flg %>
+  </div>
+  <div class="field">
+    <%= f.label :capital_flg %><br />
+    <%= f.check_box :capital_flg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

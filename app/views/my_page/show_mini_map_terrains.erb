@@ -1,0 +1,78 @@
+<script type="text/processing" data-processing-target="show_mini_map_terrains_canvas">
+int RECT_SIZE = 40;
+int MAP_WIDTH = <%= @mini_map.size %> * RECT_SIZE;
+int MAP_HEIGHT = <%= @mini_map.size %> * RECT_SIZE;
+int xOffset = 1;
+int yOffset = 1;
+
+ArrayList mapCells = new ArrayList();
+HashMap<String, PImage> terrainHashMap = new HashMap<String, PImage>();
+
+<% Terrain.all.each do |terrain| %>
+PImage <%= terrain.img_file %> = loadImage("/assets/<%= terrain.img_file %>.png");
+terrainHashMap.put("<%= terrain.id %>", <%= terrain.img_file %>);
+<% end %>
+PImage const_capital = loadImage("/assets/const_capital.png");
+
+void setup() {
+  frameRate(3);
+  size(MAP_WIDTH + xOffset * 2, MAP_HEIGHT + yOffset * 2);
+  <% @mini_map.mini_map_cells.each do |cell| %>
+  mapCells.add(new MapCell(<%= cell.x %>, <%= cell.y %>, "<%= cell.terrain_id %>", <%= cell.capital_flg %>));
+  <% end %>
+}
+
+void draw() {
+  background(255);
+  fill(0);
+
+  // Draw map
+  for (int n = 0; n < mapCells.size(); n++) {
+    (MapCell)mapCells.get(n).draw();
+  }
+
+  // Draw map section line
+  stroke(128);
+  strokeWeight(1);
+  for (int x = 0; x <= MAP_WIDTH; x = x + RECT_SIZE) {
+    for (int y = 0; y <= MAP_HEIGHT; y = y + RECT_SIZE) {
+      line(x, 0, x, MAP_HEIGHT);
+      line(0, y, MAP_WIDTH, y);
+    }
+  }
+}
+
+class MapCell {
+  int gridX;
+  int gridY;
+  int mapX;
+  int mapY;
+  String terrain;
+  boolean capitalFlg; 
+
+  MapCell(int x, int y, String t, boolean ca) {
+    gridX = x;
+    gridY = y;
+    mapX = x * RECT_SIZE + xOffset;
+    mapY = y * RECT_SIZE + yOffset;
+    terrain = t;
+    capitalFlg = ca;
+  }
+
+  void draw() {
+    if (capitalFlg == true) {
+      image(const_capital, mapX, mapY, RECT_SIZE, RECT_SIZE);
+    } else {
+      image(terrainHashMap.get(terrain), mapX, mapY, RECT_SIZE, RECT_SIZE);
+    }
+  }
+}
+</script>
+
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <h3>地形マップ</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  <canvas id="show_mini_map_terrains_canvas"></canvas>
+</div>

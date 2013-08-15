@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :mini_map_road, :start_mini_map_id %>:</b>
+  <%= @mini_map_road.start_mini_map.name unless @mini_map_road.start_mini_map.blank? %>
+</p>
+
+<p>
+  <b><%= label :mini_map_road, :end_mini_map_id %>:</b>
+  <%= @mini_map_road.end_mini_map.name unless@mini_map_road.end_mini_map.blank? %>
+</p>
+
+<p>
+  <b><%= label :mini_map_road, :distance %>:</b>
+  <%= @mini_map_road.distance %>
+</p>
+
+<p>
+  <b><%= label :mini_map_road, :level %>:</b>
+  <%= @mini_map_road.level %>
+</p>
+
+<p>
+  <b><%= label :mini_map_road, :built_point %>:</b>
+  <%= @mini_map_road.built_point %>
+</p>
+
+<p>
+  <b><%= label :mini_map_road, :active_flg %>:</b>
+  <%= @mini_map_road.active_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_mini_map_road_path(@mini_map_road) %> |
+<%= link_to 'Back', mini_map_roads_path %>

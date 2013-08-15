@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :mini_map_cell, :mini_map %>:</b>
+  <%= @mini_map_cell.mini_map %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :x %>:</b>
+  <%= @mini_map_cell.x %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :y %>:</b>
+  <%= @mini_map_cell.y %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :terrain %>:</b>
+  <%= @mini_map_cell.terrain %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :sp_resource %>:</b>
+  <%= @mini_map_cell.sp_resource %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :construction %>:</b>
+  <%= @mini_map_cell.construction %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :built_point %>:</b>
+  <%= @mini_map_cell.built_point %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :const_active_flg %>:</b>
+  <%= @mini_map_cell.const_active_flg %>
+</p>
+
+<p>
+  <b><%= label :mini_map_cell, :capital_flg %>:</b>
+  <%= @mini_map_cell.capital_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_mini_map_cell_path(@mini_map_cell) %> |
+<%= link_to 'Back', mini_map_cells_path %>

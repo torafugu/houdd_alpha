@@ -1,0 +1,41 @@
+<%= form_for(@fortress_cell) do |f| %>
+  <% if @fortress_cell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fortress_cell.errors.count, "error") %> prohibited this fortress_cell from being saved:</h2>
+
+      <ul>
+      <% @fortress_cell.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mini_map %><br />
+    <%= f.text_field :mini_map %>
+  </div>
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.label :x %><br />
+    <%= f.number_field :x %>
+  </div>
+  <div class="field">
+    <%= f.label :y %><br />
+    <%= f.number_field :y %>
+  </div>
+  <div class="field">
+    <%= f.label :trap_id %><br />
+    <%= f.number_field :trap_id %>
+  </div>
+  <div class="field">
+    <%= f.label :squad_id %><br />
+    <%= f.number_field :squad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

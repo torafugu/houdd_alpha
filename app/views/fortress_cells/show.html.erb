@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :fortress_cell, :mini_map %>:</b>
+  <%= @fortress_cell.mini_map %>
+</p>
+
+<p>
+  <b><%= label :fortress_cell, :symbol %>:</b>
+  <%= @fortress_cell.symbol %>
+</p>
+
+<p>
+  <b><%= label :fortress_cell, :x %>:</b>
+  <%= @fortress_cell.x %>
+</p>
+
+<p>
+  <b><%= label :fortress_cell, :y %>:</b>
+  <%= @fortress_cell.y %>
+</p>
+
+<p>
+  <b><%= label :fortress_cell, :trap_id %>:</b>
+  <%= @fortress_cell.trap_id %>
+</p>
+
+<p>
+  <b><%= label :fortress_cell, :squad_id %>:</b>
+  <%= @fortress_cell.squad_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_fortress_cell_path(@fortress_cell) %> |
+<%= link_to 'Back', fortress_cells_path %>

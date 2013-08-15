@@ -1,0 +1,12 @@
+app/models/construction.rb 5072f382fa4aaccd6663609aeff16cfe6b6aa67d
+app/models/fortress_cell.rb ac543ddeb9fc22944de6c16d962311adc80f8744
+app/models/houdd_user.rb 41ac5f4f9e49da1436ee361151a0a64da9981bf4
+app/models/mini_map.rb 24a2a01483057a75932bc635013f1e2c7dcd80ad
+app/models/mini_map_cell.rb 78ef4705a86ff7f38b5bd5c1a52eed7bbfc92f0d
+app/models/mini_map_creator.rb 69927f32ba63677e7bc9d8b93574e281f0e2847c
+app/models/mini_map_road.rb 98f0b7d02fcafc6127b83e0db95a6c00b7faa485
+app/models/params.rb 11475ae78c90b9fb65f67be26f7e46bcf3bf4c7e
+app/models/production_que.rb 4738c013483640b5f94ec5ab1df7fb540a51fa99
+app/models/research.rb e8e43fe87c84541402178dfe5f025308f1909e24
+app/models/sp_resource.rb bfc842e14bd2f582fd63d1658748d3be7b25faab
+app/models/terrain.rb ef1126af3f97fe5e4a050ec7641cf886220d7795

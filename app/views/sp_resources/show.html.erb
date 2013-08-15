@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :sp_resource, :terrain %>:</b>
+  <%= @sp_resource.terrain.name unless @sp_resource.terrain.blank? %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :symbol %>:</b>
+  <%= @sp_resource.symbol %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :name %>:</b>
+  <%= @sp_resource.name %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :food %>:</b>
+  <%= @sp_resource.food %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :production %>:</b>
+  <%= @sp_resource.production %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :money %>:</b>
+  <%= @sp_resource.money %>
+</p>
+
+<p>
+  <b><%= label :sp_resource, :frequency_rate %>:</b>
+  <%= @sp_resource.frequency_rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_sp_resource_path(@sp_resource) %> |
+<%= link_to 'Back', sp_resources_path %>

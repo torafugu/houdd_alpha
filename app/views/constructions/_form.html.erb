@@ -1,0 +1,49 @@
+<%= form_for(@construction) do |f| %>
+  <% if @construction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@construction.errors.count, "error") %> prohibited this construction from being saved:</h2>
+
+      <ul>
+      <% @construction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :terrain %><br />
+    <%= f.collection_select(:terrain_id, Terrain.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :food %><br />
+    <%= f.number_field :food %>
+  </div>
+  <div class="field">
+    <%= f.label :production %><br />
+    <%= f.number_field :production %>
+  </div>
+  <div class="field">
+    <%= f.label :money %><br />
+    <%= f.number_field :money %>
+  </div>
+  <div class="field">
+    <%= f.label :rq_prod_point %><br />
+    <%= f.number_field :rq_prod_point %>
+  </div>
+  <div class="field">
+    <%= f.label :rq_days %><br />
+    <%= f.number_field :rq_days %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

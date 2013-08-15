@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :construction, :terrain %>:</b>
+  <%= @construction.terrain.name unless @construction.terrain.blank? %>
+</p>
+
+<p>
+  <b><%= label :construction, :symbol %>:</b>
+  <%= @construction.symbol %>
+</p>
+
+<p>
+  <b><%= label :construction, :name %>:</b>
+  <%= @construction.name %>
+</p>
+
+<p>
+  <b><%= label :construction, :food %>:</b>
+  <%= @construction.food %>
+</p>
+
+<p>
+  <b><%= label :construction, :production %>:</b>
+  <%= @construction.production %>
+</p>
+
+<p>
+  <b><%= label :construction, :money %>:</b>
+  <%= @construction.money %>
+</p>
+
+<p>
+  <b><%= label :construction, :rq_prod_point %>:</b>
+  <%= @construction.rq_prod_point %>
+</p>
+
+<p>
+  <b><%= label :construction, :rq_days %>:</b>
+  <%= @construction.rq_days %>
+</p>
+
+
+<%= link_to 'Edit', edit_construction_path(@construction) %> |
+<%= link_to 'Back', constructions_path %>

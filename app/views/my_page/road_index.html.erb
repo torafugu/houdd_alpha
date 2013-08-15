@@ -1,0 +1,51 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    <h3>エラーが発生しました。</h3>
+    <ul>
+      <% flash[:errors].full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <h3>道路管理</h3>
+  マップ名：<%= @mini_map.name %><br />
+  <br />
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>目的地</th>
+        <th>距離</th>
+        <th>レベル</th>
+        <th>状態</th>
+        <th>投下済ポイント</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for road in @roads %>
+      <tr>
+        <td>
+          <%= hidden_field_tag("roads[][id]", road.id) %>
+          <%= hidden_field_tag("roads[][start_mini_map_id]", @mini_map.id) %>
+          <%= road.end_mini_map.name %>
+        </td>
+        <td><div class="number"><%= road.distance %></div></td>
+        <td><div class="number"><%= road.level %></td>
+        <td><%= road.status_txt %></td>
+        <td><div class="number"><%= road.built_point %></div></td>
+        <td>
+          <input id="level_up_road_<%= road.id %>" type="button" value="レベルアップ" <% if road.is_constructing? or road.is_destroying? %> disabled <% end %> />
+          <input id="delete_road_<%= road.id %>" type="button" value="削除" <% if road.is_destroying? %> disabled <% end %> />
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <div class='indent1'>
+    <input id="find_new_root" type="button" value="新ルート探索" <% if @mini_map.find_root_flg %> disabled <% end %> />
+  </div>
+</div>

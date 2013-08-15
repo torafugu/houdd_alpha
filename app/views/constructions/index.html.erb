@@ -1,0 +1,39 @@
+<h1>Listing constructions</h1>
+
+<table>
+  <tr>
+    <th><%= label :construction, :id %></th>
+    <th><%= label :construction, :terrain %></th>
+    <th><%= label :construction, :symbol %></th>
+    <th><%= label :construction, :name %></th>
+    <th><%= label :construction, :food %></th>
+    <th><%= label :construction, :production %></th>
+    <th><%= label :construction, :money %></th>
+    <th><%= label :construction, :rq_prod_point %></th>
+    <th><%= label :construction, :rq_days %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @constructions.each do |construction| %>
+  <tr>
+    <td><%= construction.id %></td>
+    <td><%= construction.terrain.name unless construction.terrain.blank? %></td>
+    <td><%= construction.symbol %></td>
+    <td><%= construction.name %></td>
+    <td><%= construction.food %></td>
+    <td><%= construction.production %></td>
+    <td><%= construction.money %></td>
+    <td><%= construction.rq_prod_point %></td>
+    <td><%= construction.rq_days %></td>
+    <td><%= link_to 'Show', construction %></td>
+    <td><%= link_to 'Edit', edit_construction_path(construction) %></td>
+    <td><%= link_to 'Destroy', construction, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Construction', new_construction_path %>

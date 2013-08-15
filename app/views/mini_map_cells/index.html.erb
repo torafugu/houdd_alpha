@@ -1,0 +1,39 @@
+<h1>Listing mini_map_cells</h1>
+
+<table>
+  <tr>
+    <th><%= label :mini_map_cell, :mini_map %></th>
+    <th><%= label :mini_map_cell, :x %></th>
+    <th><%= label :mini_map_cell, :y %></th>
+    <th><%= label :mini_map_cell, :terrain %></th>
+    <th><%= label :mini_map_cell, :sp_resource %></th>
+    <th><%= label :mini_map_cell, :construction %></th>
+    <th><%= label :mini_map_cell, :built_point %></th>
+    <th><%= label :mini_map_cell, :const_active_flg %></th>
+    <th><%= label :mini_map_cell, :capital_flg %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mini_map_cells.each do |mini_map_cell| %>
+  <tr>
+    <td><%= mini_map_cell.mini_map %></td>
+    <td><%= mini_map_cell.x %></td>
+    <td><%= mini_map_cell.y %></td>
+    <td><%= mini_map_cell.terrain %></td>
+    <td><%= mini_map_cell.sp_resource %></td>
+    <td><%= mini_map_cell.construction %></td>
+    <td><%= mini_map_cell.built_point %></td>
+    <td><%= mini_map_cell.const_active_flg %></td>
+    <td><%= mini_map_cell.capital_flg %></td>
+    <td><%= link_to 'Show', mini_map_cell %></td>
+    <td><%= link_to 'Edit', edit_mini_map_cell_path(mini_map_cell) %></td>
+    <td><%= link_to 'Destroy', mini_map_cell, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mini map cell', new_mini_map_cell_path %>

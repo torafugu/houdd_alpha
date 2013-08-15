@@ -1,0 +1,2 @@
+module MiniMapsHelper
+end
