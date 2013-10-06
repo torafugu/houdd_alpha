@@ -1,15 +1,15 @@
 <h1>Listing mini_map_cells</h1>
 
+マップ：<%= collection_select(:map, :id, MiniMap.find(:all), :id, :name, :selected => @mini_map_id, :include_blank => true) %>
 <table>
   <tr>
-    <th><%= label :mini_map_cell, :mini_map %></th>
     <th><%= label :mini_map_cell, :x %></th>
     <th><%= label :mini_map_cell, :y %></th>
     <th><%= label :mini_map_cell, :terrain %></th>
     <th><%= label :mini_map_cell, :sp_resource %></th>
     <th><%= label :mini_map_cell, :construction %></th>
     <th><%= label :mini_map_cell, :built_point %></th>
-    <th><%= label :mini_map_cell, :const_active_flg %></th>
+    <th><%= label :mini_map_cell, :active_flg %></th>
     <th><%= label :mini_map_cell, :capital_flg %></th>
     <th></th>
     <th></th>
@@ -18,14 +18,13 @@
 
 <% @mini_map_cells.each do |mini_map_cell| %>
   <tr>
-    <td><%= mini_map_cell.mini_map %></td>
     <td><%= mini_map_cell.x %></td>
     <td><%= mini_map_cell.y %></td>
-    <td><%= mini_map_cell.terrain %></td>
-    <td><%= mini_map_cell.sp_resource %></td>
-    <td><%= mini_map_cell.construction %></td>
+    <td><%= mini_map_cell.terrain.name unless mini_map_cell.terrain.blank? %></td>
+    <td><%= mini_map_cell.sp_resource.name unless mini_map_cell.sp_resource.blank? %></td>
+    <td><%= mini_map_cell.construction.name unless mini_map_cell.construction.blank? %></td>
     <td><%= mini_map_cell.built_point %></td>
-    <td><%= mini_map_cell.const_active_flg %></td>
+    <td><%= mini_map_cell.active_flg %></td>
     <td><%= mini_map_cell.capital_flg %></td>
     <td><%= link_to 'Show', mini_map_cell %></td>
     <td><%= link_to 'Edit', edit_mini_map_cell_path(mini_map_cell) %></td>

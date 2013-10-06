@@ -1,0 +1,28 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    <h3>エラーが発生しました。</h3>
+    <ul>
+      <% flash[:errors].full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("アイテムの生産を開始しました。");
+  </script>
+   <% end %>
+
+  <h3>アイテム生産</h3>
+  アイテム種別：<%= select(:mypage, :type_sym, Params::ITEM_SYMBOL_DESCRIPTIONS, :include_blank => true) %>
+  <%= render 'select_item_category' %><br />
+  <br />
+  <%= form_tag :action => 'new_item' do %>
+  <%= render 'select_item_info' %><br />
+  <%= submit_tag "生産開始" %>
+  <% end %>
+</div>

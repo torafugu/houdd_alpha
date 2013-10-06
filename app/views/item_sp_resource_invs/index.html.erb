@@ -1,0 +1,25 @@
+<h1>Listing item_sp_resource_invs</h1>
+
+<table>
+  <tr>
+    <th><%= label :item_sp_resource_inv, :item_info %></th>
+    <th><%= label :item_sp_resource_inv, :sp_resource %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_sp_resource_invs.each do |item_sp_resource_inv| %>
+  <tr>
+    <td><%= item_sp_resource_inv.item_info.name unless item_sp_resource_inv.item_info.blank? %></td>
+    <td><%= item_sp_resource_inv.sp_resource.name unless item_sp_resource_inv.sp_resource.blank? %></td>
+    <td><%= link_to 'Show', item_sp_resource_inv %></td>
+    <td><%= link_to 'Edit', edit_item_sp_resource_inv_path(item_sp_resource_inv) %></td>
+    <td><%= link_to 'Destroy', item_sp_resource_inv, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item sp resource inv', new_item_sp_resource_inv_path %>

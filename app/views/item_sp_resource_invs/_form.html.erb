@@ -1,0 +1,25 @@
+<%= form_for(@item_sp_resource_inv) do |f| %>
+  <% if @item_sp_resource_inv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_sp_resource_inv.errors.count, "error") %> prohibited this item_sp_resource_inv from being saved:</h2>
+
+      <ul>
+      <% @item_sp_resource_inv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item_info %><br />
+    <%= f.collection_select(:item_info_id, ItemInfo.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :sp_resource %><br />
+    <%= f.collection_select(:sp_resource_id, SpResource.find(:all), :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

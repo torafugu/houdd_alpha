@@ -68,7 +68,7 @@ class MiniMapCreator
         # 2. Set construction.
         mini_map_cell.construction = nil
         mini_map_cell.built_point = 0
-        mini_map_cell.const_active_flg = false
+        mini_map_cell.active_flg = false
 
         # 3. Set capital.
         if mini_map_cell.x == capital_x_roll and mini_map_cell.y == capital_y_roll

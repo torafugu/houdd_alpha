@@ -20,6 +20,8 @@
         <th>目的地</th>
         <th>距離</th>
         <th>レベル</th>
+        <th>状態</th>
+        <th>投下済ポイント</th>
         <th>操作</th>
       </tr>
     </thead>
@@ -33,6 +35,8 @@
         </td>
         <td><%= text_field_tag("roads[][distance]", road.distance, :class=>'number3') %></td>
         <td><%= text_field_tag("roads[][level]", road.level, :class=>'number3') %></td>
+        <td><div class="number"><%= road.level %></td>
+        <td><%= road.status_txt %></td>
         <td><input id="delete_road_<%= road.id %>" type="button" value="削除" /></td>
       </tr>
       <% end %>

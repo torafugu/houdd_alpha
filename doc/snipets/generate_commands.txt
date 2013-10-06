@@ -1,3 +1,36 @@
+
+rails generate scaffold squad houdd_user:references mini_map:references name:string
+
+rails generate scaffold mob houdd_user:references specie:references father_id:integer mother_id:integer generation:integer job:references squad:references name:string gender_sym:string age:integer hp:integer sp:integer str:integer dex:integer con:integer int:integer wis:integer cha:integer phys_def:integer skill_def:integer ele_fw_mod:integer ele_ld_mod:integer natural_death_flg:boolean
+
+rails generate scaffold gene specie:references dominance_flg:boolean prolificacy_mod:float longevity_mod:float growth_mod:float food_cost_mod:float str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float
+
+rails generate scaffold job name:string growth_penalty:float wepon_lvl:integer armor_lvl:integer str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float
+
+rails generate scaffold specie_job_inv specie:references job:references frequency_rate:integer
+
+rails g scaffold skill_inv type:string skill:references owner_id:integer
+
+rails generate scaffold skill skill_category:references name:string sp_cost:integer research_level:integer
+
+rails g scaffold skill_category type_sym:string element_sym:string
+
+rails g scaffold specie family:references name:string longevity:integer prolificacy:float growth_rate:float food_cost:integer str:integer dex:integer con:integer int:integer wis:integer cha:integer
+
+rails g scaffold family name:string asexual_flg:boolean
+
+rails g scaffold item_category type_sym:string name:string body_part:references rq_slot_num:integer
+
+rails g scaffold item_info item_category:references size:integer weight_level:integer name:string max_dp:integer rq_prod_point:integer research_level:integer
+
+rails g scaffold item item_info:references houdd_user:references dp:integer quality:integer built_point:integer active_flg:boolean
+
+rails g scaffold status_mod_inv type:string status_mod:references owner_id:integer num_of_tgt:integer duration:integer
+
+rails g scaffold status_mod name:string hit_accuracy:integer d_range:integer x_range:integer hp_mod:integer str_mod:integer dex_mod:integer con_mod:integer int_mod:integer wis_mod:integer cha_mod:integer ele_fw_mod:integer ele_ld_mod:integer phys_def_mod:integer skill_def_mod:integer
+
+rails g scaffold body_part name:string
+
 rails g scaffold fortress_cell mini_map:references symbol:string x:integer y:integer trap_id:integer squad_id:integer
 
 rails g model production_que houdd_user:references symbol:string que_id:integer priority:integer allotment:integer destroy_flg:boolean
@@ -10,11 +43,16 @@ rails g scaffold terrain symbol:string name:string food:integer production:integ
 
 rails g scaffold mini_map_road start_mini_map_id:integer end_mini_map_id:integer distance:integer level:integer built_point:integer active_flg:boolean
 
-rails g scaffold mini_map_cell mini_map:references x:integer y:integer terrain:references sp_resource:references construction:references built_point:integer const_active_flg:boolean capital_flg:boolean
+rails g scaffold mini_map_cell mini_map:references x:integer y:integer terrain:references sp_resource:references construction:references built_point:integer active_flg:boolean capital_flg:boolean
+
+rails g scaffold map_item_inv mini_map:references item:references
 
 rails g scaffold houdd_user name:string admin_flg:boolean login_id:string login_pw:string last_login_at:datetime active_flg:boolean allot_for_item:integer allot_for_const:integer allot_for_research:integer
 
 rails generate controller admin_page
-
 rails generate controller my_page
+rails generate controller item_info_status_mod_invs
+rails generate controller specie_status_mod_invs
+rails generate controller gene_status_mod_invs
+rails generate controller body_part_status_mod_invs
 

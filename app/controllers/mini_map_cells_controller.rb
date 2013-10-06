@@ -3,7 +3,8 @@ class MiniMapCellsController < ApplicationController
   # GET /mini_map_cells.json
   def index
     @mini_map_cell = MiniMapCell.new
-    @mini_map_cells = MiniMapCell.all
+    @mini_map_cells = MiniMapCell.find_all_by_mini_map_id(params[:map_id].to_i)
+    @mini_map_id = params[:map_id]
 
     respond_to do |format|
       format.html # index.html.erb

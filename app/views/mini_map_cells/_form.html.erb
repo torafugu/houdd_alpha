@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :mini_map %><br />
-    <%= f.text_field :mini_map %>
+    <%= @mini_map_cell.mini_map.name %><br />
   </div>
   <div class="field">
     <%= f.label :x %><br />
@@ -25,23 +25,23 @@
   </div>
   <div class="field">
     <%= f.label :terrain %><br />
-    <%= f.text_field :terrain %>
+    <%= f.collection_select(:terrain_id, Terrain.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :sp_resource %><br />
-    <%= f.text_field :sp_resource %>
+    <%= f.collection_select(:sp_resource_id, SpResource.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :construction %><br />
-    <%= f.text_field :construction %>
+    <%= f.collection_select(:construction_id, Construction.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :built_point %><br />
     <%= f.number_field :built_point %>
   </div>
   <div class="field">
-    <%= f.label :const_active_flg %><br />
-    <%= f.check_box :const_active_flg %>
+    <%= f.label :active_flg %><br />
+    <%= f.check_box :active_flg %>
   </div>
   <div class="field">
     <%= f.label :capital_flg %><br />

@@ -1,0 +1,25 @@
+<h1>Listing map_item_invs</h1>
+
+<table>
+  <tr>
+    <th><%= label :map_item_inv, :mini_map %></th>
+    <th><%= label :map_item_inv, :item %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @map_item_invs.each do |map_item_inv| %>
+  <tr>
+    <td><%= map_item_inv.mini_map %></td>
+    <td><%= map_item_inv.item %></td>
+    <td><%= link_to 'Show', map_item_inv %></td>
+    <td><%= link_to 'Edit', edit_map_item_inv_path(map_item_inv) %></td>
+    <td><%= link_to 'Destroy', map_item_inv, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Map item inv', new_map_item_inv_path %>

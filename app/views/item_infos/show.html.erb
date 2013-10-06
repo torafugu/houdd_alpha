@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :item_info, :item_category %>:</b>
+  <%= @item_info.item_category.name unless @item_info.item_category.blank? %>
+</p>
+
+<p>
+  <b><%= label :item_info, :size %>:</b>
+  <%= @item_info.size %>
+</p>
+
+<p>
+  <b><%= label :item_info, :weight_level %>:</b>
+  <%= @item_info.weight_level %>
+</p>
+
+<p>
+  <b><%= label :item_info, :name %>:</b>
+  <%= @item_info.name %>
+</p>
+
+<p>
+  <b><%= label :item_info, :max_dp %>:</b>
+  <%= @item_info.max_dp %>
+</p>
+
+<p>
+  <b><%= label :item_info, :rq_prod_point %>:</b>
+  <%= @item_info.rq_prod_point %>
+</p>
+
+<p>
+  <b><%= label :item_info, :research_level %>:</b>
+  <%= @item_info.research_level %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_info_path(@item_info) %> |
+<%= link_to 'Back', item_infos_path %>

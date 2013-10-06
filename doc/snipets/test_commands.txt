@@ -1,9 +1,19 @@
+
+
+# Execute following 3 commands before executing rspec script.
+
 rake db:drop RAILS_ENV=test
 rake db:migrate RAILS_ENV=test
 rake db:seed RAILS_ENV=test
 
+rake db:reset
+
 rails c test
 
+rspec --drb spec/models/production_que_spec.rb
+
+bundle exec rspec spec/models/production_que_updater_spec.rb
+bundle exec rspec spec/models/production_que_spec.rb
 bundle exec rspec spec/models/mini_map_creator_spec.rb
 bundle exec rspec spec/models/houdd_user_spec.rb 
 bundle exec rspec spec/models/mini_map_spec.rb 

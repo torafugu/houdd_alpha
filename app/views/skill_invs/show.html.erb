@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :skill_inv, :type %>:</b>
+  <%= @skill_inv.type %>
+</p>
+
+<p>
+  <b><%= label :skill_inv, :skill %>:</b>
+  <%= @skill_inv.skill %>
+</p>
+
+<p>
+  <b><%= label :skill_inv, :owner_id %>:</b>
+  <%= @skill_inv.owner_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_skill_inv_path(@skill_inv) %> |
+<%= link_to 'Back', skill_invs_path %>

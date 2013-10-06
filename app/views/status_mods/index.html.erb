@@ -1,0 +1,51 @@
+<h1>Listing status_mods</h1>
+
+<table>
+  <tr>
+    <th><%= label :status_mod, :name %></th>
+    <th><%= label :status_mod, :hit_accuracy %></th>
+    <th><%= label :status_mod, :d_range %></th>
+    <th><%= label :status_mod, :x_range %></th>
+    <th><%= label :status_mod, :hp_damage %></th>
+    <th><%= label :status_mod, :str_mod %></th>
+    <th><%= label :status_mod, :dex_mod %></th>
+    <th><%= label :status_mod, :con_mod %></th>
+    <th><%= label :status_mod, :int_mod %></th>
+    <th><%= label :status_mod, :wis_mod %></th>
+    <th><%= label :status_mod, :cha_mod %></th>
+    <th><%= label :status_mod, :ele_fw_mod %></th>
+    <th><%= label :status_mod, :ele_ld_mod %></th>
+    <th><%= label :status_mod, :phys_def_mod %></th>
+    <th><%= label :status_mod, :skill_def_mod %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @status_mods.each do |status_mod| %>
+  <tr>
+    <td><%= status_mod.name %></td>
+    <td><%= status_mod.hit_accuracy %></td>
+    <td><%= status_mod.d_range %></td>
+    <td><%= status_mod.x_range %></td>
+    <td><%= status_mod.hp_damage %></td>
+    <td><%= status_mod.str_mod %></td>
+    <td><%= status_mod.dex_mod %></td>
+    <td><%= status_mod.con_mod %></td>
+    <td><%= status_mod.int_mod %></td>
+    <td><%= status_mod.wis_mod %></td>
+    <td><%= status_mod.cha_mod %></td>
+    <td><%= status_mod.ele_fw_mod %></td>
+    <td><%= status_mod.ele_ld_mod %></td>
+    <td><%= status_mod.phys_def_mod %></td>
+    <td><%= status_mod.skill_def_mod %></td>
+    <td><%= link_to 'Show', status_mod %></td>
+    <td><%= link_to 'Edit', edit_status_mod_path(status_mod) %></td>
+    <td><%= link_to 'Destroy', status_mod, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Status mod', new_status_mod_path %>

@@ -1,0 +1,67 @@
+<h1>Listing mobs</h1>
+
+<table>
+  <tr>
+    <th><%= label :mob, :houdd_user %></th>
+    <th><%= label :mob, :specie %></th>
+    <th><%= label :mob, :father_id %></th>
+    <th><%= label :mob, :mother_id %></th>
+    <th><%= label :mob, :generation %></th>
+    <th><%= label :mob, :job %></th>
+    <th><%= label :mob, :squad %></th>
+    <th><%= label :mob, :name %></th>
+    <th><%= label :mob, :gender_sym %></th>
+    <th><%= label :mob, :age %></th>
+    <th><%= label :mob, :hp %></th>
+    <th><%= label :mob, :sp %></th>
+    <th><%= label :mob, :str %></th>
+    <th><%= label :mob, :dex %></th>
+    <th><%= label :mob, :con %></th>
+    <th><%= label :mob, :int %></th>
+    <th><%= label :mob, :wis %></th>
+    <th><%= label :mob, :cha %></th>
+    <th><%= label :mob, :phys_def %></th>
+    <th><%= label :mob, :skill_def %></th>
+    <th><%= label :mob, :ele_fw %></th>
+    <th><%= label :mob, :ele_ld %></th>
+    <th><%= label :mob, :natural_death_flg %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mobs.each do |mob| %>
+  <tr>
+    <td><%= mob.houdd_user %></td>
+    <td><%= mob.specie %></td>
+    <td><%= mob.father_id %></td>
+    <td><%= mob.mother_id %></td>
+    <td><%= mob.generation %></td>
+    <td><%= mob.job %></td>
+    <td><%= mob.squad %></td>
+    <td><%= mob.name %></td>
+    <td><%= mob.gender_sym %></td>
+    <td><%= mob.age %></td>
+    <td><%= mob.hp %></td>
+    <td><%= mob.sp %></td>
+    <td><%= mob.str %></td>
+    <td><%= mob.dex %></td>
+    <td><%= mob.con %></td>
+    <td><%= mob.int %></td>
+    <td><%= mob.wis %></td>
+    <td><%= mob.cha %></td>
+    <td><%= mob.phys_def %></td>
+    <td><%= mob.skill_def %></td>
+    <td><%= mob.ele_fw %></td>
+    <td><%= mob.ele_ld %></td>
+    <td><%= mob.natural_death_flg %></td>
+    <td><%= link_to 'Show', mob %></td>
+    <td><%= link_to 'Edit', edit_mob_path(mob) %></td>
+    <td><%= link_to 'Destroy', mob, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mob', new_mob_path %>

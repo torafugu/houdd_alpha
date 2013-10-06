@@ -30,7 +30,7 @@ $ ->
         error: ->
           alert("エラーが発生しました。")
         success: ->
-          alert("取り壊しが完了しました。")
+          alert("取り壊しを開始しました。")
           $.get("render_map_cells.js")
     return false
 
@@ -70,3 +70,28 @@ $ ->
   $('#find_new_root').click ->
     if confirm("新ルートの探索を行いますか？")
       end_mini_map_id = $.get("find_new_root.js")
+
+$ ->
+  $('#mypage_type_sym').change ->
+    $.get($('#mypage_type_sym').val() + "/select_item_category.js")
+
+$ ->
+  $('#mypage_item_category_id').change ->
+    if $('#mypage_item_category_id').val() isnt ""
+      $.get($('#mypage_item_category_id').val() + "/select_item_info.js")
+
+$ ->
+  $('[id*=delete_production_que]').click ->
+    if confirm("取り壊しを行いますか？")
+      que_id = $(this).attr("id").replace("delete_production_que_", "")
+      jQuery.ajax
+        url: que_id + '/delete_production_que',
+        type: 'DELETE',
+        dataType: 'json',
+        timeout: 1000,
+        error: ->
+          alert("エラーが発生しました。")
+        success: ->
+          alert("取り壊しを開始しました。")
+          window.location.reload(true)
+    return false

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :map_item_inv, :mini_map %>:</b>
+  <%= @map_item_inv.mini_map %>
+</p>
+
+<p>
+  <b><%= label :map_item_inv, :item %>:</b>
+  <%= @map_item_inv.item %>
+</p>
+
+
+<%= link_to 'Edit', edit_map_item_inv_path(@map_item_inv) %> |
+<%= link_to 'Back', map_item_invs_path %>

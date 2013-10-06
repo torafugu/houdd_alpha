@@ -1,0 +1,29 @@
+<%= form_for(@specie_job_inv) do |f| %>
+  <% if @specie_job_inv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@specie_job_inv.errors.count, "error") %> prohibited this specie_job_inv from being saved:</h2>
+
+      <ul>
+      <% @specie_job_inv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :specie %><br />
+    <%= f.collection_select(:specie_id, Specie.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :job %><br />
+    <%= f.collection_select(:job_id, Job.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency_rate %><br />
+    <%= f.number_field :frequency_rate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

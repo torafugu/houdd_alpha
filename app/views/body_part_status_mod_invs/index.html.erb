@@ -1,0 +1,29 @@
+<h1>Listing body_part_status_mod_invs</h1>
+
+<table>
+  <tr>
+    <th><%= label :body_part_status_mod_inv, :status_mod %></th>
+    <th><%= label :body_part_status_mod_inv, :body_part_inv %></th>
+    <th><%= label :body_part_status_mod_inv, :num_of_tgt %></th>
+    <th><%= label :body_part_status_mod_inv, :duration %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @body_part_status_mod_invs.each do |body_part_status_mod_inv| %>
+  <tr>
+    <td><%= body_part_status_mod_inv.status_mod.name unless body_part_status_mod_inv.status_mod.blank? %></td>
+    <td><%= body_part_status_mod_inv.body_part_inv.name unless body_part_status_mod_inv.body_part_inv.blank? %></td>
+    <td><%= body_part_status_mod_inv.num_of_tgt %></td>
+    <td><%= body_part_status_mod_inv.duration %></td>
+    <td><%= link_to 'Show', body_part_status_mod_inv %></td>
+    <td><%= link_to 'Edit', edit_body_part_status_mod_inv_path(body_part_status_mod_inv) %></td>
+    <td><%= link_to 'Destroy', body_part_status_mod_inv, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Body Part Status mod inv', new_body_part_status_mod_inv_path %>

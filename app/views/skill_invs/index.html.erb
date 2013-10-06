@@ -1,0 +1,27 @@
+<h1>Listing skill_invs</h1>
+
+<table>
+  <tr>
+    <th><%= label :skill_inv, :type %></th>
+    <th><%= label :skill_inv, :skill %></th>
+    <th><%= label :skill_inv, :owner_id %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @skill_invs.each do |skill_inv| %>
+  <tr>
+    <td><%= skill_inv.type %></td>
+    <td><%= skill_inv.skill %></td>
+    <td><%= skill_inv.owner_id %></td>
+    <td><%= link_to 'Show', skill_inv %></td>
+    <td><%= link_to 'Edit', edit_skill_inv_path(skill_inv) %></td>
+    <td><%= link_to 'Destroy', skill_inv, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skill inv', new_skill_inv_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :dna, :mob %>:</b>
+  <%= @dna.mob %>
+</p>
+
+<p>
+  <b><%= label :dna, :gene %>:</b>
+  <%= @dna.gene %>
+</p>
+
+
+<%= link_to 'Edit', edit_dna_path(@dna) %> |
+<%= link_to 'Back', dnas_path %>

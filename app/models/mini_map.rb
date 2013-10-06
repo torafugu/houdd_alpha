@@ -58,6 +58,16 @@ class MiniMap < ActiveRecord::Base
     return moneys_total
   end
 
+  # Return all the sp_resources in mini_map_cells.
+  # @return [Array] array of sp_resource
+  def sp_resources_all
+    sp_resources = Array.new
+    mini_map_cells.each do |cell|
+      sp_resources << cell.sp_resource unless cell.sp_resource.blank?
+    end
+    return sp_resources.uniq
+  end
+
   # Return the description of sp_resource in mini_map_cells.
   # Duplicated sp_resource is displayed only once.
   # @return [String] Comma separated sp_resource.name

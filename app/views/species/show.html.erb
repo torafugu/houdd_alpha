@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :specie, :family %>:</b>
+  <%= @specie.family.name unless @specie.family.blank? %>
+</p>
+
+<p>
+  <b><%= label :specie, :name %>:</b>
+  <%= @specie.name %>
+</p>
+
+<p>
+  <b><%= label :specie, :longevity %>:</b>
+  <%= @specie.longevity %>
+</p>
+
+<p>
+  <b><%= label :specie, :prolificacy %>:</b>
+  <%= @specie.prolificacy %>
+</p>
+
+<p>
+  <b><%= label :specie, :growth_rate %>:</b>
+  <%= @specie.growth_rate %>
+</p>
+
+<p>
+  <b><%= label :specie, :food_cost %>:</b>
+  <%= @specie.food_cost %>
+</p>
+
+<p>
+  <b><%= label :specie, :str %>:</b>
+  <%= @specie.str %>
+</p>
+
+<p>
+  <b><%= label :specie, :dex %>:</b>
+  <%= @specie.dex %>
+</p>
+
+<p>
+  <b><%= label :specie, :con %>:</b>
+  <%= @specie.con %>
+</p>
+
+<p>
+  <b><%= label :specie, :int %>:</b>
+  <%= @specie.int %>
+</p>
+
+<p>
+  <b><%= label :specie, :wis %>:</b>
+  <%= @specie.wis %>
+</p>
+
+<p>
+  <b><%= label :specie, :cha %>:</b>
+  <%= @specie.cha %>
+</p>
+
+<p>
+  <b><%= label :specie, :mutation_rate %>:</b>
+  <%= @specie.mutation_rate %>
+</p>
+
+<p>
+  <b><%= label :specie, :phys_def %>:</b>
+  <%= @specie.phys_def %>
+</p>
+
+<p>
+  <b><%= label :specie, :skill_def %>:</b>
+  <%= @specie.skill_def %>
+</p>
+
+<p>
+  <b><%= label :specie, :ele_fw %>:</b>
+  <%= @specie.ele_fw %>
+</p>
+
+<p>
+  <b><%= label :specie, :ele_ld %>:</b>
+  <%= @specie.ele_ld %>
+</p>
+
+
+<%= link_to 'Edit', edit_specie_path(@specie) %> |
+<%= link_to 'Back', species_path %>

@@ -1,0 +1,85 @@
+<%= form_for(@specie) do |f| %>
+  <% if @specie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@specie.errors.count, "error") %> prohibited this specie from being saved:</h2>
+
+      <ul>
+      <% @specie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :family %><br />
+    <%= f.collection_select(:family_id, Family.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :longevity %><br />
+    <%= f.number_field :longevity %>
+  </div>
+  <div class="field">
+    <%= f.label :prolificacy %><br />
+    <%= f.text_field :prolificacy %>
+  </div>
+  <div class="field">
+    <%= f.label :growth_rate %><br />
+    <%= f.text_field :growth_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :food_cost %><br />
+    <%= f.number_field :food_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :str %><br />
+    <%= f.number_field :str %>
+  </div>
+  <div class="field">
+    <%= f.label :dex %><br />
+    <%= f.number_field :dex %>
+  </div>
+  <div class="field">
+    <%= f.label :con %><br />
+    <%= f.number_field :con %>
+  </div>
+  <div class="field">
+    <%= f.label :int %><br />
+    <%= f.number_field :int %>
+  </div>
+  <div class="field">
+    <%= f.label :wis %><br />
+    <%= f.number_field :wis %>
+  </div>
+  <div class="field">
+    <%= f.label :cha %><br />
+    <%= f.number_field :cha %>
+  </div>
+  <div class="field">
+    <%= f.label :mutation_rate %><br />
+    <%= f.text_field :mutation_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :phys_def %><br />
+    <%= f.number_field :phys_def %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_def %><br />
+    <%= f.number_field :skill_def %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_fw %><br />
+    <%= f.number_field :ele_fw %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_ld %><br />
+    <%= f.number_field :ele_ld %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

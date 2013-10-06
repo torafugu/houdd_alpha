@@ -10,7 +10,7 @@ describe "mini_map_cells/show" do
       :sp_resource => nil,
       :construction => nil,
       :built_point => 3,
-      :const_active_flg => false,
+      :active_flg => false,
       :capital_flg => false
     ))
   end

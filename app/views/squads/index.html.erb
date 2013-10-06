@@ -1,0 +1,27 @@
+<h1>Listing squads</h1>
+
+<table>
+  <tr>
+    <th><%= label :squad, :houdd_user %></th>
+    <th><%= label :squad, :mini_map %></th>
+    <th><%= label :squad, :name %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @squads.each do |squad| %>
+  <tr>
+    <td><%= squad.houdd_user %></td>
+    <td><%= squad.mini_map %></td>
+    <td><%= squad.name %></td>
+    <td><%= link_to 'Show', squad %></td>
+    <td><%= link_to 'Edit', edit_squad_path(squad) %></td>
+    <td><%= link_to 'Destroy', squad, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Squad', new_squad_path %>

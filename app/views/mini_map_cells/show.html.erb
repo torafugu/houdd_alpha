@@ -2,7 +2,7 @@
 
 <p>
   <b><%= label :mini_map_cell, :mini_map %>:</b>
-  <%= @mini_map_cell.mini_map %>
+  <%= @mini_map_cell.mini_map.name unless @mini_map_cell.mini_map.blank? %>
 </p>
 
 <p>
@@ -17,17 +17,17 @@
 
 <p>
   <b><%= label :mini_map_cell, :terrain %>:</b>
-  <%= @mini_map_cell.terrain %>
+  <%= @mini_map_cell.terrain.name unless @mini_map_cell.terrain.blank? %>
 </p>
 
 <p>
   <b><%= label :mini_map_cell, :sp_resource %>:</b>
-  <%= @mini_map_cell.sp_resource %>
+  <%= @mini_map_cell.sp_resource.name unless @mini_map_cell.sp_resource.blank? %>
 </p>
 
 <p>
   <b><%= label :mini_map_cell, :construction %>:</b>
-  <%= @mini_map_cell.construction %>
+  <%= @mini_map_cell.construction.name unless @mini_map_cell.construction.blank? %>
 </p>
 
 <p>
@@ -36,8 +36,8 @@
 </p>
 
 <p>
-  <b><%= label :mini_map_cell, :const_active_flg %>:</b>
-  <%= @mini_map_cell.const_active_flg %>
+  <b><%= label :mini_map_cell, :active_flg %>:</b>
+  <%= @mini_map_cell.active_flg %>
 </p>
 
 <p>

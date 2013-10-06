@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :job, :name %>:</b>
+  <%= @job.name %>
+</p>
+
+<p>
+  <b><%= label :job, :growth_penalty %>:</b>
+  <%= @job.growth_penalty %>
+</p>
+
+<p>
+  <b><%= label :job, :wepon_lvl %>:</b>
+  <%= @job.wepon_lvl %>
+</p>
+
+<p>
+  <b><%= label :job, :armor_lvl %>:</b>
+  <%= @job.armor_lvl %>
+</p>
+
+<p>
+  <b><%= label :job, :str_mod %>:</b>
+  <%= @job.str_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :dex_mod %>:</b>
+  <%= @job.dex_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :con_mod %>:</b>
+  <%= @job.con_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :int_mod %>:</b>
+  <%= @job.int_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :wis_mod %>:</b>
+  <%= @job.wis_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :cha_mod %>:</b>
+  <%= @job.cha_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :ele_fw_mod %>:</b>
+  <%= @job.ele_fw_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :ele_ld_mod %>:</b>
+  <%= @job.ele_ld_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :phys_def_mod %>:</b>
+  <%= @job.phys_def_mod %>
+</p>
+
+<p>
+  <b><%= label :job, :skill_def_mod %>:</b>
+  <%= @job.skill_def_mod %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

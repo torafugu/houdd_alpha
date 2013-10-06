@@ -1,0 +1,25 @@
+<%= form_for(@map_item_inv) do |f| %>
+  <% if @map_item_inv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map_item_inv.errors.count, "error") %> prohibited this map_item_inv from being saved:</h2>
+
+      <ul>
+      <% @map_item_inv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mini_map %><br />
+    <%= f.text_field :mini_map %>
+  </div>
+  <div class="field">
+    <%= f.label :item %><br />
+    <%= f.text_field :item %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

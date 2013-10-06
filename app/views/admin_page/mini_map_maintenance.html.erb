@@ -27,10 +27,10 @@
           <%= link_to '道路設定(' + mini_map.mini_map_roads.size.to_s + ')', mini_map.id.to_s + "/road_index" %><br />
           <% if mini_map.fortress_status %>
           要塞セル自動生成
-          <%= link_to '要塞セル編集', mini_map.id.to_s + "/show_fortress_cells" %>
+          <%= link_to '要塞セル閲覧', mini_map.id.to_s + "/show_fortress_cells" %>
           <% else %>
-          要塞セル自動生成
-          要塞セル編集
+          <a href="javascript:void(0)" id="link_to_generate_fortress_cells_<%= mini_map.id.to_s %>">要塞セル自動生成</a>
+          要塞セル閲覧
           <% end %>         
         </td>
       </tr>

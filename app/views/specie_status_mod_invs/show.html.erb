@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :specie_status_mod_inv, :status_mod %>:</b>
+  <%= @specie_status_mod_inv.status_mod.name unless @specie_status_mod_inv.status_mod.blank? %>
+</p>
+
+<p>
+  <b><%= label :specie_status_mod_inv, :specie %>:</b>
+  <%= @specie_status_mod_inv.specie.name unless @specie_status_mod_inv.specie.blank? %>
+</p>
+
+<p>
+  <b><%= label :specie_status_mod_inv, :num_of_tgt %>:</b>
+  <%= @specie_status_mod_inv.num_of_tgt %>
+</p>
+
+<p>
+  <b><%= label :specie_status_mod_inv, :duration %>:</b>
+  <%= @specie_status_mod_inv.duration %>
+</p>
+
+<%= link_to 'Edit', edit_specie_status_mod_inv_path(@specie_status_mod_inv) %> |
+<%= link_to 'Back', specie_status_mod_invs_path %>

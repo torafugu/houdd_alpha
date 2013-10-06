@@ -1,0 +1,29 @@
+<h1>Listing skills</h1>
+
+<table>
+  <tr>
+    <th><%= label :skill, :skill_category %></th>
+    <th><%= label :skill, :name %></th>
+    <th><%= label :skill, :sp_cost %></th>
+    <th><%= label :skill, :research_level %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @skills.each do |skill| %>
+  <tr>
+    <td><%= skill.skill_category.name unless skill.skill_category.blank? %></td>
+    <td><%= skill.name %></td>
+    <td><%= skill.sp_cost %></td>
+    <td><%= skill.research_level %></td>
+    <td><%= link_to 'Show', skill %></td>
+    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+    <td><%= link_to 'Destroy', skill, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skill', new_skill_path %>

@@ -9,7 +9,7 @@ FactoryGirl.define do
     sp_resource nil
     construction nil
     built_point 1
-    const_active_flg false
+    active_flg false
     capital_flg false
   end
 
@@ -21,7 +21,7 @@ FactoryGirl.define do
     sp_resource nil
     construction_id 1
     built_point 0
-    const_active_flg false
+    active_flg false
     capital_flg false
   end
 end

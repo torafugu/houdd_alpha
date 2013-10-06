@@ -5,21 +5,12 @@ class AdminPageController < ApplicationController
 
   # GET /admin_page/top
   def top
-    # @construction = Construction.new
-    # @constructions = Construction.all
-
     respond_to do |format|
       format.html # top.html.erb
     end
   end
 
-  # GET /admin_page/data_maintenance
-  def data_maintenance
-    respond_to do |format|
-      format.html # data_maintenance.html.erb
-    end
-  end
-
+  # admin_page - map maintenance
   # GET /admin_page/mini_map_maintenance
   def mini_map_maintenance
     @mini_maps = MiniMap.all
@@ -29,22 +20,24 @@ class AdminPageController < ApplicationController
     end
   end
 
-  # GET /admin_page/1/edit_mini_map_cells
-  def edit_mini_map_cells
+  # GET /admin_page/1/show_fortress_cells
+  def show_fortress_cells
     @mini_map = MiniMap.find(params[:mini_map_id])
 
     respond_to do |format|
-      format.html # edit_mini_map_cells.html.erb
+      format.html # show_fortress_cells.html.erb
     end
   end
 
-  # GET /admin_page/1/1/render_map_cells
-  def render_map_cells
-    @mini_map = MiniMap.find(params[:mini_map_id])
-    @mini_map_edit_mode = params[:map_mode]
+  # POST /admin_page/1/generate_fortress_cells
+  def generate_fortress_cells
 
     respond_to do |format|
-      format.js # render_map_cells.js.coffee
+      if FortressCreator.random_cell(params[:mini_map_id])
+        format.json { head :no_content }
+      else
+        format.json { render json: 'FortressCreator failed.', status: :unprocessable_entity }
+      end
     end
   end
 
@@ -79,6 +72,16 @@ class AdminPageController < ApplicationController
     end
   end
 
+  # GET /admin_page/1/1/render_map_cells
+  def render_map_cells
+    @mini_map = MiniMap.find(params[:mini_map_id])
+    @mini_map_edit_mode = params[:map_mode]
+
+    respond_to do |format|
+      format.js # render_map_cells.js.coffee
+    end
+  end
+
   # POST /admin_page/1/generate_map_cells
   def generate_map_cells
 
@@ -91,14 +94,23 @@ class AdminPageController < ApplicationController
     end
   end
 
-  # GET /admin_page/1/road_index
-  def road_index
+  # GET /admin_page/1/edit_mini_map_cells
+  def edit_mini_map_cells
     @mini_map = MiniMap.find(params[:mini_map_id])
-    @mini_maps = MiniMap.where("id <> ?", params[:mini_map_id])
-    @roads = MiniMapRoad.find_all_by_start_mini_map_id(params[:mini_map_id])
 
     respond_to do |format|
-      format.html # road_index.html.erb
+      format.html # edit_mini_map_cells.html.erb
+    end
+  end
+
+  # DELETE /admin_page/1/1/delete_road
+  def delete_road
+    @mini_map_road = MiniMapRoad.find(params[:road_id])
+    @mini_map_road.destroy
+
+    respond_to do |format|
+      format.html { redirect_to action: "road_index" }
+      format.json { head :no_content }
     end
   end
 
@@ -128,7 +140,7 @@ class AdminPageController < ApplicationController
     if @save_success_flg
       respond_to do |format|
         format.html { redirect_to action: "road_index" }
-        format.json { render json: mini_map_road.errors, status: :unprocessable_entity }
+        format.json { head :no_content }
       end
     end
   end
@@ -143,23 +155,91 @@ class AdminPageController < ApplicationController
     end
   end
 
-  # DELETE /admin_page/1/1/delete_road
-  def delete_road
-    @mini_map_road = MiniMapRoad.find(params[:road_id])
-    @mini_map_road.destroy
+  # GET /admin_page/1/road_index
+  def road_index
+    @mini_map = MiniMap.find(params[:mini_map_id])
+    @mini_maps = MiniMap.where("id <> ?", params[:mini_map_id])
+    @roads = MiniMapRoad.find_all_by_start_mini_map_id(params[:mini_map_id])
 
     respond_to do |format|
-      format.html { redirect_to action: "road_index" }
-      format.json { head :no_content }
+      format.html # road_index.html.erb
     end
   end
 
-  # GET /admin_page/1/show_fortress_cells
-  def show_fortress_cells
-    @mini_map = MiniMap.find(params[:mini_map_id])
+  # admin_page - mob maintenance
+  # GET /admin_page/mob_maintenance
+  def mob_maintenance
+    respond_to do |format|
+      format.html # mob_maintenance.html.erb
+    end
+  end
+
+  # GET /admin_page/1/select_specie
+  def select_specie
+    @species = Specie.find_all_by_family_id(params[:family_id])
 
     respond_to do |format|
-      format.html # show_fortress_cells.html.erb
+      format.js # select_specie.js.coffee
+    end
+  end
+
+    # GET /admin_page/1/1/edit_seed_mobs
+  def edit_seed_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      format.html # edit_seed_mobs.html.erb
+    end
+  end
+
+  # GET /admin_page/1/1/add_seed_mobs
+  def add_seed_mobs
+    respond_to do |format|
+      if MobCreator.seed_mobs(params[:specie_id].to_i, params[:mypage_seed_mobs_volume].to_i)
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "edit_seed_mobs" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'MobCreator failed.'
+        format.html { redirect_to action: "edit_seed_mobs" }
+        format.json { render json: 'MobCreator failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # GET /admin_page/1/1/edit_mutation_rate
+  def edit_mutation_rate
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      format.html # edit_mutation_rate.html.erb
+    end
+  end
+
+  # GET /admin_page/1/1/update_mutation_rate
+
+  def update_mutation_rate
+    specie = Specie.find(params[:specie_id])
+    specie.mutation_rate = params[:mypage_mutation_rate]
+
+    respond_to do |format|
+      if specie.save
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "edit_mutation_rate" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'update_mutation_rate failed.'
+        format.html { redirect_to action: "edit_mutation_rate" }
+        format.json { render json: 'update_mutation_rate failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # admin_page - data maintenance
+  # GET /admin_page/data_maintenance
+  def data_maintenance
+    respond_to do |format|
+      format.html # data_maintenance.html.erb
     end
   end
 end

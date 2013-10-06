@@ -204,6 +204,7 @@ ja:
       <<: *errors
   activerecord:
     errors:
+      allotment_is_greater_than : '割り当て生産工数が総生産工数より大きくなっています。'
       models:
         houdd_user:
           attributes:
@@ -215,11 +216,15 @@ ja:
         mini_map_road:
           attributes:
             same_start_and_end: '出発ミニマップと到着ミニマップが同じです。'
-        production_que:
-          attributes:
-            allotment_is_greater_than : '割り当て生産工数が総生産工数より大きくなっています。'
       <<: *errors
     attributes:
+      rq_days_suffix: '日後'
+      element:
+        fire: '火'
+        water: '水'
+        light: '光'
+        darkness: '闇'
+        nothing: '無'
       houdd_user:
         name: '名前'
         admin_flg: '管理者フラグ'
@@ -234,8 +239,12 @@ ja:
         symbol: 'シンボル'
         name: '名前'
         level: 'レベル'
-        allotment: '割り当て率'
+        allotment: '割り当てポイント'
         invested_point: '投入済みポイント'
+        wepon: '武器'
+        armor: '防具'
+        potion: 'ポーション'
+        trap: '罠'
       mini_map:
         houdd_user: 'houdd_user'
         name: '名前'
@@ -253,6 +262,8 @@ ja:
         sp_resource: '資源'
         construction: '建築物'
         capital_flg: '首都フラグ'
+        built_point: '投下済みポイント'
+        active_flg: '有効フラグ'
       mini_map_road:
         start_mini_map_id: '出発ミニマップ'
         end_mini_map_id: '終点ミニマップ'
@@ -289,10 +300,173 @@ ja:
         money: '貨幣'
         rq_prod_point: '必要生産力'
         rq_days: '必要日数'
+      map_item_inv:
+        mini_map: 'マップ'
+        item: 'アイテム'
       production_que:
         mini_map_road: '道路'
         construct: '建設中'
+        manufacture: '製造中'
         destroy: '取り壊し中'
+      body_part:
+        name: '名前'
+      item_category:
+        type_sym: 'タイプ'
+        name: '名前'
+        body_part: '部位'
+        rq_slot_num: '必要スロット数'
+      item_info:
+        item_category: 'カテゴリー'
+        size: 'サイズ'
+        weight_level: '重量レベル'
+        name: '名前'
+        max_dp: '最大DP'
+        rq_prod_point: '必要生産工数'
+        research_level: '必要研究レベル'
+      item_sp_resource_inv:
+        item_info: 'アイテム情報'
+        sp_resource: '資源'
+      item:
+        item_info: 'アイテム情報'
+        houdd_user: 'ユーザー'
+        dp: 'DP'
+        quality: '品質'
+        built_point: '投下済みポイント'
+        active_flg: '有効フラグ'
+      status_mod:
+        name: '名前'
+        percent_flg: 'パーセントフラグ'
+        hit_accuracy: '命中'
+        d_range: 'Dレンジ'
+        x_range: 'Xレンジ'
+        hp_mod: 'HP修正'
+        str_mod: 'STR修正'
+        dex_mod: 'DEX修正'
+        con_mod: 'CON修正'
+        int_mod: 'INT修正'
+        wis_mod: 'WIS修正'
+        cha_mod: 'CHA修正'
+        ele_fw_mod: '火-水属性修正'
+        ele_ld_mod: '光-闇属性修正'
+        phys_def_mod: '物理防御修正'
+        skill_def_mod: 'スキル防御修正'
+      status_mod_inv:
+        type: 'タイプ'
+        status_mod: 'ステータス修正'
+        num_of_tgt: '対象数'
+        duration: '効果時間'
+      item_info_status_mod_inv:
+        status_mod: 'ステータス修正'
+        num_of_tgt: '対象数'
+        duration: '効果時間'
+        item_info: 'アイテム情報'
+      specie_status_mod_inv:
+        status_mod: 'ステータス修正'
+        num_of_tgt: '対象数'
+        duration: '効果時間'
+        specie: '種族'
+      body_part_status_mod_inv:
+        status_mod: 'ステータス修正'
+        num_of_tgt: '対象数'
+        duration: '効果時間'
+        body_part_inv: '部位'
+      family:
+        name: '名前'
+        asexual_flg: '無性生殖フラグ'
+      specie:
+        family: '科'
+        name: '名前'
+        longevity: '寿命'
+        prolificacy: '繁殖率'
+        growth_rate: '成長率'
+        food_cost: '食料コスト'
+        str: 'STR'
+        dex: 'DEX'
+        con: 'CON'
+        int: 'INT'
+        wis: 'WIS'
+        cha: 'CHA'
+        mutation_rate: '突然変異率'
+        phys_def: '物理防御'
+        skill_def: 'スキル防御'
+        ele_fw: '火-水属性修正'
+        ele_ld: '光-闇属性修正'
+      gene:
+        specie: '種族'
+        dominance_flg: '優性フラグ'
+        prolificacy_mod: '繁殖率修正'
+        longevity_mod: '寿命修正'
+        growth_mod: '成長率修正'
+        food_cost_mod: '食料コスト修正'
+        hp_mod: 'HP修正'
+        str_mod: 'STR修正'
+        dex_mod: 'DEX修正'
+        con_mod: 'CON修正'
+        int_mod: 'INT修正'
+        wis_mod: 'WIS修正'
+        cha_mod: 'CHA修正'
+        ele_fw_mod: '火-水属性修正'
+        ele_ld_mod: '光-闇属性修正'
+        phys_def_mod: '物理防御修正'
+        skill_def_mod: 'スキル防御修正'
+      dna:
+        mob: 'MOB'
+        gene: '遺伝子'
+      skill_category:
+        type_sym: '種別'
+        element_sym: '属性'
+        dd: '瞬間ダメージ'
+        dot: '継続ダメージ'
+        hd: '瞬間ヒール'
+        hot: '継続ヒール'
+        buff: 'ステータスUP'
+        debuff: 'ステータスDOWN'
+        other: 'その他'
+      skill:
+        skill_category: 'カテゴリー'
+        name: '名前'
+        sp_cost: 'SPコスト'
+        research_level: '研究レベル'
+      skill_inv:
+        type: 'タイプ'
+        skill: 'スキル'
+      job:
+        name: '名前'
+        growth_penalty: '成長修正'
+        wepon_lvl: '武器レベル'
+        armor_lvl: '防具レベル'
+      specie_job_inv:
+        specie: '種族'
+        job: '職業'
+        frequency_rate: '出現率'
+      mob:
+        houdd_user: 'ユーザー'
+        specie: '種族'
+        father_id: '父'
+        mother_id: '母'
+        generation: '世代'
+        job: '職業'
+        squad: '部隊'
+        name: '名前'
+        gender_sym: '性別'
+        age: '年齢'
+        hp: 'HP'
+        sp: 'SP'
+        str: 'STR'
+        dex: 'DEX'
+        con: 'CON'
+        int: 'INT'
+        wis: 'WIS'
+        cha: 'CHA'
+        phys_def: '物理防御'
+        skill_def: 'スキル防御'
+        ele_fw: '火-水属性修正'
+        ele_ld: '光-闇属性修正'
+        natural_death_flg: '自然死フラグ'
+      squad:
+        houdd_user: 'ユーザー'
+        mini_map: 'マップ'
+        name: '名前'
     symbols:
 
 

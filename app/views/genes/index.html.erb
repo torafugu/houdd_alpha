@@ -1,0 +1,53 @@
+<h1>Listing genes</h1>
+
+<table>
+  <tr>
+    <th><%= label :gene, :specie %></th>
+    <th><%= label :gene, :dominance_flg %></th>
+    <th><%= label :gene, :prolificacy_mod %></th>
+    <th><%= label :gene, :longevity_mod %></th>
+    <th><%= label :gene, :growth_mod %></th>
+    <th><%= label :gene, :food_cost_mod %></th>
+    <th><%= label :gene, :str_mod %></th>
+    <th><%= label :gene, :dex_mod %></th>
+    <th><%= label :gene, :con_mod %></th>
+    <th><%= label :gene, :int_mod %></th>
+    <th><%= label :gene, :wis_mod %></th>
+    <th><%= label :gene, :cha_mod %></th>
+    <th><%= label :gene, :ele_fw_mod %></th>
+    <th><%= label :gene, :ele_ld_mod %></th>
+    <th><%= label :gene, :phys_def_mod %></th>
+    <th><%= label :gene, :skill_def_mod %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @genes.each do |gene| %>
+  <tr>
+    <td><%= gene.specie %></td>
+    <td><%= gene.dominance_flg %></td>
+    <td><%= gene.prolificacy_mod %></td>
+    <td><%= gene.longevity_mod %></td>
+    <td><%= gene.growth_mod %></td>
+    <td><%= gene.food_cost_mod %></td>
+    <td><%= gene.str_mod %></td>
+    <td><%= gene.dex_mod %></td>
+    <td><%= gene.con_mod %></td>
+    <td><%= gene.int_mod %></td>
+    <td><%= gene.wis_mod %></td>
+    <td><%= gene.cha_mod %></td>
+    <td><%= gene.ele_fw_mod %></td>
+    <td><%= gene.ele_ld_mod %></td>
+    <td><%= gene.phys_def_mod %></td>
+    <td><%= gene.skill_def_mod %></td>
+    <td><%= link_to 'Show', gene %></td>
+    <td><%= link_to 'Edit', edit_gene_path(gene) %></td>
+    <td><%= link_to 'Destroy', gene, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gene', new_gene_path %>

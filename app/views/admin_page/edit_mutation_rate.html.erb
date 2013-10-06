@@ -1,0 +1,21 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    突然変異率設定の変更中にエラーが発生しました。
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("突然変異率設定を変更しました。");
+  </script>
+   <% end %>
+
+  <h3>突然変異率設定(<%= @specie.name %>)</h3>
+  <%= form_tag({:action => 'update_mutation_rate'}, {:method => :put}) do %>
+  突然変異率：<%= text_field_tag "mypage_mutation_rate", @specie.mutation_rate,:class=>'number3' %><br />
+  <br />
+  <%= submit_tag "変更" %>
+  <% end %>
+</div>

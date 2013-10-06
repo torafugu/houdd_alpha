@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :item, :item_info %>:</b>
+  <%= @item.item_info.name unless @item.item_info.blank? %>
+</p>
+
+<p>
+  <b><%= label :item, :houdd_user %>:</b>
+  <%= @item.houdd_user.name unless @item.houdd_user.blank? %>
+</p>
+
+<p>
+  <b><%= label :item, :dp %>:</b>
+  <%= @item.dp %>
+</p>
+
+<p>
+  <b><%= label :item, :quality %>:</b>
+  <%= @item.quality %>
+</p>
+
+<p>
+  <b><%= label :item, :built_point %>:</b>
+  <%= @item.built_point %>
+</p>
+
+<p>
+  <b><%= label :item, :active_flg %>:</b>
+  <%= @item.active_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

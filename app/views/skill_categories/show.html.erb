@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :skill_category, :type_sym %>:</b>
+  <%= @skill_category.type_sym_txt %>
+</p>
+
+<p>
+  <b><%= label :skill_category, :element_sym %>:</b>
+  <%= @skill_category.element_sym_txt %>
+</p>
+
+
+<%= link_to 'Edit', edit_skill_category_path(@skill_category) %> |
+<%= link_to 'Back', skill_categories_path %>

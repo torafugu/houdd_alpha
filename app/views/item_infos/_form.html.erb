@@ -1,0 +1,45 @@
+<%= form_for(@item_info) do |f| %>
+  <% if @item_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_info.errors.count, "error") %> prohibited this item_info from being saved:</h2>
+
+      <ul>
+      <% @item_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item_category %><br />
+    <%= f.collection_select(:item_category_id, ItemCategory.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :weight_level %><br />
+    <%= f.number_field :weight_level %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :max_dp %><br />
+    <%= f.number_field :max_dp %>
+  </div>
+  <div class="field">
+    <%= f.label :rq_prod_point %><br />
+    <%= f.number_field :rq_prod_point %>
+  </div>
+  <div class="field">
+    <%= f.label :research_level %><br />
+    <%= f.number_field :research_level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

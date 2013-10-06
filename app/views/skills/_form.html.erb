@@ -1,0 +1,33 @@
+<%= form_for(@skill) do |f| %>
+  <% if @skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+      <ul>
+      <% @skill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :skill_category %><br />
+    <%= f.collection_select(:skill_category_id, SkillCategory.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sp_cost %><br />
+    <%= f.number_field :sp_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :research_level %><br />
+    <%= f.number_field :research_level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -5,7 +5,7 @@ class MiniMapRoad < ActiveRecord::Base
   validates :start_mini_map_id, :presence => true
   validates :end_mini_map_id, :presence => true
   validates :level, :numericality => {:only_integer => true, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5}
-  validates :built_point, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10000}
+  validates :built_point, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100000}
   validate :same_start_and_end
 
   # Validate start_mini_map_id and end_mini_map_id are different.
@@ -17,7 +17,7 @@ class MiniMapRoad < ActiveRecord::Base
 
   # Return true or false by whether level up is already registered to production_que or not.
   # @return [Boolean]
-  def is_constructing?
+  def constructing?
     constructing_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_road.to_s, id, false)
     return true unless constructing_que.blank?
     return false
@@ -25,7 +25,7 @@ class MiniMapRoad < ActiveRecord::Base
 
   # Return true or false by whether destroy is already registered to production_que or not.
   # @return [Boolean]
-  def is_destroying?
+  def destroying?
     destroying_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_road.to_s, id, true)
     return true unless destroying_que.blank?
     return false
@@ -35,15 +35,22 @@ class MiniMapRoad < ActiveRecord::Base
   # It could be 'level_up', 'destroying', 'active' and 'disable'.
   # @return [String]
   def status_txt
-    if is_constructing?
+    if constructing?
       return I18n.t('activerecord.attributes.mini_map_road.construct')
-    elsif is_destroying?
+    elsif destroying?
       return I18n.t('activerecord.attributes.mini_map_road.destroy')
     elsif active_flg
       return I18n.t('activerecord.attributes.mini_map_road.active')
     else
       return I18n.t('activerecord.attributes.mini_map_road.disable')
     end
+  end
+
+  # Return construction.rq_prod_point.
+  # This function is provided to keep same interface among mini_map_cell, mini_map_road and item. 
+  # @return [Integer]
+  def rq_prod_point
+    return (level + 1) * Params::ROAD_BUILD_COST_BASE
   end
 
   before_save :set_random_distance

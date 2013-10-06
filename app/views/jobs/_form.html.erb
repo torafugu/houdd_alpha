@@ -1,0 +1,73 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :growth_penalty %><br />
+    <%= f.text_field :growth_penalty %>
+  </div>
+  <div class="field">
+    <%= f.label :wepon_lvl %><br />
+    <%= f.number_field :wepon_lvl %>
+  </div>
+  <div class="field">
+    <%= f.label :armor_lvl %><br />
+    <%= f.number_field :armor_lvl %>
+  </div>
+  <div class="field">
+    <%= f.label :str_mod %><br />
+    <%= f.text_field :str_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :dex_mod %><br />
+    <%= f.text_field :dex_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :con_mod %><br />
+    <%= f.text_field :con_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :int_mod %><br />
+    <%= f.text_field :int_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :wis_mod %><br />
+    <%= f.text_field :wis_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :cha_mod %><br />
+    <%= f.text_field :cha_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_fw_mod %><br />
+    <%= f.text_field :ele_fw_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_ld_mod %><br />
+    <%= f.text_field :ele_ld_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :phys_def_mod %><br />
+    <%= f.text_field :phys_def_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_def_mod %><br />
+    <%= f.text_field :skill_def_mod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

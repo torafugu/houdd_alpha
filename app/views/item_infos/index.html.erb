@@ -1,0 +1,35 @@
+<h1>Listing item_infos</h1>
+
+<table>
+  <tr>
+    <th><%= label :item_info, :item_category %></th>
+    <th><%= label :item_info, :size %></th>
+    <th><%= label :item_info, :weight_level %></th>
+    <th><%= label :item_info, :name %></th>
+    <th><%= label :item_info, :max_dp %></th>
+    <th><%= label :item_info, :rq_prod_point %></th>
+    <th><%= label :item_info, :research_level %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_infos.each do |item_info| %>
+  <tr>
+    <td><%= item_info.item_category.name unless item_info.item_category.blank? %></td>
+    <td><%= item_info.size %></td>
+    <td><%= item_info.weight_level %></td>
+    <td><%= item_info.name %></td>
+    <td><%= item_info.max_dp %></td>
+    <td><%= item_info.rq_prod_point %></td>
+    <td><%= item_info.research_level %></td>
+    <td><%= link_to 'Show', item_info %></td>
+    <td><%= link_to 'Edit', edit_item_info_path(item_info) %></td>
+    <td><%= link_to 'Destroy', item_info, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item info', new_item_info_path %>

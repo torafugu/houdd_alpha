@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :body_part, :name %>:</b>
+  <%= @body_part.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_body_part_path(@body_part) %> |
+<%= link_to 'Back', body_parts_path %>

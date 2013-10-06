@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :family, :name %>:</b>
+  <%= @family.name %>
+</p>
+
+<p>
+  <b><%= label :family, :asexual_flg %>:</b>
+  <%= @family.asexual_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>

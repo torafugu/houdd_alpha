@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :status_mod_inv, :type %>:</b>
+  <%= @status_mod_inv.type %>
+</p>
+
+<p>
+  <b><%= label :status_mod_inv, :status_mod %>:</b>
+  <%= @status_mod_inv.status_mod.name unless @status_mod_inv.status_mod.blank? %>
+</p>
+
+<p>
+  <b><%= label :status_mod_inv, :owner_id %>:</b>
+  <%= @status_mod_inv.owner_id %>
+</p>
+
+<p>
+  <b><%= label :status_mod_inv, :num_of_tgt %>:</b>
+  <%= @status_mod_inv.num_of_tgt %>
+</p>
+
+<p>
+  <b><%= label :status_mod_inv, :duration %>:</b>
+  <%= @status_mod_inv.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_status_mod_inv_path(@status_mod_inv) %> |
+<%= link_to 'Back', status_mod_invs_path %>

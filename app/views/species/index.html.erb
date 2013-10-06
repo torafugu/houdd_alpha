@@ -1,0 +1,55 @@
+<h1>Listing species</h1>
+
+<table>
+  <tr>
+    <th><%= label :specie, :family %></th>
+    <th><%= label :specie, :name %></th>
+    <th><%= label :specie, :longevity %></th>
+    <th><%= label :specie, :prolificacy %></th>
+    <th><%= label :specie, :growth_rate %></th>
+    <th><%= label :specie, :food_cost %></th>
+    <th><%= label :specie, :str %></th>
+    <th><%= label :specie, :dex %></th>
+    <th><%= label :specie, :con %></th>
+    <th><%= label :specie, :int %></th>
+    <th><%= label :specie, :wis %></th>
+    <th><%= label :specie, :cha %></th>
+    <th><%= label :specie, :mutation_rate %></th>
+    <th><%= label :specie, :phys_def %></th>
+    <th><%= label :specie, :skill_def %></th>
+    <th><%= label :specie, :ele_fw %></th>
+    <th><%= label :specie, :ele_ld %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @species.each do |specie| %>
+  <tr>
+    <td><%= specie.family.name unless specie.family.blank? %></td>
+    <td><%= specie.name %></td>
+    <td><%= specie.longevity %></td>
+    <td><%= specie.prolificacy %></td>
+    <td><%= specie.growth_rate %></td>
+    <td><%= specie.food_cost %></td>
+    <td><%= specie.str %></td>
+    <td><%= specie.dex %></td>
+    <td><%= specie.con %></td>
+    <td><%= specie.int %></td>
+    <td><%= specie.wis %></td>
+    <td><%= specie.cha %></td>
+    <td><%= specie.mutation_rate %></td>
+    <td><%= specie.phys_def %></td>
+    <td><%= specie.skill_def %></td>
+    <td><%= specie.ele_fw %></td>
+    <td><%= specie.ele_ld %></td>
+    <td><%= link_to 'Show', specie %></td>
+    <td><%= link_to 'Edit', edit_specie_path(specie) %></td>
+    <td><%= link_to 'Destroy', specie, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Specie', new_specie_path %>

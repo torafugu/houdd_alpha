@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :skill, :skill_category %>:</b>
+  <%= @skill.skill_category.name unless @skill.skill_category.blank? %>
+</p>
+
+<p>
+  <b><%= label :skill, :name %>:</b>
+  <%= @skill.name %>
+</p>
+
+<p>
+  <b><%= label :skill, :sp_cost %>:</b>
+  <%= @skill.sp_cost %>
+</p>
+
+<p>
+  <b><%= label :skill, :research_level %>:</b>
+  <%= @skill.research_level %>
+</p>
+
+
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>

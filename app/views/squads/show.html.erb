@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :squad, :houdd_user %>:</b>
+  <%= @squad.houdd_user %>
+</p>
+
+<p>
+  <b><%= label :squad, :mini_map %>:</b>
+  <%= @squad.mini_map %>
+</p>
+
+<p>
+  <b><%= label :squad, :name %>:</b>
+  <%= @squad.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_squad_path(@squad) %> |
+<%= link_to 'Back', squads_path %>

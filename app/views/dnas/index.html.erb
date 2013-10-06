@@ -1,0 +1,25 @@
+<h1>Listing dnas</h1>
+
+<table>
+  <tr>
+    <th><%= label :dna, :mob %></th>
+    <th><%= label :dna, :gene %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dnas.each do |dna| %>
+  <tr>
+    <td><%= dna.mob %></td>
+    <td><%= dna.gene %></td>
+    <td><%= link_to 'Show', dna %></td>
+    <td><%= link_to 'Edit', edit_dna_path(dna) %></td>
+    <td><%= link_to 'Destroy', dna, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dna', new_dna_path %>

@@ -1,0 +1,109 @@
+<%= form_for(@mob) do |f| %>
+  <% if @mob.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mob.errors.count, "error") %> prohibited this mob from being saved:</h2>
+
+      <ul>
+      <% @mob.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :houdd_user %><br />
+    <%= f.text_field :houdd_user %>
+  </div>
+  <div class="field">
+    <%= f.label :specie %><br />
+    <%= f.text_field :specie %>
+  </div>
+  <div class="field">
+    <%= f.label :father_id %><br />
+    <%= f.number_field :father_id %>
+  </div>
+  <div class="field">
+    <%= f.label :mother_id %><br />
+    <%= f.number_field :mother_id %>
+  </div>
+  <div class="field">
+    <%= f.label :generation %><br />
+    <%= f.number_field :generation %>
+  </div>
+  <div class="field">
+    <%= f.label :job %><br />
+    <%= f.text_field :job %>
+  </div>
+  <div class="field">
+    <%= f.label :squad %><br />
+    <%= f.text_field :squad %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :gender_sym %><br />
+    <%= f.text_field :gender_sym %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :hp %><br />
+    <%= f.number_field :hp %>
+  </div>
+  <div class="field">
+    <%= f.label :sp %><br />
+    <%= f.number_field :sp %>
+  </div>
+  <div class="field">
+    <%= f.label :str %><br />
+    <%= f.number_field :str %>
+  </div>
+  <div class="field">
+    <%= f.label :dex %><br />
+    <%= f.number_field :dex %>
+  </div>
+  <div class="field">
+    <%= f.label :con %><br />
+    <%= f.number_field :con %>
+  </div>
+  <div class="field">
+    <%= f.label :int %><br />
+    <%= f.number_field :int %>
+  </div>
+  <div class="field">
+    <%= f.label :wis %><br />
+    <%= f.number_field :wis %>
+  </div>
+  <div class="field">
+    <%= f.label :cha %><br />
+    <%= f.number_field :cha %>
+  </div>
+  <div class="field">
+    <%= f.label :phys_def %><br />
+    <%= f.number_field :phys_def %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_def %><br />
+    <%= f.number_field :skill_def %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_fw %><br />
+    <%= f.number_field :ele_fw %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_ld %><br />
+    <%= f.number_field :ele_ld %>
+  </div>
+  <div class="field">
+    <%= f.label :natural_death_flg %><br />
+    <%= f.check_box :natural_death_flg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

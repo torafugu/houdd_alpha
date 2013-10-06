@@ -1,6 +1,7 @@
 class HouddUser < ActiveRecord::Base
-  has_many :researches
   has_many :mini_maps
+  has_many :researches
+  has_many :production_ques
 
   validates :name, :presence => true
   validates :login_id, format: { with: /\A[a-zA-Z1-9]+\z/ }
@@ -37,6 +38,32 @@ class HouddUser < ActiveRecord::Base
     return productions_total
   end
 
+  # Return the allotment total of production_ques.
+  # @return [Integer]
+  def allotment_total_of_production_que
+    allotment_total = 0
+    production_ques.each do |production_que|
+      allotment_total += production_que.allotment
+    end
+    return allotment_total
+  end
+
+  # Return the allotment total of researches.
+  # @return [Integer]
+  def allotment_total_of_research
+    allotment_total = 0
+    researches.each do |research|
+      allotment_total += research.allotment
+    end
+    return allotment_total
+  end
+
+  # Return the total number of remaining productions.
+  # @return [Integer]
+  def remaining_production_total
+    return productions_total - allotment_total_of_production_que - allotment_total_of_research
+  end
+
   # Return the total number of moneys in mini_maps.
   # @return [Integer]
   def moneys_total
@@ -45,6 +72,23 @@ class HouddUser < ActiveRecord::Base
       moneys_total += map.moneys_total
     end
     return moneys_total
+  end
+
+  # Return all the sp_resources in mini_maps.
+  # @return [Array] array of sp_resource
+  def sp_resources_all
+    sp_resource_all = Array.new
+    mini_maps.each do |map|
+      sp_resource_all << map.sp_resources_all unless map.sp_resources_all.blank?
+    end
+    return sp_resource_all.uniq
+  end
+
+  # Return true or false by whether passed sp_resources are available or not.
+  # @param [Array] array of sp_resource
+  # @return [Boolean]
+  def available_sp_resources?(sp_resources)
+    return sp_resources_all.include?(sp_resources)
   end
 
   after_save :create_researches
@@ -58,7 +102,7 @@ class HouddUser < ActiveRecord::Base
         res.houdd_user_id = id
         res.symbol = symbol.to_s
         res.level = 1
-        res.allotment = (Params::PERCENT_DENOMINATOR / Params::RESEARCH_SYMBOLS.size).round
+        res.allotment = 0
         res.invested_point = 0
         res.save
         researches << res

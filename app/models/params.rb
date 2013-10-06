@@ -1,12 +1,52 @@
 class Params
+
   PERCENT_DENOMINATOR = 100
   DIRECTION_SYMBOLS = [:north, :east, :west, :south]
-  MAP_DISTANCE_MAX = 100
+  
+  RESEARCH_COST_BASE = 1000
   RESEARCH_SYMBOLS = [:wepon, :armor, :potion, :trap]
+
+  MAP_DISTANCE_MAX = 100
+  ROAD_BUILD_COST_BASE = 100
+
+  ITEM_SYMBOL_DESCRIPTIONS = Hash.new
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.wepon')] = :wepon.to_s
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.armor')] = :armor.to_s
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.potion')] = :potion.to_s
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.trap')] = :trap.to_s
+
+  ELEMRNT_SYMBOL_DESCRIPTIONS = Hash.new
+  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.fire')] = :fire.to_s
+  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.water')] = :water.to_s
+  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.light')] = :light.to_s
+  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.darkness')] = :darkness.to_s
+  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.nothing')] = :nothing.to_s
+
+  SKILL_TYPE_DESCRIPTIONS = Hash.new
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.dd')] = :dd.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.dot')] = :dot.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.hd')] = :hd.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.hot')] = :hot.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.buff')] = :buff.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.debuff')] = :debuff.to_s
+  SKILL_TYPE_DESCRIPTIONS[I18n.t('activerecord.attributes.skill_category.other')] = :other.to_s
+
   PRODUCTION_QUE_DEFAULT_PRIORITY = 3
   PRODUCTION_QUE_DEFAULT_ALLOTMENT = 0
+  PRODUCTION_QUE_DESTORY_MULTIPLIER = 10
   NEW_ROOT_FIND_PERCENTAGE = 30
-  
+
+  GENDER_FEMALE = :f
+  GENDER_MALE = :m
+  GENDER_ASEXUAL = :a
+  MOB_DNA_QUANTITY = 2
+  GENE_SEED_VARIANCE = 0.1
+  GENE_MIX_VARIANCE = 0.1
+  MOB_ADULT_AGE_RATE = 0.1875
+
+
+
+
 
 
 
@@ -17,9 +57,8 @@ class Params
 
   DUNGEON_BLANK_SYMBOL = '0'
   DUNGEON_COCRETE_SYMBOL = '1'
-  GENE_VARIANCE = 0.1
+
   GENE_MISSPRINT = 0.01
-  MOB_ADULT_RATE = 0.1875
   ITEM_ARMOR_SYMBOLS = ['HELM', 'B-ARMOR', 'L-ARMOR']
   ITEM_WEPON_SYMBOLS = ['SWORD', 'BOW']
   ITEM_XRANGE_SYMBOLS = ['BOW']

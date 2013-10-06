@@ -10,7 +10,7 @@ describe "mini_map_cells/new" do
       :sp_resource => nil,
       :construction => nil,
       :built_point => 1,
-      :const_active_flg => false,
+      :active_flg => false,
       :capital_flg => false
     ).as_new_record)
   end
@@ -27,7 +27,7 @@ describe "mini_map_cells/new" do
       assert_select "input#mini_map_cell_sp_resource[name=?]", "mini_map_cell[sp_resource]"
       assert_select "input#mini_map_cell_construction[name=?]", "mini_map_cell[construction]"
       assert_select "input#mini_map_cell_built_point[name=?]", "mini_map_cell[built_point]"
-      assert_select "input#mini_map_cell_const_active_flg[name=?]", "mini_map_cell[const_active_flg]"
+      assert_select "input#mini_map_cell_active_flg[name=?]", "mini_map_cell[active_flg]"
       assert_select "input#mini_map_cell_capital_flg[name=?]", "mini_map_cell[capital_flg]"
     end
   end

@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :gene, :specie %>:</b>
+  <%= @gene.specie %>
+</p>
+
+<p>
+  <b><%= label :gene, :dominance_flg %>:</b>
+  <%= @gene.dominance_flg %>
+</p>
+
+<p>
+  <b><%= label :gene, :prolificacy_mod %>:</b>
+  <%= @gene.prolificacy_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :longevity_mod %>:</b>
+  <%= @gene.longevity_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :growth_mod %>:</b>
+  <%= @gene.growth_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :food_cost_mod %>:</b>
+  <%= @gene.food_cost_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :str_mod %>:</b>
+  <%= @gene.str_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :dex_mod %>:</b>
+  <%= @gene.dex_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :con_mod %>:</b>
+  <%= @gene.con_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :int_mod %>:</b>
+  <%= @gene.int_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :wis_mod %>:</b>
+  <%= @gene.wis_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :cha_mod %>:</b>
+  <%= @gene.cha_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :ele_fw_mod %>:</b>
+  <%= @gene.ele_fw_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :ele_ld_mod %>:</b>
+  <%= @gene.ele_ld_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :phys_def_mod %>:</b>
+  <%= @gene.phys_def_mod %>
+</p>
+
+<p>
+  <b><%= label :gene, :skill_def_mod %>:</b>
+  <%= @gene.skill_def_mod %>
+</p>
+
+
+<%= link_to 'Edit', edit_gene_path(@gene) %> |
+<%= link_to 'Back', genes_path %>

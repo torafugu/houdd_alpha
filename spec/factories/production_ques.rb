@@ -36,4 +36,22 @@ FactoryGirl.define do
     allotment 1
     destroy_flg false
   end
+
+  factory :production_que_for_item_create, class: ProductionQue do
+    houdd_user_id 1
+    symbol "item"
+    que_id 1
+    priority 1
+    allotment 1
+    destroy_flg false
+  end
+
+  factory :production_que_for_item_destroy, class: ProductionQue do
+    houdd_user_id 1
+    symbol "item"
+    que_id 1
+    priority 1
+    allotment 1
+    destroy_flg true
+  end
 end

@@ -11,7 +11,7 @@ describe "mini_map_cells/index" do
         :sp_resource => nil,
         :construction => nil,
         :built_point => 3,
-        :const_active_flg => false,
+        :active_flg => false,
         :capital_flg => false
       ),
       stub_model(MiniMapCell,
@@ -22,7 +22,7 @@ describe "mini_map_cells/index" do
         :sp_resource => nil,
         :construction => nil,
         :built_point => 3,
-        :const_active_flg => false,
+        :active_flg => false,
         :capital_flg => false
       )
     ])

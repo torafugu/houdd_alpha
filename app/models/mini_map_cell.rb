@@ -7,7 +7,7 @@ class MiniMapCell < ActiveRecord::Base
   validates :mini_map_id, :presence => true
   validates :x, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}
   validates :y, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}
-  validates :built_point, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10000}
+  validates :built_point, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100000}
   validate :more_than_map_size
   validate :not_allowed_terrain
 
@@ -41,5 +41,12 @@ class MiniMapCell < ActiveRecord::Base
         errors.add(:construction, I18n.t('activerecord.errors.models.mini_map_cell.attributes.not_allowed_terrain'))
       end
     end
+  end
+
+  # Return construction.rq_prod_point.
+  # This function is provided to keep same interface among mini_map_cell, mini_map_road and item. 
+  # @return [Integer]
+  def rq_prod_point
+    return construction.rq_prod_point
   end
 end

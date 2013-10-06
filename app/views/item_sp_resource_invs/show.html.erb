@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :item_sp_resource_inv, :item_info %>:</b>
+  <%= @item_sp_resource_inv.item_info.name unless @item_sp_resource_inv.item_info.blank? %>
+</p>
+
+<p>
+  <b><%= label :item_sp_resource_inv, :sp_resource %>:</b>
+  <%= @item_sp_resource_inv.sp_resource.name unless @item_sp_resource_inv.sp_resource.blank? %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_sp_resource_inv_path(@item_sp_resource_inv) %> |
+<%= link_to 'Back', item_sp_resource_invs_path %>
