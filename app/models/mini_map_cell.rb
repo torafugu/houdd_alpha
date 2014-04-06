@@ -1,3 +1,4 @@
+# This class describes a cell of mini map.
 class MiniMapCell < ActiveRecord::Base
   belongs_to :mini_map
   belongs_to :terrain

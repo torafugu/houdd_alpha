@@ -1,3 +1,4 @@
+# This class describes a road of mini map.
 class MiniMapRoad < ActiveRecord::Base
   belongs_to :start_mini_map, :class_name => 'MiniMap', :foreign_key => 'start_mini_map_id'
   belongs_to :end_mini_map, :class_name => 'MiniMap', :foreign_key => 'end_mini_map_id'
@@ -15,19 +16,19 @@ class MiniMapRoad < ActiveRecord::Base
     end
   end
 
-  # Return true or false by whether level up is already registered to production_que or not.
+  # Return true or false by whether level up is already registered to production_queue or not.
   # @return [Boolean]
   def constructing?
-    constructing_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_road.to_s, id, false)
-    return true unless constructing_que.blank?
+    constructing_queue = ProductionQueue.find_by_symbol_and_queue_id_and_destroy_flg(:mini_map_road.to_s, id, false)
+    return true unless constructing_queue.blank?
     return false
   end
 
-  # Return true or false by whether destroy is already registered to production_que or not.
+  # Return true or false by whether destroy is already registered to production_queue or not.
   # @return [Boolean]
   def destroying?
-    destroying_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_road.to_s, id, true)
-    return true unless destroying_que.blank?
+    destroying_queue = ProductionQueue.find_by_symbol_and_queue_id_and_destroy_flg(:mini_map_road.to_s, id, true)
+    return true unless destroying_queue.blank?
     return false
   end
 

@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: ProductionQueue
+  
+    &mdash; Documentation by YARD 0.8.6.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">ProductionQueue</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: ProductionQueue
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">ProductionQueue</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/production_queue.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class describes a production queue.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#complete_date_txt-instance_method" title="#complete_date_txt (instance method)">- (String) <strong>complete_date_txt</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the complete date of que item.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_queue_item-instance_method" title="#destroy_queue_item (instance method)">- (Boolean) <strong>destroy_queue_item</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Destroy the queue_item.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#item_txt-instance_method" title="#item_txt (instance method)">- (String) <strong>item_txt</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the description of que item.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#queue_item-instance_method" title="#queue_item (instance method)">- (queue_item) <strong>queue_item</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the queue_item.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status_txt-instance_method" title="#status_txt (instance method)">- (String) <strong>status_txt</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the description of status.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="complete_date_txt-instance_method">
+  
+    - (<tt>String</tt>) <strong>complete_date_txt</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the complete date of que item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/production_queue.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_complete_date_txt'>complete_date_txt</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_allotment'>allotment</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_allotment'>allotment</span> <span class='op'>==</span> <span class='int'>0</span> <span class='kw'>or</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_rq_prod_point'>rq_prod_point</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_built_point'>built_point</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='id identifier rubyid_complete_date'>complete_date</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_rq_prod_point'>rq_prod_point</span> <span class='op'>-</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_built_point'>built_point</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_allotment'>allotment</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span>
+  <span class='id identifier rubyid_complete_date'>complete_date</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_complete_date'>complete_date</span> <span class='op'>/</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>PRODUCTION_QUE_DESTORY_MULTIPLIER</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span class='kw'>if</span> <span class='id identifier rubyid_destroy_flg'>destroy_flg</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_complete_date'>complete_date</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.rq_days_suffix</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_queue_item-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>destroy_queue_item</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Destroy the queue_item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>destroy result.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/production_queue.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_queue_item'>destroy_queue_item</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='kw'>when</span> <span class='symbol'>:mini_map_road</span>
+    <span class='kw'>return</span> <span class='const'>MiniMapRoad</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='symbol'>:mini_map_cell</span>
+    <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span> <span class='op'>=</span> <span class='const'>MiniMapCell</span><span class='period'>.</span><span class='id identifier rubyid_find_by_id'>find_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_construction_id'>construction_id</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_built_point'>built_point</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_active_flg'>active_flg</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>when</span> <span class='symbol'>:item</span>
+    <span class='kw'>return</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="item_txt-instance_method">
+  
+    - (<tt>String</tt>) <strong>item_txt</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the description of que item. It could be 'road' and 'construction
+name(minimap name : x, y)'.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/production_queue.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_item_txt'>item_txt</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='symbol'>:mini_map_road</span>
+    <span class='id identifier rubyid_mini_map_road_txt'>mini_map_road_txt</span> <span class='op'>=</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.production_que.mini_map_road</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_mini_map_road_txt'>mini_map_road_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_start_mini_map'>start_mini_map</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_end_mini_map'>end_mini_map</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_mini_map_road_txt'>mini_map_road_txt</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='symbol'>:mini_map_cell</span>
+    <span class='id identifier rubyid_mini_map_cell_txt'>mini_map_cell_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> 
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_construction'>construction</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='id identifier rubyid_mini_map_cell_txt'>mini_map_cell_txt</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='symbol'>:item</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_queue_item'>queue_item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="queue_item-instance_method">
+  
+    - (<tt>queue_item</tt>) <strong>queue_item</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the queue_item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>queue_item</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>queue_item could be mini_map_road, mini_map_cell or item.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/production_queue.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_queue_item'>queue_item</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='kw'>when</span> <span class='symbol'>:mini_map_road</span>
+    <span class='kw'>return</span> <span class='const'>MiniMapRoad</span><span class='period'>.</span><span class='id identifier rubyid_find_by_id'>find_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='symbol'>:mini_map_cell</span>
+    <span class='kw'>return</span> <span class='const'>MiniMapCell</span><span class='period'>.</span><span class='id identifier rubyid_find_by_id'>find_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='symbol'>:item</span>
+    <span class='kw'>return</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_find_by_id'>find_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_queue_id'>queue_id</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="status_txt-instance_method">
+  
+    - (<tt>String</tt>) <strong>status_txt</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the description of status. It could be 'destroying' and
+'constructing'.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/production_queue.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status_txt'>status_txt</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_destroy_flg'>destroy_flg</span>
+    <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.production_que.destroy</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='symbol'>:item</span>
+      <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.production_que.manufacture</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.production_que.construct</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 30 18:32:14 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

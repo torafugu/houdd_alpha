@@ -20,7 +20,8 @@ describe "species/index" do
         :phys_def => 9,
         :skill_def => 10,
         :ele_fw => 11,
-        :ele_ld => 12
+        :ele_ld => 12,
+        :skill => nil
       ),
       stub_model(Specie,
         :family => nil,
@@ -39,7 +40,8 @@ describe "species/index" do
         :phys_def => 9,
         :skill_def => 10,
         :ele_fw => 11,
-        :ele_ld => 12
+        :ele_ld => 12,
+        :skill => nil
       )
     ])
   end
@@ -64,5 +66,6 @@ describe "species/index" do
     assert_select "tr>td", :text => 10.to_s, :count => 2
     assert_select "tr>td", :text => 11.to_s, :count => 2
     assert_select "tr>td", :text => 12.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

@@ -1,37 +1,60 @@
 <%= render 'admin_page_menu' %>
 <div id="contents">
-  <h3>データ管理</h3>
+  <h3 class="admin_normal">データ管理</h3>
+  <table class="admin_normal">
+    <thead>
+      <tr>
+        <th>Map関連</th>
+        <th>Mob関連</th>
+        <th>Trial関連</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <ol>
+            <li><%= link_to 'houdd_user', '/houdd_users', {:target => "_blank"} %></li>
+            <li><%= link_to 'mini_map', '/mini_maps', {:target => "_blank"} %></li>
+            <li><%= link_to 'mini_map_cell', '/mini_map_cells', {:target => "_blank"} %></li>
+            <li><%= link_to 'mini_map_road', '/mini_map_roads', {:target => "_blank"} %></li>
+            <li><%= link_to 'fortress_cell', '/fortress_cells', {:target => "_blank"} %></li>
+            <li><%= link_to 'map_item_inv', '/map_item_invs', {:target => "_blank"} %></li>
+            <li><%= link_to 'terrain', '/terrains', {:target => "_blank"} %></li>
+            <li><%= link_to 'sp_resource', '/sp_resources', {:target => "_blank"} %></li>
+            <li><%= link_to 'construction', '/constructions', {:target => "_blank"} %></li>
+            <li><%= link_to 'research', '/researches', {:target => "_blank"} %></li>
+          </ol>
+        </td>
+        <td style="vertical-align: top;">
+          <ol>
+            <li><%= link_to 'item_info', '/item_infos', {:target => "_blank"} %></li>
+            <li><%= link_to 'item_sp_resource_inv', '/item_sp_resource_invs', {:target => "_blank"} %></li>
+            <li><%= link_to 'item', '/items', {:target => "_blank"} %></li>
+            <li><%= link_to 'family', '/families', {:target => "_blank"} %></li>
+            <li><%= link_to 'specie', '/species', {:target => "_blank"} %></li>
+            <li><%= link_to 'gene', '/genes', {:target => "_blank"} %></li>
+            <li><%= link_to 'dna', '/dnas', {:target => "_blank"} %></li>
+            <li><%= link_to 'mob', '/mobs', {:target => "_blank"} %></li>
+            <li><%= link_to 'skill', '/skills', {:target => "_blank"} %></li>
+            <li><%= link_to 'job', '/jobs', {:target => "_blank"} %></li>
+            <li><%= link_to 'job_skill_inv', '/job_skill_invs', {:target => "_blank"} %></li>
+            <li><%= link_to 'specie_job_inv', '/specie_job_invs', {:target => "_blank"} %></li>
+            <li><%= link_to 'squad', '/squads', {:target => "_blank"} %></li>
+          </ol>
+        </td>
+        <td style="vertical-align: top;">
+          <ol>
+            <li><%= link_to 'mission_strategy', '/mission_strategies', {:target => "_blank"} %></li>
+            <li><%= link_to 'mission', '/missions', {:target => "_blank"} %></li>
+            <li><%= link_to 'trial', '/trials', {:target => "_blank"} %></li>
+          </ol>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <ol>
-    <li><%= link_to 'houdd_user', '/houdd_users', {:target => "_blank"} %></li>
-    <li><%= link_to 'mini_map', '/mini_maps', {:target => "_blank"} %></li>
-    <li><%= link_to 'mini_map_cell', '/mini_map_cells', {:target => "_blank"} %></li>
-    <li><%= link_to 'mini_map_road', '/mini_map_roads', {:target => "_blank"} %></li>
-    <li><%= link_to 'fortress_cell', '/fortress_cells', {:target => "_blank"} %></li>
-    <li><%= link_to 'map_item_inv', '/map_item_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'terrain', '/terrains', {:target => "_blank"} %></li>
-    <li><%= link_to 'sp_resource', '/sp_resources', {:target => "_blank"} %></li>
-    <li><%= link_to 'construction', '/constructions', {:target => "_blank"} %></li>
-    <li><%= link_to 'research', '/researches', {:target => "_blank"} %></li>
-    <li><%= link_to 'body_part', '/body_parts', {:target => "_blank"} %></li>
-    <li><%= link_to 'item_category', '/item_categories', {:target => "_blank"} %></li>
-    <li><%= link_to 'item_info', '/item_infos', {:target => "_blank"} %></li>
-    <li><%= link_to 'item_sp_resource_inv', '/item_sp_resource_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'item', '/items', {:target => "_blank"} %></li>
-    <li><%= link_to 'status_mod', '/status_mods', {:target => "_blank"} %></li>
-    <li><%= link_to 'status_mod_inv', '/status_mod_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'item_info_status_mod_inv', '/item_info_status_mod_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'specie_status_mod_inv', '/specie_status_mod_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'body_part_status_mod_inv', '/body_part_status_mod_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'family', '/families', {:target => "_blank"} %></li>
-    <li><%= link_to 'specie', '/species', {:target => "_blank"} %></li>
-    <li><%= link_to 'gene', '/genes', {:target => "_blank"} %></li>
-    <li><%= link_to 'dna', '/dnas', {:target => "_blank"} %></li>
-    <li><%= link_to 'skill_category', '/skill_categories', {:target => "_blank"} %></li>
-    <li><%= link_to 'skill', '/skills', {:target => "_blank"} %></li>
-    <li><%= link_to 'skill_inv', '/skill_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'job', '/jobs', {:target => "_blank"} %></li>
-    <li><%= link_to 'specie_job_inv', '/specie_job_invs', {:target => "_blank"} %></li>
-    <li><%= link_to 'squad', '/squads', {:target => "_blank"} %></li>
-    <li><%= link_to 'mob', '/mobs', {:target => "_blank"} %></li>
+    
+
+
   </ol>
 </div>

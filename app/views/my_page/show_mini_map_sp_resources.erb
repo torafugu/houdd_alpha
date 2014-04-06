@@ -76,8 +76,8 @@ class MapCell {
 
 <%= render 'my_page_menu' %>
 <div id="contents">
-  <h3>地形マップ</h3>
-  マップ名：<%= @mini_map.name %><br />
-  <br />
+  <h3>マップ(<%= @mini_map.name %>):資源</h3>
   <canvas id="show_mini_map_sp_resources_canvas"></canvas>
+  <br />
+  <%= link_to '戻る', "/my_page/" + @mini_map.houdd_user_id.to_s + "/mini_map_index" %>
 </div>

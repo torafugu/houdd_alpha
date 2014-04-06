@@ -1,0 +1,25 @@
+<%= form_for(@job_skill_inv) do |f| %>
+  <% if @job_skill_inv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_skill_inv.errors.count, "error") %> prohibited this job_skill_inv from being saved:</h2>
+
+      <ul>
+      <% @job_skill_inv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :skill %><br />
+    <%= f.collection_select(:skill_id, Skill.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :job %><br />
+    <%= f.collection_select(:job_id, Job.find(:all), :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,7 +2,7 @@
 alert("新ルートの探索に失敗しました")
 <% else %>
 $ ->
-  jQuery.ajax
+  $.ajax
     url: <%= @end_mini_map_id %> + '/new_road',
     type: 'POST',
     dataType: 'json',

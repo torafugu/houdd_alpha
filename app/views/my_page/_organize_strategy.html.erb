@@ -1,0 +1,17 @@
+<table>
+<tr>
+  <td>名前：</td>
+  <td>
+    <%= hidden_field_tag "mypage_strategy_index_url", @strategy_index_url %>
+    <%= text_field :mypage, :name, :value=> @strategy.name %>
+  </td>
+</tr>
+<tr>
+  <td style="vertical-align: top;">内容：</td>
+  <td>
+    <%= text_area :mypage, :script, :value=> @strategy.script, :size => "60x25" %>
+  </td>
+</tr>
+</table>
+
+

@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :job do
+    type_symbol "MyString"
     name "MyString"
     growth_penalty 1.5
     wepon_lvl 1

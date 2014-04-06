@@ -1,0 +1,26 @@
+<%= render 'my_page_menu' %>
+<div id="wide_contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+
+  <h3>MOB管理</h3>
+  科：<%= collection_select(:my_page, :family_id, Family.find(:all), :id, :name, :include_blank => true) %>
+    <%= render 'select_specie' %><br />
+  <br />
+
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>年齢</th>
+        <th>性別</th>
+        <th>職業</th>
+        <th>HP</th>
+        <th>SP</th>
+        <th>部隊</th>
+        <th>装備</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

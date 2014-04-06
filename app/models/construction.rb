@@ -1,3 +1,4 @@
+# This class describes a construction on mini map.
 class Construction < ActiveRecord::Base
   belongs_to :terrain
 

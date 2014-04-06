@@ -1,0 +1,107 @@
+<script type="text/processing" data-processing-target="edit_fortress_trap_canvas">
+int RECT_SIZE = 20;
+int MAP_WIDTH = <%= Math::sqrt(@mini_map.fortress_cells.size) %> * RECT_SIZE;
+int MAP_HEIGHT = <%= Math::sqrt(@mini_map.fortress_cells.size) %> * RECT_SIZE;
+int selectedX = null;
+int selectedY = null;
+
+ArrayList fortressCells = new ArrayList();
+PImage concreteImg = loadImage("/assets/fortress_concrete.png");
+PShape TRAP_ICON_N = loadShape("/assets/trapicon_n.svg");
+
+void setup() {
+  frameRate(3);
+  size(MAP_WIDTH, MAP_HEIGHT);
+  <% @mini_map.fortress_cells.each do |cell| %>
+  fortressCells.add(new FortressCell(<%= cell.x %>, <%= cell.y %>, "<%= cell.symbol %>", "<%= cell.trap_id %>")); 
+  <% end %>
+}
+
+void draw() {
+  background(0);
+  fill(0);
+
+  // Draw fortress
+  for (int n = 0; n < fortressCells.size(); n++) {
+    (FortressCell)fortressCells.get(n).draw();
+  }
+
+  // Draw fortress selection
+  if (selectedX != null && selectedY != null) {
+
+    noFill();
+    stroke(255, 99, 71); // tomato
+    strokeWeight(2);
+    rect(selectedX, selectedY, RECT_SIZE, RECT_SIZE);
+  }
+}
+
+class FortressCell {
+  int fortressX;
+  int fortressY;
+  String material;
+  String trapID;
+  
+  FortressCell(int x, int y, String m, String t) {
+    fortressX = x;
+    fortressY = y;
+    material = m;
+    trapID = t;
+  }
+
+  void draw() {
+    if (material.equals("concrete") == true) {
+      image(concreteImg, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    }
+
+    if (trapID.equals("") == false) {
+      shape(TRAP_ICON_N, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    }
+  }
+}
+
+void mousePressed() {
+  int fortressX = int(mouseX / RECT_SIZE);
+  int fortressY = int(mouseY / RECT_SIZE);
+  selectedX = fortressX * RECT_SIZE;
+  selectedY = fortressY * RECT_SIZE;
+  $('#fortress_x').text(fortressX);
+  $('#fortress_y').text(fortressY);
+  $('#update_fortress_cell_put_x').val(fortressX);
+  $('#update_fortress_cell_put_y').val(fortressY);
+  $('#update_fortress_cell_take_x').val(fortressX);
+  $('#update_fortress_cell_take_y').val(fortressY);
+  jQuery.get(fortressX + "/" + fortressY + "/select_fortress_cell_trap.js");
+}
+
+</script>
+
+<%= render 'my_page_menu' %>
+<div id="wide_contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  
+  <h3>要塞(トラップ)</h3>
+  <div style="float: left;">
+  <canvas id="edit_fortress_trap_canvas"></canvas>
+  </div>
+  <div style="float: left; padding-left: 1em;">
+    X:<span id="fortress_x"></span> Y:<span id="fortress_y"></span><br />
+    <% if @mini_map.guard_mission_active? %>
+    <%= form_tag "put_trap", :id => "put_trap", :method => "put" do %>
+    部隊：<%= select(:update_fortress_cell, :trap_id, @stocked_traps, :include_blank => true) %><br />
+    <br />
+    <%= submit_tag "配置" %>
+    <%= hidden_field :update_fortress_cell, :put_x %>
+    <%= hidden_field :update_fortress_cell, :put_y %>
+    <% end %>
+    <%= form_tag "take_trap", :id => "take_trap", :method => "put" do %>
+    <%= hidden_field :update_fortress_cell, :take_x %>
+    <%= hidden_field :update_fortress_cell, :take_y %>
+    <%= submit_tag "削除" %><br />
+    <% end %>
+    <% end %>
+  </div>
+  <div style="clear:both;">
+    <%= link_to '戻る', "/my_page/" + @mini_map.houdd_user_id.to_s + "/mini_map_index" %>
+  </div>
+</div>

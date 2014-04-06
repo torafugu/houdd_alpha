@@ -1,11 +1,12 @@
 <h1>Listing mobs</h1>
-
+ユーザー：<%= collection_select(:user, :id, HouddUser.find(:all), :id, :name, :selected => @houdd_user_id, :include_blank => true) %>
+<%= render 'select_specie' %>
+<input id="mobs_search" type="button" value="検索" /><br />
 <table>
   <tr>
+    <th>ID</th>
     <th><%= label :mob, :houdd_user %></th>
     <th><%= label :mob, :specie %></th>
-    <th><%= label :mob, :father_id %></th>
-    <th><%= label :mob, :mother_id %></th>
     <th><%= label :mob, :generation %></th>
     <th><%= label :mob, :job %></th>
     <th><%= label :mob, :squad %></th>
@@ -20,11 +21,8 @@
     <th><%= label :mob, :int %></th>
     <th><%= label :mob, :wis %></th>
     <th><%= label :mob, :cha %></th>
-    <th><%= label :mob, :phys_def %></th>
-    <th><%= label :mob, :skill_def %></th>
-    <th><%= label :mob, :ele_fw %></th>
-    <th><%= label :mob, :ele_ld %></th>
-    <th><%= label :mob, :natural_death_flg %></th>
+    <th><%= label :mob, :def %></th>
+    <th><%= label :mob, :ele %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,16 +30,15 @@
 
 <% @mobs.each do |mob| %>
   <tr>
-    <td><%= mob.houdd_user %></td>
-    <td><%= mob.specie %></td>
-    <td><%= mob.father_id %></td>
-    <td><%= mob.mother_id %></td>
-    <td><%= mob.generation %></td>
-    <td><%= mob.job %></td>
-    <td><%= mob.squad %></td>
+    <td><%= mob.id %></td>
+    <td><%= mob.houdd_user.name unless mob.houdd_user.blank? %></td>
+    <td><%= mob.specie.name unless mob.specie.blank? %></td>
+    <td><div class="number"><%= mob.generation %></div></td>
+    <td><%= mob.job.name unless mob.job.blank? %></td>
+    <td><%= mob.squad.name unless mob.squad.blank? %></td>
     <td><%= mob.name %></td>
-    <td><%= mob.gender_sym %></td>
-    <td><%= mob.age %></td>
+    <td><%= mob.gender_sym_txt %></td>
+    <td><div class="number"><%= mob.age %></div></td>
     <td><%= mob.hp %></td>
     <td><%= mob.sp %></td>
     <td><%= mob.str %></td>
@@ -50,11 +47,8 @@
     <td><%= mob.int %></td>
     <td><%= mob.wis %></td>
     <td><%= mob.cha %></td>
-    <td><%= mob.phys_def %></td>
-    <td><%= mob.skill_def %></td>
-    <td><%= mob.ele_fw %></td>
-    <td><%= mob.ele_ld %></td>
-    <td><%= mob.natural_death_flg %></td>
+    <td><%= mob.phys_def %>/<%= mob.skill_def %></td>
+    <td><%= mob.ele_fw %>/<%= mob.ele_ld %></td>
     <td><%= link_to 'Show', mob %></td>
     <td><%= link_to 'Edit', edit_mob_path(mob) %></td>
     <td><%= link_to 'Destroy', mob, confirm: 'Are you sure?', method: :delete %></td>

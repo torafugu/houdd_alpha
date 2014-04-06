@@ -1,24 +1,10 @@
 <%= render 'my_page_menu' %>
 <div id="contents">
-  <% unless flash[:errors].blank? %>
-  <div id="error_explanation">
-    <h3>エラーが発生しました。</h3>
-    <ul>
-      <% flash[:errors].full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <% unless flash[:success].blank? %>
-  <script language="JavaScript">
-  alert("更新が完了しました。");
-  </script>
-  <% end %>
+  <%= render :partial => 'layouts/edit_messages' %>
 
   <h3>研究</h3>
   総生産工数：<%= @houdd_user.productions_total %>
-   (アイテム製造：<%= @houdd_user.allotment_total_of_production_que %>, 研究：<%= @houdd_user.allotment_total_of_research %>)<br />
+   (アイテム製造：<%= @houdd_user.allotment_total_of_production_queue %>, 研究：<%= @houdd_user.allotment_total_of_research %>)<br />
   未割り当て工数：<%= @houdd_user.remaining_production_total %><br />
   <br />
   <%= form_tag({:action => 'update_researches'}, {:method => :put}) do %>

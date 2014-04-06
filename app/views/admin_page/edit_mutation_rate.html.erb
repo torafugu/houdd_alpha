@@ -12,7 +12,7 @@
   </script>
    <% end %>
 
-  <h3>突然変異率設定(<%= @specie.name %>)</h3>
+  <h3 class="admin_normal">突然変異率設定(<%= @specie.name %>)</h3>
   <%= form_tag({:action => 'update_mutation_rate'}, {:method => :put}) do %>
   突然変異率：<%= text_field_tag "mypage_mutation_rate", @specie.mutation_rate,:class=>'number3' %><br />
   <br />

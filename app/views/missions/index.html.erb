@@ -1,0 +1,35 @@
+<h1>Listing missions</h1>
+
+<table>
+  <tr>
+    <th><%= label :mission, :houdd_user %></th>
+    <th><%= label :mission, :mini_map %></th>
+    <th><%= label :mission, :category_symbol %></th>
+    <th><%= label :mission, :mission_strategy %></th>
+    <th><%= label :mission, :status_symbol %></th>
+    <th><%= label :mission, :start_houdd_time %></th>
+    <th><%= label :mission, :end_houdd_time %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @missions.each do |mission| %>
+  <tr>
+    <td><%= mission.houdd_user.name unless mission.houdd_user.blank? %></td>
+    <td><%= mission.mini_map.name unless mission.mini_map.blank? %></td>
+    <td><%= mission.category_symbol_txt %></td>
+    <td><%= mission.mission_strategy.name unless mission.mission_strategy.blank? %></td>
+    <td><%= mission.status_symbol_txt %></td>
+    <td><%= mission.start_houdd_time %></td>
+    <td><%= mission.end_houdd_time %></td>
+    <td><%= link_to 'Show', mission %></td>
+    <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+    <td><%= link_to 'Destroy', mission, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mission', new_mission_path %>

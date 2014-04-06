@@ -1,0 +1,13 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>部隊再編成</h3>
+
+  <%= form_tag({:action => 'update_squad'}, {:method => :put}) do %>
+  <%= render :partial => 'organize_squad' %>
+  <div id="submit">
+    <br />
+    <input id="btn_update_squad" type="button" value="再編成" />
+  </div>
+  <% end %>
+</div>

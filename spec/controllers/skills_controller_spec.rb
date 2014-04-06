@@ -23,7 +23,7 @@ describe SkillsController do
   # This should return the minimal set of attributes required to create a valid
   # Skill. As you add validations to Skill, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "skill_category" => "" } }
+  let(:valid_attributes) { { "type_symbol" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe SkillsController do
       it "assigns a newly created but unsaved skill as @skill" do
         # Trigger the behavior that occurs when invalid params are submitted
         Skill.any_instance.stub(:save).and_return(false)
-        post :create, {:skill => { "skill_category" => "invalid value" }}, valid_session
+        post :create, {:skill => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:skill).should be_a_new(Skill)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Skill.any_instance.stub(:save).and_return(false)
-        post :create, {:skill => { "skill_category" => "invalid value" }}, valid_session
+        post :create, {:skill => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe SkillsController do
         # specifies that the Skill created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Skill.any_instance.should_receive(:update_attributes).with({ "skill_category" => "" })
-        put :update, {:id => skill.to_param, :skill => { "skill_category" => "" }}, valid_session
+        Skill.any_instance.should_receive(:update_attributes).with({ "type_symbol" => "MyString" })
+        put :update, {:id => skill.to_param, :skill => { "type_symbol" => "MyString" }}, valid_session
       end
 
       it "assigns the requested skill as @skill" do
@@ -128,7 +128,7 @@ describe SkillsController do
         skill = Skill.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Skill.any_instance.stub(:save).and_return(false)
-        put :update, {:id => skill.to_param, :skill => { "skill_category" => "invalid value" }}, valid_session
+        put :update, {:id => skill.to_param, :skill => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:skill).should eq(skill)
       end
 
@@ -136,7 +136,7 @@ describe SkillsController do
         skill = Skill.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Skill.any_instance.stub(:save).and_return(false)
-        put :update, {:id => skill.to_param, :skill => { "skill_category" => "invalid value" }}, valid_session
+        put :update, {:id => skill.to_param, :skill => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

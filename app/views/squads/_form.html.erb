@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :houdd_user %><br />
-    <%= f.text_field :houdd_user %>
+    <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :mini_map %><br />
-    <%= f.text_field :mini_map %>
+    <%= f.collection_select(:mini_map_id, MiniMap.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :name %><br />

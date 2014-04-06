@@ -1,0 +1,13 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  
+  <h3>装備</h3>
+  <%= form_tag "update_mob_equips", :id => 'update_mob_equips', :method => :put do %>
+  武器：<%= collection_select(:my_page, :wepon_id, Item.includes(:item_info).where(["houdd_user_id = ? and item_infos.type_symbol = ? and item_infos.family_id = ? and active_flg = ?", @mob.houdd_user_id, :wepon.to_s, @mob.specie.family_id, true]), :id, :name, :selected => @wepon_id, :include_blank => true) %><br />
+  防具：<%= collection_select(:my_page, :armor_id, Item.includes(:item_info).where(["houdd_user_id = ? and item_infos.type_symbol = ? and item_infos.family_id = ? and active_flg = ?", @mob.houdd_user_id, :armor.to_s, @mob.specie.family_id, true]), :id, :name, :selected => @armor_id, :include_blank => true) %><br />
+  <%= submit_tag "変更" %><br />
+  <% end %>
+  <br />
+  <%= link_to '戻る', "/my_page/" + @mob.houdd_user_id.to_s + "/mob_index" %>
+</div>

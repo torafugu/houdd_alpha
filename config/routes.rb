@@ -1,48 +1,47 @@
 HouddAlpha::Application.routes.draw do
 
-  resources :status_mods
+  resources :species
+
+  resources :item_infos
+
+  resources :skills
+
+  resources :families
+
+  resources :items
 
   resources :jobs
 
+  resources :trials
+
+  resources :missions
+
+  resources :mission_strategies
+
   resources :genes
 
+  match '/mobs/:user_id/select_specie' => 'mobs#select_specie'
+  match '/mobs/:user_id/:specie_id/index' => 'mobs#index'
   resources :mobs
-
-  resources :species
 
   resources :specie_job_invs
 
   resources :dnas
 
   resources :squads
-
-  resources :skill_invs
-
-  resources :families
-
-  resources :skills
-
-  resources :skill_categories
+  resources :job_skill_invs
+  resources :specie_skill_invs
+  resources :family_skill_invs
 
   resources :mini_map_cells
 
-  resources :items
-
   resources :item_sp_resource_invs
-
-  resources :item_infos
-
-  resources :item_categories
 
   resources :map_item_invs
 
   resources :item_info_status_mod_invs
   resources :specie_status_mod_invs
   resources :body_part_status_mod_invs
-
-  resources :status_mod_invs
-
-  resources :body_parts
 
   resources :mini_maps
 
@@ -56,10 +55,10 @@ HouddAlpha::Application.routes.draw do
 
   resources :fortress_cells
 
-  # my_page - production_que
-  match '/my_page/:user_id/:que_id/delete_production_que' => 'my_page#delete_production_que', :via => :delete
-  match '/my_page/:user_id/update_production_ques' => 'my_page#update_production_ques', :via => :put
-  match '/my_page/:user_id/production_que_index' => 'my_page#production_que_index'
+  # my_page - production_queue
+  match '/my_page/:user_id/:queue_id/delete_production_queue' => 'my_page#delete_production_queue', :via => :delete
+  match '/my_page/:user_id/update_production_queues' => 'my_page#update_production_queues', :via => :put
+  match '/my_page/:user_id/production_queue_index' => 'my_page#production_queue_index'
 
   # my_page - map
   match '/my_page/:user_id/:mini_map_id/:end_mini_map_id/new_road' => 'my_page#new_road', :via => :post
@@ -73,6 +72,14 @@ HouddAlpha::Application.routes.draw do
   match '/my_page/:user_id/:mini_map_id/new_construction' => 'my_page#new_construction', :via => :post
   match '/my_page/:user_id/:mini_map_id/render_map_cells' => 'my_page#render_map_cells'
   match '/my_page/:user_id/:mini_map_id/edit_mini_map_constructions' => 'my_page#edit_mini_map_constructions'
+  match '/my_page/:user_id/:mini_map_id/edit_fortress_squads' => 'my_page#edit_fortress_squads'
+  match '/my_page/:user_id/:mini_map_id/:fortress_x/:fortress_y/select_fortress_cell_squad' => 'my_page#select_fortress_cell_squad'
+  match '/my_page/:user_id/:mini_map_id/put_squad' => 'my_page#put_squad', :via => :put
+  match '/my_page/:user_id/:mini_map_id/take_squad' => 'my_page#take_squad', :via => :put
+  match '/my_page/:user_id/:mini_map_id/edit_fortress_traps' => 'my_page#edit_fortress_traps'
+  match '/my_page/:user_id/:mini_map_id/:fortress_x/:fortress_y/select_fortress_cell_trap' => 'my_page#select_fortress_cell_trap'
+  match '/my_page/:user_id/:mini_map_id/put_trap' => 'my_page#put_trap', :via => :put
+  match '/my_page/:user_id/:mini_map_id/take_trap' => 'my_page#take_trap', :via => :put
   match '/my_page/:user_id/mini_map_index' => 'my_page#mini_map_index'
 
   # my_page - reserach
@@ -81,21 +88,46 @@ HouddAlpha::Application.routes.draw do
 
   # my_page - item manufacturing
   match '/my_page/:user_id/new_item' => 'my_page#new_item', :via => :post
-  match '/my_page/:user_id/:type_sym/select_item_category' => 'my_page#select_item_category'
-  match '/my_page/:user_id/:item_category_id/select_item_info' => 'my_page#select_item_info'
+  match '/my_page/:user_id/:type_symbol/select_item_type' => 'my_page#select_item_type'
   match '/my_page/:user_id/select_product_item' => 'my_page#select_product_item'
+
+  # my_page - item warehouse
+  match '/my_page/:user_id/item_warehouse_index' => 'my_page#item_warehouse_index'
+  match '/my_page/:user_id/:type_symbol/show_inv_items' => 'my_page#show_inv_items'
 
   # my_page - mob
   match '/my_page/:user_id/mob_index' => 'my_page#mob_index'
+  match '/my_page/:user_id/:family_id/select_specie' => 'my_page#select_specie'
+  match '/my_page/:user_id/:specie_id/show_mobs' => 'my_page#show_mobs'
+  match '/my_page/:user_id/:mob_id/edit_mob_equips' => 'my_page#edit_mob_equips'
+  match '/my_page/:user_id/:mob_id/update_mob_equips' => 'my_page#update_mob_equips', :via => :put
 
-  # my_page - item warehouse
-  match '/my_page/:user_id/item_index' => 'my_page#item_index'
-
-  # my_page - strategy
-  match '/my_page/:user_id/strategy_index' => 'my_page#strategy_index'
+  # my_page - squad
+  match '/my_page/:user_id/squad_index' => 'my_page#squad_index'
+  match '/my_page/:user_id/new_squad' => 'my_page#new_squad'
+  match '/my_page/:user_id/create_squad' => 'my_page#create_squad', :via => :post
+  match '/my_page/:user_id/:squad_id/edit_squad' => 'my_page#edit_squad'
+  match '/my_page/:user_id/:squad_id/update_squad' => 'my_page#update_squad', :via => :put
+  match '/my_page/:user_id/:squad_id/delete_squad' => 'my_page#delete_squad', :via => :delete
+  match '/my_page/:user_id/:job_id/select_mobs_to_assign' => 'my_page#select_mobs_to_assign'
+  match '/my_page/:user_id/:squad_id/:job_id/select_mobs_to_assign' => 'my_page#select_mobs_to_assign'
 
   # my_page - mission
   match '/my_page/:user_id/mission_index' => 'my_page#mission_index'
+  match '/my_page/:user_id/:mission_completed_flg/mission_index' => 'my_page#mission_index'
+  match '/my_page/:user_id/new_mission' => 'my_page#new_mission'
+  match '/my_page/:user_id/create_mission' => 'my_page#create_mission', :via => :post
+  match '/my_page/:user_id/:mission_id/edit_mission' => 'my_page#edit_mission'
+  match '/my_page/:user_id/:mission_id/update_mission' => 'my_page#update_mission', :via => :put
+  match '/my_page/:user_id/:mission_id/delete_mission' => 'my_page#delete_mission', :via => :delete
+
+  # my_page - strategy
+  match '/my_page/:user_id/strategy_index' => 'my_page#strategy_index'
+  match '/my_page/:user_id/new_strategy' => 'my_page#new_strategy'
+  match '/my_page/:user_id/create_strategy' => 'my_page#create_strategy', :via => :post
+  match '/my_page/:user_id/:strategy_id/edit_strategy' => 'my_page#edit_strategy'
+  match '/my_page/:user_id/:strategy_id/update_strategy' => 'my_page#update_strategy', :via => :put
+  match '/my_page/:user_id/:strategy_id/delete_strategy' => 'my_page#delete_strategy', :via => :delete
 
   # my_page - top
   match '/my_page/:user_id/top' => 'my_page#top'
@@ -119,11 +151,21 @@ HouddAlpha::Application.routes.draw do
   match '/admin_page/:family_id/select_specie' => 'admin_page#select_specie'
   match '/admin_page/:specie_id/edit_mutation_rate' => 'admin_page#edit_mutation_rate'
   match '/admin_page/:specie_id/update_mutation_rate' => 'admin_page#update_mutation_rate', :via => :put
-  match '/admin_page/:specie_id/edit_seed_mobs' => 'admin_page#edit_seed_mobs'
-  match '/admin_page/:specie_id/add_seed_mobs' => 'admin_page#add_seed_mobs', :via => :post
+  match '/admin_page/:specie_id/new_seed_mobs' => 'admin_page#new_seed_mobs'
+  match '/admin_page/:specie_id/create_seed_mobs' => 'admin_page#create_seed_mobs', :via => :post
+  match '/admin_page/:specie_id/assign_new_mobs' => 'admin_page#assign_new_mobs'
+  match '/admin_page/:specie_id/assign_mobs' => 'admin_page#assign_mobs', :via => :post
+  match '/admin_page/:specie_id/mate_new_mobs' => 'admin_page#mate_new_mobs'
+  match '/admin_page/:specie_id/mate_mobs' => 'admin_page#mate_mobs', :via => :post
+  match '/admin_page/:specie_id/split_new_mobs' => 'admin_page#split_new_mobs'
+  match '/admin_page/:specie_id/split_mobs' => 'admin_page#split_mobs', :via => :post
 
   # admin_page - data maintenance
   match '/admin_page/data_maintenance' => 'admin_page#data_maintenance'
+
+  # admin_page - queue maintenance
+  match '/admin_page/queue_maintenance' => 'admin_page#queue_maintenance'
+  match '/admin_page/update_queue' => 'admin_page#update_queue', :via => :put
 
   # admin_page - top
   match '/admin_page/top' => 'admin_page#top'

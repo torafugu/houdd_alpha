@@ -2,22 +2,26 @@
 
 <p>
   <b><%= label :mob, :houdd_user %>:</b>
-  <%= @mob.houdd_user %>
+  <%= @mob.houdd_user.name unless @mob.houdd_user.blank? %>
 </p>
 
 <p>
   <b><%= label :mob, :specie %>:</b>
-  <%= @mob.specie %>
+  <%= @mob.specie.name unless @mob.specie.blank? %>
 </p>
 
 <p>
   <b><%= label :mob, :father_id %>:</b>
-  <%= @mob.father_id %>
+  <% unless @mob.father.blank? %>
+  <%= link_to @mob.father.name, '/mobs/' + @mob.father.id.to_s, {:target => "_blank"} %>
+  <% end %>
 </p>
 
 <p>
   <b><%= label :mob, :mother_id %>:</b>
-  <%= @mob.mother_id %>
+  <% unless @mob.mother.blank? %>
+  <%= link_to @mob.mother.name, '/mobs/' + @mob.mother.id.to_s, {:target => "_blank"} %>
+  <% end %>
 </p>
 
 <p>
@@ -27,12 +31,12 @@
 
 <p>
   <b><%= label :mob, :job %>:</b>
-  <%= @mob.job %>
+  <%= @mob.job.name unless @mob.job.blank? %>
 </p>
 
 <p>
   <b><%= label :mob, :squad %>:</b>
-  <%= @mob.squad %>
+  <%= @mob.squad.name unless @mob.squad.blank? %>
 </p>
 
 <p>
@@ -42,7 +46,7 @@
 
 <p>
   <b><%= label :mob, :gender_sym %>:</b>
-  <%= @mob.gender_sym %>
+  <%= @mob.gender_sym_txt %>
 </p>
 
 <p>

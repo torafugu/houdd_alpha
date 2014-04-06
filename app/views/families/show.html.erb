@@ -10,6 +10,11 @@
   <%= @family.asexual_flg %>
 </p>
 
+<p>
+  <b><%= label :family, :skill %>:</b>
+  <%= @family.skill.name unless @family.skill.blank? %>
+</p>
+
 
 <%= link_to 'Edit', edit_family_path(@family) %> |
 <%= link_to 'Back', families_path %>

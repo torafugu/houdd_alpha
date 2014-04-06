@@ -1,0 +1,2 @@
+module JobSkillInvsHelper
+end

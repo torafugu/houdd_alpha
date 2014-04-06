@@ -1,14 +1,15 @@
-  <div id="sidebar">
+  <div id="my_sidebar">
     <h2>メニュー</h2>
     <ul>
       <li><%= link_to 'TOP', :controller => "my_page", :action => "top" %></a></li>
-      <li><%= link_to '生産管理', :controller => "my_page", :action => "production_que_index" %></a></li>
+      <li><%= link_to '生産管理', :controller => "my_page", :action => "production_queue_index" %></a></li>
       <li><%= link_to '領土', :controller => "my_page", :action => "mini_map_index" %></a></li>
       <li><%= link_to '研究', :controller => "my_page", :action => "research_index" %></li>
       <li><%= link_to 'アイテム生産', :controller => "my_page", :action => "select_product_item" %></a></li>
-      <li><%= link_to 'アイテム倉庫', :controller => "my_page", :action => "item_index" %></a></li>
+      <li><%= link_to 'アイテム倉庫', :controller => "my_page", :action => "item_warehouse_index" %></a></li>
       <li><%= link_to 'MOB', :controller => "my_page", :action => "mob_index" %></a></li>
-      <li><%= link_to '戦術', :controller => "my_page", :action => "strategy_index" %></a></li>
+      <li><%= link_to '部隊', :controller => "my_page", :action => "squad_index" %></a></li>
       <li><%= link_to 'ミッション', :controller => "my_page", :action => "mission_index" %></a></li>
+      <li><%= link_to '戦術', :controller => "my_page", :action => "strategy_index" %></a></li>
     </ul>
   </div>

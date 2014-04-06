@@ -2,20 +2,11 @@
 
 <table>
   <tr>
+    <th><%= label :job, :type_symbol %></th>
     <th><%= label :job, :name %></th>
     <th><%= label :job, :growth_penalty %></th>
     <th><%= label :job, :wepon_lvl %></th>
     <th><%= label :job, :armor_lvl %></th>
-    <th><%= label :job, :str_mod %></th>
-    <th><%= label :job, :dex_mod %></th>
-    <th><%= label :job, :con_mod %></th>
-    <th><%= label :job, :int_mod %></th>
-    <th><%= label :job, :wis_mod %></th>
-    <th><%= label :job, :cha_mod %></th>
-    <th><%= label :job, :ele_fw_mod %></th>
-    <th><%= label :job, :ele_ld_mod %></th>
-    <th><%= label :job, :phys_def_mod %></th>
-    <th><%= label :job, :skill_def_mod %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,20 +14,11 @@
 
 <% @jobs.each do |job| %>
   <tr>
+    <td><%= job.type_symbol_txt %></td>
     <td><%= job.name %></td>
     <td><%= job.growth_penalty %></td>
     <td><%= job.wepon_lvl %></td>
     <td><%= job.armor_lvl %></td>
-    <td><%= job.str_mod %></td>
-    <td><%= job.dex_mod %></td>
-    <td><%= job.con_mod %></td>
-    <td><%= job.int_mod %></td>
-    <td><%= job.wis_mod %></td>
-    <td><%= job.cha_mod %></td>
-    <td><%= job.ele_fw_mod %></td>
-    <td><%= job.ele_ld_mod %></td>
-    <td><%= job.phys_def_mod %></td>
-    <td><%= job.skill_def_mod %></td>
     <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td>

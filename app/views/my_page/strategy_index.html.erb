@@ -1,0 +1,31 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>戦術管理</h3>
+
+  <input id="new_strategy" type="button" value="新規戦術" /><br />
+  <br />
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>戦術名</th>
+        <th>採用ミッション数</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% unless @houdd_user.mission_strategies.blank? %>
+      <% @houdd_user.mission_strategies.each do |strategy| %>
+      <tr>
+        <td><%= strategy.name %></td>
+        <td><div class="number"><%= Mission.where(:mission_strategy_id => strategy.id).size %></div></td>
+        <td>
+          <%= link_to '再設定', strategy.id.to_s + "/edit_strategy" %>
+           <%= link_to '削除', strategy.id.to_s + "/delete_strategy", confirm: '本当に削除しますか?', method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

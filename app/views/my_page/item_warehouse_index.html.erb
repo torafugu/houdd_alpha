@@ -1,0 +1,7 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <h3>アイテム倉庫</h3>
+  アイテム種別：<%= select(:mypage, :inv_type_symbol, Params::ITEM_SYMBOL_DESCRIPTIONS, :include_blank => true) %><br />
+  <br />
+  <%= render 'inv_item_list' %><br />
+</div>

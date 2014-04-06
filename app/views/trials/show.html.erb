@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :trial, :mini_map %>:</b>
+  <%= @trial.mini_map %>
+</p>
+
+<p>
+  <b><%= label :trial, :map_name %>:</b>
+  <%= @trial.map_name %>
+</p>
+
+<p>
+  <b><%= label :trial, :guard_mission_id %>:</b>
+  <%= @trial.guard_mission_id %>
+</p>
+
+<p>
+  <b><%= label :trial, :intruder_mission_id %>:</b>
+  <%= @trial.intruder_mission_id %>
+</p>
+
+<p>
+  <b><%= label :trial, :occured_at %>:</b>
+  <%= @trial.occured_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_trial_path(@trial) %> |
+<%= link_to 'Back', trials_path %>

@@ -19,7 +19,8 @@ describe "species/new" do
       :phys_def => 1,
       :skill_def => 1,
       :ele_fw => 1,
-      :ele_ld => 1
+      :ele_ld => 1,
+      :skill => nil
     ).as_new_record)
   end
 
@@ -45,6 +46,7 @@ describe "species/new" do
       assert_select "input#specie_skill_def[name=?]", "specie[skill_def]"
       assert_select "input#specie_ele_fw[name=?]", "specie[ele_fw]"
       assert_select "input#specie_ele_ld[name=?]", "specie[ele_ld]"
+      assert_select "input#specie_skill[name=?]", "specie[skill]"
     end
   end
 end

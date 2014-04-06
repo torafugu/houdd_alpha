@@ -2,12 +2,12 @@
 
 <p>
   <b><%= label :squad, :houdd_user %>:</b>
-  <%= @squad.houdd_user %>
+  <%= @squad.houdd_user.name unless @squad.houdd_user.blank? %>
 </p>
 
 <p>
   <b><%= label :squad, :mini_map %>:</b>
-  <%= @squad.mini_map %>
+  <%= @squad.mini_map.name unless @squad.mini_map.blank? %>
 </p>
 
 <p>

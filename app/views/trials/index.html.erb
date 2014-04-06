@@ -1,0 +1,31 @@
+<h1>Listing trials</h1>
+
+<table>
+  <tr>
+    <th><%= label :trial, :mini_map %></th>
+    <th><%= label :trial, :map_name %></th>
+    <th><%= label :trial, :guard_mission_id %></th>
+    <th><%= label :trial, :intruder_mission_id %></th>
+    <th><%= label :trial, :occured_at %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trials.each do |trial| %>
+  <tr>
+    <td><%= trial.mini_map %></td>
+    <td><%= trial.map_name %></td>
+    <td><%= trial.guard_mission_id %></td>
+    <td><%= trial.intruder_mission_id %></td>
+    <td><%= trial.occured_at %></td>
+    <td><%= link_to 'Show', trial %></td>
+    <td><%= link_to 'Edit', edit_trial_path(trial) %></td>
+    <td><%= link_to 'Destroy', trial, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trial', new_trial_path %>

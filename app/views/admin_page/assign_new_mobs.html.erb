@@ -1,0 +1,23 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    新規MOBの配属中にエラーが発生しました。
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("新規MOBを配属しました。");
+  </script>
+   <% end %>
+
+  <h3 class="admin_normal">新規MOB配属(<%= @specie.name %>)</h3>
+  <br />
+  <%= form_tag :action => 'assign_mobs' do %>
+  ユーザー：<%= collection_select(:user, :id, HouddUser.find(:all), :id, :name) %><br />
+  配属数：<%= text_field_tag 'new_mobs_volume','',:class=>'number3' %><br />
+  <br />
+  <%= submit_tag "追加" %>
+  <% end %>
+</div>

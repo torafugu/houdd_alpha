@@ -2,9 +2,28 @@
 
 <table>
   <tr>
-    <th><%= label :skill, :skill_category %></th>
+    <th><%= label :skill, :id %></th>
+    <th><%= label :skill, :type_symbol %></th>
+    <th><%= label :skill, :element_symbol %></th>
     <th><%= label :skill, :name %></th>
     <th><%= label :skill, :sp_cost %></th>
+    <th><%= label :skill, :num_of_tgt %></th>
+    <th><%= label :skill, :hit_accuracy %></th>
+    <th><%= label :skill, :range %></th>
+    <th><%= label :skill, :damage %></th>
+    <th><%= label :skill, :heal %></th>
+    <th><%= label :skill, :str_mod %></th>
+    <th><%= label :skill, :dex_mod %></th>
+    <th><%= label :skill, :con_mod %></th>
+    <th><%= label :skill, :int_mod %></th>
+    <th><%= label :skill, :wis_mod %></th>
+    <th><%= label :skill, :cha_mod %></th>
+    <th><%= label :skill, :ele_fw_mod %></th>
+    <th><%= label :skill, :ele_ld_mod %></th>
+    <th><%= label :skill, :phys_def_mod %></th>
+    <th><%= label :skill, :skill_def_mod %></th>
+    <th><%= label :skill, :duration %></th>
+    <th><%= label :skill, :cast_cycle %></th>
     <th><%= label :skill, :research_level %></th>
     <th></th>
     <th></th>
@@ -13,9 +32,28 @@
 
 <% @skills.each do |skill| %>
   <tr>
-    <td><%= skill.skill_category.name unless skill.skill_category.blank? %></td>
+    <td><%= skill.id %></td>
+    <td><%= skill.type_symbol_txt %></td>
+    <td><%= skill.element_symbol_txt %></td>
     <td><%= skill.name %></td>
     <td><%= skill.sp_cost %></td>
+    <td><%= skill.num_of_tgt %></td>
+    <td><%= skill.hit_accuracy %></td>
+    <td><%= skill.range %></td>
+    <td><%= skill.damage %></td>
+    <td><%= skill.heal %></td>
+    <td><%= skill.str_mod %></td>
+    <td><%= skill.dex_mod %></td>
+    <td><%= skill.con_mod %></td>
+    <td><%= skill.int_mod %></td>
+    <td><%= skill.wis_mod %></td>
+    <td><%= skill.cha_mod %></td>
+    <td><%= skill.ele_fw_mod %></td>
+    <td><%= skill.ele_ld_mod %></td>
+    <td><%= skill.phys_def_mod %></td>
+    <td><%= skill.skill_def_mod %></td>
+    <td><%= skill.duration %></td>
+    <td><%= skill.cast_cycle %></td>
     <td><%= skill.research_level %></td>
     <td><%= link_to 'Show', skill %></td>
     <td><%= link_to 'Edit', edit_skill_path(skill) %></td>

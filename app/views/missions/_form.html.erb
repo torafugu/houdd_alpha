@@ -1,0 +1,45 @@
+<%= form_for(@mission) do |f| %>
+  <% if @mission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mission.errors.count, "error") %> prohibited this mission from being saved:</h2>
+
+      <ul>
+      <% @mission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :houdd_user %><br />
+    <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :mini_map %><br />
+    <%= f.collection_select(:mini_map_id, MiniMap.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :category_symbol %><br />
+    <%= f.select(:category_symbol, Params::MISSION_CATEGORY_SYMBOL_DESCRIPTIONS) %>
+  </div>
+  <div class="field">
+    <%= f.label :mission_strategy %><br />
+    <%= f.collection_select(:mission_strategy_id, MissionStrategy.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :status_symbol %><br />
+    <%= f.select(:status_symbol, Params::MISSION_STATUS_SYMBOL_DESCRIPTIONS) %>
+  </div>
+  <div class="field">
+    <%= f.label :start_houdd_time %><br />
+    <%= f.text_field :start_houdd_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_houdd_time %><br />
+    <%= f.text_field :end_houdd_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

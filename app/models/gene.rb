@@ -1,6 +1,10 @@
+# This class describes a gene of Mob.
 class Gene < ActiveRecord::Base
   belongs_to :specie
 
+  # Add another Gene attribute value.
+  # @param [Gene] other other Gene instance.
+  # @return [Gene] attribute added Gene instance.
   def +(other)
     return nil if specie_id != other.specie_id
 

@@ -1,23 +1,108 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= label :item_info, :item_category %>:</b>
-  <%= @item_info.item_category.name unless @item_info.item_category.blank? %>
+  <b><%= label :item_info, :type_symbol %>:</b>
+  <%= @item_info.type_symbol_txt %>
 </p>
 
 <p>
-  <b><%= label :item_info, :size %>:</b>
-  <%= @item_info.size %>
-</p>
-
-<p>
-  <b><%= label :item_info, :weight_level %>:</b>
-  <%= @item_info.weight_level %>
+  <b><%= label :item_info, :element_symbol %>:</b>
+  <%= @item_info.element_symbol_txt %>
 </p>
 
 <p>
   <b><%= label :item_info, :name %>:</b>
   <%= @item_info.name %>
+</p>
+
+<p>
+  <b><%= label :item_info, :num_of_tgt %>:</b>
+  <%= @item_info.num_of_tgt %>
+</p>
+
+<p>
+  <b><%= label :item_info, :hit_accuracy %>:</b>
+  <%= @item_info.hit_accuracy %>
+</p>
+
+<p>
+  <b><%= label :item_info, :range %>:</b>
+  <%= @item_info.range %>
+</p>
+
+<p>
+  <b><%= label :item_info, :damage %>:</b>
+  <%= @item_info.damage %>
+</p>
+
+<p>
+  <b><%= label :item_info, :heal %>:</b>
+  <%= @item_info.heal %>
+</p>
+
+<p>
+  <b><%= label :item_info, :str_mod %>:</b>
+  <%= @item_info.str_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :dex_mod %>:</b>
+  <%= @item_info.dex_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :con_mod %>:</b>
+  <%= @item_info.con_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :int_mod %>:</b>
+  <%= @item_info.int_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :wis_mod %>:</b>
+  <%= @item_info.wis_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :cha_mod %>:</b>
+  <%= @item_info.cha_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :ele_fw_mod %>:</b>
+  <%= @item_info.ele_fw_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :ele_ld_mod %>:</b>
+  <%= @item_info.ele_ld_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :phys_def_mod %>:</b>
+  <%= @item_info.phys_def_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :skill_def_mod %>:</b>
+  <%= @item_info.skill_def_mod %>
+</p>
+
+<p>
+  <b><%= label :item_info, :duration %>:</b>
+  <%= @item_info.duration %>
+</p>
+
+<p>
+  <b><%= label :item_info, :family %>:</b>
+  <%= @item_info.family.name unless @item_info.family.blank? %>
+</p>
+
+<p>
+  <b><%= label :item_info, :weight_level %>:</b>
+  <%= @item_info.weight_level %>
 </p>
 
 <p>
@@ -28,6 +113,11 @@
 <p>
   <b><%= label :item_info, :rq_prod_point %>:</b>
   <%= @item_info.rq_prod_point %>
+</p>
+
+<p>
+  <b><%= label :item_info, :atk_cycle %>:</b>
+  <%= @item_info.atk_cycle %>
 </p>
 
 <p>

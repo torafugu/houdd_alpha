@@ -1,21 +1,13 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :item, class: Item do
-    item_info_id 1
-    houdd_user_id 1
+  factory :item do
+    item_info nil
+    houdd_user nil
+    mob nil
     dp 1
     quality 1
-    built_point 0
+    built_point 1
     active_flg false
-  end
-
-  factory :item_active, class: Item do
-    item_info_id 1
-    houdd_user_id 1
-    dp 1
-    quality 1
-    built_point 10
-    active_flg true
   end
 end

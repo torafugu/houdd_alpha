@@ -19,6 +19,7 @@
     <th><%= label :specie, :skill_def %></th>
     <th><%= label :specie, :ele_fw %></th>
     <th><%= label :specie, :ele_ld %></th>
+    <th><%= label :specie, :skill %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -43,6 +44,7 @@
     <td><%= specie.skill_def %></td>
     <td><%= specie.ele_fw %></td>
     <td><%= specie.ele_ld %></td>
+    <td><%= specie.skill.name unless specie.skill.blank? %></td>
     <td><%= link_to 'Show', specie %></td>
     <td><%= link_to 'Edit', edit_specie_path(specie) %></td>
     <td><%= link_to 'Destroy', specie, confirm: 'Are you sure?', method: :delete %></td>

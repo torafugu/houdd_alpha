@@ -1,9 +1,27 @@
 class MobsController < ApplicationController
   # GET /mobs
   # GET /mobs.json
+  # GET /mobs/:user_id/:specie_id/index
+  # GET /mobs/:user_id/:specie_id/index.json
   def index
     @mob = Mob.new
-    @mobs = Mob.all
+    @mobs = Array.new
+
+    user_id = params[:user_id]
+    user_id = nil if user_id == '0'
+    @houdd_user_id = user_id
+
+    specie_id = params[:specie_id]
+    specie_id = nil if specie_id == '0'
+    @mob_specie_id = specie_id
+
+    if not user_id.blank? and not specie_id.blank?
+      @mobs = Mob.find_all_by_houdd_user_id_and_specie_id(user_id, specie_id)
+    elsif not user_id.blank?
+      @mobs = Mob.find_all_by_houdd_user_id(user_id)
+    elsif not specie_id.blank?
+      @mobs = Mob.find_all_by_specie_id(specie_id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,6 +97,15 @@ class MobsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to mobs_url }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /mobs/1/select_specie
+  def select_specie
+    @species = HouddUser.find(params[:user_id]).species.collect{|m| [m.name, m.id]}.insert(0, "")
+
+    respond_to do |format|
+      format.js # select_specie.js.coffee
     end
   end
 end

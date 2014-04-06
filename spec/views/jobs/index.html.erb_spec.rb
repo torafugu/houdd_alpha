@@ -4,6 +4,7 @@ describe "jobs/index" do
   before(:each) do
     assign(:jobs, [
       stub_model(Job,
+        :type_symbol => "Type Symbol",
         :name => "Name",
         :growth_penalty => 1.5,
         :wepon_lvl => 1,
@@ -20,6 +21,7 @@ describe "jobs/index" do
         :skill_def_mod => 1.5
       ),
       stub_model(Job,
+        :type_symbol => "Type Symbol",
         :name => "Name",
         :growth_penalty => 1.5,
         :wepon_lvl => 1,
@@ -41,6 +43,7 @@ describe "jobs/index" do
   it "renders a list of jobs" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Type Symbol".to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => 1.5.to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2

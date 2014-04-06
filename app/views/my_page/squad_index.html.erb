@@ -1,0 +1,35 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>部隊管理</h3>
+
+  <input id="new_squad" type="button" value="新規編成" /><br />
+  <br />
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>所属MOB数</th>
+        <th>現在地</th>
+        <th>ミッション</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% unless @houdd_user.squads.blank? %>
+      <% @houdd_user.squads.each do |squad| %>
+      <tr>
+        <td><%= squad.name %></td>
+        <td><div class="number"><%= squad.mobs.length %></div></td>
+        <td><%= squad.mini_map.name unless squad.mini_map.blank? %></td>
+        <td><%= squad.missions_txt %></td>
+        <td>
+          <%= link_to '再編成', squad.id.to_s + "/edit_squad" %>
+           <%= link_to '解散', squad.id.to_s + "/delete_squad", confirm: '本当に解散しますか?', method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

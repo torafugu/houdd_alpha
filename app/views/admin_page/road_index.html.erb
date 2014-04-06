@@ -1,20 +1,12 @@
 <%= render 'admin_page_menu' %>
 <div id="contents">
-  <% unless flash[:errors].blank? %>
-  <div id="error_explanation">
-    <h3>エラーが発生しました。</h3>
-    <ul>
-      <% flash[:errors].full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <h3>道路管理</h3>
+  <%= render :partial => 'layouts/edit_messages' %>
+  
+  <h3 class="admin_normal">道路管理</h3>
   マップ名：<%= @mini_map.name %><br />
   <br />
   <%= form_tag({:action => 'update_roads'}, {:method => :put}) do %>
-  <table class="normal">
+  <table class="admin_normal">
     <thead>
       <tr>
         <th>目的地</th>

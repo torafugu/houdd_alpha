@@ -1,0 +1,37 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>ミッション管理</h3>
+
+  <input id="new_mission" type="button" value="新規ミッション" />
+  未完了:<%= radio_button :mypage, :mission_completed, 'false', {:checked => @not_completed_flg} %>完了:<%= radio_button :mypage, :mission_completed, 'true', {:checked => @completed_flg} %>
+  <%= hidden_field_tag "mypage_houdd_user_id", @houdd_user.id %><br />
+  <br />
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>マップ</th>
+        <th>種類</th>
+        <th>参加部隊</th>
+        <th>状況</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% unless @missions.blank? %>
+      <% @missions.each do |mission| %>
+      <tr>
+        <td><%= mission.mini_map.name %></td>
+        <td><%= mission.category_symbol_txt %></td>
+        <td><%= mission.squads_txt %></td>
+        <td><%= mission.status_symbol_txt %></td>
+        <td>
+          <%= link_to '修正', "/my_page/" + @houdd_user.id.to_s + "/" + mission.id.to_s + "/edit_mission" %>
+           <%= link_to '中止', "/my_page/" + @houdd_user.id.to_s + "/" +mission.id.to_s + "/delete_mission", confirm: '本当に中止しますか?', method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

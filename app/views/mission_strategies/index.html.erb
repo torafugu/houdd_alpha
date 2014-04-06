@@ -1,0 +1,27 @@
+<h1>Listing mission_strategies</h1>
+
+<table>
+  <tr>
+    <th><%= label :mission_strategy, :houdd_user %></th>
+    <th><%= label :mission_strategy, :name %></th>
+    <th><%= label :mission_strategy, :script %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mission_strategies.each do |mission_strategy| %>
+  <tr>
+    <td><%= mission_strategy.houdd_user %></td>
+    <td><%= mission_strategy.name %></td>
+    <td><%= mission_strategy.script %></td>
+    <td><%= link_to 'Show', mission_strategy %></td>
+    <td><%= link_to 'Edit', edit_mission_strategy_path(mission_strategy) %></td>
+    <td><%= link_to 'Destroy', mission_strategy, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mission strategy', new_mission_strategy_path %>

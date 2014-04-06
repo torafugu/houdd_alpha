@@ -79,6 +79,10 @@
     <%= f.label :ele_ld %><br />
     <%= f.number_field :ele_ld %>
   </div>
+  <div class="field">
+    <%= f.label :skill %><br />
+    <%= f.collection_select(:skill_id, Skill.find(:all), :id, :name, :include_blank => true) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

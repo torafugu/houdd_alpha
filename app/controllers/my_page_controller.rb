@@ -1,4 +1,5 @@
 class MyPageController < ApplicationController
+
   # GET /my_page/1/top
   def top
     respond_to do |format|
@@ -6,37 +7,37 @@ class MyPageController < ApplicationController
     end
   end
 
-  # my_page - production_que
-  # GET /my_page/1/production_que_index
-  def production_que_index
+
+  # my_page - production_queue
+  # GET /my_page/1/production_queue_index
+  def production_queue_index
     @houdd_user = HouddUser.find(params[:user_id])
-    @production_ques = ProductionQue.find_all_by_houdd_user_id(params[:user_id], :order => 'priority, allotment')
+    @production_queues = ProductionQueue.find_all_by_houdd_user_id(params[:user_id], :order => 'priority, allotment')
 
     respond_to do |format|
-      format.html # production_que_index.html.erb
+      format.html # production_queue_index.html.erb
     end
   end
 
-  # PUT /my_page/1/update_production_ques
-  def update_production_ques
+  # PUT /my_page/1/update_production_queues
+  def update_production_queues
     @save_success_flg = true
-    ProductionQue.transaction do
-      for production_que in params[:production_ques]
-        unless production_que["id"].blank?
-          @production_que = ProductionQue.find(production_que["id"])
-          @save_success_flg = @production_que.update_attributes(production_que)
+    ProductionQueue.transaction do
+      for production_queue in params[:production_queues]
+        unless production_queue["id"].blank?
+          @production_queue = ProductionQueue.find(production_queue["id"])
+          @save_success_flg = @production_queue.update_attributes(production_queue)
         end
 
         if @save_success_flg
           @save_success_flg = false if HouddUser.find(params[:user_id]).remaining_production_total < 0
-          @production_que.errors[:base] << I18n.t('activerecord.errors.allotment_is_greater_than')
+          @production_queue.errors[:base] << I18n.t('activerecord.errors.allotment_is_greater_than')
         end
 
         unless @save_success_flg
           respond_to do |format|
-            flash[:errors] = @production_que.errors
-            format.html { redirect_to action: "production_que_index" }
-            format.json { render json: @production_que.errors, status: :created }
+            flash[:errors] = @production_queue.errors
+            format.html { redirect_to action: "production_queue_index" }
           end
           raise ActiveRecord::Rollback
           break
@@ -47,23 +48,23 @@ class MyPageController < ApplicationController
     if @save_success_flg
       respond_to do |format|
         flash[:success] = 'OK'
-        format.html { redirect_to action: "production_que_index" }
+        format.html { redirect_to action: "production_queue_index" }
       end
     end
   end
 
-  # DELETE /my_page/1/1/delete_production_que
-  def delete_production_que
-    create_production_que = ProductionQue.find(params[:que_id])
+  # DELETE /my_page/1/1/delete_production_queue
+  def delete_production_queue
+    create_production_queue = ProductionQueue.find(params[:queue_id])
 
-    destroy_production_que = ProductionQue.new
-    destroy_production_que.houdd_user_id = create_production_que.houdd_user_id
-    destroy_production_que.symbol = create_production_que.symbol
-    destroy_production_que.que_id = create_production_que.que_id
-    destroy_production_que.destroy_flg = true
+    destroy_production_queue = ProductionQueue.new
+    destroy_production_queue.houdd_user_id = create_production_queue.houdd_user_id
+    destroy_production_queue.symbol = create_production_queue.symbol
+    destroy_production_queue.queue_id = create_production_queue.queue_id
+    destroy_production_queue.destroy_flg = true
     
     respond_to do |format|
-      if create_production_que.destroy and destroy_production_que.save
+      if create_production_queue.destroy and destroy_production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
@@ -118,6 +119,111 @@ class MyPageController < ApplicationController
     end
   end
 
+  # GET /my_page/1/1/edit_fortress_squads
+  def edit_fortress_squads
+    @mini_map = MiniMap.find(params[:mini_map_id])
+    @mission = Mission.find_by_mini_map_id_and_category_symbol_and_status_symbol(@mini_map.id, :guard.to_s, :on_going.to_s)
+    @assignable_squads = MissionQueue.find_all_by_mission_id_and_priority(@mission.id, 1).collect{|l| [l.squad.name, l.squad.id]} unless @mission.blank?
+
+    respond_to do |format|
+      format.html # edit_fortress_squads.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/1/1/select_fortress_cell_squad
+  def select_fortress_cell_squad
+    @fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:fortress_x], params[:fortress_y])
+
+    respond_to do |format|
+      format.js # select_fortress_cell_squad.js.coffee
+    end
+  end
+
+  # PUT /my_page/1/1/put_squad
+  def put_squad
+    squad_id = params[:update_fortress_cell]['squad_id']
+    FortressCell.update_all('squad_id = null', ['squad_id = ?', squad_id])
+    fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:update_fortress_cell]['put_x'], params[:update_fortress_cell]['put_y'])
+    fortress_cell.squad_id = squad_id
+
+    respond_to do |format|
+      if fortress_cell.save
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = fortress_cell.errors
+      end
+      format.html { redirect_to action: "edit_fortress_squads" }
+    end
+  end
+
+  # PUT /my_page/1/1/take_squad
+  def take_squad
+    fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:update_fortress_cell]['take_x'], params[:update_fortress_cell]['take_y'])
+    fortress_cell.squad_id = nil
+
+    respond_to do |format|
+      if fortress_cell.save
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = fortress_cell.errors
+      end
+      format.html { redirect_to action: "edit_fortress_squads" }
+    end
+  end
+
+  # GET /my_page/1/1/edit_fortress_traps
+  def edit_fortress_traps
+    @mini_map = MiniMap.find(params[:mini_map_id])
+    @all_traps = Item.joins(:item_info => :item_category).where(['item_categories.type_symbol = ? and houdd_user_id = ?',:trap.to_s ,params[:user_id]]).collect{|t| [t.name, t.id]}
+    @installed_traps = FortressCell.joins(:mini_map).where(['mini_maps.houdd_user_id = ? and trap_id is not null', params[:user_id]]).collect{|t| [t.trap.name, t.trap_id]}
+    @stocked_traps = @all_traps - @installed_traps
+
+    respond_to do |format|
+      format.html # edit_fortress_traps.html.erb
+    end
+  end
+
+    # GET /my_page/1/1/1/1/select_fortress_cell_trap
+  def select_fortress_cell_trap
+    @fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:fortress_x], params[:fortress_y])
+
+    respond_to do |format|
+      format.js # select_fortress_cell_trap.js.coffee
+    end
+  end
+
+    # PUT /my_page/1/1/put_trap
+  def put_trap
+    trap_id = params[:update_fortress_cell]['trap_id']
+    FortressCell.update_all('trap_id = null', ['trap_id = ?', trap_id])
+    fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:update_fortress_cell]['put_x'], params[:update_fortress_cell]['put_y'])
+    fortress_cell.trap_id = trap_id
+
+    respond_to do |format|
+      if fortress_cell.save
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = fortress_cell.errors
+      end
+      format.html { redirect_to action: "edit_fortress_traps" }
+    end
+  end
+
+  # PUT /my_page/1/1/take_trap
+  def take_trap
+    fortress_cell = FortressCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:update_fortress_cell]['take_x'], params[:update_fortress_cell]['take_y'])
+    fortress_cell.trap_id = nil
+
+    respond_to do |format|
+      if fortress_cell.save
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = fortress_cell.errors
+      end
+      format.html { redirect_to action: "edit_fortress_traps" }
+    end
+  end
+
   # POST /my_page/1/1/new_construction
   def new_construction
     unless params[:update_map_cell]['mapchip_id'].blank?
@@ -125,15 +231,15 @@ class MyPageController < ApplicationController
       mini_map_cell.construction_id = params[:update_map_cell]['mapchip_id'].to_i
       mini_map_cell.built_point = 0
       mini_map_cell.active_flg = false
-      production_que = ProductionQue.new
-      production_que.houdd_user_id = params[:user_id].to_i
-      production_que.symbol = :mini_map_cell.to_s
-      production_que.que_id = mini_map_cell.id
-      production_que.destroy_flg = false
+      production_queue = ProductionQueue.new
+      production_queue.houdd_user_id = params[:user_id].to_i
+      production_queue.symbol = :mini_map_cell.to_s
+      production_queue.queue_id = mini_map_cell.id
+      production_queue.destroy_flg = false
     end
     
     respond_to do |format|
-      if mini_map_cell.save and production_que.save
+      if mini_map_cell.save and production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
@@ -144,20 +250,20 @@ class MyPageController < ApplicationController
   # DELETE /my_page/1/1/delete_construction
   def delete_construction
     mini_map_cell = MiniMapCell.find_by_mini_map_id_and_x_and_y(params[:mini_map_id], params[:update_map_cell]['x'], params[:update_map_cell]['y'])
-    create_production_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_cell.to_s, mini_map_cell.id, false)
-    create_production_que_destroy_flg = true
-    unless create_production_que.blank?
-      create_production_que_destroy_flg = create_production_que.destroy
+    create_production_queue = ProductionQueue.find_by_symbol_and_queue_id_and_destroy_flg(:mini_map_cell.to_s, mini_map_cell.id, false)
+    create_production_queue_destroy_flg = true
+    unless create_production_queue.blank?
+      create_production_queue_destroy_flg = create_production_queue.destroy
     end
 
-    destroy_production_que = ProductionQue.new
-    destroy_production_que.houdd_user_id = params[:user_id].to_i
-    destroy_production_que.symbol = :mini_map_cell.to_s
-    destroy_production_que.que_id = mini_map_cell.id
-    destroy_production_que.destroy_flg = true
+    destroy_production_queue = ProductionQueue.new
+    destroy_production_queue.houdd_user_id = params[:user_id].to_i
+    destroy_production_queue.symbol = :mini_map_cell.to_s
+    destroy_production_queue.queue_id = mini_map_cell.id
+    destroy_production_queue.destroy_flg = true
     
     respond_to do |format|
-      if create_production_que_destroy_flg and destroy_production_que.save
+      if create_production_queue_destroy_flg and destroy_production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
@@ -178,14 +284,14 @@ class MyPageController < ApplicationController
 
   # PUT /my_page/1/1/1/level_up_road
   def level_up_road
-    production_que = ProductionQue.new
-    production_que.houdd_user_id = params[:user_id].to_i
-    production_que.symbol = :mini_map_road.to_s
-    production_que.que_id = params[:road_id].to_i
-    production_que.destroy_flg = false
+    production_queue = ProductionQueue.new
+    production_queue.houdd_user_id = params[:user_id].to_i
+    production_queue.symbol = :mini_map_road.to_s
+    production_queue.queue_id = params[:road_id].to_i
+    production_queue.destroy_flg = false
     
     respond_to do |format|
-      if production_que.save
+      if production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
@@ -195,20 +301,20 @@ class MyPageController < ApplicationController
 
   # DELETE /my_page/1/1/1/delete_road
   def delete_road
-    create_production_que = ProductionQue.find_by_symbol_and_que_id_and_destroy_flg(:mini_map_road.to_s, params[:road_id], false)
-    create_production_que_destroy_flg = true
-    unless create_production_que.blank?
-      create_production_que_destroy_flg = create_production_que.destroy
+    create_production_queue = ProductionQueue.find_by_symbol_and_queue_id_and_destroy_flg(:mini_map_road.to_s, params[:road_id], false)
+    create_production_queue_destroy_flg = true
+    unless create_production_queue.blank?
+      create_production_queue_destroy_flg = create_production_queue.destroy
     end
 
-    destroy_production_que = ProductionQue.new
-    destroy_production_que.houdd_user_id = params[:user_id].to_i
-    destroy_production_que.symbol = :mini_map_road.to_s
-    destroy_production_que.que_id = params[:road_id].to_i
-    destroy_production_que.destroy_flg = true
+    destroy_production_queue = ProductionQueue.new
+    destroy_production_queue.houdd_user_id = params[:user_id].to_i
+    destroy_production_queue.symbol = :mini_map_road.to_s
+    destroy_production_queue.queue_id = params[:road_id].to_i
+    destroy_production_queue.destroy_flg = true
     
     respond_to do |format|
-      if create_production_que_destroy_flg and destroy_production_que.save
+      if create_production_queue_destroy_flg and destroy_production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
@@ -238,20 +344,21 @@ class MyPageController < ApplicationController
     mini_map_road.active_flg = false
     mini_map_road_save_status = mini_map_road.save
 
-    production_que = ProductionQue.new
-    production_que.houdd_user_id = params[:user_id].to_i
-    production_que.symbol = :mini_map_road.to_s
-    production_que.que_id = mini_map_road.id
-    production_que.destroy_flg = false 
+    production_queue = ProductionQueue.new
+    production_queue.houdd_user_id = params[:user_id].to_i
+    production_queue.symbol = :mini_map_road.to_s
+    production_queue.queue_id = mini_map_road.id
+    production_queue.destroy_flg = false 
     
     respond_to do |format|
-      if mini_map_road_save_status and production_que.save
+      if mini_map_road_save_status and production_queue.save
         format.json { head :no_content }
       else
         format.json { render json: 'Save was failed.', status: :unprocessable_entity }
       end
     end
   end
+
 
   # my_page - reserach
   # GET /my_page/1/research_index
@@ -300,8 +407,6 @@ class MyPageController < ApplicationController
   end
 
 
-
-
   # my_page - item manufacturing
   # GET /my_page/1/select_product_item
   def select_product_item
@@ -312,35 +417,25 @@ class MyPageController < ApplicationController
     end
   end
 
-  # GET /my_page/1/1/select_item_category
-  def select_item_category
-    @item_categories = ItemCategory.find_all_by_type_sym(params[:type_sym]).collect{|m| [m.name, m.id]}.insert(0, "")
-
-    respond_to do |format|
-      format.js # select_item_category.js.coffee
-    end
-  end
-
-  # GET /my_page/1/1/select_item_info
-  def select_item_info
+  # GET /my_page/1/1/select_item_type
+  def select_item_type
     houdd_user = HouddUser.find(params[:user_id])
-    item_category = ItemCategory.find(params[:item_category_id])
-    research = Research.find_by_houdd_user_id_and_symbol(houdd_user.id, item_category.type_sym)
+    research = Research.find_by_houdd_user_id_and_symbol(houdd_user.id, params[:type_symbol])
     @item_infos = Array.new
-    all_item_infos = ItemInfo.find_all_by_item_category_id(item_category.id, :conditions => ["research_level <= ?", research.level])
+    all_item_infos = ItemInfo.where(["type_symbol = ? and research_level <= ?", params[:type_symbol], research.level])
     all_item_infos.each do |item_info|
       @item_infos << item_info if item_info.rq_sp_resources_all.blank? or houdd_user.available_sp_resources?(item_info.rq_sp_resources_all)
     end
 
     respond_to do |format|
-      format.js # select_item_info.js.coffee
+      format.js # select_item_type.js.coffee
     end
   end
 
   # POST /my_page/1/new_item
   def new_item
     @save_success_flg = true
-    ProductionQue.transaction do
+    ProductionQueue.transaction do
       for product_item in params[:mypage]
         if product_item["production_volume"] =~ /^\d+$/
           product_item["production_volume"].to_i.times do
@@ -348,21 +443,22 @@ class MyPageController < ApplicationController
             item.item_info_id = product_item["item_info_id"].to_i
             item.houdd_user_id = params[:user_id].to_i
             item.active_flg = false
+            item.dp = item.item_info.max_dp
             item_save_status = item.save
-            production_que = ProductionQue.new
-            production_que.houdd_user_id = params[:user_id].to_i
-            production_que.symbol = :item.to_s
-            production_que.que_id = item.id
-            production_que.destroy_flg = false
+            production_queue = ProductionQueue.new
+            production_queue.houdd_user_id = params[:user_id].to_i
+            production_queue.symbol = :item.to_s
+            production_queue.queue_id = item.id
+            production_queue.destroy_flg = false
 
-            if not item_save_status or not production_que.save
+            if not item_save_status or not production_queue.save
               @save_success_flg = false
               errors = nil
               respond_to do |format|
                 if not item_save_status
                   errors = item.errors
                 else
-                  errors = production_que.errors
+                  errors = production_queue.errors
                 end
                 flash[:errors] = errors
                 format.html { redirect_to action: "select_product_item" }
@@ -385,6 +481,495 @@ class MyPageController < ApplicationController
   end
 
 
+  # my_page - item warehouse
+  # GET /my_page/1/item_warehouse_index
+  def item_warehouse_index
+    @houdd_user = HouddUser.find(params[:user_id])
 
+    respond_to do |format|
+      format.html # item_warehouse_index.html.erb
+    end
+  end
 
+  # GET /my_page/1/1/show_inv_items
+  def show_inv_items
+    @inv_items = Item.includes(:item_info).where(["item_infos.type_symbol = ?", params[:type_symbol].to_s])
+
+    respond_to do |format|
+      format.js # show_inv_items.js.coffee
+    end
+  end
+
+  # my_page - mobs
+  # GET /my_page/1/mob_index
+  def mob_index
+    @houdd_user = HouddUser.find(params[:user_id])
+
+    respond_to do |format|
+      format.html # mob_index.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/select_specie
+  def select_specie
+    @species = Specie.find_all_by_family_id(params[:family_id]).collect{|m| [m.name, m.id]}.insert(0, "")
+
+    respond_to do |format|
+      format.js # select_specie.js.coffee
+    end
+  end
+
+  # GET /my_page/1/1/show_mobs
+  def show_mobs
+    @mobs = Mob.find_all_by_houdd_user_id_and_specie_id(params[:user_id], params[:specie_id])
+
+    respond_to do |format|
+      format.js # show_mobs.js.coffee
+    end
+  end
+
+  # GET /my_page/1/1/edit_mob_equips
+  def edit_mob_equips
+    @mob = Mob.find(params[:mob_id])
+    @wepon_id = @mob.wepon.id unless @mob.wepon.blank?
+    @armor_id = @mob.armor.id unless @mob.armor.blank?
+
+    respond_to do |format|
+      format.html # edit_mob_equips.html.erb
+    end
+  end
+
+  # PUT /my_page/1/1/update_mob_equips
+  def update_mob_equips
+    @houdd_user = HouddUser.find(params[:user_id])
+
+    @errors = nil
+    unless params[:my_page]['wepon_id'].blank?
+      wepon_item = Item.find(params[:my_page]['wepon_id'])
+      wepon_item.mob_id = params[:mob_id]
+      if wepon_item.save
+        @errors = wepon_item.errors
+      end
+    end
+
+    if not params[:my_page]['armor_id'].blank? and @errors.blank?
+      armor_item = Item.find(params[:my_page]['armor_id'])
+      armor_item.mob_id = params[:mob_id]
+      if armor_item.save
+        @errors = armor_item.errors
+      end
+    end
+
+    respond_to do |format|
+      unless @errors.blank?
+        flash[:errors] = @errors
+        format.html { redirect_to action: "mob_index" }
+      else
+        format.html { redirect_to action: "mob_index" }
+        flash[:success] = 'OK'
+      end
+    end  
+  end
+
+  # my_page - squad
+  # GET /my_page/1/squad_index
+  def squad_index
+    @houdd_user = HouddUser.find(params[:user_id])
+
+    respond_to do |format|
+      format.html # squad_index.html.erb
+    end
+  end
+
+  # GET /my_page/1/new_squad
+  def new_squad
+    @houdd_user = HouddUser.find(params[:user_id])
+    @squad = Squad.new
+    @squad_index_url = "squad_index"
+    @free_mobs = Array.new
+    @assigned_mobs = Array.new
+
+    respond_to do |format|
+      format.html # new_squad.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/edit_squad
+  def edit_squad
+    @houdd_user = HouddUser.find(params[:user_id])
+    @squad = Squad.find(params[:squad_id])
+    @squad_index_url = "/my_page/" + @squad.houdd_user_id.to_s + "/squad_index"
+    @free_mobs = Array.new
+    @assigned_mobs = Mob.find_all_by_squad_id(params[:squad_id]).collect{|l| [l.name, l.id]}
+
+    respond_to do |format|
+      format.html # edit_squad.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/select_mobs_to_assign
+  def select_mobs_to_assign
+    @free_mobs = Mob.find_all_by_houdd_user_id_and_job_id_and_squad_id(params[:user_id], params[:job_id], nil).collect{|l| [l.name, l.id]}
+
+    respond_to do |format|
+      format.js # select_mobs_to_assign.js.coffee
+    end
+  end
+
+  # POST /my_page/1/create_squad
+  def create_squad
+    squad = Squad.new
+    squad.houdd_user_id = params[:user_id]
+    squad.name = params[:mypage_squad_name]
+    squad.mini_map_id = params[:my_page]['mini_map_id']
+
+    unless squad.save
+      respond_to do |format|
+        flash[:errors] = squad.errors
+        format.html { redirect_to action: "new_squad" }
+      end
+      return
+    end
+
+    assigned_mobs = params[:my_page]['assigned_mobs']
+    assigned_mobs.each do |mob_id|
+      unless mob_id.blank?
+        mob = Mob.find(mob_id)
+        mob.squad_id = squad.id
+        unless mob.save
+          respond_to do |format|
+            flash[:errors] = mob.errors
+            format.html { redirect_to action: "new_squad" }
+          end
+          raise ActiveRecord::Rollback
+          return
+        end
+      end
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "squad_index" }
+    end
+  end
+
+  # PUT /my_page/1/1/update_squad
+  def update_squad
+    squad = Squad.find(params[:squad_id])
+    squad.name = params[:mypage_squad_name]
+    squad.mini_map_id = params[:my_page]['mini_map_id']
+
+    unless squad.save
+      respond_to do |format|
+        flash[:errors] = squad.errors
+        format.html { redirect_to action: "edit_squad" }
+      end
+      return
+    end
+
+    squad.mobs.each do |mob|
+      mob.squad_id = nil
+      unless mob.save
+        respond_to do |format|
+          flash[:errors] = mob.errors
+          format.html { redirect_to action: "edit_squad" }
+        end
+        raise ActiveRecord::Rollback
+        return
+      end
+    end
+
+    assigned_mobs = params[:my_page]['assigned_mobs']
+    assigned_mobs.each do |mob_id|
+      unless mob_id.blank?
+        mob = Mob.find(mob_id)
+        mob.squad_id = squad.id
+        unless mob.save
+          respond_to do |format|
+            flash[:errors] = mob.errors
+            format.html { redirect_to action: "edit_squad" }
+          end
+          raise ActiveRecord::Rollback
+          return
+        end
+      end
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "squad_index" }
+    end
+  end
+
+  # DELETE /my_page/1/1/delete_squad
+  def delete_squad
+    @squad = Squad.find(params[:squad_id])
+    @squad.mobs.each do |mob|
+      mob.squad_id = nil
+      mob.save
+    end
+    @squad.mission_queues.each do |mission_queue|
+      mission_queue.destroy
+    end
+    @squad.destroy
+    
+    respond_to do |format|
+      if @squad.errors.blank?
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = @squad.errors
+      end
+      format.html { redirect_to action: "squad_index" }
+    end
+  end
+
+  # my_page - mission
+  # GET /my_page/1/mission_index
+  def mission_index
+    @houdd_user = HouddUser.find(params[:user_id])
+    @not_completed_flg = false
+    @completed_flg = false
+
+    if params[:mission_completed_flg] == '0'
+      @missions = Mission.all(:conditions => ["houdd_user_id = ? and status_symbol <> 'completed'", params[:user_id]])
+      @not_completed_flg = true
+    elsif params[:mission_completed_flg] == '1'
+      @missions = Mission.all(:conditions => ["houdd_user_id = ? and status_symbol = 'completed'", params[:user_id]])
+      @completed_flg = true
+    else
+      @missions = @houdd_user.missions
+    end
+
+    respond_to do |format|
+      format.html # mission_index.html.erb
+    end
+  end
+
+  # GET /my_page/1/new_mission
+  def new_mission
+    @houdd_user = HouddUser.find(params[:user_id])
+    @mission = Mission.new
+    @mission_index_url = "mission_index"
+    @free_squads = Squad.find_all_by_houdd_user_id(params[:user_id]).collect{|l| [l.name, l.id]}
+    @assigned_squads = Array.new
+
+    respond_to do |format|
+      format.html # new_mission.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/edit_mission
+  def edit_mission
+    @houdd_user = HouddUser.find(params[:user_id])
+    @mission = Mission.find(params[:mission_id])
+    @mission_index_url = "/my_page/" + @houdd_user.id.to_s + "/mission_index"
+    @assigned_squads = Squad.all(:include => :missions, :conditions => ["missions.id = ?", params[:mission_id]]).collect{|l| [l.name, l.id]}
+    @free_squads = Squad.find_all_by_houdd_user_id(params[:user_id]).collect{|l| [l.name, l.id]} - @assigned_squads
+    
+    respond_to do |format|
+      format.html # edit_mission.html.erb
+    end
+  end
+
+  # POST /my_page/1/create_mission
+  def create_mission
+    mission = Mission.new
+    mission.houdd_user_id = params[:user_id]
+    mission.mini_map_id = params[:my_page]['mini_map_id']
+    mission.category_symbol = params[:my_page]['category_symbol']
+    mission.status_symbol = :not_start.to_s
+    mission.mission_strategy_id = params[:my_page]['mission_strategy_id']
+    mission.start_houdd_time = params[:mypage_start_houdd_time]
+    mission.end_houdd_time = params[:mypage_end_houdd_time]
+
+    unless mission.save
+      respond_to do |format|
+        flash[:errors] = mission.errors
+        format.html { redirect_to action: "new_mission" }
+      end
+      return
+    end
+
+    assigned_squads = params[:my_page]['assigned_squads']
+    assigned_squads.each do |squad_id|
+      unless squad_id.blank?
+        mission_queue = MissionQueue.new
+        mission_queue.mission_id = mission.id
+        mission_queue.squad_id = squad_id
+        mission_queue.priority = 1
+        unless mission_queue.save
+          respond_to do |format|
+            flash[:errors] = mission_queue.errors
+            format.html { redirect_to action: "new_mission" }
+          end
+          raise ActiveRecord::Rollback
+          break
+        end
+      end
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "mission_index" }
+    end
+  end
+
+  # PUT /my_page/1/1/update_mission
+  def update_mission
+    mission = Mission.find(params[:mission_id])
+    mission.houdd_user_id = params[:user_id]
+    mission.mini_map_id = params[:my_page]['mini_map_id']
+    mission.category_symbol = params[:my_page]['category_symbol']
+    mission.status_symbol = :not_start.to_s
+    mission.mission_strategy_id = params[:my_page]['mission_strategy_id']
+    mission.start_houdd_time = params[:mypage_start_houdd_time]
+    mission.end_houdd_time = params[:mypage_end_houdd_time]
+
+    unless mission.save
+      respond_to do |format|
+        flash[:errors] = mission.errors
+        format.html { redirect_to action: "edit_mission" }
+      end
+      return
+    end
+
+    unless MissionQueue.destroy_all(:mission_id => params[:mission_id])
+      respond_to do |format|
+        flash[:errors] = MissionQueue.errors
+        format.html { redirect_to action: "edit_mission" }
+      end
+      raise ActiveRecord::Rollback
+      return
+    end
+
+    assigned_squads = params[:my_page]['assigned_squads']
+    assigned_squads.each do |squad_id|
+      unless squad_id.blank?
+        mission_queue = MissionQueue.new
+        mission_queue.mission_id = mission.id
+        mission_queue.squad_id = squad_id
+        mission_queue.priority = 1
+        unless mission_queue.save
+          respond_to do |format|
+            flash[:errors] = mission_queue.errors
+            format.html { redirect_to action: "edit_mission" }
+          end
+          raise ActiveRecord::Rollback
+          break
+        end
+      end
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "mission_index" }
+    end
+  end
+
+  # DELETE /my_page/1/1/delete_mission
+  def delete_mission
+    @mission = Mission.find(params[:mission_id])
+    @mission.mission_queues.each do |mission_queue|
+      mission_queue.destroy
+    end
+    @mission.destroy
+    
+    respond_to do |format|
+      if @mission.errors.blank?
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = @mission.errors
+      end
+      format.html { redirect_to action: "mission_index" }
+    end
+  end
+
+  # my_page - strategy
+  # GET /my_page/1/strategy_index
+  def strategy_index
+    @houdd_user = HouddUser.find(params[:user_id])
+
+    respond_to do |format|
+      format.html # strategy_index.html.erb
+    end
+  end
+
+  # GET /my_page/1/new_strategy
+  def new_strategy
+    @houdd_user = HouddUser.find(params[:user_id])
+    @strategy = MissionStrategy.new
+    @strategy_index_url = "strategy_index"
+
+    respond_to do |format|
+      format.html # new_strategy.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/edit_strategy
+  def edit_strategy
+    @houdd_user = HouddUser.find(params[:user_id])
+    @strategy = MissionStrategy.find(params[:strategy_id])
+    @strategy_index_url = "/my_page/" + @houdd_user.id.to_s + "/strategy_index"
+
+    respond_to do |format|
+      format.html # edit_strategy.html.erb
+    end
+  end
+
+  # POST /my_page/1/create_strategy
+  def create_strategy
+    strategy = MissionStrategy.new
+    strategy.houdd_user_id = params[:user_id]
+    strategy.name = params[:mypage]['name']
+    strategy.script = params[:mypage]['script']
+
+    unless strategy.save
+      respond_to do |format|
+        flash[:errors] = strategy.errors
+        format.html { redirect_to action: "new_strategy" }
+      end
+      return
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "strategy_index" }
+    end
+  end
+
+  # PUT /my_page/1/1/update_strategy
+  def update_strategy
+    strategy = MissionStrategy.find(params[:strategy_id])
+    strategy.houdd_user_id = params[:user_id]
+    strategy.name = params[:mypage]['name']
+    strategy.script = params[:mypage]['script']
+
+    unless strategy.save
+      respond_to do |format|
+        flash[:errors] = strategy.errors
+        format.html { redirect_to action: "edit_strategy" }
+      end
+      return
+    end
+
+    respond_to do |format|
+      flash[:success] = 'OK'
+      format.html { redirect_to action: "strategy_index" }
+    end
+  end
+
+  # DELETE /my_page/1/1/delete_strategy
+  def delete_strategy
+    strategy = MissionStrategy.find(params[:strategy_id])
+    strategy.destroy
+    
+    respond_to do |format|
+      if strategy.errors.blank?
+        flash[:success] = 'OK'
+      else
+        flash[:errors] = strategy.errors
+      end
+      format.html { redirect_to action: "strategy_index" }
+    end
+  end
 end

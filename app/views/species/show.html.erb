@@ -85,6 +85,11 @@
   <%= @specie.ele_ld %>
 </p>
 
+<p>
+  <b><%= label :specie, :skill %>:</b>
+  <%= @specie.skill.name unless @specie.skill.blank? %>
+</p>
+
 
 <%= link_to 'Edit', edit_specie_path(@specie) %> |
 <%= link_to 'Back', species_path %>

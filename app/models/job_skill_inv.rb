@@ -1,4 +1,5 @@
-class JobSkillInv < SkillInv
+# Inventory class of Job and Skill.
+class JobSkillInv < ActiveRecord::Base
   belongs_to :skill
-  belongs_to :job, :class_name => 'Job', :foreign_key => :owner_id
+  belongs_to :job
 end

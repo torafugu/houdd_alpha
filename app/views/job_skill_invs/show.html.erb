@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :job_skill_inv, :skill %>:</b>
+  <%= @job_skill_inv.skill.name unless @job_skill_inv.skill.blank? %>
+</p>
+
+<p>
+  <b><%= label :job_skill_inv, :job %>:</b>
+  <%= @job_skill_inv.job.name unless @job_skill_inv.job.blank? %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_skill_inv_path(@job_skill_inv) %> |
+<%= link_to 'Back', job_skill_invs_path %>

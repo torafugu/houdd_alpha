@@ -12,8 +12,8 @@
 
 <% @squads.each do |squad| %>
   <tr>
-    <td><%= squad.houdd_user %></td>
-    <td><%= squad.mini_map %></td>
+    <td><%= squad.houdd_user.name unless squad.houdd_user.blank? %></td>
+    <td><%= squad.mini_map.name unless squad.mini_map.blank? %></td>
     <td><%= squad.name %></td>
     <td><%= link_to 'Show', squad %></td>
     <td><%= link_to 'Edit', edit_squad_path(squad) %></td>

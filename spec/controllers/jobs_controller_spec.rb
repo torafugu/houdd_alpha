@@ -23,7 +23,7 @@ describe JobsController do
   # This should return the minimal set of attributes required to create a valid
   # Job. As you add validations to Job, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { "type_symbol" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe JobsController do
       it "assigns a newly created but unsaved job as @job" do
         # Trigger the behavior that occurs when invalid params are submitted
         Job.any_instance.stub(:save).and_return(false)
-        post :create, {:job => { "name" => "invalid value" }}, valid_session
+        post :create, {:job => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:job).should be_a_new(Job)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Job.any_instance.stub(:save).and_return(false)
-        post :create, {:job => { "name" => "invalid value" }}, valid_session
+        post :create, {:job => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe JobsController do
         # specifies that the Job created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Job.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
-        put :update, {:id => job.to_param, :job => { "name" => "MyString" }}, valid_session
+        Job.any_instance.should_receive(:update_attributes).with({ "type_symbol" => "MyString" })
+        put :update, {:id => job.to_param, :job => { "type_symbol" => "MyString" }}, valid_session
       end
 
       it "assigns the requested job as @job" do
@@ -128,7 +128,7 @@ describe JobsController do
         job = Job.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Job.any_instance.stub(:save).and_return(false)
-        put :update, {:id => job.to_param, :job => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => job.to_param, :job => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:job).should eq(job)
       end
 
@@ -136,7 +136,7 @@ describe JobsController do
         job = Job.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Job.any_instance.stub(:save).and_return(false)
-        put :update, {:id => job.to_param, :job => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => job.to_param, :job => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

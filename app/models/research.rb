@@ -1,3 +1,4 @@
+# This class describes a research.
 class Research < ActiveRecord::Base
   belongs_to :houdd_user
 
@@ -12,7 +13,7 @@ class Research < ActiveRecord::Base
     return I18n.t('activerecord.attributes.research.' + symbol)
   end
 
-  # Return the complete date of que item.
+  # Return the complete date of queue item.
   # @return [String]
   def complete_date_txt
     return nil if allotment == 0

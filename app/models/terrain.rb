@@ -1,3 +1,4 @@
+# This class describes a terrain.
 class Terrain < ActiveRecord::Base
   has_many :sp_resources
   has_many :constructions

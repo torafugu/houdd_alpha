@@ -1,7 +1,12 @@
+# This class describes an user of Houdd.
 class HouddUser < ActiveRecord::Base
   has_many :mini_maps
   has_many :researches
-  has_many :production_ques
+  has_many :production_queues
+  has_many :mobs
+  has_many :squads
+  has_many :missions
+  has_many :mission_strategies
 
   validates :name, :presence => true
   validates :login_id, format: { with: /\A[a-zA-Z1-9]+\z/ }
@@ -16,6 +21,44 @@ class HouddUser < ActiveRecord::Base
     if not allot_for_item.blank? and not allot_for_const.blank? and not allot_for_research.blank?
       errors.add(:base, I18n.t('activerecord.errors.models.houdd_user.attributes.allotment_is_not_100')) if (allot_for_item + allot_for_const + allot_for_research) != 100
     end
+  end
+
+  # Return species which belong to user.
+  # @return [Array<Specie>]
+  def species
+    species = Array.new
+
+    mobs.each do |mob|
+      species << mob.specie
+    end
+
+    return species.uniq
+  end
+
+  # Return sexual species which belong to user.
+  # 'Sexual specie' means speice can create new mob by mating.
+  # @return [Array<Specie>]
+  def sexual_species
+    species = Array.new
+
+    mobs.each do |mob|
+      species << mob.specie if not mob.asexual?
+    end
+
+    return species.uniq
+  end
+
+  # Return asexual species which belong to user.
+  # 'Asexual specie' means speice can create new mob by splitting.
+  # @return [Array<Specie>]
+  def asexual_species
+    species = Array.new
+
+    mobs.each do |mob|
+      species << mob.specie if mob.asexual?
+    end
+
+    return species.uniq
   end
 
   # Return the total number of foods in mini_maps.
@@ -38,12 +81,12 @@ class HouddUser < ActiveRecord::Base
     return productions_total
   end
 
-  # Return the allotment total of production_ques.
+  # Return the allotment total of production_queues.
   # @return [Integer]
-  def allotment_total_of_production_que
+  def allotment_total_of_production_queue
     allotment_total = 0
-    production_ques.each do |production_que|
-      allotment_total += production_que.allotment
+    production_queues.each do |production_queue|
+      allotment_total += production_queue.allotment unless production_queue.allotment.blank?
     end
     return allotment_total
   end
@@ -53,7 +96,7 @@ class HouddUser < ActiveRecord::Base
   def allotment_total_of_research
     allotment_total = 0
     researches.each do |research|
-      allotment_total += research.allotment
+      allotment_total += research.allotment unless research.allotment.blank?
     end
     return allotment_total
   end
@@ -61,7 +104,7 @@ class HouddUser < ActiveRecord::Base
   # Return the total number of remaining productions.
   # @return [Integer]
   def remaining_production_total
-    return productions_total - allotment_total_of_production_que - allotment_total_of_research
+    return productions_total - allotment_total_of_production_queue - allotment_total_of_research
   end
 
   # Return the total number of moneys in mini_maps.
@@ -85,7 +128,7 @@ class HouddUser < ActiveRecord::Base
   end
 
   # Return true or false by whether passed sp_resources are available or not.
-  # @param [Array] array of sp_resource
+  # @param [Array<Object>] sp_resources Array of sp_resource
   # @return [Boolean]
   def available_sp_resources?(sp_resources)
     return sp_resources_all.include?(sp_resources)

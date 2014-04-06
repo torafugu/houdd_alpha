@@ -1,0 +1,49 @@
+<table>
+<tr>
+  <td>マップ：</td>
+  <td>
+    <%= hidden_field_tag "mypage_mission_index_url", @mission_index_url %>
+    <%= collection_select(:my_page, :mini_map_id, MiniMap.all, :id, :name, :selected => @mission.mini_map_id) %>
+  </td>
+</tr>
+<tr>
+  <td>種類：</td>
+  <td>
+    <%= select(:my_page, :category_symbol, Params::MISSION_CATEGORY_SYMBOL_DESCRIPTIONS, :selected => @mission.category_symbol) %>
+  </td>
+</tr>
+<tr>
+  <td>戦術：</td>
+  <td>
+    <%= collection_select(:my_page, :mission_strategy_id, @houdd_user.mission_strategies, :id, :name, :selected => @mission.mission_strategy_id, :include_blank => true) %>
+  </td>
+</tr>
+<tr>
+  <td>開始日時：</td>
+  <td>
+    <%= text_field_tag "mypage_start_houdd_time", @mission.start_houdd_time %>
+  </td>
+</tr>
+<tr>
+  <td>終了日時：</td>
+  <td>
+    <%= text_field_tag "mypage_end_houdd_time", @mission.end_houdd_time %>
+  </td>
+</tr>
+<tr>
+  <td style="vertical-align: top;">部隊：</td>
+  <td>
+    <div id='to_assign'>
+      <%= select(:my_page, :free_squads, @free_squads, {}, {:multiple => true, :size => @free_squads.size}) %>
+    </div>
+    <div id='arrow'>
+      <input id="btn_squad_move_right" type="button" value="→" /><br />
+      <input id="btn_squad_move_left" type="button" value="←" />
+    </div>
+    <div id='assigned'>
+      <%= select(:my_page, :assigned_squads, @assigned_squads, {}, {:multiple => true, :size => @assigned_squads.size}) %>
+    </div>
+  </td>
+</tr>
+</table>
+

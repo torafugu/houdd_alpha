@@ -2,12 +2,30 @@
 
 <table>
   <tr>
-    <th><%= label :item_info, :item_category %></th>
-    <th><%= label :item_info, :size %></th>
-    <th><%= label :item_info, :weight_level %></th>
+    <th><%= label :item_info, :type_symbol %></th>
+    <th><%= label :item_info, :element_symbol %></th>
     <th><%= label :item_info, :name %></th>
+    <th><%= label :item_info, :num_of_tgt %></th>
+    <th><%= label :item_info, :hit_accuracy %></th>
+    <th><%= label :item_info, :range %></th>
+    <th><%= label :item_info, :damage %></th>
+    <th><%= label :item_info, :heal %></th>
+    <th><%= label :item_info, :str_mod %></th>
+    <th><%= label :item_info, :dex_mod %></th>
+    <th><%= label :item_info, :con_mod %></th>
+    <th><%= label :item_info, :int_mod %></th>
+    <th><%= label :item_info, :wis_mod %></th>
+    <th><%= label :item_info, :cha_mod %></th>
+    <th><%= label :item_info, :ele_fw_mod %></th>
+    <th><%= label :item_info, :ele_ld_mod %></th>
+    <th><%= label :item_info, :phys_def_mod %></th>
+    <th><%= label :item_info, :skill_def_mod %></th>
+    <th><%= label :item_info, :duration %></th>
+    <th><%= label :item_info, :family %></th>
+    <th><%= label :item_info, :weight_level %></th>
     <th><%= label :item_info, :max_dp %></th>
     <th><%= label :item_info, :rq_prod_point %></th>
+    <th><%= label :item_info, :atk_cycle %></th>
     <th><%= label :item_info, :research_level %></th>
     <th></th>
     <th></th>
@@ -16,12 +34,30 @@
 
 <% @item_infos.each do |item_info| %>
   <tr>
-    <td><%= item_info.item_category.name unless item_info.item_category.blank? %></td>
-    <td><%= item_info.size %></td>
-    <td><%= item_info.weight_level %></td>
+    <td><%= item_info.type_symbol_txt %></td>
+    <td><%= item_info.element_symbol_txt %></td>
     <td><%= item_info.name %></td>
+    <td><%= item_info.num_of_tgt %></td>
+    <td><%= item_info.hit_accuracy %></td>
+    <td><%= item_info.range %></td>
+    <td><%= item_info.damage %></td>
+    <td><%= item_info.heal %></td>
+    <td><%= item_info.str_mod %></td>
+    <td><%= item_info.dex_mod %></td>
+    <td><%= item_info.con_mod %></td>
+    <td><%= item_info.int_mod %></td>
+    <td><%= item_info.wis_mod %></td>
+    <td><%= item_info.cha_mod %></td>
+    <td><%= item_info.ele_fw_mod %></td>
+    <td><%= item_info.ele_ld_mod %></td>
+    <td><%= item_info.phys_def_mod %></td>
+    <td><%= item_info.skill_def_mod %></td>
+    <td><%= item_info.duration %></td>
+    <td><%= item_info.family.name unless item_info.family.blank? %></td>
+    <td><%= item_info.weight_level %></td>
     <td><%= item_info.max_dp %></td>
     <td><%= item_info.rq_prod_point %></td>
+    <td><%= item_info.atk_cycle %></td>
     <td><%= item_info.research_level %></td>
     <td><%= link_to 'Show', item_info %></td>
     <td><%= link_to 'Edit', edit_item_info_path(item_info) %></td>

@@ -28,4 +28,18 @@ input.number3 {
 
 div.number {  
   text-align: right;  
-} 
+}
+
+ol {
+  margin-left: 0em;
+  padding-left : 2em;
+}
+
+li {
+  margin-left: 0em;
+  padding-left : 0em;
+}
+
+form {
+  display: inline;
+}

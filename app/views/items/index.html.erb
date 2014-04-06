@@ -4,6 +4,7 @@
   <tr>
     <th><%= label :item, :item_info %></th>
     <th><%= label :item, :houdd_user %></th>
+    <th><%= label :item, :mob %></th>
     <th><%= label :item, :dp %></th>
     <th><%= label :item, :quality %></th>
     <th><%= label :item, :built_point %></th>
@@ -17,6 +18,7 @@
   <tr>
     <td><%= item.item_info.name unless item.item_info.blank? %></td>
     <td><%= item.houdd_user.name unless item.houdd_user.blank? %></td>
+    <td><%= item.mob.name unless item.mob.blank? %></td>
     <td><%= item.dp %></td>
     <td><%= item.quality %></td>
     <td><%= item.built_point %></td>

@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :houdd_user %><br />
-    <%= f.text_field :houdd_user %>
+    <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :specie %><br />
-    <%= f.text_field :specie %>
+    <%= f.collection_select(:specie_id, Specie.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :father_id %><br />
@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :job %><br />
-    <%= f.text_field :job %>
+    <%= f.collection_select(:job_id, Job.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :squad %><br />
-    <%= f.text_field :squad %>
+    <%= f.collection_select(:squad_id, Squad.find(:all), :id, :name, :include_blank => true) %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :gender_sym %><br />
-    <%= f.text_field :gender_sym %>
+    <%= f.select :gender_sym, Params::GENDER_SYMBOL_DESCRIPTIONS %>
   </div>
   <div class="field">
     <%= f.label :age %><br />

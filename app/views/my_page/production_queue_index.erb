@@ -1,0 +1,59 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+
+  <h3>生産管理</h3>
+  総生産工数：<%= @houdd_user.productions_total %>
+   (アイテム製造：<%= @houdd_user.allotment_total_of_production_queue %>, 研究：<%= @houdd_user.allotment_total_of_research %>)<br />
+  未割り当て工数：<%= @houdd_user.remaining_production_total %><br />
+  <br />
+  <%= form_tag({:action => 'update_production_queues'}, {:method => :put}) do %>
+  <table class="normal">
+    <thead>
+      <tr>
+        <th>生産物</th>
+        <th>状態</th>
+        <th>生産工数</th>
+        <th>優先順位</th>
+        <th>蓄積ポイント</th>
+        <th>完了予定</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for production_queue in @production_queues %>
+      <tr>
+        <td>
+          <%= hidden_field_tag("production_queues[][id]", production_queue.id) %>
+          <%= production_queue.item_txt %>
+        </td>
+        <td><%= production_queue.status_txt %></td>
+        <td>
+          <div class="number">
+            <%= text_field_tag("production_queues[][allotment]", production_queue.allotment, :class=>'number4') %>
+          </div>
+        </td>
+        <td>
+          <div class="number">
+            <%= text_field_tag("production_queues[][priority]", production_queue.priority, :class=>'number3') %>
+          </div>
+        </td>
+        <td>
+          <div class="number"><%= production_queue.queue_item.rq_prod_point %>/<%= production_queue.queue_item.built_point %></div>
+        </td>
+        <td>
+          <%= production_queue.complete_date_txt %>
+        </td>
+        <td>
+          <input id="delete_production_queue_<%= production_queue.id %>" type="button" value="削除" <% if production_queue.destroy_flg %> disabled <% end %> />
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <div class='indent1'>
+    <%= submit_tag "更新", confirm: '更新してよろしいですか?' %>
+  </div>
+  <% end %>
+</div>

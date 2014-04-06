@@ -1,3 +1,4 @@
+# Factory class of MiniMap.
 class MiniMapCreator
 
   # Create random map cells.

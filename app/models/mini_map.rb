@@ -1,8 +1,10 @@
+# This class describes a mini map.
 class MiniMap < ActiveRecord::Base
   belongs_to :houdd_user
   has_many :mini_map_cells
   has_many :mini_map_roads, :foreign_key => 'start_mini_map_id', :class_name => "MiniMapRoad"
   has_many :fortress_cells
+  has_many :missions
 
   validates :houdd_user_id, :presence => true
   validates :name, :presence => true, :uniqueness => true
@@ -88,8 +90,8 @@ class MiniMap < ActiveRecord::Base
   # Return true of false whether new root find trial is already execited or not.
   # @return [Boolean]
   def finding_new_road?
-    new_root_find_que = ProductionQue.find_by_symbol_and_que_id(:new_root_find.to_s, id)
-    return true unless new_root_find_que.blank?
+    new_root_find_queue = ProductionQueue.find_by_symbol_and_queue_id(:new_root_find.to_s, id)
+    return true unless new_root_find_queue.blank?
     return false
   end
 
@@ -108,10 +110,41 @@ class MiniMap < ActiveRecord::Base
   end
 
   # Return true or false whether fortress_cells is blank or not.
-  # @return [Boolean]
+  # @return [Integer]
   def fortress_status
     return false if fortress_cells.blank?
     return true
+  end
+
+  # Return the number of squads which are assigned to the fortress on this map.
+  # @return [Boolean]
+  def fortress_squads_num
+    return 0 unless fortress_status
+    squads = Array.new
+    fortress_cells.each do |cell|
+      squads << cell.squad unless cell.squad_id.blank?
+    end
+    return squads.size
+  end
+
+  # Return the number of traps which are installed to the fortress on this map.
+  # @return [Boolean]
+  def fortress_traps_num
+    return 0 unless fortress_status
+    traps = Array.new
+    fortress_cells.each do |cell|
+      traps << cell.squad unless cell.squad_id.blank?
+    end
+    return traps.size
+  end
+
+  # Return true or false whether guard mission for this mini map is existing or not.
+  # @return [Boolean]
+  def guard_mission_active?
+    missions.each do |mission|
+      return true if mission.category_symbol == :guard.to_s and mission.status_symbol == :on_going.to_s
+    end
+    return false
   end
 
   after_save :create_road_to_hq

@@ -23,7 +23,7 @@ describe ItemInfosController do
   # This should return the minimal set of attributes required to create a valid
   # ItemInfo. As you add validations to ItemInfo, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "item_category" => "" } }
+  let(:valid_attributes) { { "type_symbol" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe ItemInfosController do
       it "assigns a newly created but unsaved item_info as @item_info" do
         # Trigger the behavior that occurs when invalid params are submitted
         ItemInfo.any_instance.stub(:save).and_return(false)
-        post :create, {:item_info => { "item_category" => "invalid value" }}, valid_session
+        post :create, {:item_info => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:item_info).should be_a_new(ItemInfo)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         ItemInfo.any_instance.stub(:save).and_return(false)
-        post :create, {:item_info => { "item_category" => "invalid value" }}, valid_session
+        post :create, {:item_info => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe ItemInfosController do
         # specifies that the ItemInfo created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ItemInfo.any_instance.should_receive(:update_attributes).with({ "item_category" => "" })
-        put :update, {:id => item_info.to_param, :item_info => { "item_category" => "" }}, valid_session
+        ItemInfo.any_instance.should_receive(:update_attributes).with({ "type_symbol" => "MyString" })
+        put :update, {:id => item_info.to_param, :item_info => { "type_symbol" => "MyString" }}, valid_session
       end
 
       it "assigns the requested item_info as @item_info" do
@@ -128,7 +128,7 @@ describe ItemInfosController do
         item_info = ItemInfo.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ItemInfo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => item_info.to_param, :item_info => { "item_category" => "invalid value" }}, valid_session
+        put :update, {:id => item_info.to_param, :item_info => { "type_symbol" => "invalid value" }}, valid_session
         assigns(:item_info).should eq(item_info)
       end
 
@@ -136,7 +136,7 @@ describe ItemInfosController do
         item_info = ItemInfo.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ItemInfo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => item_info.to_param, :item_info => { "item_category" => "invalid value" }}, valid_session
+        put :update, {:id => item_info.to_param, :item_info => { "type_symbol" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

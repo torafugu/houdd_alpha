@@ -1,0 +1,29 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    MOB交配中にエラーが発生しました。
+  </div>
+  <% end %>
+
+  <% unless flash[:validation].blank? %>
+  <div id="error_explanation">
+    交配可能なMOBが存在しません。
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("MOBの交配を行いました。");
+  </script>
+   <% end %>
+
+  <h3 class="admin_normal">MOB交配(<%= @specie.name %>)</h3>
+  <br />
+  <%= form_tag :action => 'mate_mobs' do %>
+  ユーザー：<%= collection_select(:user, :id, HouddUser.find(:all), :id, :name) %><br />
+  交配数：<%= text_field_tag 'new_mobs_volume','',:class=>'number3' %><br />
+  <br />
+  <%= submit_tag "交配" %>
+  <% end %>
+</div>

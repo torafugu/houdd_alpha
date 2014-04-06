@@ -24,6 +24,8 @@
           マップ(<%= link_to '地形', mini_map.id.to_s + "/show_mini_map_terrains" %>
           <%= link_to '資源', mini_map.id.to_s + "/show_mini_map_sp_resources" %>
           <%= link_to '建築', mini_map.id.to_s + "/edit_mini_map_constructions" %>)<br />
+          要塞(<%= link_to '部隊(' + mini_map.fortress_squads_num.to_s + ')', mini_map.id.to_s + "/edit_fortress_squads" %>
+          <%= link_to 'トラップ(' + mini_map.fortress_traps_num.to_s + ')', mini_map.id.to_s + "/edit_fortress_traps" %>)<br />
           <%= link_to '道路設定(' + mini_map.mini_map_roads.size.to_s + ')', mini_map.id.to_s + "/road_index" %>
         </td>
       </tr>

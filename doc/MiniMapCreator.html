@@ -99,7 +99,18 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Factory class of MiniMap.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -194,7 +205,6 @@ mini_map_cell.</p>
       <pre class="lines">
 
 
-6
 7
 8
 9
@@ -271,10 +281,11 @@ mini_map_cell.</p>
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mini_map_creator.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'app/models/mini_map_creator.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_random_cell'>random_cell</span><span class='lparen'>(</span><span class='id identifier rubyid_mini_map_id'>mini_map_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_terrain_plain'>terrain_plain</span> <span class='op'>=</span> <span class='const'>Terrain</span><span class='period'>.</span><span class='id identifier rubyid_find_by_symbol'>find_by_symbol</span><span class='lparen'>(</span><span class='symbol'>:plain</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -341,7 +352,7 @@ mini_map_cell.</p>
       <span class='comment'># 2. Set construction.
 </span>      <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_construction'>construction</span> <span class='op'>=</span> <span class='kw'>nil</span>
       <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_built_point'>built_point</span> <span class='op'>=</span> <span class='int'>0</span>
-      <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_const_active_flg'>const_active_flg</span> <span class='op'>=</span> <span class='kw'>false</span>
+      <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_active_flg'>active_flg</span> <span class='op'>=</span> <span class='kw'>false</span>
 
       <span class='comment'># 3. Set capital.
 </span>      <span class='kw'>if</span> <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>==</span> <span class='id identifier rubyid_capital_x_roll'>capital_x_roll</span> <span class='kw'>and</span> <span class='id identifier rubyid_mini_map_cell'>mini_map_cell</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>==</span> <span class='id identifier rubyid_capital_y_roll'>capital_y_roll</span>
@@ -364,7 +375,7 @@ mini_map_cell.</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Aug 10 11:03:17 2013 by
+  Generated on Sun Mar 30 18:32:12 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.2 (ruby-1.9.3).
 </div>

@@ -1,0 +1,12 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>戦術編集</h3>
+
+  <%= form_tag({:action => 'update_strategy'}, {:method => :put}) do %>
+  <%= render :partial => 'organize_strategy' %>
+  <div id="strategy_submit">
+    <%= submit_tag "再設定" %>
+  </div>
+  <% end %>
+</div>

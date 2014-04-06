@@ -1,0 +1,13 @@
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+  <h3>ミッション編集</h3>
+
+  <%= form_tag({:action => 'update_mission'}, {:method => :put}) do %>
+  <%= render :partial => 'organize_mission' %>
+  <div id="submit">
+    <br />
+    <input id="btn_update_mission" type="button" value="再編成" />
+  </div>
+  <% end %>
+</div>

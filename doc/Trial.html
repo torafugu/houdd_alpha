@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Trial
+  
+    &mdash; Documentation by YARD 0.8.6.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (T)</a> &raquo;
+    
+    
+    <span class="title">Trial</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Trial
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Trial</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/trial.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class describes a trial.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MAX_DISTANCE-constant" class="">MAX_DISTANCE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Maximum distance among squads in fortress.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>9999</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#active_guard_squads-instance_method" title="#active_guard_squads (instance method)">- (Array) <strong>active_guard_squads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return all the guard squads which is not yet annihilated or escaped.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#active_intruder_squads-instance_method" title="#active_intruder_squads (instance method)">- (Array) <strong>active_intruder_squads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return all the intruder squads which is not yet annihilated or escaped.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#active_squads-instance_method" title="#active_squads (instance method)">- (Array) <strong>active_squads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return all the squads which is not yet annihilated or escaped.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dex_sorted_squads-instance_method" title="#dex_sorted_squads (instance method)">- (Array) <strong>dex_sorted_squads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return squads which were sorted by dex.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ended%3F-instance_method" title="#ended? (instance method)">- (Boolean) <strong>ended?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if all of intruder or guard squads are retreated or
+annihilated.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fortress_exit_cells-instance_method" title="#fortress_exit_cells (instance method)">- (Array) <strong>fortress_exit_cells</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return exit cells of fortress.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fortress_goal_point-instance_method" title="#fortress_goal_point (instance method)">- (Object) <strong>fortress_goal_point</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return fortress goal point.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fortress_x_size-instance_method" title="#fortress_x_size (instance method)">- (Integer) <strong>fortress_x_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return fortress x size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fortress_y_size-instance_method" title="#fortress_y_size (instance method)">- (Integer) <strong>fortress_y_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return fortress y size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nearest_fortress_exit_point-instance_method" title="#nearest_fortress_exit_point (instance method)">- (Array) <strong>nearest_fortress_exit_point</strong>(point) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return squads which were sorted by dex.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="active_guard_squads-instance_method">
+  
+    - (<tt>Array</tt>) <strong>active_guard_squads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return all the guard squads which is not yet annihilated or escaped.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active_guard_squads'>active_guard_squads</span>
+  <span class='id identifier rubyid_active_guard_squads'>active_guard_squads</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_guard_mission'>guard_mission</span><span class='period'>.</span><span class='id identifier rubyid_squads'>squads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_squad'>squad</span><span class='op'>|</span>
+    <span class='id identifier rubyid_active_guard_squads'>active_guard_squads</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_squad'>squad</span> <span class='kw'>if</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_entried?'>entried?</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_annihilated?'>annihilated?</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_retreatd_from_fortress?'>retreatd_from_fortress?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_active_guard_squads'>active_guard_squads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="active_intruder_squads-instance_method">
+  
+    - (<tt>Array</tt>) <strong>active_intruder_squads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return all the intruder squads which is not yet annihilated or escaped.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active_intruder_squads'>active_intruder_squads</span>
+  <span class='id identifier rubyid_active_intruder_squads'>active_intruder_squads</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_intruder_mission'>intruder_mission</span><span class='period'>.</span><span class='id identifier rubyid_squads'>squads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_squad'>squad</span><span class='op'>|</span>
+    <span class='id identifier rubyid_active_intruder_squads'>active_intruder_squads</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_squad'>squad</span> <span class='kw'>if</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_entried?'>entried?</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_annihilated?'>annihilated?</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_retreatd_from_fortress?'>retreatd_from_fortress?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_active_intruder_squads'>active_intruder_squads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="active_squads-instance_method">
+  
+    - (<tt>Array</tt>) <strong>active_squads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return all the squads which is not yet annihilated or escaped.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active_squads'>active_squads</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_active_guard_squads'>active_guard_squads</span> <span class='op'>+</span> <span class='id identifier rubyid_active_intruder_squads'>active_intruder_squads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dex_sorted_squads-instance_method">
+  
+    - (<tt>Array</tt>) <strong>dex_sorted_squads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>This method calls Tools.sort_by_dex(array, param)</p>
+</div>
+  </div>
+
+
+<p>Return squads which were sorted by dex.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dex_sorted_squads'>dex_sorted_squads</span>
+  <span class='kw'>return</span> <span class='const'>Tools</span><span class='period'>.</span><span class='id identifier rubyid_sort_by_dex'>sort_by_dex</span><span class='lparen'>(</span><span class='id identifier rubyid_active_squads'>active_squads</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ended?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ended?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if all of intruder or guard squads are retreated or
+annihilated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ended?'>ended?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_guard_defeated?'>guard_defeated?</span> <span class='kw'>or</span> <span class='id identifier rubyid_intruder_defeated?'>intruder_defeated?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fortress_exit_cells-instance_method">
+  
+    - (<tt>Array</tt>) <strong>fortress_exit_cells</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return exit cells of fortress.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fortress_exit_cells'>fortress_exit_cells</span>
+  <span class='const'>FortressCell</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mini_map_id = ? and (x = 0 or y = 0 or x = ? or y = ?) and symbol = ? and squad_id is null</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_fortress_x_size'>fortress_x_size</span><span class='comma'>,</span> <span class='id identifier rubyid_fortress_y_size'>fortress_y_size</span><span class='comma'>,</span> <span class='symbol'>:concrete</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fortress_goal_point-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fortress_goal_point</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return fortress goal point.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fortress_goal_point'>fortress_goal_point</span>
+  <span class='id identifier rubyid_trial_fortress_cells'>trial_fortress_cells</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_goal_flg'>goal_flg</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fortress_x_size-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>fortress_x_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return fortress x size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fortress_x_size'>fortress_x_size</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>FORTRESS_SIZE_MULTIPLIER</span> <span class='op'>-</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fortress_y_size-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>fortress_y_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return fortress y size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fortress_y_size'>fortress_y_size</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>FORTRESS_SIZE_MULTIPLIER</span> <span class='op'>-</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="nearest_fortress_exit_point-instance_method">
+  
+    - (<tt>Array</tt>) <strong>nearest_fortress_exit_point</strong>(point) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>Dex is normalized by standard deviation before sorting.</p>
+</div>
+  </div>
+
+
+<p>Return squads which were sorted by dex.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_nearest_fortress_exit_point'>nearest_fortress_exit_point</span><span class='lparen'>(</span><span class='id identifier rubyid_point'>point</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_nearest_fortress_cell'>nearest_fortress_cell</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_nearest_distance'>nearest_distance</span> <span class='op'>=</span> <span class='const'>MAX_DISTANCE</span>
+  <span class='id identifier rubyid_fortress_exit_cells'>fortress_exit_cells</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_exit_cell'>exit_cell</span><span class='op'>|</span>
+    <span class='id identifier rubyid_distance'>distance</span> <span class='op'>=</span> <span class='const'>Tools</span><span class='period'>.</span><span class='id identifier rubyid_calc_distance'>calc_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_point'>point</span><span class='comma'>,</span> <span class='id identifier rubyid_exit_cell'>exit_cell</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_distance'>distance</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_nearest_distance'>nearest_distance</span>
+      <span class='id identifier rubyid_nearest_distance'>nearest_distance</span> <span class='op'>=</span> <span class='id identifier rubyid_distance'>distance</span>
+      <span class='id identifier rubyid_nearest_fortress_exit_cell'>nearest_fortress_exit_cell</span> <span class='op'>=</span> <span class='id identifier rubyid_exit_cell'>exit_cell</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_nearest_fortress_cell'>nearest_fortress_cell</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_nearest_fortress_cell'>nearest_fortress_cell</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 30 18:32:16 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

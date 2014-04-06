@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b><%= label :job, :type_symbol %>:</b>
+  <%= @job.type_symbol_txt %>
+</p>
+
+<p>
   <b><%= label :job, :name %>:</b>
   <%= @job.name %>
 </p>

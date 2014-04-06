@@ -12,20 +12,88 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :item_category %><br />
-    <%= f.collection_select(:item_category_id, ItemCategory.find(:all), :id, :name) %>
+    <%= f.label :type_symbol %><br />
+    <%= f.select :type_symbol, Params::ITEM_SYMBOL_DESCRIPTIONS %>
   </div>
   <div class="field">
-    <%= f.label :size %><br />
-    <%= f.number_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :weight_level %><br />
-    <%= f.number_field :weight_level %>
+    <%= f.label :element_symbol %><br />
+    <%= f.select :element_symbol, Params::ELEMRNT_SYMBOL_DESCRIPTIONS %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :num_of_tgt %><br />
+    <%= f.number_field :num_of_tgt %>
+  </div>
+  <div class="field">
+    <%= f.label :hit_accuracy %><br />
+    <%= f.number_field :hit_accuracy %>
+  </div>
+  <div class="field">
+    <%= f.label :range %><br />
+    <%= f.number_field :range %>
+  </div>
+  <div class="field">
+    <%= f.label :damage %><br />
+    <%= f.number_field :damage %>
+  </div>
+  <div class="field">
+    <%= f.label :heal %><br />
+    <%= f.number_field :heal %>
+  </div>
+  <div class="field">
+    <%= f.label :str_mod %><br />
+    <%= f.text_field :str_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :dex_mod %><br />
+    <%= f.text_field :dex_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :con_mod %><br />
+    <%= f.text_field :con_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :int_mod %><br />
+    <%= f.text_field :int_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :wis_mod %><br />
+    <%= f.text_field :wis_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :cha_mod %><br />
+    <%= f.text_field :cha_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_fw_mod %><br />
+    <%= f.text_field :ele_fw_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_ld_mod %><br />
+    <%= f.text_field :ele_ld_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :phys_def_mod %><br />
+    <%= f.text_field :phys_def_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_def_mod %><br />
+    <%= f.text_field :skill_def_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :family %><br />
+    <%= f.collection_select(:family_id, Family.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :weight_level %><br />
+    <%= f.number_field :weight_level %>
   </div>
   <div class="field">
     <%= f.label :max_dp %><br />
@@ -34,6 +102,10 @@
   <div class="field">
     <%= f.label :rq_prod_point %><br />
     <%= f.number_field :rq_prod_point %>
+  </div>
+  <div class="field">
+    <%= f.label :atk_cycle %><br />
+    <%= f.number_field :atk_cycle %>
   </div>
   <div class="field">
     <%= f.label :research_level %><br />

@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :type_symbol %><br />
+     <%= f.select :type_symbol, Params::JOB_TYPE_DESCRIPTIONS %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>

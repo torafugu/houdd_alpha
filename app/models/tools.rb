@@ -1,4 +1,7 @@
+# This class keeps all the global common methods.
 class Tools
+  # Maximum value of sum of squares.
+    SS_MAX = 10000
 
   # Return normal random number. 
   # @return [Float] same range as normal distribution.
@@ -19,6 +22,46 @@ class Tools
     end
   end
 
+  # Return value which was adjusted in range.
+  # 0 is returned if value < 0.
+  # Adjust_max is returned if adjust_max < value.
+  # @param [Integer] adjust_max Maximum value.
+  # @param [Integer] value To be checked value.
+  # @return [Integer] Adjusted value.
+  def self.filter_in_range(adjust_max, value)
+    if value < 0
+      value = 0
+    elsif adjust_max < value
+      value = adjust_max
+    end
+    return value
+  end
+
+  # Return value which was adjusted in percentage.
+  # 0.01 is returned if value < 0.01.
+  # 99.99 is returned if 99.99 < value.
+  # @param [Integer] value To be checked value.
+  # @return [Integer] Adjusted value.
+  def self.filter_in_percentage(value)
+    if value < 0.01
+      value = 0.01
+    elsif value > 99.99
+      value = 99.99
+    end
+    return value
+  end
+
+  # Return calculated distance between 2 points.
+  # @param [Object] point1 First point
+  # @param [Object] point2 Second point
+  # @return [Integer] Calculated distance.
+  def self.calc_distance(point1, point2)
+    return Math.sqrt((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2)
+  end
+
+  # Return arrays which were sorted by the specified parameter.
+  # @note The parameter is normalized by standard deviation before sorting.
+  # @return [Array].
   def self.sort_by_dex(array)
     sorted_by_dex_array = array.sort{|a,b|
       a.dex <=> b.dex
@@ -29,41 +72,15 @@ class Tools
     #p "avg_dex:" + avg_dex.to_s + ",var_dex:" + var_dex.to_s + ",sd_dex:" + sd_dex.to_s
     sorted_by_dex_array.each do |element|
       if var_dex == 0 or sd_dex == 0
-        element.ss_dex = 10000
+        element.ss_dex = element.dex
       else
         element.ss_dex = ((element.dex - avg_dex) / sd_dex * 10 + 50).round(2)*100
         if element.ss_dex < 1
           element.ss_dex = 1
-        elsif element.ss_dex > 9999
-          element.ss_dex = 9999
+        elsif element.ss_dex > Params::SS_MAX - 1
+          element.ss_dex = Params::SS_MAX - 1
         end
       end
     end
-  end
-
-  def self.filter_in_range(adjust_max, adjust)
-    if adjust < 0
-      adjust = 0
-    elsif adjust_max < adjust
-      adjust = adjust_max
-    end
-    return adjust
-  end
-
-  def self.filter_percent(percent)
-    if percent < 0.01
-      percent = 0.01
-    elsif percent > 99.99
-      percent = 99.99
-    end
-    return percent
-  end
-
-  def self.calc_distance(point1, point2)
-    return Math.sqrt((point1['x'] - point2['x']) ** 2 + (point1['y'] - point2['y']) ** 2)
-  end
-
-  def self.calc_distance2(point1, point2)
-    return Math.sqrt((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2)
   end
 end

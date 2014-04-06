@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "jobs/edit" do
   before(:each) do
     @job = assign(:job, stub_model(Job,
+      :type_symbol => "MyString",
       :name => "MyString",
       :growth_penalty => 1.5,
       :wepon_lvl => 1,
@@ -25,6 +26,7 @@ describe "jobs/edit" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", job_path(@job), "post" do
+      assert_select "input#job_type_symbol[name=?]", "job[type_symbol]"
       assert_select "input#job_name[name=?]", "job[name]"
       assert_select "input#job_growth_penalty[name=?]", "job[growth_penalty]"
       assert_select "input#job_wepon_lvl[name=?]", "job[wepon_lvl]"

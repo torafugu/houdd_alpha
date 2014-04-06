@@ -1,15 +1,7 @@
 <%= render 'my_page_menu' %>
 <div id="contents">
-  <% unless flash[:errors].blank? %>
-  <div id="error_explanation">
-    <h3>エラーが発生しました。</h3>
-    <ul>
-      <% flash[:errors].full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+  <%= render :partial => 'layouts/edit_messages' %>
+  
   <h3>道路管理</h3>
   マップ名：<%= @mini_map.name %><br />
   <br />

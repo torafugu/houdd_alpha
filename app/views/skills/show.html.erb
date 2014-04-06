@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= label :skill, :skill_category %>:</b>
-  <%= @skill.skill_category.name unless @skill.skill_category.blank? %>
+  <b><%= label :skill, :type_symbol %>:</b>
+  <%= @skill.type_symbol_txt %>
+</p>
+
+<p>
+  <b><%= label :skill, :element_symbol %>:</b>
+  <%= @skill.element_symbol_txt %>
 </p>
 
 <p>
@@ -13,6 +18,91 @@
 <p>
   <b><%= label :skill, :sp_cost %>:</b>
   <%= @skill.sp_cost %>
+</p>
+
+<p>
+  <b><%= label :skill, :num_of_tgt %>:</b>
+  <%= @skill.num_of_tgt %>
+</p>
+
+<p>
+  <b><%= label :skill, :hit_accuracy %>:</b>
+  <%= @skill.hit_accuracy %>
+</p>
+
+<p>
+  <b><%= label :skill, :range %>:</b>
+  <%= @skill.range %>
+</p>
+
+<p>
+  <b><%= label :skill, :damage %>:</b>
+  <%= @skill.damage %>
+</p>
+
+<p>
+  <b><%= label :skill, :heal %>:</b>
+  <%= @skill.heal %>
+</p>
+
+<p>
+  <b><%= label :skill, :str_mod %>:</b>
+  <%= @skill.str_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :dex_mod %>:</b>
+  <%= @skill.dex_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :con_mod %>:</b>
+  <%= @skill.con_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :int_mod %>:</b>
+  <%= @skill.int_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :wis_mod %>:</b>
+  <%= @skill.wis_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :cha_mod %>:</b>
+  <%= @skill.cha_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :ele_fw_mod %>:</b>
+  <%= @skill.ele_fw_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :ele_ld_mod %>:</b>
+  <%= @skill.ele_ld_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :phys_def_mod %>:</b>
+  <%= @skill.phys_def_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :skill_def_mod %>:</b>
+  <%= @skill.skill_def_mod %>
+</p>
+
+<p>
+  <b><%= label :skill, :duration %>:</b>
+  <%= @skill.duration %>
+</p>
+
+<p>
+  <b><%= label :skill, :cast_cycle %>:</b>
+  <%= @skill.cast_cycle %>
 </p>
 
 <p>

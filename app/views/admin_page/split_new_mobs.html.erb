@@ -1,0 +1,29 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    MOB分裂中にエラーが発生しました。
+  </div>
+  <% end %>
+
+  <% unless flash[:validation].blank? %>
+  <div id="error_explanation">
+    分裂可能なMOBが存在しません。
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("MOBの分裂を行いました。");
+  </script>
+   <% end %>
+
+  <h3 class="admin_normal">MOB分裂(<%= @specie.name %>)</h3>
+  <br />
+  <%= form_tag :action => 'split_mobs' do %>
+  ユーザー：<%= collection_select(:user, :id, HouddUser.find(:all), :id, :name) %><br />
+  分裂数：<%= text_field_tag 'new_mobs_volume','',:class=>'number3' %><br />
+  <br />
+  <%= submit_tag "分裂" %>
+  <% end %>
+</div>

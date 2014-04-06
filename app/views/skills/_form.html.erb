@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :skill_category %><br />
-    <%= f.collection_select(:skill_category_id, SkillCategory.find(:all), :id, :name) %>
+    <%= f.label :type_symbol %><br />
+    <%= f.select :type_symbol, Params::SKILL_TYPE_DESCRIPTIONS %>
+  </div>
+  <div class="field">
+    <%= f.label :element_symbol %><br />
+    <%= f.select :element_symbol, Params::ELEMRNT_SYMBOL_DESCRIPTIONS %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -22,6 +26,74 @@
   <div class="field">
     <%= f.label :sp_cost %><br />
     <%= f.number_field :sp_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :num_of_tgt %><br />
+    <%= f.number_field :num_of_tgt %>
+  </div>
+  <div class="field">
+    <%= f.label :hit_accuracy %><br />
+    <%= f.number_field :hit_accuracy %>
+  </div>
+  <div class="field">
+    <%= f.label :range %><br />
+    <%= f.number_field :range %>
+  </div>
+  <div class="field">
+    <%= f.label :damage %><br />
+    <%= f.number_field :damage %>
+  </div>
+  <div class="field">
+    <%= f.label :heal %><br />
+    <%= f.number_field :heal %>
+  </div>
+  <div class="field">
+    <%= f.label :str_mod %><br />
+    <%= f.text_field :str_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :dex_mod %><br />
+    <%= f.text_field :dex_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :con_mod %><br />
+    <%= f.text_field :con_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :int_mod %><br />
+    <%= f.text_field :int_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :wis_mod %><br />
+    <%= f.text_field :wis_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :cha_mod %><br />
+    <%= f.text_field :cha_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_fw_mod %><br />
+    <%= f.text_field :ele_fw_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :ele_ld_mod %><br />
+    <%= f.text_field :ele_ld_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :phys_def_mod %><br />
+    <%= f.text_field :phys_def_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_def_mod %><br />
+    <%= f.text_field :skill_def_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :cast_cycle %><br />
+    <%= f.number_field :cast_cycle %>
   </div>
   <div class="field">
     <%= f.label :research_level %><br />

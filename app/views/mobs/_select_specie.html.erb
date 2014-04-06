@@ -1,0 +1,2 @@
+# coding: utf-8
+種：<%= collection_select(:mob, :specie_id, Specie.find(:all), :id, :name, :selected => @mob_specie_id, :include_blank => true) %>

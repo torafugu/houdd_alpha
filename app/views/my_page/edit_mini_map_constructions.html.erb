@@ -2,11 +2,12 @@
 int RECT_SIZE = 40;
 int MAP_WIDTH = <%= @mini_map.size %> * RECT_SIZE;
 int MAP_HEIGHT = <%= @mini_map.size %> * RECT_SIZE;
-int CANVAS_WIDTH = 11 * RECT_SIZE;
-int CANVAS_HEIGHT = MAP_HEIGHT + 2.3 * RECT_SIZE;
-int WORKBENCH_TITLE_HEIGHT = MAP_HEIGHT + RECT_SIZE;
-int WORKBENCH_MAPCHIP_HEIGHT = MAP_HEIGHT + RECT_SIZE * 1.2;
-int WORKBENCH_X_OFFSET = 10;
+int CANVAS_WIDTH = MAP_WIDTH + 6 * RECT_SIZE;
+int CANVAS_HEIGHT = MAP_HEIGHT;
+int WORKBENCH_TITLE_HEIGHT = RECT_SIZE * 0.5;
+int WORKBENCH_MAPCHIP_HEIGHT = WORKBENCH_TITLE_HEIGHT + RECT_SIZE * 0.2;
+int WORKBENCH_X_OFFSET = MAP_WIDTH + RECT_SIZE * 0.5;
+int WORKBENCH_MAPCHIP_OFFSET = WORKBENCH_X_OFFSET + RECT_SIZE * 0.5;
 Iterator<String, PImage> mapChipIt;
 int xOffset = 1;
 int yOffset = 1;
@@ -77,16 +78,16 @@ void draw() {
 
   // Draw workbench
   textSize(12);
-  int workbench_x_cursor = 10;
+  int workbench_x_cursor = WORKBENCH_X_OFFSET;
   mapChipIDs = new ArrayList();
-  text("<%=t 'activerecord.attributes.mini_map_cell.construction' %>:", WORKBENCH_X_OFFSET, MAP_HEIGHT + RECT_SIZE);
+  text("<%=t 'activerecord.attributes.mini_map_cell.construction' %>:", WORKBENCH_X_OFFSET, WORKBENCH_TITLE_HEIGHT);
   mapChipIt = constructHashMap.entrySet().iterator();
   while (mapChipIt.hasNext()) {
     Map.Entry me = (Map.Entry)mapChipIt.next();
     if (selectedTerrainID != null && selectedTerrainID.equals(constructionTerrainHashMap.get(me.getKey()))) {
       image(me.getValue(), workbench_x_cursor, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
       mapChipIDs.add(me.getKey());
-      workbench_x_cursor = workbench_x_cursor + RECT_SIZE + WORKBENCH_X_OFFSET;
+      workbench_x_cursor = workbench_x_cursor + RECT_SIZE;
     }
   }
   mapChipLastX = workbench_x_cursor;
@@ -96,7 +97,7 @@ void draw() {
     noFill();
     stroke(255, 99, 71); // tomato
     strokeWeight(2);
-    rect(selectedMapChipIndex * (RECT_SIZE + WORKBENCH_X_OFFSET) + WORKBENCH_X_OFFSET, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
+    rect(selectedMapChipIndex * RECT_SIZE + WORKBENCH_X_OFFSET, WORKBENCH_MAPCHIP_HEIGHT, RECT_SIZE, RECT_SIZE);
   }
 }
 
@@ -177,9 +178,9 @@ void mousePressed() {
     }
 
   } else if (WORKBENCH_X_OFFSET <= mouseX && WORKBENCH_MAPCHIP_HEIGHT <= mouseY && mouseY <= WORKBENCH_MAPCHIP_HEIGHT + RECT_SIZE) {
-    for (int x = WORKBENCH_X_OFFSET; x < mapChipLastX; x = x + RECT_SIZE + WORKBENCH_X_OFFSET) {
+    for (int x = WORKBENCH_X_OFFSET; x < mapChipLastX; x = x + RECT_SIZE) {
       if (x <= mouseX && mouseX <= x + RECT_SIZE) {
-        selectedMapChipIndex = int(mouseX / (RECT_SIZE + WORKBENCH_X_OFFSET));
+        selectedMapChipIndex = int((mouseX - WORKBENCH_X_OFFSET) / RECT_SIZE);
         $('#update_map_cell_mapchip_id').val(mapChipIDs.get(selectedMapChipIndex));
       }
     }
@@ -201,9 +202,7 @@ int getSelectedMapChipIndex() {
 
 <%= render 'my_page_menu' %>
 <div id="contents">
-  <h3>建築マップ</h3>
-  マップ名：<%= @mini_map.name %><br />
-  <br />
+  <h3>マップ(<%= @mini_map.name %>):建築</h3>
   <canvas id="edit_mini_map_constructions_canvas"></canvas>
   <div class='indent1'>
     <%= form_tag "update_map_cell", :id => "update_map_cell", :method => "post" do %>
@@ -214,4 +213,5 @@ int getSelectedMapChipIndex() {
     <%= hidden_field :update_map_cell, :mapchip_id %>
     <% end %>
   </div>
+  <%= link_to '戻る', "/my_page/" + @mini_map.houdd_user_id.to_s + "/mini_map_index" %>
 </div>

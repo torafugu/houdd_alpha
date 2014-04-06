@@ -1,3 +1,4 @@
+# This class describes a special resource on mini map.
 class SpResource < ActiveRecord::Base
   belongs_to :terrain
 

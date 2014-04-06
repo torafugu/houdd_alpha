@@ -1,0 +1,23 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    シードMOBの追加中にエラーが発生しました。
+  </div>
+  <% end %>
+
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("シードMOBを追加しました。");
+  </script>
+   <% end %>
+
+  <h3 class="admin_normal">シードMOB追加(<%= @specie.name %>)</h3>
+  シードMOB数:<%= @specie.mobs_num %> （♂:<%= @specie.mobs_male_num %> ♀:<%= @specie.mobs_female_num %>）<br />
+  <br />
+  <%= form_tag :action => 'create_seed_mobs' do %>
+  追加数：<%= text_field_tag 'seed_mobs_volume','',:class=>'number3' %><br />
+  <br />
+  <%= submit_tag "追加" %>
+  <% end %>
+</div>

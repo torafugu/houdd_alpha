@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :mission_strategy, :houdd_user %>:</b>
+  <%= @mission_strategy.houdd_user %>
+</p>
+
+<p>
+  <b><%= label :mission_strategy, :name %>:</b>
+  <%= @mission_strategy.name %>
+</p>
+
+<p>
+  <b><%= label :mission_strategy, :script %>:</b>
+  <%= @mission_strategy.script %>
+</p>
+
+
+<%= link_to 'Edit', edit_mission_strategy_path(@mission_strategy) %> |
+<%= link_to 'Back', mission_strategies_path %>

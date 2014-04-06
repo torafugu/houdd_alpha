@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gene
+  
+    &mdash; Documentation by YARD 0.8.6.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (G)</a> &raquo;
+    
+    
+    <span class="title">Gene</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Gene
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Gene</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/gene.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class describes a gene of Mob.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2B-instance_method" title="#+ (instance method)">- (Gene) <strong>+</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add another Gene attribute value.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="+-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gene (class)">Gene</a></span></tt>) <strong>+</strong>(other) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add another Gene attribute value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>other</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Gene (class)">Gene</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>other Gene instance.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Gene (class)">Gene</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>attribute added Gene instance.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/gene.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='op'>+</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_specie_id'>specie_id</span> <span class='op'>!=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_specie_id'>specie_id</span>
+
+  <span class='id identifier rubyid_new_gene'>new_gene</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_specie_id'>specie_id</span> <span class='op'>=</span> <span class='id identifier rubyid_specie_id'>specie_id</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_dominance_flg'>dominance_flg</span> <span class='op'>!=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_dominance_flg'>dominance_flg</span>
+    <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_dominance_flg'>dominance_flg</span> <span class='op'>=</span> <span class='const'>Tools</span><span class='period'>.</span><span class='id identifier rubyid_random_boolean'>random_boolean</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_dominance_flg'>dominance_flg</span> <span class='op'>=</span> <span class='id identifier rubyid_dominance_flg'>dominance_flg</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_prolificacy_mod'>prolificacy_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_prolificacy_mod'>prolificacy_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_prolificacy_mod'>prolificacy_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_longevity_mod'>longevity_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_longevity_mod'>longevity_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_longevity_mod'>longevity_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_growth_mod'>growth_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_growth_mod'>growth_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_growth_mod'>growth_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_food_cost_mod'>food_cost_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_food_cost_mod'>food_cost_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_food_cost_mod'>food_cost_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_str_mod'>str_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_str_mod'>str_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_str_mod'>str_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_dex_mod'>dex_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_dex_mod'>dex_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_dex_mod'>dex_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_con_mod'>con_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_con_mod'>con_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_con_mod'>con_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_int_mod'>int_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_int_mod'>int_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_int_mod'>int_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_wis_mod'>wis_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_wis_mod'>wis_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_wis_mod'>wis_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_cha_mod'>cha_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_cha_mod'>cha_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_cha_mod'>cha_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_phys_def_mod'>phys_def_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_phys_def_mod'>phys_def_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_phys_def_mod'>phys_def_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_skill_def_mod'>skill_def_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_skill_def_mod'>skill_def_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_skill_def_mod'>skill_def_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_ele_fw_mod'>ele_fw_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_ele_fw_mod'>ele_fw_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_ele_fw_mod'>ele_fw_mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_gene'>new_gene</span><span class='period'>.</span><span class='id identifier rubyid_ele_ld_mod'>ele_ld_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_mate_mod_value'>mate_mod_value</span><span class='lparen'>(</span><span class='id identifier rubyid_ele_ld_mod'>ele_ld_mod</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_ele_ld_mod'>ele_ld_mod</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_new_gene'>new_gene</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 30 18:32:11 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

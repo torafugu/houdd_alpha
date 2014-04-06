@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= label :mission, :houdd_user %>:</b>
+  <%= @mission.houdd_user.name unless @mission.houdd_user.blank? %>
+</p>
+
+<p>
+  <b><%= label :mission, :mini_map %>:</b>
+  <%= @mission.mini_map.name unless @mission.mini_map.blank? %>
+</p>
+
+<p>
+  <b><%= label :mission, :category_symbol %>:</b>
+  <%= @mission.category_symbol_txt %>
+</p>
+
+<p>
+  <b><%= label :mission, :mission_strategy %>:</b>
+  <%= @mission.mission_strategy.name unless @mission.mission_strategy.blank? %>
+</p>
+
+<p>
+  <b><%= label :mission, :status_symbol %>:</b>
+  <%= @mission.status_symbol_txt %>
+</p>
+
+<p>
+  <b><%= label :mission, :start_houdd_time %>:</b>
+  <%= @mission.start_houdd_time %>
+</p>
+
+<p>
+  <b><%= label :mission, :end_houdd_time %>:</b>
+  <%= @mission.end_houdd_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %>

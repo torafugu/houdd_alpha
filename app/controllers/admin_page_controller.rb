@@ -183,25 +183,25 @@ class AdminPageController < ApplicationController
     end
   end
 
-    # GET /admin_page/1/1/edit_seed_mobs
-  def edit_seed_mobs
+  # GET /admin_page/1/1/new_seed_mobs
+  def new_seed_mobs
     @specie = Specie.find(params[:specie_id])
 
     respond_to do |format|
-      format.html # edit_seed_mobs.html.erb
+      format.html # new_seed_mobs.html.erb
     end
   end
 
-  # GET /admin_page/1/1/add_seed_mobs
-  def add_seed_mobs
+  # GET /admin_page/1/1/create_seed_mobs
+  def create_seed_mobs
     respond_to do |format|
-      if MobCreator.seed_mobs(params[:specie_id].to_i, params[:mypage_seed_mobs_volume].to_i)
+      if MobCreator.seed_mobs(params[:specie_id].to_i, params[:seed_mobs_volume].to_i)
         flash[:success] = 'OK'
-        format.html { redirect_to action: "edit_seed_mobs" }
+        format.html { redirect_to action: "new_seed_mobs" }
         format.json { head :no_content }
       else
         flash[:errors] = 'MobCreator failed.'
-        format.html { redirect_to action: "edit_seed_mobs" }
+        format.html { redirect_to action: "new_seed_mobs" }
         format.json { render json: 'MobCreator failed.', status: :unprocessable_entity }
       end
     end
@@ -217,7 +217,6 @@ class AdminPageController < ApplicationController
   end
 
   # GET /admin_page/1/1/update_mutation_rate
-
   def update_mutation_rate
     specie = Specie.find(params[:specie_id])
     specie.mutation_rate = params[:mypage_mutation_rate]
@@ -231,6 +230,113 @@ class AdminPageController < ApplicationController
         flash[:errors] = 'update_mutation_rate failed.'
         format.html { redirect_to action: "edit_mutation_rate" }
         format.json { render json: 'update_mutation_rate failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # GET /admin_page/1/1/assign_new_mobs
+  def assign_new_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      format.html # assign_new_mobs.html.erb
+    end
+  end
+
+  # POST /admin_page/1/1/assign_mobs
+  def assign_mobs
+    respond_to do |format|
+      if MobCreator.assign_new_mobs(params[:new_mobs_volume].to_i, params[:user]['id'].to_i, params[:specie_id].to_i)
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "assign_new_mobs" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'MobCreator failed.'
+        format.html { redirect_to action: "assign_new_mobs" }
+        format.json { render json: 'MobCreator failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # GET /admin_page/1/1/mate_new_mobs
+  def mate_new_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      format.html # mate_new_mobs.html.erb
+    end
+  end
+
+  # POST /admin_page/1/1/mate_mobs
+  def mate_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      if not @specie.family.asexual_flg and not MobCreator.specie_able_to_mate?(params[:user]['id'].to_i, @specie.id)
+        flash[:validation] = 'Failed'
+        format.html { redirect_to action: "mate_new_mobs" }
+        format.json { head :no_content }
+      elsif MobCreator.random_mate_mob(params[:new_mobs_volume].to_i, params[:user]['id'].to_i, @specie.id)
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "mate_new_mobs" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'MobCreator failed.'
+        format.html { redirect_to action: "mate_new_mobs" }
+        format.json { render json: 'MobCreator failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # GET /admin_page/1/1/split_new_mobs
+  def split_new_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      format.html # split_new_mobs.html.erb
+    end
+  end
+
+  # POST /admin_page/1/1/split_mobs
+  def split_mobs
+    @specie = Specie.find(params[:specie_id])
+
+    respond_to do |format|
+      if Mob.find_all_by_houdd_user_id_and_specie_id(params[:user]['id'].to_i, @specie.id).blank?
+        flash[:validation] = 'Failed'
+        format.html { redirect_to action: "split_new_mobs" }
+        format.json { head :no_content }
+      elsif MobCreator.random_split_mob(params[:new_mobs_volume].to_i, params[:user]['id'].to_i, @specie.id)
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "split_new_mobs" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'MobCreator failed.'
+        format.html { redirect_to action: "split_new_mobs" }
+        format.json { render json: 'MobCreator failed.', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # admin_page - queue maintenance
+  # GET /admin_page/queue_maintenance
+  def queue_maintenance
+    respond_to do |format|
+      format.html # queue_maintenance.html.erb
+    end
+  end
+
+  # GET /admin_page/update_queue
+  def update_queue
+    respond_to do |format|
+      if ProductionQueueUpdater.execute(params[:queue_update_times].to_i)
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "queue_maintenance" }
+        format.json { head :no_content }
+      else
+        flash[:errors] = 'update_queue failed.'
+        format.html { redirect_to action: "queue_maintenance" }
+        format.json { render json: 'update_queue failed.', status: :unprocessable_entity }
       end
     end
   end

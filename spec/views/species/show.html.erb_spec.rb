@@ -19,7 +19,8 @@ describe "species/show" do
       :phys_def => 9,
       :skill_def => 10,
       :ele_fw => 11,
-      :ele_ld => 12
+      :ele_ld => 12,
+      :skill => nil
     ))
   end
 
@@ -43,5 +44,6 @@ describe "species/show" do
     rendered.should match(/10/)
     rendered.should match(/11/)
     rendered.should match(/12/)
+    rendered.should match(//)
   end
 end

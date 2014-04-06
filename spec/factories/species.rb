@@ -19,5 +19,6 @@ FactoryGirl.define do
     skill_def 1
     ele_fw 1
     ele_ld 1
+    skill nil
   end
 end

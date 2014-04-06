@@ -1,0 +1,35 @@
+<table>
+<tr>
+  <td>部隊名：</td>
+  <td>
+    <%= hidden_field_tag "mypage_squad_index_url", @squad_index_url %>
+    <%= text_field_tag "mypage_squad_name", @squad.name %>
+  </td>
+</tr>
+<tr>
+  <td>現在地：</td>
+  <td>
+    <% if @squad.mini_map.blank? %>
+    <%= collection_select(:my_page, :mini_map_id, @houdd_user.mini_maps, :id, :name, :include_blank => true) %>
+    <% else %>
+    <%= @squad.mini_map.name unless @squad.mini_map.blank? %>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td style="vertical-align: top;">MOB：</td>
+  <td>
+    (職業)<%= collection_select(:my_page, :job_id, Job.find(:all), :id, :name, :include_blank => true) %><br />
+    <div id='to_assign'>
+      <%= select(:my_page, :free_mobs, @free_mobs, {}, {:multiple => true, :size => @free_mobs.size}) %>
+    </div>
+    <div id='arrow'>
+      <input id="btn_mob_move_right" type="button" value="→" /><br />
+      <input id="btn_mob_move_left" type="button" value="←" />
+    </div>
+    <div id='assigned'>
+      <%= select(:my_page, :assigned_mobs, @assigned_mobs, {}, {:multiple => true, :size => @assigned_mobs.size}) %>
+    </div>
+  </td>
+</tr>
+</table>

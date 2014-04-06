@@ -5,6 +5,7 @@ describe "items/edit" do
     @item = assign(:item, stub_model(Item,
       :item_info => nil,
       :houdd_user => nil,
+      :mob => nil,
       :dp => 1,
       :quality => 1,
       :built_point => 1,
@@ -19,6 +20,7 @@ describe "items/edit" do
     assert_select "form[action=?][method=?]", item_path(@item), "post" do
       assert_select "input#item_item_info[name=?]", "item[item_info]"
       assert_select "input#item_houdd_user[name=?]", "item[houdd_user]"
+      assert_select "input#item_mob[name=?]", "item[mob]"
       assert_select "input#item_dp[name=?]", "item[dp]"
       assert_select "input#item_quality[name=?]", "item[quality]"
       assert_select "input#item_built_point[name=?]", "item[built_point]"

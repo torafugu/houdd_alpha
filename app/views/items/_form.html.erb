@@ -20,6 +20,10 @@
     <%= f.collection_select(:houdd_user_id, HouddUser.find(:all), :id, :name) %>
   </div>
   <div class="field">
+    <%= f.label :mob %><br />
+    <%= f.collection_select(:mob_id, Mob.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
     <%= f.label :dp %><br />
     <%= f.number_field :dp %>
   </div>

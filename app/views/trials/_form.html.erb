@@ -1,0 +1,37 @@
+<%= form_for(@trial) do |f| %>
+  <% if @trial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trial.errors.count, "error") %> prohibited this trial from being saved:</h2>
+
+      <ul>
+      <% @trial.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mini_map %><br />
+    <%= f.text_field :mini_map %>
+  </div>
+  <div class="field">
+    <%= f.label :map_name %><br />
+    <%= f.text_field :map_name %>
+  </div>
+  <div class="field">
+    <%= f.label :guard_mission_id %><br />
+    <%= f.number_field :guard_mission_id %>
+  </div>
+  <div class="field">
+    <%= f.label :intruder_mission_id %><br />
+    <%= f.number_field :intruder_mission_id %>
+  </div>
+  <div class="field">
+    <%= f.label :occured_at %><br />
+    <%= f.number_field :occured_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: FortressCreator::Area
+  
+    &mdash; Documentation by YARD 0.8.6.2
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../FortressCreator.html" title="FortressCreator (class)">FortressCreator</a></span></span>
+     &raquo; 
+    <span class="title">Area</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: FortressCreator::Area
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Rectangle.html" title="Rectangle (class)">Rectangle</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Rectangle.html" title="Rectangle (class)">Rectangle</a></span></li>
+          
+            <li class="next">FortressCreator::Area</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/fortress_creator.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class describes sub-area of Fortress. Area is connected to another
+area by pathway.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="NARROW_BETWEEN_ROOM_AND_AREA_SIZE-constant" class="">NARROW_BETWEEN_ROOM_AND_AREA_SIZE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Least length between room border and area border.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connected_directions-instance_method" title="#connected_directions (instance method)">- (Object) <strong>connected_directions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute connected_directions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#room-instance_method" title="#room (instance method)">- (Object) <strong>room</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute room.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x1-instance_method" title="#x1 (instance method)">- (Object) <strong>x1</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute x1.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x2-instance_method" title="#x2 (instance method)">- (Object) <strong>x2</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute x2.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#y1-instance_method" title="#y1 (instance method)">- (Object) <strong>y1</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute y1.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#y2-instance_method" title="#y2 (instance method)">- (Object) <strong>y2</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute y2.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Area) <strong>initialize</strong>(x, y, size, direction, cells) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Area.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_connected_east%3F-instance_method" title="#is_connected_east? (instance method)">- (Boolean) <strong>is_connected_east?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether east border of Area is connected to another
+Area or not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_connected_south%3F-instance_method" title="#is_connected_south? (instance method)">- (Boolean) <strong>is_connected_south?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether south border of Area is connected to another
+Area or not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_enough_space_room_east%3F-instance_method" title="#is_enough_space_room_east? (instance method)">- (Boolean) <strong>is_enough_space_room_east?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between east border of Area and room or
+not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_enough_space_room_north%3F-instance_method" title="#is_enough_space_room_north? (instance method)">- (Boolean) <strong>is_enough_space_room_north?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between north border of Area and room or
+not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_enough_space_room_south%3F-instance_method" title="#is_enough_space_room_south? (instance method)">- (Boolean) <strong>is_enough_space_room_south?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between south border of Area and room or
+not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_enough_space_room_west%3F-instance_method" title="#is_enough_space_room_west? (instance method)">- (Boolean) <strong>is_enough_space_room_west?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between west border of Area and room or
+not.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Rectangle.html" title="Rectangle (class)">Rectangle</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Rectangle.html#x_center-instance_method" title="Rectangle#x_center (method)">#x_center</a></span>, <span class='object_link'><a href="../Rectangle.html#y_center-instance_method" title="Rectangle#y_center (method)">#y_center</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="FortressCreator::Area (class)">Area</a></span></tt>) <strong>initialize</strong>(x, y, size, direction, cells) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of Area</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>x-coordinate of top-left.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>y-coordinate of top-left.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>size</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>side size of Area</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cells</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of FortressCell.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 218</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_cells'>cells</span><span class='rparen'>)</span>
+  <span class='ivar'>@x1</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span>
+  <span class='ivar'>@y1</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span>
+  <span class='ivar'>@x2</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='ivar'>@y2</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='ivar'>@area_size</span> <span class='op'>=</span> <span class='id identifier rubyid_size'>size</span>
+  <span class='ivar'>@room_size</span> <span class='op'>=</span> <span class='id identifier rubyid_random_room_size'>random_room_size</span>
+  <span class='ivar'>@room</span> <span class='op'>=</span> <span class='const'>Rectangle</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>=</span> <span class='ivar'>@x1</span> <span class='op'>+</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='ivar'>@area_size</span> <span class='op'>-</span> <span class='ivar'>@room_size</span> <span class='op'>-</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span> <span class='op'>+</span> <span class='int'>1</span>
+  <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>=</span> <span class='ivar'>@y1</span> <span class='op'>+</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='ivar'>@area_size</span> <span class='op'>-</span> <span class='ivar'>@room_size</span> <span class='op'>-</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span> <span class='op'>+</span> <span class='int'>1</span>
+  <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>=</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>+</span> <span class='ivar'>@room_size</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span> <span class='op'>=</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>+</span> <span class='ivar'>@room_size</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='ivar'>@exit_direction</span> <span class='op'>=</span> <span class='id identifier rubyid_direction'>direction</span>
+  <span class='ivar'>@exit_path</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@fortress_cells</span> <span class='op'>=</span> <span class='id identifier rubyid_cells'>cells</span>
+  <span class='id identifier rubyid_set_exit_path'>set_exit_path</span>
+  <span class='id identifier rubyid_update_cells'>update_cells</span>
+  <span class='ivar'>@connected_directions</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="connected_directions=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="connected_directions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>connected_directions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute connected_directions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_connected_directions'>connected_directions</span>
+  <span class='ivar'>@connected_directions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="room=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="room-instance_method">
+  
+    - (<tt>Object</tt>) <strong>room</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute room</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_room'>room</span>
+  <span class='ivar'>@room</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="x1=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="x1-instance_method">
+  
+    - (<tt>Object</tt>) <strong>x1</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute x1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_x1'>x1</span>
+  <span class='ivar'>@x1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="x2=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="x2-instance_method">
+  
+    - (<tt>Object</tt>) <strong>x2</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute x2</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_x2'>x2</span>
+  <span class='ivar'>@x2</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="y1=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="y1-instance_method">
+  
+    - (<tt>Object</tt>) <strong>y1</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute y1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_y1'>y1</span>
+  <span class='ivar'>@y1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="y2=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="y2-instance_method">
+  
+    - (<tt>Object</tt>) <strong>y2</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute y2</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_y2'>y2</span>
+  <span class='ivar'>@y2</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="is_connected_east?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_connected_east?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether east border of Area is connected to another
+Area or not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_connected_east?'>is_connected_east?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@connected_directions</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:east</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_connected_south?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_connected_south?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether south border of Area is connected to another
+Area or not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 247</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_connected_south?'>is_connected_south?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@connected_directions</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:south</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_enough_space_room_east?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_enough_space_room_east?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between east border of Area and room or
+not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 254</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_enough_space_room_east?'>is_enough_space_room_east?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='const'>NARROW_BETWEEN_ROOM_AND_AREA_SIZE</span> <span class='op'>&lt;</span> <span class='ivar'>@x2</span> <span class='op'>-</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_enough_space_room_north?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_enough_space_room_north?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between north border of Area and room or
+not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 268</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_enough_space_room_north?'>is_enough_space_room_north?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='const'>NARROW_BETWEEN_ROOM_AND_AREA_SIZE</span> <span class='op'>&lt;</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>-</span> <span class='ivar'>@y1</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_enough_space_room_south?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_enough_space_room_south?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between south border of Area and room or
+not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277
+278</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_enough_space_room_south?'>is_enough_space_room_south?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='const'>NARROW_BETWEEN_ROOM_AND_AREA_SIZE</span> <span class='op'>&lt;</span> <span class='ivar'>@y2</span> <span class='op'>-</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_enough_space_room_west?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_enough_space_room_west?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true or false whether there is larger space than
+NARROW_BETWEEN_ROOM_AND_AREA_SIZE between west border of Area and room or
+not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/fortress_creator.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_enough_space_room_west?'>is_enough_space_room_west?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='const'>NARROW_BETWEEN_ROOM_AND_AREA_SIZE</span> <span class='op'>&lt;</span> <span class='ivar'>@room</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>-</span> <span class='ivar'>@x1</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 30 18:32:11 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

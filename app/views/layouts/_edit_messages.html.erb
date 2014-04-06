@@ -1,0 +1,15 @@
+  <% unless flash[:errors].blank? %>
+  <div id="error_explanation">
+    <h2>エラーが発生しました。</h2>
+    <ul>
+      <% flash[:errors].full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <% unless flash[:success].blank? %>
+  <script language="JavaScript">
+  alert("更新が完了しました。");
+  </script>
+  <% end %>

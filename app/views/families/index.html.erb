@@ -4,6 +4,7 @@
   <tr>
     <th><%= label :family, :name %></th>
     <th><%= label :family, :asexual_flg %></th>
+    <th><%= label :family, :skill %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= family.name %></td>
     <td><%= family.asexual_flg %></td>
+    <td><%= family.skill.name unless family.skill.blank? %></td>
     <td><%= link_to 'Show', family %></td>
     <td><%= link_to 'Edit', edit_family_path(family) %></td>
     <td><%= link_to 'Destroy', family, confirm: 'Are you sure?', method: :delete %></td>

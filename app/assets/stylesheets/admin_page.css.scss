@@ -2,7 +2,7 @@ html,body{
   height: 100%;
 }
 
-#sidebar {
+#admin_sidebar {
   background-color: #e6cde3;
   float: left;
   width: 140px;
@@ -22,13 +22,13 @@ ul {
   margin-left: 1em;
 }
 
-table.normal {
+table.admin_normal {
   border: 1px #E3E3E3 solid;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.normal th {
+.admin_normal th {
   border:1px solid #663300;
   color:#fef4f4;
   background-color:#96514d;
@@ -37,12 +37,12 @@ table.normal {
   text-align:center;
 }
 
-.normal td {
+.admin_normal td {
   border:1px solid #663300;
   padding:0.3em 1em;
 }
 
-h3 {
+h3.admin_normal {
   border-top: 1px solid #999999;
   border-bottom: 1px solid #999999;
   border-left: 6px solid #663300;

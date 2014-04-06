@@ -2,12 +2,17 @@
 
 <p>
   <b><%= label :item, :item_info %>:</b>
-  <%= @item.item_info.name unless @item.item_info.blank? %>
+  <%= @item.item_info.name unless item.item_info.blank? %>
 </p>
 
 <p>
   <b><%= label :item, :houdd_user %>:</b>
-  <%= @item.houdd_user.name unless @item.houdd_user.blank? %>
+  <%= @item.houdd_user.name unless item.houdd_user.blank? %>
+</p>
+
+<p>
+  <b><%= label :item, :mob %>:</b>
+  <%= @item.mob.name unless item.mob.blank? %>
 </p>
 
 <p>

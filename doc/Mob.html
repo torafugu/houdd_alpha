@@ -1,0 +1,3390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Mob
+  
+    &mdash; Documentation by YARD 0.8.6.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo;
+    
+    
+    <span class="title">Mob</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Mob
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Mob</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/mob.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class describes a mob.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Mob/BattleEffectInv.html" title="Mob::BattleEffectInv (class)">BattleEffectInv</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MAX_PRIORITY-constant" class="">MAX_PRIORITY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Maximum priority of battle method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>5</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#battle_effect_invs-instance_method" title="#battle_effect_invs (instance method)">- (Object) <strong>battle_effect_invs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute battle_effect_invs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enemy_mobs-instance_method" title="#enemy_mobs (instance method)">- (Object) <strong>enemy_mobs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute enemy_mobs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#friend_mobs-instance_method" title="#friend_mobs (instance method)">- (Object) <strong>friend_mobs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute friend_mobs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hate-instance_method" title="#hate (instance method)">- (Object) <strong>hate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute hate.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#job_type_strategy-instance_method" title="#job_type_strategy (instance method)">- (Object) <strong>job_type_strategy</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute job_type_strategy.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ss_dex-instance_method" title="#ss_dex (instance method)">- (Object) <strong>ss_dex</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute ss_dex.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trial_mob_id-instance_method" title="#trial_mob_id (instance method)">- (Object) <strong>trial_mob_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute trial_mob_id.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vpos-instance_method" title="#vpos (instance method)">- (Object) <strong>vpos</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute vpos.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_effect-instance_method" title="#add_effect (instance method)">- (Object) <strong>add_effect</strong>(caused_mob, type_symbol, method) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add battle effect.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_skill_exp-instance_method" title="#add_skill_exp (instance method)">- (Object) <strong>add_skill_exp</strong>(skill, exp) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add exp for used skill in battle.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_wepon_exp-instance_method" title="#add_wepon_exp (instance method)">- (Object) <strong>add_wepon_exp</strong>(exp) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add exp for used wepon in battle.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#armor-instance_method" title="#armor (instance method)">- (Object) <strong>armor</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return equipped armor.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#asexual%3F-instance_method" title="#asexual? (instance method)">- (Boolean) <strong>asexual?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if this mob is asexual.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attacker%3F-instance_method" title="#attacker? (instance method)">- (Boolean) <strong>attacker?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if the member of attacker squad.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#battle_action-instance_method" title="#battle_action (instance method)">- (Object) <strong>battle_action</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return random battle action.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#battle_range-instance_method" title="#battle_range (instance method)">- (Integer) <strong>battle_range</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return battle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#damaged_friend_mobs_in_battle_range%3F-instance_method" title="#damaged_friend_mobs_in_battle_range? (instance method)">- (Boolean) <strong>damaged_friend_mobs_in_battle_range?</strong>(range) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if the nearest damaged friend mob is in batle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dead%3F-instance_method" title="#dead? (instance method)">- (Boolean) <strong>dead?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if this mob is dead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#demoralized%3F-instance_method" title="#demoralized? (instance method)">- (Boolean) <strong>demoralized?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if current hp is less than retreat_hp_rate.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#divide_to_attacker-instance_method" title="#divide_to_attacker (instance method)">- (Object) <strong>divide_to_attacker</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set attacker flag as true.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#divide_to_defender-instance_method" title="#divide_to_defender (instance method)">- (Object) <strong>divide_to_defender</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set attacker flag as false.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enemy_mobs_in_battle_range%3F-instance_method" title="#enemy_mobs_in_battle_range? (instance method)">- (Boolean) <strong>enemy_mobs_in_battle_range?</strong>(range) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if the nearest enemy mob is in batle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#equipped_items_txt-instance_method" title="#equipped_items_txt (instance method)">- (String) <strong>equipped_items_txt</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the item list which belongs to this mob.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#female%3F-instance_method" title="#female? (instance method)">- (Boolean) <strong>female?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if this mob is female.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#forward_job%3F-instance_method" title="#forward_job? (instance method)">- (Boolean) <strong>forward_job?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if forward job.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#friend_mobs_in_battle_range%3F-instance_method" title="#friend_mobs_in_battle_range? (instance method)">- (Boolean) <strong>friend_mobs_in_battle_range?</strong>(range) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if the nearest friend mob is in batle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gender_sym_txt-instance_method" title="#gender_sym_txt (instance method)">- (String) <strong>gender_sym_txt</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the description of gender symbol.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_hp-instance_method" title="#max_hp (instance method)">- (Integer) <strong>max_hp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return maximum hp.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_sp-instance_method" title="#max_sp (instance method)">- (Integer) <strong>max_sp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return maximum sp.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name_with_job-instance_method" title="#name_with_job (instance method)">- (String) <strong>name_with_job</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return name with job name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_front_line%3F-instance_method" title="#on_front_line? (instance method)">- (Boolean) <strong>on_front_line?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if this mob is facing enemy.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retreated_from_battle%3F-instance_method" title="#retreated_from_battle? (instance method)">- (Boolean) <strong>retreated_from_battle?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return true if this mob has already retreated.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#skills-instance_method" title="#skills (instance method)">- (Array) <strong>skills</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return all the skills.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#target_enemy_mobs-instance_method" title="#target_enemy_mobs (instance method)">- (Array) <strong>target_enemy_mobs</strong>(range, num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return target enemy mobs in battle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vpos_move-instance_method" title="#vpos_move (instance method)">- (Object) <strong>vpos_move</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vertisal move.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wepon-instance_method" title="#wepon (instance method)">- (Object) <strong>wepon</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return equipped wepon.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="battle_effect_invs=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="battle_effect_invs-instance_method">
+  
+    - (<tt>Object</tt>) <strong>battle_effect_invs</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute battle_effect_invs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_battle_effect_invs'>battle_effect_invs</span>
+  <span class='ivar'>@battle_effect_invs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="enemy_mobs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="enemy_mobs-instance_method">
+  
+    - (<tt>Object</tt>) <strong>enemy_mobs</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute enemy_mobs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enemy_mobs'>enemy_mobs</span>
+  <span class='ivar'>@enemy_mobs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="friend_mobs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="friend_mobs-instance_method">
+  
+    - (<tt>Object</tt>) <strong>friend_mobs</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute friend_mobs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_friend_mobs'>friend_mobs</span>
+  <span class='ivar'>@friend_mobs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hate=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>hate</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute hate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hate'>hate</span>
+  <span class='ivar'>@hate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="job_type_strategy=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="job_type_strategy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>job_type_strategy</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute job_type_strategy</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span>
+  <span class='ivar'>@job_type_strategy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="ss_dex=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ss_dex-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ss_dex</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute ss_dex</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ss_dex'>ss_dex</span>
+  <span class='ivar'>@ss_dex</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="trial_mob_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="trial_mob_id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>trial_mob_id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute trial_mob_id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_trial_mob_id'>trial_mob_id</span>
+  <span class='ivar'>@trial_mob_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vpos=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vpos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>vpos</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute vpos</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vpos'>vpos</span>
+  <span class='ivar'>@vpos</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_effect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_effect</strong>(caused_mob, type_symbol, method) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>By DoT or HoT</p>
+</div>
+  </div>
+
+
+<p>Add battle effect.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>caused_mob</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type_symbol</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>method</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 370</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_effect'>add_effect</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_battle_effect_invs'>battle_effect_invs</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_effect_invs'>battle_effect_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='ivar'>@battle_effect_invs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='kw'>and</span> <span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>==</span> <span class='id identifier rubyid_method'>method</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>=</span> <span class='symbol'>:wepon</span>
+    <span class='ivar'>@battle_effect_invs</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleEffectInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@battle_effect_invs</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleEffectInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_skill_exp-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_skill_exp</strong>(skill, exp) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add exp for used skill in battle.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>skill</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exp</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 349</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_skill_exp'>add_skill_exp</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='comma'>,</span> <span class='id identifier rubyid_exp'>exp</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_skill_exp_invs'>skill_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill_exp_invs'>skill_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span> <span class='op'>=</span> <span class='const'>SkillExpInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span> <span class='op'>=</span> <span class='id identifier rubyid_skill_exp_invs'>skill_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>+=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_skill_exp'>skill_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_wepon_exp-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_wepon_exp</strong>(exp) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add exp for used wepon in battle.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>exp</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 331</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_wepon_exp'>add_wepon_exp</span><span class='lparen'>(</span><span class='id identifier rubyid_exp'>exp</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span> <span class='op'>=</span> <span class='const'>ItemInfoExpInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>=</span> <span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span> <span class='op'>=</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>+=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="armor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>armor</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return equipped armor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_armor'>armor</span>
+  <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:armor</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="asexual?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>asexual?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if this mob is asexual.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_asexual?'>asexual?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>GENDER_ASEXUAL</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="attacker?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>attacker?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if the member of attacker squad.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attacker?'>attacker?</span>
+  <span class='kw'>return</span> <span class='ivar'>@attacker_flg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="battle_action-instance_method">
+  
+    - (<tt>Object</tt>) <strong>battle_action</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return random battle action.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 268</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_battle_action'>battle_action</span>
+  <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_upto'>upto</span><span class='lparen'>(</span><span class='const'>MAX_PRIORITY</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_priority'>priority</span><span class='op'>|</span>
+    <span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='ivar'>@job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_battle'>battle</span><span class='lparen'>(</span><span class='symbol'>:normal</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_methods_by_priority'>methods_by_priority</span><span class='lparen'>(</span><span class='id identifier rubyid_priority'>priority</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+    <span class='kw'>unless</span> <span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+      <span class='id identifier rubyid_battle_method'>battle_method</span> <span class='op'>=</span> <span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='comment'># p battle_method
+</span>      <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:wepon</span>
+        <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_wepon'>wepon</span>
+          <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
+        <span class='kw'>end</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:skill</span>
+        <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:debuff</span>
+          <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:debuff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+              <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
+              <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hd</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hot</span>
+          <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range?'>damaged_friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+              <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
+              <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:buff</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:other</span>
+          <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:buff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:other</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_friend_mobs_in_battle_range?'>friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+              <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
+              <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='comment'># p battle_method
+</span>      <span class='comment'># return battle_method
+</span>      <span class='comment'>#return battle_method if battle_method_reachable?(battle_method)
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="battle_range-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>battle_range</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return battle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 159</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_battle_range'>battle_range</span>
+  <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
+    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='comment'>#if range &lt; skill.range and (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s)
+</span>  <span class='kw'>end</span>
+  <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>and</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_range'>range</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="damaged_friend_mobs_in_battle_range?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>damaged_friend_mobs_in_battle_range?</strong>(range) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if the nearest damaged friend mob is in batle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range?'>damaged_friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range'>damaged_friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dead?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>dead?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if this mob is dead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dead?'>dead?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_hp'>hp</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="demoralized?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>demoralized?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if current hp is less than retreat_hp_rate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_hp'>hp</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_max_hp'>max_hp</span> <span class='op'>*</span> <span class='ivar'>@job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_retreat_hp_rate'>retreat_hp_rate</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="divide_to_attacker-instance_method">
+  
+    - (<tt>Object</tt>) <strong>divide_to_attacker</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set attacker flag as true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_divide_to_attacker'>divide_to_attacker</span>
+  <span class='ivar'>@attacker_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="divide_to_defender-instance_method">
+  
+    - (<tt>Object</tt>) <strong>divide_to_defender</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set attacker flag as false.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 184</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_divide_to_defender'>divide_to_defender</span>
+  <span class='ivar'>@attacker_flg</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enemy_mobs_in_battle_range?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>enemy_mobs_in_battle_range?</strong>(range) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if the nearest enemy mob is in batle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+232
+233
+234
+235</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 232</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range'>enemy_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="equipped_items_txt-instance_method">
+  
+    - (<tt>String</tt>) <strong>equipped_items_txt</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the item list which belongs to this mob.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Comma separated item.name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_equipped_items_txt'>equipped_items_txt</span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.nothing</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+      <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>+=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+      <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_chop!'>chop!</span> <span class='kw'>if</span> <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_items_txt'>items_txt</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="female?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>female?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if this mob is female.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_female?'>female?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>GENDER_FEMALE</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="forward_job?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>forward_job?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>Tank and Close range attacker.</p>
+</div>
+  </div>
+
+
+<p>Return true if forward job.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:tank</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:attacker_c</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="friend_mobs_in_battle_range?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>friend_mobs_in_battle_range?</strong>(range) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if the nearest friend mob is in batle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_friend_mobs_in_battle_range?'>friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gender_sym_txt-instance_method">
+  
+    - (<tt>String</tt>) <strong>gender_sym_txt</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the description of gender symbol.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gender_sym_txt'>gender_sym_txt</span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.gender.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="max_hp-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>max_hp</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>maximum hp is calculated from CON status.</p>
+</div>
+  </div>
+
+
+<p>Return maximum hp.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_hp'>max_hp</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_con'>con</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>MOB_MAX_HP_MULTIPLIER</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="max_sp-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>max_sp</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>maximum sp is calculated from INT status.</p>
+</div>
+  </div>
+
+
+<p>Return maximum sp.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_sp'>max_sp</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_int'>int</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>MOB_MAX_SP_MULTIPLIER</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name_with_job-instance_method">
+  
+    - (<tt>String</tt>) <strong>name_with_job</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return name with job name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name_with_job'>name_with_job</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_front_line?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>on_front_line?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if this mob is facing enemy.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 218</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
+  <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span> <span class='op'>=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span>
+  <span class='ivar'>@enemy_mobs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_enemy_mob'>enemy_mob</span><span class='op'>|</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_enemy_mob'>enemy_mob</span><span class='period'>.</span><span class='id identifier rubyid_dead?'>dead?</span>
+      <span class='id identifier rubyid_distance_from_enemy'>distance_from_enemy</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_enemy_mob'>enemy_mob</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>-</span> <span class='ivar'>@vpos</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
+      <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span> <span class='op'>=</span> <span class='id identifier rubyid_distance_from_enemy'>distance_from_enemy</span> <span class='kw'>if</span> <span class='id identifier rubyid_distance_from_enemy'>distance_from_enemy</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+  <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="retreated_from_battle?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>retreated_from_battle?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return true if this mob has already retreated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+253
+254
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 253</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retreated_from_battle?'>retreated_from_battle?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@vpos</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@vpos</span> <span class='op'>&lt;</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='kw'>or</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>&lt;</span> <span class='ivar'>@vpos</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="skills-instance_method">
+  
+    - (<tt>Array</tt>) <strong>skills</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return all the skills.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151
+152
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_skills'>skills</span>
+  <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>+=</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_skills'>skills</span> <span class='kw'>unless</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span> <span class='kw'>unless</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span> <span class='kw'>unless</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_all_skills'>all_skills</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="target_enemy_mobs-instance_method">
+  
+    - (<tt>Array</tt>) <strong>target_enemy_mobs</strong>(range, num) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>returned mobs are sorted by hate.</p>
+</div>
+  </div>
+
+
+<p>Return target enemy mobs in battle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 317</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_target_enemy_mobs'>target_enemy_mobs</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span> <span class='op'>=</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range'>enemy_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span>
+    <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_hate'>hate</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_hate'>hate</span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_num'>num</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vpos_move-instance_method">
+  
+    - (<tt>Object</tt>) <strong>vpos_move</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>moving logic depends on job.</p>
+</div>
+  </div>
+
+
+<p>Vertisal move.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 196</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vpos_move'>vpos_move</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_attacker?'>attacker?</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span> <span class='kw'>or</span> <span class='lparen'>(</span><span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span><span class='rparen'>)</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span> <span class='kw'>or</span> <span class='lparen'>(</span><span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span><span class='rparen'>)</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>-</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>-</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wepon-instance_method">
+  
+    - (<tt>Object</tt>) <strong>wepon</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return equipped wepon.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wepon'>wepon</span>
+  <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_natural_item'>natural_item</span> <span class='op'>=</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_item_infos'>item_infos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item_info'>item_info</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:natural_wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_houdd_user_id'>houdd_user_id</span><span class='op'>=</span> <span class='id identifier rubyid_houdd_user_id'>houdd_user_id</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='op'>=</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_dp'>dp</span> <span class='op'>=</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_max_dp'>max_dp</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_quality'>quality</span> <span class='op'>=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_built_point'>built_point</span> <span class='op'>=</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_rq_prod_point'>rq_prod_point</span>
+      <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_active_flg'>active_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_natural_item'>natural_item</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 30 18:32:14 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

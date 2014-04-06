@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004040104) do
-
-  create_table "body_parts", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20140330070045) do
 
   create_table "constructions", :force => true do |t|
     t.integer  "terrain_id"
@@ -44,12 +38,27 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
   add_index "dnas", ["gene_id"], :name => "index_dnas_on_gene_id"
   add_index "dnas", ["mob_id"], :name => "index_dnas_on_mob_id"
 
+  create_table "exp_invs", :force => true do |t|
+    t.string   "type"
+    t.integer  "mob_id"
+    t.integer  "owner_id"
+    t.integer  "level"
+    t.integer  "exp"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "exp_invs", ["mob_id"], :name => "index_exp_invs_on_mob_id"
+
   create_table "families", :force => true do |t|
     t.string   "name"
     t.boolean  "asexual_flg"
+    t.integer  "skill_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "families", ["skill_id"], :name => "index_families_on_skill_id"
 
   create_table "fortress_cells", :force => true do |t|
     t.integer  "mini_map_id"
@@ -101,30 +110,37 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
     t.datetime "updated_at",         :null => false
   end
 
-  create_table "item_categories", :force => true do |t|
-    t.string   "type_sym"
-    t.string   "name"
-    t.integer  "body_part_id"
-    t.integer  "rq_slot_num"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "item_categories", ["body_part_id"], :name => "index_item_categories_on_body_part_id"
-
   create_table "item_infos", :force => true do |t|
-    t.integer  "item_category_id"
-    t.integer  "size"
-    t.integer  "weight_level"
+    t.string   "type_symbol"
+    t.string   "element_symbol"
     t.string   "name"
+    t.integer  "num_of_tgt"
+    t.integer  "hit_accuracy"
+    t.integer  "range"
+    t.integer  "damage"
+    t.integer  "heal"
+    t.float    "str_mod"
+    t.float    "dex_mod"
+    t.float    "con_mod"
+    t.float    "int_mod"
+    t.float    "wis_mod"
+    t.float    "cha_mod"
+    t.float    "ele_fw_mod"
+    t.float    "ele_ld_mod"
+    t.float    "phys_def_mod"
+    t.float    "skill_def_mod"
+    t.integer  "duration"
+    t.integer  "family_id"
+    t.integer  "weight_level"
     t.integer  "max_dp"
     t.integer  "rq_prod_point"
+    t.integer  "atk_cycle"
     t.integer  "research_level"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "item_infos", ["item_category_id"], :name => "index_item_infos_on_item_category_id"
+  add_index "item_infos", ["family_id"], :name => "index_item_infos_on_family_id"
 
   create_table "item_sp_resource_invs", :force => true do |t|
     t.integer  "item_info_id"
@@ -139,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
   create_table "items", :force => true do |t|
     t.integer  "item_info_id"
     t.integer  "houdd_user_id"
+    t.integer  "mob_id"
     t.integer  "dp"
     t.integer  "quality"
     t.integer  "built_point"
@@ -149,8 +166,20 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
 
   add_index "items", ["houdd_user_id"], :name => "index_items_on_houdd_user_id"
   add_index "items", ["item_info_id"], :name => "index_items_on_item_info_id"
+  add_index "items", ["mob_id"], :name => "index_items_on_mob_id"
+
+  create_table "job_skill_invs", :force => true do |t|
+    t.integer  "skill_id"
+    t.integer  "job_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "job_skill_invs", ["job_id"], :name => "index_job_skill_invs_on_job_id"
+  add_index "job_skill_invs", ["skill_id"], :name => "index_job_skill_invs_on_skill_id"
 
   create_table "jobs", :force => true do |t|
+    t.string   "type_symbol"
     t.string   "name"
     t.float    "growth_penalty"
     t.integer  "wepon_lvl"
@@ -222,6 +251,43 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
 
   add_index "mini_maps", ["houdd_user_id"], :name => "index_mini_maps_on_houdd_user_id"
 
+  create_table "mission_queues", :force => true do |t|
+    t.integer  "mission_id"
+    t.integer  "squad_id"
+    t.integer  "priority"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "mission_queues", ["mission_id"], :name => "index_mission_queues_on_mission_id"
+  add_index "mission_queues", ["squad_id"], :name => "index_mission_queues_on_squad_id"
+
+  create_table "mission_strategies", :force => true do |t|
+    t.integer  "houdd_user_id"
+    t.string   "name"
+    t.text     "script"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "mission_strategies", ["houdd_user_id"], :name => "index_mission_strategies_on_houdd_user_id"
+
+  create_table "missions", :force => true do |t|
+    t.integer  "houdd_user_id"
+    t.integer  "mini_map_id"
+    t.string   "category_symbol"
+    t.integer  "mission_strategy_id"
+    t.string   "status_symbol"
+    t.decimal  "start_houdd_time",    :precision => 10, :scale => 3
+    t.decimal  "end_houdd_time",      :precision => 10, :scale => 3
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+  end
+
+  add_index "missions", ["houdd_user_id"], :name => "index_missions_on_houdd_user_id"
+  add_index "missions", ["mini_map_id"], :name => "index_missions_on_mini_map_id"
+  add_index "missions", ["mission_strategy_id"], :name => "index_missions_on_mission_strategy_id"
+
   create_table "mobs", :force => true do |t|
     t.integer  "houdd_user_id"
     t.integer  "specie_id"
@@ -255,10 +321,10 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
   add_index "mobs", ["specie_id"], :name => "index_mobs_on_specie_id"
   add_index "mobs", ["squad_id"], :name => "index_mobs_on_squad_id"
 
-  create_table "production_ques", :force => true do |t|
+  create_table "production_queues", :force => true do |t|
     t.integer  "houdd_user_id"
     t.string   "symbol"
-    t.integer  "que_id"
+    t.integer  "queue_id"
     t.integer  "priority"
     t.integer  "allotment"
     t.boolean  "destroy_flg"
@@ -266,7 +332,7 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "production_ques", ["houdd_user_id"], :name => "index_production_ques_on_houdd_user_id"
+  add_index "production_queues", ["houdd_user_id"], :name => "index_production_queues_on_houdd_user_id"
 
   create_table "researches", :force => true do |t|
     t.integer  "houdd_user_id"
@@ -280,33 +346,32 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
 
   add_index "researches", ["houdd_user_id"], :name => "index_researches_on_houdd_user_id"
 
-  create_table "skill_categories", :force => true do |t|
-    t.string   "type_sym"
-    t.string   "element_sym"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "skill_invs", :force => true do |t|
-    t.string   "type"
-    t.integer  "skill_id"
-    t.integer  "owner_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "skill_invs", ["skill_id"], :name => "index_skill_invs_on_skill_id"
-
   create_table "skills", :force => true do |t|
-    t.integer  "skill_category_id"
+    t.string   "type_symbol"
+    t.string   "element_symbol"
     t.string   "name"
     t.integer  "sp_cost"
+    t.integer  "num_of_tgt"
+    t.integer  "hit_accuracy"
+    t.integer  "range"
+    t.integer  "damage"
+    t.integer  "heal"
+    t.float    "str_mod"
+    t.float    "dex_mod"
+    t.float    "con_mod"
+    t.float    "int_mod"
+    t.float    "wis_mod"
+    t.float    "cha_mod"
+    t.float    "ele_fw_mod"
+    t.float    "ele_ld_mod"
+    t.float    "phys_def_mod"
+    t.float    "skill_def_mod"
+    t.integer  "duration"
+    t.integer  "cast_cycle"
     t.integer  "research_level"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
-
-  add_index "skills", ["skill_category_id"], :name => "index_skills_on_skill_category_id"
 
   create_table "sp_resources", :force => true do |t|
     t.integer  "terrain_id"
@@ -351,11 +416,13 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
     t.integer  "skill_def"
     t.integer  "ele_fw"
     t.integer  "ele_ld"
+    t.integer  "skill_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
   add_index "species", ["family_id"], :name => "index_species_on_family_id"
+  add_index "species", ["skill_id"], :name => "index_species_on_skill_id"
 
   create_table "squads", :force => true do |t|
     t.integer  "houdd_user_id"
@@ -368,38 +435,6 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
   add_index "squads", ["houdd_user_id"], :name => "index_squads_on_houdd_user_id"
   add_index "squads", ["mini_map_id"], :name => "index_squads_on_mini_map_id"
 
-  create_table "status_mod_invs", :force => true do |t|
-    t.string   "type"
-    t.integer  "status_mod_id"
-    t.integer  "owner_id"
-    t.integer  "num_of_tgt"
-    t.integer  "duration"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "status_mod_invs", ["status_mod_id"], :name => "index_status_mod_invs_on_status_mod_id"
-
-  create_table "status_mods", :force => true do |t|
-    t.string   "name"
-    t.integer  "hit_accuracy"
-    t.integer  "d_range"
-    t.integer  "x_range"
-    t.integer  "hp_damage"
-    t.float    "str_mod"
-    t.float    "dex_mod"
-    t.float    "con_mod"
-    t.float    "int_mod"
-    t.float    "wis_mod"
-    t.float    "cha_mod"
-    t.float    "ele_fw_mod"
-    t.float    "ele_ld_mod"
-    t.float    "phys_def_mod"
-    t.float    "skill_def_mod"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "terrains", :force => true do |t|
     t.string   "symbol"
     t.string   "name"
@@ -411,5 +446,104 @@ ActiveRecord::Schema.define(:version => 20131004040104) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "trial_battle_logs", :force => true do |t|
+    t.integer  "trial_move_turn_id"
+    t.integer  "trial_mob_id"
+    t.integer  "vpos"
+    t.integer  "target_mob_id"
+    t.boolean  "target_dead_flg"
+    t.integer  "damage"
+    t.string   "method_txt"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "trial_battle_logs", ["trial_mob_id"], :name => "index_trial_battle_logs_on_trial_mob_id"
+  add_index "trial_battle_logs", ["trial_move_turn_id"], :name => "index_trial_battle_logs_on_trial_move_turn_id"
+
+  create_table "trial_fortress_cells", :force => true do |t|
+    t.integer  "trial_id"
+    t.string   "symbol"
+    t.integer  "x"
+    t.integer  "y"
+    t.boolean  "trap_flg"
+    t.boolean  "goal_flg"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "trial_fortress_cells", ["trial_id"], :name => "index_trial_fortress_cells_on_trial_id"
+
+  create_table "trial_mob_statuses", :force => true do |t|
+    t.integer  "trial_move_turn_id"
+    t.integer  "trial_mob_id"
+    t.integer  "end_hp"
+    t.integer  "end_sp"
+    t.string   "end_status"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "trial_mob_statuses", ["trial_mob_id"], :name => "index_trial_mob_statuses_on_trial_mob_id"
+  add_index "trial_mob_statuses", ["trial_move_turn_id"], :name => "index_trial_mob_statuses_on_trial_move_turn_id"
+
+  create_table "trial_mobs", :force => true do |t|
+    t.integer  "trial_squad_id"
+    t.integer  "mob_id"
+    t.string   "name"
+    t.string   "job_name"
+    t.integer  "max_hp"
+    t.integer  "max_sp"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "trial_mobs", ["trial_squad_id"], :name => "index_trial_mobs_on_trial_squad_id"
+
+  create_table "trial_move_turns", :force => true do |t|
+    t.integer  "trial_id"
+    t.text     "log"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "trial_move_turns", ["trial_id"], :name => "index_trial_move_turns_on_trial_id"
+
+  create_table "trial_squad_trails", :force => true do |t|
+    t.integer  "trial_move_turn_id"
+    t.integer  "trial_squad_id"
+    t.integer  "from_x"
+    t.integer  "from_y"
+    t.integer  "to_x"
+    t.integer  "to_y"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "trial_squad_trails", ["trial_move_turn_id"], :name => "index_trial_squad_trails_on_trial_move_turn_id"
+  add_index "trial_squad_trails", ["trial_squad_id"], :name => "index_trial_squad_trails_on_trial_squad_id"
+
+  create_table "trial_squads", :force => true do |t|
+    t.integer  "trial_id"
+    t.integer  "squad_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "trial_squads", ["trial_id"], :name => "index_trial_squads_on_trial_id"
+
+  create_table "trials", :force => true do |t|
+    t.integer  "mini_map_id"
+    t.string   "map_name"
+    t.integer  "guard_mission_id"
+    t.integer  "intruder_mission_id"
+    t.integer  "occured_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "trials", ["mini_map_id"], :name => "index_trials_on_mini_map_id"
 
 end
