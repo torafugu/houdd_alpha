@@ -8,14 +8,14 @@ describe "trials/index" do
         :map_name => "Map Name",
         :guard_mission_id => 1,
         :intruder_mission_id => 2,
-        :occured_at => 3
+        :occurred_at => 3
       ),
       stub_model(Trial,
         :mini_map => nil,
         :map_name => "Map Name",
         :guard_mission_id => 1,
         :intruder_mission_id => 2,
-        :occured_at => 3
+        :occurred_at => 3
       )
     ])
   end

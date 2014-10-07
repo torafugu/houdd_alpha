@@ -174,7 +174,7 @@ class MyPageController < ApplicationController
   # GET /my_page/1/1/edit_fortress_traps
   def edit_fortress_traps
     @mini_map = MiniMap.find(params[:mini_map_id])
-    @all_traps = Item.joins(:item_info => :item_category).where(['item_categories.type_symbol = ? and houdd_user_id = ?',:trap.to_s ,params[:user_id]]).collect{|t| [t.name, t.id]}
+    @all_traps = Item.joins(:item_info).where(['item_infos.type_symbol = ? and houdd_user_id = ?',:trap.to_s ,params[:user_id]]).collect{|t| [t.name, t.id]}
     @installed_traps = FortressCell.joins(:mini_map).where(['mini_maps.houdd_user_id = ? and trap_id is not null', params[:user_id]]).collect{|t| [t.trap.name, t.trap_id]}
     @stocked_traps = @all_traps - @installed_traps
 
@@ -406,7 +406,6 @@ class MyPageController < ApplicationController
     end
   end
 
-
   # my_page - item manufacturing
   # GET /my_page/1/select_product_item
   def select_product_item
@@ -465,7 +464,6 @@ class MyPageController < ApplicationController
                 format.json { render json: errors, status: :created }
               end
               raise ActiveRecord::Rollback
-              break
             end
           end
         end
@@ -531,7 +529,7 @@ class MyPageController < ApplicationController
   # GET /my_page/1/1/edit_mob_equips
   def edit_mob_equips
     @mob = Mob.find(params[:mob_id])
-    @wepon_id = @mob.wepon.id unless @mob.wepon.blank?
+    @weapon_id = @mob.weapon.id unless @mob.weapon.blank?
     @armor_id = @mob.armor.id unless @mob.armor.blank?
 
     respond_to do |format|
@@ -544,11 +542,11 @@ class MyPageController < ApplicationController
     @houdd_user = HouddUser.find(params[:user_id])
 
     @errors = nil
-    unless params[:my_page]['wepon_id'].blank?
-      wepon_item = Item.find(params[:my_page]['wepon_id'])
-      wepon_item.mob_id = params[:mob_id]
-      if wepon_item.save
-        @errors = wepon_item.errors
+    unless params[:my_page]['weapon_id'].blank?
+      weapon_item = Item.find(params[:my_page]['weapon_id'])
+      weapon_item.mob_id = params[:mob_id]
+      if weapon_item.save
+        @errors = weapon_item.errors
       end
     end
 
@@ -675,7 +673,6 @@ class MyPageController < ApplicationController
           format.html { redirect_to action: "edit_squad" }
         end
         raise ActiveRecord::Rollback
-        return
       end
     end
 
@@ -690,7 +687,6 @@ class MyPageController < ApplicationController
             format.html { redirect_to action: "edit_squad" }
           end
           raise ActiveRecord::Rollback
-          return
         end
       end
     end
@@ -881,6 +877,70 @@ class MyPageController < ApplicationController
         flash[:errors] = @mission.errors
       end
       format.html { redirect_to action: "mission_index" }
+    end
+  end
+
+  # GET /my_page/1/1/1/1/mission_result
+  def mission_result
+    @houdd_user = HouddUser.find(params[:user_id])
+    @mission = Mission.find(params[:mission_id])
+    @trial = Trial.find(params[:trial_id])
+    @trial_move_turn_index = params[:turn_index].to_i - 1
+    @trial_move_turn_index = 0 if @trial_move_turn_index < 0
+    @current_trial_move_turn = @trial.trial_move_turns[@trial_move_turn_index]
+    # To see from the index as 1 on view.
+    @trial_move_turn_index += 1
+
+    if @trial_move_turn_index == 1
+      @trial.initialize_trial_squads_status
+    end
+
+    if @current_trial_move_turn.trial_battle_sets.blank?
+      @max_battle_set_index = 0
+      @first_battle_set_index = 0
+      @first_battle_set = nil
+      @max_battle_turn_index = 0
+      @first_battle_turn_index = 0
+      @attacker_squad_name = nil
+      @defender_squad_name = nil
+      @battle_distance = 0
+      @current_battle_turn = nil
+    else
+      @max_battle_set_index = @current_trial_move_turn.trial_battle_sets.size
+      @first_battle_set_index = 1
+      @first_battle_set = @current_trial_move_turn.trial_battle_sets.first
+      @max_battle_turn_index = @first_battle_set.trial_battle_turns.size
+      @first_battle_turn_index = 1
+      @attacker_squad_name = @first_battle_set.attacker_squad.name
+      @defender_squad_name = @first_battle_set.defender_squad.name
+      @battle_distance = @first_battle_set.distance
+      @current_battle_turn = @first_battle_set.trial_battle_turns.first
+      @trial.update_trial_squads_status(@current_trial_move_turn.id)
+    end
+
+    respond_to do |format|
+      format.html # mission_result.html.erb
+    end
+  end
+
+  # GET /my_page/1/1/1/1/1/1/select_battle_turn
+  def select_battle_turn
+    trial = Trial.find(params[:trial_id])
+    trial_move_turn_index = params[:turn_index].to_i - 1
+    trial_move_turn_index = 0 if trial_move_turn_index < 0
+    current_trial_move_turn = TrialMoveTurn.where("trial_id = ?", trial.id)[trial_move_turn_index]
+    @battle_set_index = params[:battle_set_index].to_i - 1
+    @battle_set_index = 0 if @battle_set_index < 0
+    @current_battle_set = TrialBattleSet.where("trial_move_turn_id = ?", current_trial_move_turn.id)[@battle_set_index]
+    @battle_turn_index = params[:battle_turn_index].to_i - 1
+    @battle_turn_index = 0 if @battle_turn_index < 0
+    @current_battle_turn = TrialBattleTurn.where("trial_battle_set_id = ?", @current_battle_set.id)[@battle_turn_index]
+    # To see from the index as 1 on view.
+    @battle_set_index += 1
+    @battle_turn_index += 1
+
+    respond_to do |format|
+      format.js # select_battle_turn.js
     end
   end
 

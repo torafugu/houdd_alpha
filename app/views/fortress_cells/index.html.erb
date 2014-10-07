@@ -15,7 +15,7 @@
 
 <% @fortress_cells.each do |fortress_cell| %>
   <tr>
-    <td><%= fortress_cell.mini_map %></td>
+    <td><%= fortress_cell.mini_map.name unless fortress_cell.mini_map.blank? %></td>
     <td><%= fortress_cell.symbol %></td>
     <td><%= fortress_cell.x %></td>
     <td><%= fortress_cell.y %></td>

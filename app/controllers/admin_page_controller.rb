@@ -117,15 +117,15 @@ class AdminPageController < ApplicationController
   # PUT /admin_page/1/update_roads
   def update_roads
     @save_success_flg = true
-    for road in params[:roads]
-      unless road["id"].blank?
-        @mini_map_road = MiniMapRoad.find(road["id"])
+    params[:roads].each { |road|
+      unless road['id'].blank?
+        @mini_map_road = MiniMapRoad.find(road['id'])
         @mini_map_road.update_attributes(road)
       else
         @mini_map_road = MiniMapRoad.new
         @mini_map_road.assign_attributes(road)
       end
-      
+
       unless @mini_map_road.save
         @save_success_flg = false
         respond_to do |format|
@@ -135,7 +135,7 @@ class AdminPageController < ApplicationController
         end
         break
       end
-    end
+    }
 
     if @save_success_flg
       respond_to do |format|

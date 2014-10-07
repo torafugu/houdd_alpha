@@ -1,0 +1,418 @@
+<script type="text/processing" data-processing-target="trial_result_dungeon_canvas">
+int RECT_SIZE = 20;
+int MAP_WIDTH = <%= @trial.fortress_x_size + 1 %> * RECT_SIZE + 1;
+int MAP_HEIGHT = <%= @trial.fortress_y_size + 1 %> * RECT_SIZE + 1;
+ArrayList fortressCells = new ArrayList();
+ArrayList squadTrails = new ArrayList();
+
+PImage concreteImg = loadImage("/assets/fortress_concrete.png");
+PImage waterImg = loadImage("/assets/water.png");
+PImage flgImg = loadImage("/assets/fortress_flag.png");
+PShape GUARDS_ICON_E = loadShape("/assets/guardsicon_e.svg");
+PShape GUARDS_ICON_W = loadShape("/assets/guardsicon_w.svg");
+PShape GUARDS_ICON_S = loadShape("/assets/guardsicon_s.svg");
+PShape GUARDS_ICON_N = loadShape("/assets/guardsicon_n.svg");
+PShape INTRUDER_ICON_E = loadShape("/assets/intrudericon_e.svg");
+PShape INTRUDER_ICON_W = loadShape("/assets/intrudericon_w.svg");
+PShape INTRUDER_ICON_S = loadShape("/assets/intrudericon_s.svg");
+PShape INTRUDER_ICON_N = loadShape("/assets/intrudericon_n.svg");
+
+String BLANK = "<%= :blank.to_s %>";
+String CONCRETE = "<%= :concrete.to_s %>";
+
+void setup() {
+  frameRate(4);
+  size(MAP_WIDTH, MAP_HEIGHT);
+  <% @trial.trial_fortress_cells.each do |cell| %>
+    fortressCells.add(new FortressCell(<%= cell.x %>, <%= cell.y %>, "<%= cell.symbol %>", <%= cell.trap_flg %>, <%= cell.goal_flg %>));
+  <% end %>
+
+  <% @trial.trial_squads.each do |squad| %>
+    <% squad.trails_of_move_turn(@current_trial_move_turn).each do |trail| %>
+      squadTrails.add(new SquadTrail(<%= trail.from_x %>, <%= trail.from_y %>, <%= trail.to_x %>, <%= trail.to_y %>, <%= trail.intruder_flg %>, "<%= trail.direction %>", <%= trail.trail_type %>, <%= trail.annihilated_flg %>));
+    <% end %>
+  <% end %>
+}
+
+void draw() {
+  background(0);
+  fill(0);
+
+  // Draw map
+  stroke(0);
+  strokeWeight(1);
+  for (int n = 0; n < fortressCells.size(); n++) {
+    (FortressCell)fortressCells.get(n).draw();
+  }
+
+  if (squadTrails != null) {
+    for (int i = 0; i < squadTrails.size(); i = i + 1) {
+      (SquadTrail)(squadTrails.get(i)).display();
+    }
+  }
+}
+
+class FortressCell {
+  int fortressX;
+  int fortressY;
+  String material;
+  boolean isTrapID;
+  boolean isGoal;
+
+  FortressCell(int x, int y, String m, boolean t, boolean g) {
+    fortressX = x;
+    fortressY = y;
+    material = m;
+    isTrapID = t;
+    isGoal = g;
+  }
+
+  void draw() {
+
+    if (isGoal) {
+      image(flgImg, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    } else if (material.equals(CONCRETE) == true) {
+      image(concreteImg, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    }
+
+    if (isTrapID) {
+      shape(TRAP_ICON_N, RECT_SIZE * fortressX, RECT_SIZE * fortressY, RECT_SIZE, RECT_SIZE);
+    }
+  }
+}
+
+class SquadTrail {
+  int fromX, fromY, toX, toY, trailType;
+  boolean isIntruder, isAnnihilated;
+  String direction;
+
+  SquadTrail(int x1, int y1, int x2, int y2,  boolean intFlg, String direc, int tType, boolean anniFlg) {
+    fromX = x1 * RECT_SIZE;
+    fromY = y1 * RECT_SIZE;
+    toX = x2 * RECT_SIZE;
+    toY = y2 * RECT_SIZE;
+    isIntruder = intFlg;
+    direction = direc;
+    trailType = tType;
+    isAnnihilated = anniFlg;
+  }
+
+  void display() {
+    int posX = toX + (RECT_SIZE / 2);
+    int posY = toY + (RECT_SIZE / 2);
+    strokeWeight(3);
+
+    if (trailType == 1 || trailType == 4) {
+      if (isIntruder == true) {
+        if (direction.equals("E") == true) {
+          shape(INTRUDER_ICON_E, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else if (direction.equals("W") == true) {
+          shape(INTRUDER_ICON_W, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else if (direction.equals("S") == true) {
+          shape(INTRUDER_ICON_S, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else {
+          shape(INTRUDER_ICON_N, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        }
+      } else {
+        if (direction.equals("E") == true) {
+          shape(GUARDS_ICON_E, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else if (direction.equals("W") == true) {
+          shape(GUARDS_ICON_W, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else if (direction.equals("N") == true) {
+          shape(GUARDS_ICON_N, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        } else {
+          shape(GUARDS_ICON_S, fromX, fromY, RECT_SIZE, RECT_SIZE);
+        }
+      }
+
+      if (isAnnihilated == true) {
+        stroke(0);
+        strokeWeight(3);
+        line(fromX, fromY, fromX + RECT_SIZE, fromY + RECT_SIZE);
+        line(fromX + RECT_SIZE, fromY, fromX, fromY + RECT_SIZE);
+      }
+    }
+
+    if (isIntruder == true) {
+      stroke(70, 130, 180);
+    } else {
+      stroke(255, 127, 80);
+    }
+
+    line(fromX + (RECT_SIZE / 2), fromY + (RECT_SIZE / 2), posX, posY);
+
+    if (trailType == 3 || trailType == 4) {
+      int arrowWidth = RECT_SIZE / 8;
+      int arrowHeight = RECT_SIZE / 3.4;
+
+      if (direction.equals("N") == true) {
+        line(posX, posY, posX - arrowWidth, posY + arrowHeight);
+        line(posX, posY, posX + arrowWidth + 0.5, posY + arrowHeight);
+      } else if (direction.equals("S") == true) {
+        line(posX, posY, posX - arrowWidth, posY - arrowHeight);
+        line(posX, posY, posX + arrowWidth + 0.5, posY - arrowHeight);
+      } else if (direction.equals("W") == true) {
+        line(posX, posY, posX + arrowHeight, posY + arrowWidth + 0.5);
+        line(posX, posY, posX + arrowHeight, posY - arrowWidth);
+      } else if (direction.equals("E") == true) {
+        line(posX, posY, posX - arrowHeight, posY + arrowWidth + 0.5);
+        line(posX, posY, posX - arrowHeight, posY - arrowWidth);
+      }
+    }
+  }
+}
+</script>
+
+<script type="text/processing" data-processing-target="trial_result_tactical_canvas">
+int RECT_SIZE = 20;
+int MARGIN_SIZE = 25;
+int LEVEL_SIZE = 40;
+int LEVEL_MAX = 5;
+int START_LINE = 1;
+int END_LINE = 5;
+PImage TACTICALMAP = loadImage("/assets/tacticalmap.png");
+PShape GUARDS_ICON_S = loadShape("/assets/guardsicon_s.svg");
+PShape GUARDS_ICON_N = loadShape("/assets/guardsicon_n.svg");
+PShape INTRUDER_ICON_S = loadShape("/assets/intrudericon_s.svg");
+PShape INTRUDER_ICON_N = loadShape("/assets/intrudericon_n.svg");
+
+class Mob {
+  int mobID, fromX, fromY;
+  boolean isIntruder, isAttacker, isDead, isJustDead;
+
+  Mob(int id, int x,int y, boolean intruder, boolean attacker, boolean dead, boolean justDead) {
+    mobID = id;
+    fromX = x;
+    fromY = y;
+    isIntruder = intruder;
+    isAttacker = attacker;
+    isDead = dead;
+    isJustDead = justDead;
+  }
+
+  void display() {
+    int posX = fromX;
+    int posY = LEVEL_SIZE * (LEVEL_MAX - fromY) + LEVEL_SIZE / 2 - RECT_SIZE / 2;
+    if ((isJustDead == true && isDead == true) || isDead == false) {
+      if (isIntruder == true) {
+        if (isAttacker == true) {
+          if (fromY >= START_LINE) {
+            shape(INTRUDER_ICON_N, posX, posY, RECT_SIZE, RECT_SIZE);
+          }
+        } else {
+          if (fromY <= END_LINE) {
+            shape(INTRUDER_ICON_S, posX, posY, RECT_SIZE, RECT_SIZE);
+          }
+        }
+      } else {
+        if (isAttacker == true) {
+          if (fromY >= START_LINE) {
+            shape(GUARDS_ICON_N, posX, posY, RECT_SIZE, RECT_SIZE);
+          }
+        } else {
+          if (fromY <= END_LINE) {
+            shape(GUARDS_ICON_S, posX, posY, RECT_SIZE, RECT_SIZE);
+          }
+        }
+      }
+      if (isJustDead == true) {
+        stroke(0);
+        strokeWeight(2);
+        line(posX, posY, posX + RECT_SIZE, posY + RECT_SIZE);
+        line(posX + RECT_SIZE, posY, posX, posY + RECT_SIZE);
+      }
+    }
+  }
+
+  void setXPos(int x) {
+    fromX = x;
+  }
+
+  void setYPos(int y) {
+    fromY = y;
+  }
+
+  void setDead(boolean dead) {
+    isDead = dead;
+  }
+
+  void setJustDead(boolean justDead) {
+    isJustDead = justDead;
+  }
+
+  boolean getIntruder() {
+    return isIntruder;
+  }
+
+  int getMobID() {
+    return mobID;
+  }
+}
+
+
+ArrayList mobs = null;
+
+void resetMobs() {
+  mobs = new ArrayList();
+}
+
+void addMob(int mobID, int vpos, boolean isIntruder, boolean isAttacker, boolean isDead, boolean isJustDead) {
+  ArrayList friendmobs = new ArrayList();
+  for (int i = 0; i < mobs.size(); i = i + 1) {
+    if ((Mob)(mobs.get(i)).getIntruder() == isIntruder) {
+      friendmobs.add(mobs.get(i));
+    }
+  }
+
+  int modifiedX = 0;
+  switch (friendmobs.size()) {
+    case 0:
+      modifiedX = 150 / 2 - RECT_SIZE / 2;
+      break;
+    case 1:
+      modifiedX = 150 / 2 + MARGIN_SIZE - RECT_SIZE / 2;
+      break;
+    case 2:
+      modifiedX = 150 / 2 - MARGIN_SIZE - RECT_SIZE / 2;
+      break;
+    case 3:
+      modifiedX = 150 / 2 + MARGIN_SIZE * 2 - RECT_SIZE / 2;
+      break;
+    case 4:
+      modifiedX = 150 / 2 - MARGIN_SIZE * 2 - RECT_SIZE / 2;
+      break;
+    default:
+      break;
+  } 
+  mobs.add(new Mob(mobID, modifiedX, vpos, isIntruder, isAttacker, isDead, isJustDead));
+}
+
+void updateMob(int mobID, int fromY, boolean isDead, boolean isJustDead) {
+  for (int i = 0; i < mobs.size(); i = i + 1) {
+    if ((Mob)(mobs.get(i)).getMobID() == mobID) {
+      (Mob)(mobs.get(i)).setYPos(fromY);
+      (Mob)(mobs.get(i)).setDead(isDead);
+      (Mob)(mobs.get(i)).setJustDead(isJustDead);
+    }
+  }
+}
+
+void setup() {
+  frameRate(4);
+  size(201, 201);
+  mobs = new ArrayList();
+
+  <% unless @first_battle_set.nil? %>
+  <% @first_battle_set.trial_battle_turns.first.trial_mob_statuses.each do |trial_mob_status| %>
+    addMob(<%= trial_mob_status.trial_mob_id %>, <%= trial_mob_status.vpos %>, <%= trial_mob_status.trial_mob.trial_squad.intruder_flg %>, <%= trial_mob_status.attacker? %>, <%= trial_mob_status.dead? %>, <%= trial_mob_status.just_dead? %>);
+  <% end %>
+  <% end %>
+}
+
+void draw() {
+  background(255);
+  image(TACTICALMAP, 0, 0, 200, 200);
+
+  if (mobs != null) {
+    for (int i = 0; i < mobs.size(); i = i + 1) {
+      (Mob)(mobs.get(i)).display();
+    }
+  }
+}
+</script>
+
+<%= render 'my_page_menu' %>
+<div id="contents">
+  <h3>ミッション結果</h3>
+  <table>
+    <tr>
+      <td colspan="3">
+        <%= hidden_field_tag "mypage_houdd_user_id", @houdd_user.id %>
+        <%= hidden_field_tag "mypage_mission_id", @mission.id %>
+        <%= hidden_field_tag "mypage_trial_id", @trial.id %>
+        <b>マップ:<%= @trial.map_name %></b>　<b>トライアルターン:</b>
+        <span id="current_trial_move_turn"><%= @trial_move_turn_index %></span>/<span id="max_trial_move_turn"><%= @trial.trial_move_turns.size %></span>
+        <input id="first_trial_move_turn" type="button" value="<<" />
+        <input id="previous_trial_move_turn" type="button" value="<" />
+        <input id="next_trial_move_turn" type="button" value=">" />
+        <input id="last_trial_move_turn" type="button" value=">>" />　
+        <input id="battle_detail" type="button" value="戦闘詳細" />　
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" valign="top">
+        <br />
+        <canvas id="trial_result_dungeon_canvas"></canvas>
+        <br />
+        <%= @current_trial_move_turn.log %>
+      </td>
+      <td valign="top">
+        <div align="left">
+          <br />
+          <img src="/assets/guardsicon_n.svg" width="15" height="15">
+          <b>防衛側：<%= @trial.guard_mission.houdd_user.name %></b><br />
+          <% unless @trial.trial_guard_squads.blank? %>
+              <% @trial.trial_guard_squads.each do |squad| %>
+                  <%= squad.name %>
+                  <% if squad.annihilated? %>(全滅)<% end %><br />
+                  <% squad.trial_mobs.each do |mob| %>
+                      　
+                      <% if mob.hp == 0 %><s><% end %>
+                      <%= mob.name %>(<%= mob.job_name %>) hp:<%= mob.hp %>/<%= mob.max_hp %> sp:<%= mob.sp %>/<%= mob.max_sp %><br />
+                      <% if mob.hp == 0 %></s><% end %>
+                  <% end %>
+              <% end %>
+          <% end %>
+          <br />
+          <img src="/assets/intrudericon_n.svg" width="15" height="15">
+          <b>攻撃側：<%= @trial.intruder_mission.houdd_user.name %></b><br />
+          <% unless @trial.trial_intruder_squads.blank? %>
+              <% @trial.trial_intruder_squads.each do |squad| %>
+                  <%= squad.name %>
+                  <% if squad.annihilated? %>(全滅)<% end %><br />
+                  <% squad.trial_mobs.each do |mob| %>
+                      　
+                      <% if mob.hp == 0 %><s><% end %>
+                      <%= mob.name %>(<%= mob.job_name %>) hp:<%= mob.hp %>/<%= mob.max_hp %> sp:<%= mob.sp %>/<%= mob.max_sp %><br />
+                      <% if mob.hp == 0 %></s><% end %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <hr width="360" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <b><span id="battle_atk_squad_name"><%= @attacker_squad_name %></span> vs <span id="battle_def_squad_name"><%= @defender_squad_name %></span></b>
+          (<span id="current_battle_set"><%= @first_battle_set_index %></span>/<span id="max_battle_set"><%= @max_battle_set_index %></span>番目の戦闘)
+          <input id="battle_previous_set" type="button" value="<" />
+          <input id="battle_next_set" type="button" value=">" />
+        戦闘ターン:
+        <span id="current_battle_turn"><%= @first_battle_turn_index %></span>/<span id="max_battle_turn"><%= @max_battle_turn_index %></span>
+        <input id="first_battle_turn" type="button" value="<<" />
+        <input id="previous_battle_turn" type="button" value="<" />
+        <input id="next_battle_turn" type="button" value=">" />
+        <input id="last_battle_turn" type="button" value=">>" />
+      </td>
+    </tr>
+    <tr>
+      <td  width="220" valign="top">
+        <b>戦術マップ</b>(戦闘距離:<%= @battle_distance %>)<br />
+        <div style="margin-left : 10px">
+          <canvas id="trial_result_tactical_canvas"></canvas><br clear="both" /><br />
+        </div>
+      </td>
+      <td colspan="2" align="left" valign="top">
+        <b>戦闘ログ：</b><br />
+        <div style="margin-left : 10px">
+          <textarea id="battle_log" cols="60" rows="13" maxlength="20"><% unless @current_battle_turn.blank? %><%= @current_battle_turn.log %><% end %></textarea>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

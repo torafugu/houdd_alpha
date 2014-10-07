@@ -1,4 +1,5 @@
 # Factory class of Mob.
+# noinspection ALL
 class MobCreator
 
   # Create seed mobs.

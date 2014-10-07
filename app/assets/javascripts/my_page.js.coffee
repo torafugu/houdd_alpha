@@ -217,6 +217,63 @@ $ ->
     $('#my_page_assigned_squads').val(selected_assigned_squads_ids)
     $("form").trigger("submit")
     return false
+$ ->
+  $('#first_trial_move_turn').click ->
+    int_current_trial_move_turn = parseInt($('#current_trial_move_turn').text())
+    if int_current_trial_move_turn > 1
+      window.location = "/my_page/" + $('#mypage_houdd_user_id').val() + "/" + $('#mypage_mission_id').val() + "/" + $('#mypage_trial_id').val() + "/1/mission_result"
+
+$ ->
+  $('#previous_trial_move_turn').click ->
+    int_current_trial_move_turn = parseInt($('#current_trial_move_turn').text())
+    if int_current_trial_move_turn > 1
+      window.location = "/my_page/" + $('#mypage_houdd_user_id').val() + "/" + $('#mypage_mission_id').val() + "/" + $('#mypage_trial_id').val() + "/" + (int_current_trial_move_turn - 1) + "/mission_result"
+
+$ ->
+  $('#next_trial_move_turn').click ->
+    int_current_trial_move_turn = parseInt($('#current_trial_move_turn').text())
+    if int_current_trial_move_turn < parseInt($('#max_trial_move_turn').text())
+      window.location = "/my_page/" + $('#mypage_houdd_user_id').val() + "/" + $('#mypage_mission_id').val() + "/" + $('#mypage_trial_id').val() + "/" + (int_current_trial_move_turn + 1) + "/mission_result"
+
+$ ->
+  $('#last_trial_move_turn').click ->
+    int_current_trial_move_turn = parseInt($('#current_trial_move_turn').text())
+    if int_current_trial_move_turn < parseInt($('#max_trial_move_turn').text())
+      window.location = "/my_page/" + $('#mypage_houdd_user_id').val() + "/" + $('#mypage_mission_id').val() + "/" + $('#mypage_trial_id').val() + "/" + $('#max_trial_move_turn').text() + "/mission_result"
+
+$ ->
+  $('#first_battle_turn').click ->
+    int_current_battle_set = parseInt($('#current_battle_set').text())
+    int_current_battle_turn = parseInt($('#current_battle_turn').text())
+    if int_current_battle_turn > 1
+      jQuery('#current_battle_turn').text(1)
+      jQuery.get(int_current_battle_set + "/1/select_battle_turn.js")
+
+$ ->
+  $('#previous_battle_turn').click ->
+    int_current_battle_set = parseInt($('#current_battle_set').text())
+    int_current_battle_turn = parseInt($('#current_battle_turn').text())
+    if int_current_battle_turn > 1
+      int_next_battle_turn = int_current_battle_turn - 1
+      jQuery('#current_battle_turn').text(int_next_battle_turn)
+      jQuery.get(int_current_battle_set + "/" + int_next_battle_turn + "/select_battle_turn.js")
+
+$ ->
+  $('#next_battle_turn').click ->
+    int_current_battle_set = parseInt($('#current_battle_set').text())
+    int_current_battle_turn = parseInt($('#current_battle_turn').text())
+    if int_current_battle_turn < parseInt($('#max_battle_turn').text())
+      int_next_battle_turn = int_current_battle_turn + 1
+      jQuery('#current_battle_turn').text(int_next_battle_turn)
+      jQuery.get(int_current_battle_set + "/" + int_next_battle_turn + "/select_battle_turn.js")
+
+$ ->
+  $('#last_battle_turn').click ->
+    int_current_battle_set = parseInt($('#current_battle_set').text())
+    int_current_battle_turn = parseInt($('#current_battle_turn').text())
+    if int_current_battle_turn < parseInt($('#max_battle_turn').text())
+      jQuery('#current_battle_turn').text($('#max_battle_turn').text())
+      jQuery.get(int_current_battle_set + "/" + $('#max_battle_turn').text() + "/select_battle_turn.js")
 
 # Strategy
 

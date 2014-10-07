@@ -6,7 +6,7 @@
 <title>
   Class: Mob
   
-    &mdash; Documentation by YARD 0.8.6.2
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Mob.html";
 </script>
 
 
@@ -151,6 +151,33 @@
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attacker-instance_method" title="#attacker (instance method)">- (Object) <strong>attacker</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute attacker.</p>
+</div></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -384,7 +411,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_effect-instance_method" title="#add_effect (instance method)">- (Object) <strong>add_effect</strong>(caused_mob, type_symbol, method) </a>
+      <a href="#add_effect-instance_method" title="#add_effect (instance method)">- (Object) <strong>add_effect</strong>(caused_mob, method) </a>
     
 
     
@@ -432,7 +459,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_wepon_exp-instance_method" title="#add_wepon_exp (instance method)">- (Object) <strong>add_wepon_exp</strong>(exp) </a>
+      <a href="#add_weapon_exp-instance_method" title="#add_weapon_exp (instance method)">- (Object) <strong>add_weapon_exp</strong>(exp) </a>
     
 
     
@@ -447,7 +474,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Add exp for used wepon in battle.</p>
+<p>Add exp for used weapon in battle.</p>
 </div></span>
   
 </li>
@@ -496,30 +523,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Return true if this mob is asexual.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#attacker%3F-instance_method" title="#attacker? (instance method)">- (Boolean) <strong>attacker?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return true if the member of attacker squad.</p>
 </div></span>
   
 </li>
@@ -591,7 +594,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return true if the nearest damaged friend mob is in batle range.</p>
+<p>Return true if the nearest damaged friend mob is in battle range.</p>
 </div></span>
   
 </li>
@@ -648,54 +651,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#divide_to_attacker-instance_method" title="#divide_to_attacker (instance method)">- (Object) <strong>divide_to_attacker</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Set attacker flag as true.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#divide_to_defender-instance_method" title="#divide_to_defender (instance method)">- (Object) <strong>divide_to_defender</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Set attacker flag as false.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#enemy_mobs_in_battle_range%3F-instance_method" title="#enemy_mobs_in_battle_range? (instance method)">- (Boolean) <strong>enemy_mobs_in_battle_range?</strong>(range) </a>
     
 
@@ -711,7 +666,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return true if the nearest enemy mob is in batle range.</p>
+<p>Return true if the nearest enemy mob is in battle range.</p>
 </div></span>
   
 </li>
@@ -807,7 +762,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return true if the nearest friend mob is in batle range.</p>
+<p>Return true if the nearest friend mob is in battle range.</p>
 </div></span>
   
 </li>
@@ -936,6 +891,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#retreat_from_battle-instance_method" title="#retreat_from_battle (instance method)">- (Object) <strong>retreat_from_battle</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set out-ranged vpos.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#retreated_from_battle%3F-instance_method" title="#retreated_from_battle? (instance method)">- (Boolean) <strong>retreated_from_battle?</strong> </a>
     
 
@@ -984,6 +963,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#target_damaged_friend_mobs-instance_method" title="#target_damaged_friend_mobs (instance method)">- (Array) <strong>target_damaged_friend_mobs</strong>(range, num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return target friend mobs which are damaged in battle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#target_enemy_mobs-instance_method" title="#target_enemy_mobs (instance method)">- (Array) <strong>target_enemy_mobs</strong>(range, num) </a>
     
 
@@ -1008,6 +1011,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#target_random_friend_mobs-instance_method" title="#target_random_friend_mobs (instance method)">- (Array) <strong>target_random_friend_mobs</strong>(range, num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return target friend mobs which are selected randomly in battle range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#vpos_move-instance_method" title="#vpos_move (instance method)">- (Object) <strong>vpos_move</strong> </a>
     
 
@@ -1023,7 +1050,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Vertisal move.</p>
+<p>Vertical move.</p>
 </div></span>
   
 </li>
@@ -1032,7 +1059,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wepon-instance_method" title="#wepon (instance method)">- (Object) <strong>wepon</strong> </a>
+      <a href="#weapon-instance_method" title="#weapon (instance method)">- (Object) <strong>weapon</strong> </a>
     
 
     
@@ -1047,7 +1074,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return equipped wepon.</p>
+<p>Return equipped weapon.</p>
 </div></span>
   
 </li>
@@ -1062,9 +1089,52 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="battle_effect_invs=-instance_method"></span>
+      <span id="attacker=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="battle_effect_invs-instance_method">
+  <h3 class="signature first" id="attacker-instance_method">
+  
+    - (<tt>Object</tt>) <strong>attacker</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute attacker</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attacker'>attacker</span>
+  <span class='ivar'>@attacker</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="battle_effect_invs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="battle_effect_invs-instance_method">
   
     - (<tt>Object</tt>) <strong>battle_effect_invs</strong> 
   
@@ -1415,7 +1485,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="add_effect-instance_method">
   
-    - (<tt>Object</tt>) <strong>add_effect</strong>(caused_mob, type_symbol, method) 
+    - (<tt>Object</tt>) <strong>add_effect</strong>(caused_mob, method) 
   
 
   
@@ -1454,17 +1524,6 @@
   
     <li>
       
-        <span class='name'>type_symbol</span>
-      
-      
-        <span class='type'>(<tt>Symbol</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
         <span class='name'>method</span>
       
       
@@ -1483,33 +1542,23 @@
       <pre class="lines">
 
 
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381</pre>
+395
+396
+397
+398
+399
+400
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 370</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 395</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_add_effect'>add_effect</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_battle_effect_invs'>battle_effect_invs</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_effect_invs'>battle_effect_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_effect'>add_effect</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+  <span class='ivar'>@battle_effect_invs</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>if</span> <span class='ivar'>@battle_effect_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
   <span class='ivar'>@battle_effect_invs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='op'>|</span>
-    <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='kw'>and</span> <span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>==</span> <span class='id identifier rubyid_method'>method</span>
+    <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_effect_inv'>battle_effect_inv</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>==</span> <span class='id identifier rubyid_method'>method</span>
   <span class='kw'>end</span>
-
-  <span class='kw'>if</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>=</span> <span class='symbol'>:wepon</span>
-    <span class='ivar'>@battle_effect_invs</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleEffectInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='ivar'>@battle_effect_invs</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleEffectInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_type_symbol'>type_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@battle_effect_invs</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleEffectInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_caused_mob'>caused_mob</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='period'>.</span><span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1568,24 +1617,24 @@
       <pre class="lines">
 
 
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363</pre>
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 375</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_skill_exp'>add_skill_exp</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='comma'>,</span> <span class='id identifier rubyid_exp'>exp</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='rparen'>)</span>
@@ -1608,9 +1657,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="add_wepon_exp-instance_method">
+  <h3 class="signature " id="add_weapon_exp-instance_method">
   
-    - (<tt>Object</tt>) <strong>add_wepon_exp</strong>(exp) 
+    - (<tt>Object</tt>) <strong>add_weapon_exp</strong>(exp) 
   
 
   
@@ -1619,7 +1668,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add exp for used wepon in battle.</p>
+<p>Add exp for used weapon in battle.</p>
 
 
   </div>
@@ -1648,36 +1697,36 @@
       <pre class="lines">
 
 
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344</pre>
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 331</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 357</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_add_wepon_exp'>add_wepon_exp</span><span class='lparen'>(</span><span class='id identifier rubyid_exp'>exp</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span> <span class='op'>=</span> <span class='const'>ItemInfoExpInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>=</span> <span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>=</span> <span class='id identifier rubyid_exp'>exp</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_weapon_exp'>add_weapon_exp</span><span class='lparen'>(</span><span class='id identifier rubyid_exp'>exp</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_weapon'>weapon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span> <span class='op'>=</span> <span class='const'>ItemInfoExpInv</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>=</span> <span class='id identifier rubyid_weapon'>weapon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span> <span class='op'>=</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>+=</span> <span class='id identifier rubyid_exp'>exp</span>
-    <span class='id identifier rubyid_wepon_exp'>wepon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span> <span class='op'>=</span> <span class='id identifier rubyid_item_info_exp_invs'>item_info_exp_invs</span><span class='period'>.</span><span class='id identifier rubyid_find_by_owner_id'>find_by_owner_id</span><span class='lparen'>(</span><span class='id identifier rubyid_weapon'>weapon</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span> <span class='op'>+=</span> <span class='id identifier rubyid_exp'>exp</span>
+    <span class='id identifier rubyid_weapon_exp'>weapon_exp</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1729,15 +1778,15 @@
       <pre class="lines">
 
 
-125
 126
 127
 128
 129
-130</pre>
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_armor'>armor</span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
@@ -1789,76 +1838,17 @@
       <pre class="lines">
 
 
-67
 68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_asexual?'>asexual?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>GENDER_ASEXUAL</span>
   <span class='kw'>return</span> <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="attacker?-instance_method">
-  
-    - (<tt>Boolean</tt>) <strong>attacker?</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return true if the member of attacker squad.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-190
-191
-192</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 190</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_attacker?'>attacker?</span>
-  <span class='kw'>return</span> <span class='ivar'>@attacker_flg</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1909,6 +1899,8 @@
       <pre class="lines">
 
 
+266
+267
 268
 269
 270
@@ -1946,17 +1938,10 @@
 302
 303
 304
-305
-306
-307
-308
-309
-310
-311
-312</pre>
+305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_battle_action'>battle_action</span>
   <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_upto'>upto</span><span class='lparen'>(</span><span class='const'>MAX_PRIORITY</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_priority'>priority</span><span class='op'>|</span>
@@ -1964,42 +1949,37 @@
 
     <span class='kw'>unless</span> <span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
       <span class='id identifier rubyid_battle_method'>battle_method</span> <span class='op'>=</span> <span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='id identifier rubyid_prioritized_methods'>prioritized_methods</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span><span class='rparen'>)</span>
-      <span class='comment'># p battle_method
-</span>      <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:wepon</span>
-        <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_wepon'>wepon</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
-          <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_wepon'>wepon</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:weapon</span>
+        <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_weapon'>weapon</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_weapon'>weapon</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_weapon'>weapon</span>
           <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
         <span class='kw'>end</span>
       <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:skill</span>
-        <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
         <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:debuff</span>
           <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
-            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:debuff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:debuff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_sp_cost'>sp_cost</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_sp'>sp</span>
               <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
               <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
             <span class='kw'>end</span>
           <span class='kw'>end</span>
         <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hd</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hot</span>
           <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
-            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range?'>damaged_friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:hot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range?'>damaged_friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_sp_cost'>sp_cost</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_sp'>sp</span>
               <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
               <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
             <span class='kw'>end</span>
           <span class='kw'>end</span>
         <span class='kw'>elsif</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:buff</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:other</span>
           <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
-            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:buff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:other</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_friend_mobs_in_battle_range?'>friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:buff</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:other</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_friend_mobs_in_battle_range?'>friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_sp_cost'>sp_cost</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_sp'>sp</span>
               <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span>
               <span class='kw'>return</span> <span class='id identifier rubyid_battle_method'>battle_method</span>
             <span class='kw'>end</span>
           <span class='kw'>end</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
-      <span class='comment'># p battle_method
-</span>      <span class='comment'># return battle_method
-</span>      <span class='comment'>#return battle_method if battle_method_reachable?(battle_method)
-</span>    <span class='kw'>end</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -2052,7 +2032,6 @@
       <pre class="lines">
 
 
-159
 160
 161
 162
@@ -2061,18 +2040,19 @@
 165
 166
 167
-168</pre>
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_battle_range'>battle_range</span>
   <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='int'>1</span>
   <span class='id identifier rubyid_skills'>skills</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_skill'>skill</span><span class='op'>|</span>
-    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='comment'>#if range &lt; skill.range and (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s)
-</span>  <span class='kw'>end</span>
+    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>and</span> <span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>and</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='id identifier rubyid_range'>range</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_range'>range</span> <span class='kw'>and</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:weapon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_range'>range</span>
 <span class='kw'>end</span></pre>
@@ -2093,7 +2073,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return true if the nearest damaged friend mob is in batle range.</p>
+<p>Return true if the nearest damaged friend mob is in battle range.</p>
 
 
   </div>
@@ -2125,13 +2105,13 @@
       <pre class="lines">
 
 
-246
-247
-248
-249</pre>
+235
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range?'>damaged_friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range'>damaged_friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -2186,13 +2166,13 @@
       <pre class="lines">
 
 
+259
+260
 261
-262
-263
-264</pre>
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 261</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dead?'>dead?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_hp'>hp</span> <span class='op'>==</span> <span class='int'>0</span>
@@ -2247,99 +2227,17 @@
       <pre class="lines">
 
 
-94
 95
 96
-97</pre>
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_hp'>hp</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_max_hp'>max_hp</span> <span class='op'>*</span> <span class='ivar'>@job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_retreat_hp_rate'>retreat_hp_rate</span>
   <span class='kw'>return</span> <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="divide_to_attacker-instance_method">
-  
-    - (<tt>Object</tt>) <strong>divide_to_attacker</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Set attacker flag as true.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-179
-180
-181</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 179</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_divide_to_attacker'>divide_to_attacker</span>
-  <span class='ivar'>@attacker_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="divide_to_defender-instance_method">
-  
-    - (<tt>Object</tt>) <strong>divide_to_defender</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Set attacker flag as false.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-184
-185
-186</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 184</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_divide_to_defender'>divide_to_defender</span>
-  <span class='ivar'>@attacker_flg</span> <span class='op'>=</span> <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2358,7 +2256,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return true if the nearest enemy mob is in batle range.</p>
+<p>Return true if the nearest enemy mob is in battle range.</p>
 
 
   </div>
@@ -2390,13 +2288,13 @@
       <pre class="lines">
 
 
-232
-233
-234
-235</pre>
+221
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 232</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 221</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range?'>enemy_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range'>enemy_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -2451,7 +2349,6 @@
       <pre class="lines">
 
 
-134
 135
 136
 137
@@ -2462,21 +2359,22 @@
 142
 143
 144
-145</pre>
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_equipped_items_txt'>equipped_items_txt</span>
-  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.nothing</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
-  <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activerecord.attributes.nothing</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
       <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>+=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
-      <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+      <span class='id identifier rubyid_items_txt'>items_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_chop!'>chop!</span> <span class='kw'>if</span> <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_chop!'>chop!</span> <span class='kw'>if</span> <span class='id identifier rubyid_items_txt'>items_txt</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>return</span> <span class='id identifier rubyid_items_txt'>items_txt</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2523,13 +2421,13 @@
       <pre class="lines">
 
 
-60
 61
 62
-63</pre>
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_female?'>female?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>==</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>GENDER_FEMALE</span>
@@ -2592,13 +2490,13 @@
       <pre class="lines">
 
 
-173
 174
 175
-176</pre>
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:tank</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:attacker_c</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -2621,7 +2519,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return true if the nearest friend mob is in batle range.</p>
+<p>Return true if the nearest friend mob is in battle range.</p>
 
 
   </div>
@@ -2653,13 +2551,13 @@
       <pre class="lines">
 
 
-239
-240
-241
-242</pre>
+228
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 239</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_friend_mobs_in_battle_range?'>friend_mobs_in_battle_range?</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -2709,15 +2607,15 @@
       <pre class="lines">
 
 
-74
 75
-76</pre>
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gender_sym_txt'>gender_sym_txt</span>
-  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.gender.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activerecord.attributes.gender.</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gender_sym'>gender_sym</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2776,12 +2674,12 @@
       <pre class="lines">
 
 
-81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_hp'>max_hp</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_con'>con</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>MOB_MAX_HP_MULTIPLIER</span>
@@ -2843,12 +2741,12 @@
       <pre class="lines">
 
 
-88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_sp'>max_sp</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_int'>int</span> <span class='op'>*</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>MOB_MAX_SP_MULTIPLIER</span>
@@ -2897,12 +2795,12 @@
       <pre class="lines">
 
 
-54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name_with_job'>name_with_job</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
@@ -2956,20 +2854,20 @@
       <pre class="lines">
 
 
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228</pre>
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
   <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span> <span class='op'>=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span>
@@ -2981,6 +2879,55 @@
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_front_line_vpos'>front_line_vpos</span> <span class='op'>&gt;</span> <span class='int'>1</span>
   <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="retreat_from_battle-instance_method">
+  
+    - (<tt>Object</tt>) <strong>retreat_from_battle</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set out-ranged vpos.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243
+244
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retreat_from_battle'>retreat_from_battle</span>
+  <span class='kw'>if</span> <span class='ivar'>@attacker</span>
+    <span class='ivar'>@vpos</span> <span class='op'>=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='op'>+</span> <span class='int'>1</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@vpos</span> <span class='op'>=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -3031,14 +2978,14 @@
       <pre class="lines">
 
 
+251
+252
 253
 254
-255
-256
-257</pre>
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 253</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_retreated_from_battle?'>retreated_from_battle?</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@vpos</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -3094,16 +3041,16 @@
       <pre class="lines">
 
 
-149
 150
 151
 152
 153
 154
-155</pre>
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skills'>skills</span>
   <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -3111,6 +3058,95 @@
   <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span> <span class='kw'>unless</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
   <span class='id identifier rubyid_all_skills'>all_skills</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span> <span class='kw'>unless</span> <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_skill'>skill</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_all_skills'>all_skills</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="target_damaged_friend_mobs-instance_method">
+  
+    - (<tt>Array</tt>) <strong>target_damaged_friend_mobs</strong>(range, num) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>returned mobs are sorted by hp.</p>
+</div>
+  </div>
+
+
+<p>Return target friend mobs which are damaged in battle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 325</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_target_damaged_friend_mobs'>target_damaged_friend_mobs</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>==</span> <span class='int'>0</span>
+
+  <span class='id identifier rubyid_sorted_damaged_friend_mobs_in_battle_range'>sorted_damaged_friend_mobs_in_battle_range</span> <span class='op'>=</span> <span class='id identifier rubyid_damaged_friend_mobs_in_battle_range'>damaged_friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span>
+    <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_hp'>hp</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_hp'>hp</span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_sorted_damaged_friend_mobs_in_battle_range'>sorted_damaged_friend_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_num'>num</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_sorted_damaged_friend_mobs_in_battle_range'>sorted_damaged_friend_mobs_in_battle_range</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_sorted_damaged_friend_mobs_in_battle_range'>sorted_damaged_friend_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -3169,20 +3205,20 @@
       <pre class="lines">
 
 
+310
+311
+312
+313
+314
+315
+316
 317
 318
 319
-320
-321
-322
-323
-324
-325
-326
-327</pre>
+320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 317</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_enemy_mobs'>target_enemy_mobs</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span> <span class='op'>=</span> <span class='id identifier rubyid_enemy_mobs_in_battle_range'>enemy_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span>
@@ -3193,6 +3229,83 @@
     <span class='kw'>return</span> <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_sorted_enemy_mobs_in_battle_range'>sorted_enemy_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="target_random_friend_mobs-instance_method">
+  
+    - (<tt>Array</tt>) <strong>target_random_friend_mobs</strong>(range, num) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return target friend mobs which are selected randomly in battle range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 342</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_target_random_friend_mobs'>target_random_friend_mobs</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='comma'>,</span> <span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span> <span class='op'>==</span> <span class='int'>0</span>
+
+  <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span> <span class='op'>=</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='lparen'>(</span><span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
+  
+  <span class='kw'>if</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_num'>num</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_friend_mobs_in_battle_range'>friend_mobs_in_battle_range</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -3220,7 +3333,7 @@
   </div>
 
 
-<p>Vertisal move.</p>
+<p>Vertical move.</p>
 
 
   </div>
@@ -3234,6 +3347,21 @@
       <pre class="lines">
 
 
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
 196
 197
 198
@@ -3241,38 +3369,31 @@
 200
 201
 202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vpos_move'>vpos_move</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_attacker?'>attacker?</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span> <span class='kw'>or</span> <span class='lparen'>(</span><span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@attacker</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span>
       <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='op'>&lt;=</span> <span class='ivar'>@vpos</span> <span class='op'>-</span> <span class='int'>1</span>
     <span class='kw'>elsif</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='op'>&lt;=</span> <span class='ivar'>@vpos</span> <span class='op'>-</span> <span class='int'>1</span>
     <span class='kw'>elsif</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='kw'>unless</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
     <span class='kw'>end</span>
   <span class='kw'>else</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span> <span class='kw'>or</span> <span class='lparen'>(</span><span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_demoralized?'>demoralized?</span>
       <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>elsif</span> <span class='kw'>not</span> <span class='id identifier rubyid_forward_job?'>forward_job?</span> <span class='kw'>and</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@vpos</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>&lt;=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='op'>+</span> <span class='int'>1</span>
     <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>-</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='ivar'>@vpos</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@vpos</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>&lt;=</span> <span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_ATK_VPOS</span> <span class='op'>+</span> <span class='int'>1</span>
     <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='const'>Params</span><span class='op'>::</span><span class='const'>BATTLE_START_DEF_VPOS</span> <span class='op'>-</span> <span class='id identifier rubyid_job_type_strategy'>job_type_strategy</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='ivar'>@vpos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span>
+      <span class='ivar'>@vpos</span> <span class='op'>-=</span> <span class='int'>1</span> <span class='kw'>unless</span> <span class='id identifier rubyid_on_front_line?'>on_front_line?</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -3282,9 +3403,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="wepon-instance_method">
+  <h3 class="signature " id="weapon-instance_method">
   
-    - (<tt>Object</tt>) <strong>wepon</strong> 
+    - (<tt>Object</tt>) <strong>weapon</strong> 
   
 
   
@@ -3293,7 +3414,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return equipped wepon.</p>
+<p>Return equipped weapon.</p>
 
 
   </div>
@@ -3325,7 +3446,6 @@
       <pre class="lines">
 
 
-101
 102
 103
 104
@@ -3345,19 +3465,20 @@
 118
 119
 120
-121</pre>
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'app/models/mob.rb', line 102</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wepon'>wepon</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_weapon'>weapon</span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:weapon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_natural_item'>natural_item</span> <span class='op'>=</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_specie'>specie</span><span class='period'>.</span><span class='id identifier rubyid_family'>family</span><span class='period'>.</span><span class='id identifier rubyid_item_infos'>item_infos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item_info'>item_info</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:natural_wepon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:natural_weapon</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
       <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_mob_id'>mob_id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
       <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_houdd_user_id'>houdd_user_id</span><span class='op'>=</span> <span class='id identifier rubyid_houdd_user_id'>houdd_user_id</span>
       <span class='id identifier rubyid_natural_item'>natural_item</span><span class='period'>.</span><span class='id identifier rubyid_item_info_id'>item_info_id</span><span class='op'>=</span> <span class='id identifier rubyid_item_info'>item_info</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
@@ -3381,9 +3502,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 30 18:32:14 2014 by
+  Generated on Sat May  3 18:12:39 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.2 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

@@ -14,6 +14,7 @@
         <th>種類</th>
         <th>参加部隊</th>
         <th>状況</th>
+        <th>結果</th>
         <th>操作</th>
       </tr>
     </thead>
@@ -25,6 +26,14 @@
         <td><%= mission.category_symbol_txt %></td>
         <td><%= mission.squads_txt %></td>
         <td><%= mission.status_symbol_txt %></td>
+        <td>
+          <% unless mission.completed_trials.blank? %>
+          <% mission.completed_trials.each_with_index do |trial, index| %>
+            <% if index > 1 %><br /><% end %>
+            <%= link_to trial.mini_map.name + '(' + trial.occurred_at.to_s + ')',  '/my_page/' + @houdd_user.id.to_s + '/' + mission.id.to_s + '/' + trial.id.to_s + '/1/mission_result' %>
+          <% end %>
+          <% end %>
+        </td>
         <td>
           <%= link_to '修正', "/my_page/" + @houdd_user.id.to_s + "/" + mission.id.to_s + "/edit_mission" %>
            <%= link_to '中止', "/my_page/" + @houdd_user.id.to_s + "/" +mission.id.to_s + "/delete_mission", confirm: '本当に中止しますか?', method: :delete %>

@@ -6,7 +6,7 @@
     <th><%= label :trial, :map_name %></th>
     <th><%= label :trial, :guard_mission_id %></th>
     <th><%= label :trial, :intruder_mission_id %></th>
-    <th><%= label :trial, :occured_at %></th>
+    <th><%= label :trial, :occurred_at %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +14,11 @@
 
 <% @trials.each do |trial| %>
   <tr>
-    <td><%= trial.mini_map %></td>
+    <td><%= trial.mini_map.name unless trial.mini_map.blank? %></td>
     <td><%= trial.map_name %></td>
     <td><%= trial.guard_mission_id %></td>
     <td><%= trial.intruder_mission_id %></td>
-    <td><%= trial.occured_at %></td>
+    <td><%= trial.occurred_at %></td>
     <td><%= link_to 'Show', trial %></td>
     <td><%= link_to 'Edit', edit_trial_path(trial) %></td>
     <td><%= link_to 'Destroy', trial, confirm: 'Are you sure?', method: :delete %></td>

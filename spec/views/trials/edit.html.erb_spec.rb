@@ -7,7 +7,7 @@ describe "trials/edit" do
       :map_name => "MyString",
       :guard_mission_id => 1,
       :intruder_mission_id => 1,
-      :occured_at => 1
+      :occurred_at => 1
     ))
   end
 
@@ -20,7 +20,7 @@ describe "trials/edit" do
       assert_select "input#trial_map_name[name=?]", "trial[map_name]"
       assert_select "input#trial_guard_mission_id[name=?]", "trial[guard_mission_id]"
       assert_select "input#trial_intruder_mission_id[name=?]", "trial[intruder_mission_id]"
-      assert_select "input#trial_occured_at[name=?]", "trial[occured_at]"
+      assert_select "input#trial_occurred_at[name=?]", "trial[occurred_at]"
     end
   end
 end

@@ -2,7 +2,7 @@
 
 <p>
   <b><%= label :trial, :mini_map %>:</b>
-  <%= @trial.mini_map %>
+  <%= @trial.mini_map.name unless @trial.mini_map.blank? %>
 </p>
 
 <p>
@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <b><%= label :trial, :occured_at %>:</b>
-  <%= @trial.occured_at %>
+  <b><%= label :trial, :occurred_at %>:</b>
+  <%= @trial.occurred_at %>
 </p>
 
 

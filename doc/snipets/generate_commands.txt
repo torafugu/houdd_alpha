@@ -46,9 +46,11 @@ rails g scaffold item item_info:references houdd_user:references mob:references 
 
 *Trial
 
-rails g model trial_battle_log trial_move_turn:references trial_mob:references vpos:integer target_mob_id:integer target_dead_flg:boolean damage:integer method_txt:string
+rails g model trial_battle_turn trial_battle_set:references log:text
 
-rails g model trial_mob_status trial_move_turn:references trial_mob:references start_hp:integer end_hp:integer start_sp:integer end_sp:integer start_status:string end_status:string
+rails g model trial_mob_status trial_battle_turn:references trial_mob:references vpos:integer start_hp:integer end_hp:integer start_sp:integer end_sp:integer start_status:string end_status:string
+
+rails g model trial_battle_set trial_move_turn:references attacker_squad:references defender_squad:references distance:integer
 
 rails generate model trial_squad_trail trial_move_turn:references trial_squad:references from_x:integer from_y:integer to_x:integer to_y:integer
 
@@ -56,11 +58,11 @@ rails generate model trial_move_turn trial:references log:text
 
 rails g model trial_fortress_cell trial:references symbol:string x:integer y:integer trap_flg:boolean  goal_flg:boolean
 
-rails g model trial_mob trial_squad:references mob_id:integer job_name:string mob_name:string max_hp:integer max_sp:integer
+rails g model trial_mob trial_squad:references mob_id:integer name:string job_name:string max_hp:integer max_sp:integer hp:integer sp:integer job_name:string
 
-rails g model trial_squad trial:references squad_id:integer name:string
+rails g model trial_squad trial:references squad_id:integer name:string intruder_flg:boolean
 
-rails generate scaffold trial mini_map:references map_name:string guard_mission_id:integer intruder_mission_id:integer occured_at:integer
+rails generate scaffold trial mini_map:references map_name:string guard_mission_id:integer intruder_mission_id:integer occurred_at:integer
 
 rails generate scaffold mission_strategy houdd_user:references name:string script:text
 

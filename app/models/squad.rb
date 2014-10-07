@@ -18,6 +18,10 @@ class Squad < ActiveRecord::Base
   attr_accessor :enemy_squads
   attr_accessor :friend_squads
   attr_accessor :target_squad
+  attr_accessor :intruder
+  attr_accessor :entried
+  attr_accessor :trial_squad_id
+  attr_accessor :retreated_from_fortress
 
   # Return the mission list which belongs to this squad.
   # @return [String] Comma separated mission.name
@@ -31,41 +35,6 @@ class Squad < ActiveRecord::Base
     end
     missions_txt.chop! if missions_txt.last == ','
     return missions_txt
-  end
-
-  # Set entry flag as true.
-  def entry
-    @entry_flg = true
-  end
-
-  # Return the status whether entried to fortress or not.
-  # @return [Boolean] status.
-  def entried?
-    @entry_flg = false if @entry_flg.nil?
-    return @entry_flg
-  end
-
-  # Set intruder flag as true.
-  def divide_to_intruder
-    @intruder_flg = true
-  end
-
-  # Set intruder flag as false.
-  def divide_to_guard
-    @intruder_flg = false
-  end
-
-  # Return true if the member of intruders.
-  # @return [Boolean].
-  def intruder?
-    return @intruder_flg
-  end
-
-  # Set current point.
-  # @param [Integer] x x-coordinate
-  # @param [Integer] y y-coordinate
-  def set_current_point(x, y)
-    @current_point = Point.new(x, y)
   end
 
   # Return true if all the mobs belong to this squad are dead.
@@ -86,16 +55,13 @@ class Squad < ActiveRecord::Base
     return true
   end
 
-  # Set true to @retreated_from_fortress_flg.
-  def retreat_from_fortress
-    @retreated_from_fortress_flg = true
-  end
-
-  # Return true if this squad has already retreated.
+  # Return true if all the mobs belong to this squad are retreated from battle.
   # @return [Boolean].
-  def retreatd_from_fortress?
-    return false if @retreated_from_fortress_flg.nil?
-    return @retreated_from_fortress_flg
+  def retreated_from_battle?
+    mobs.each do |mob|
+      return false if not mob.retreated_from_battle? and not mob.dead?
+    end
+    return true
   end
 
   # Return true if this squad can act in trial move turn.
@@ -109,6 +75,8 @@ class Squad < ActiveRecord::Base
   # @return [Object].
   def nearest_enemy_squad
     enemy_squads.each do |enemy_squad|
+      # p current_point
+      # p enemy_squad.current_point
       enemy_squad.distance_from_current_point = Tools.calc_distance(current_point, enemy_squad.current_point)
     end
     enemy_squads_sorted_by_distance = enemy_squads.sort{|a,b|
@@ -120,7 +88,7 @@ class Squad < ActiveRecord::Base
   # Return true if the nearest enemy squad is in sight.
   # @return [Boolean].
   def enemy_squad_sighted?
-    return false if enemy_squads.blank?
+    return false if @enemy_squads.blank?
     return true if nearest_enemy_squad.distance_from_current_point <= Params::ENEMY_VISIBLE_DISTANCE
     return false
   end
@@ -130,21 +98,23 @@ class Squad < ActiveRecord::Base
   def battle_range
     range = 1
     mobs.each do |mob|
-      range = mob.battle_range if range < mob.battle_range - 1 and not mob.dead?
+      next if mob.dead?
+      range = mob.battle_range if range < mob.battle_range
     end
     return range
   end
 
-  # Return true if the nearest enemy squad is in batle range.
+  # Return true if the nearest enemy squad is in battle range.
   # @return [Boolean].
   def enemy_squad_in_battle_range?
     return false if @target_squad.nil?
-    return true if nearest_enemy_squad.distance_from_current_point <= battle_range
+    return true if nearest_enemy_squad.distance_from_current_point == 1
+    return true if nearest_enemy_squad.distance_from_current_point.ceil < battle_range
     return false
   end
 
   # Return dex of this squad.
-  # @note mimum dex of mobs which belong to this squad.
+  # @note minimum dex of mobs which belong to this squad.
   # @return [Integer].
   def dex
     dex = Params::MOB_STATUS_MAX
@@ -153,5 +123,29 @@ class Squad < ActiveRecord::Base
       dex = mob.dex if dex > mob.dex
     end
     return dex
+  end
+
+  # Return the damaged hp ratio of all mobs.
+  # @return [Integer].
+  def damaged_hp_rate
+    total_mob_max_hp = 0
+    total_mob_current_hp = 0
+
+    mobs.each do |mob|
+      total_mob_max_hp += mob.max_hp
+      total_mob_current_hp += mob.hp
+    end
+
+    total_mob_max_hp / total_mob_current_hp
+  end
+
+  # Return all the mobs which is not yet dead.
+  # @return [Array].
+  def living_mobs
+    living_mobs = Array.new
+    mobs.each do |mob|
+      living_mobs << mob unless mob.dead?
+    end
+    return living_mobs
   end
 end

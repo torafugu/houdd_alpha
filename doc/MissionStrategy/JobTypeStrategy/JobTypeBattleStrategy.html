@@ -6,7 +6,7 @@
 <title>
   Class: MissionStrategy::JobTypeStrategy::JobTypeBattleStrategy
   
-    &mdash; Documentation by YARD 0.8.6.2
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!MissionStrategy/JobTypeStrategy/JobTypeBattleStrategy.html";
 </script>
 
 
@@ -295,7 +295,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wepon-instance_method" title="#wepon (instance method)">- (Object) <strong>wepon</strong>(symbol, priority) </a>
+      <a href="#weapon-instance_method" title="#weapon (instance method)">- (Object) <strong>weapon</strong>(symbol, priority) </a>
     
 
     
@@ -310,7 +310,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set battle method as wepon.</p>
+<p>Set battle method as weapon.</p>
 </div></span>
   
 </li>
@@ -672,9 +672,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="wepon-instance_method">
+  <h3 class="signature " id="weapon-instance_method">
   
-    - (<tt>Object</tt>) <strong>wepon</strong>(symbol, priority) 
+    - (<tt>Object</tt>) <strong>weapon</strong>(symbol, priority) 
   
 
   
@@ -683,7 +683,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Set battle method as wepon.</p>
+<p>Set battle method as weapon.</p>
 
 
   </div>
@@ -730,8 +730,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'app/models/mission_strategy.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wepon'>wepon</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_priority'>priority</span><span class='rparen'>)</span>
-  <span class='ivar'>@battle_methods</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleMethod</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:wepon</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_priority'>priority</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_weapon'>weapon</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_priority'>priority</span><span class='rparen'>)</span>
+  <span class='ivar'>@battle_methods</span> <span class='op'>&lt;&lt;</span> <span class='const'>BattleMethod</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:weapon</span><span class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_priority'>priority</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -743,9 +743,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 30 18:32:13 2014 by
+  Generated on Sat May  3 18:12:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.2 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

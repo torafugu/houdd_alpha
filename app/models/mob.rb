@@ -45,6 +45,8 @@ class Mob < ActiveRecord::Base
   attr_accessor :vpos
   attr_accessor :hate
   attr_accessor :battle_effect_invs
+  attr_accessor :attacker
+  attr_accessor :intruder
 
   # Maximum priority of battle method.
   MAX_PRIORITY = 5
@@ -53,6 +55,14 @@ class Mob < ActiveRecord::Base
   # @return [String]
   def name_with_job
     return name + "(" + job.name + ")"
+  end
+
+  # Return name with job name and squad name.
+  # @return [String]
+  def name_with_job_and_squad
+    battle_side_txt = I18n.t('activerecord.messages.guards')
+    battle_side_txt = I18n.t('activerecord.messages.intruder') if intruder
+    return '(' + battle_side_txt + ')' + squad.name + "-" + name_with_job
   end
 
   # Return true if this mob is female.
@@ -96,16 +106,16 @@ class Mob < ActiveRecord::Base
     return false
   end
 
-  # Return equipped wepon.
+  # Return equipped weapon.
   # @return [Object].
-  def wepon
+  def weapon
     items.each do |item|
-      return item if item.item_info.type_symbol == :wepon.to_s
+      return item if item.item_info.type_symbol == :weapon.to_s
     end
 
     natural_item = Item.new
     specie.family.item_infos.each do |item_info|
-      if item_info.type_symbol == :natural_wepon.to_s
+      if item_info.type_symbol == :natural_weapon.to_s
         natural_item.mob_id = id
         natural_item.houdd_user_id= houdd_user_id
         natural_item.item_info_id= item_info.id
@@ -159,10 +169,10 @@ class Mob < ActiveRecord::Base
   def battle_range
     range = 1
     skills.each do |skill|
-      range = skill.range #if range < skill.range and (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s)
+      range = skill.range if range < skill.range and (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s)
     end
     items.each do |item|
-      range = item.item_info.range if range < item.item_info.range and item.item_info.type_symbol == :wepon.to_s
+      range = item.item_info.range if range < item.item_info.range and item.item_info.type_symbol == :weapon.to_s
     end
     return range
   end
@@ -175,40 +185,28 @@ class Mob < ActiveRecord::Base
     return false
   end
 
-  # Set attacker flag as true.
-  def divide_to_attacker
-    @attacker_flg = true
-  end
-
-  # Set attacker flag as false.
-  def divide_to_defender
-    @attacker_flg = false
-  end
-
-  # Return true if the member of attacker squad.
-  # @return [Boolean].
-  def attacker?
-    return @attacker_flg
-  end
-
-  # Vertisal move.
+  # Vertical move.
   # @note moving logic depends on job.
   def vpos_move
-    if attacker?
-      if demoralized? or (not forward_job? and on_front_line?)
+    if @attacker
+      if demoralized?
         @vpos -= 1
+      elsif not forward_job? and on_front_line?
+        @vpos -= 1 if Params::BATTLE_START_ATK_VPOS <= @vpos - 1
       elsif job_type_strategy.vpos - @vpos < 0
-        @vpos -= 1
+        @vpos -= 1 if Params::BATTLE_START_ATK_VPOS <= @vpos - 1
       elsif job_type_strategy.vpos - @vpos > 0
-        @vpos += 1
+        @vpos += 1 unless on_front_line?
       end
     else
-      if demoralized? or (not forward_job? and on_front_line?)
+      if demoralized?
         @vpos += 1
+      elsif not forward_job? and on_front_line?
+        @vpos += 1 if @vpos + 1 <= Params::BATTLE_START_ATK_VPOS + 1
       elsif (Params::BATTLE_START_DEF_VPOS - job_type_strategy.vpos + 1) - @vpos > 0
-        @vpos += 1
+        @vpos += 1 if @vpos + 1 <= Params::BATTLE_START_ATK_VPOS + 1
       elsif (Params::BATTLE_START_DEF_VPOS - job_type_strategy.vpos + 1) - @vpos < 0
-        @vpos -= 1
+        @vpos -= 1 unless on_front_line?
       end
     end
   end
@@ -227,25 +225,34 @@ class Mob < ActiveRecord::Base
     return true
   end
 
-  # Return true if the nearest enemy mob is in batle range.
+  # Return true if the nearest enemy mob is in battle range.
   # @return [Boolean].
   def enemy_mobs_in_battle_range?(range)
     return true unless enemy_mobs_in_battle_range(range).blank?
     return false
   end
 
-  # Return true if the nearest friend mob is in batle range.
+  # Return true if the nearest friend mob is in battle range.
   # @return [Boolean].
   def friend_mobs_in_battle_range?(range)
     return true unless friend_mobs_in_battle_range(range).blank?
     return false
   end
 
-  # Return true if the nearest damaged friend mob is in batle range.
+  # Return true if the nearest damaged friend mob is in battle range.
   # @return [Boolean].
   def damaged_friend_mobs_in_battle_range?(range)
     return true unless damaged_friend_mobs_in_battle_range(range).blank?
     return false
+  end
+
+  # Set out-ranged vpos.
+  def retreat_from_battle
+    if @attacker
+      @vpos = Params::BATTLE_START_ATK_VPOS + 1
+    else
+      @vpos = Params::BATTLE_START_DEF_VPOS - 1
+    end
   end
 
   # Return true if this mob has already retreated.
@@ -253,14 +260,14 @@ class Mob < ActiveRecord::Base
   def retreated_from_battle?
     return false if @vpos.nil?
     return true if @vpos < Params::BATTLE_START_ATK_VPOS or Params::BATTLE_START_DEF_VPOS < @vpos
-    return false
+    false
   end
 
   # Return true if this mob is dead.
   # @return [Boolean].
   def dead?
     return true if hp == 0
-    return false
+    false
   end
 
   # Return random battle action.
@@ -271,30 +278,30 @@ class Mob < ActiveRecord::Base
 
       unless prioritized_methods.blank?
         battle_method = prioritized_methods.delete_at(rand(prioritized_methods.length))
-        if battle_method.battle_type == :wepon
-          return nil if wepon.blank?
-          if enemy_mobs_in_battle_range?(wepon.range)
-            battle_method.method = wepon
+        if battle_method.battle_type == :weapon
+          return nil if weapon.blank?
+          if enemy_mobs_in_battle_range?(weapon.range)
+            battle_method.method = weapon
             return battle_method
           end
         elsif battle_method.battle_type == :skill
           if battle_method.type_symbol == :dd or battle_method.type_symbol == :dot or battle_method.type_symbol == :debuff
             skills.shuffle.each do |skill|
-              if (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s or skill.type_symbol == :debuff.to_s) and enemy_mobs_in_battle_range?(skill.range)
+              if (skill.type_symbol == :dd.to_s or skill.type_symbol == :dot.to_s or skill.type_symbol == :debuff.to_s) and enemy_mobs_in_battle_range?(skill.range) and skill.sp_cost <= sp
                 battle_method.method = skill
                 return battle_method
               end
             end
           elsif battle_method.type_symbol == :hd or battle_method.type_symbol == :hot
             skills.shuffle.each do |skill|
-              if (skill.type_symbol == :hd.to_s or skill.type_symbol == :hot.to_s) and damaged_friend_mobs_in_battle_range?(skill.range)
+              if (skill.type_symbol == :hd.to_s or skill.type_symbol == :hot.to_s) and damaged_friend_mobs_in_battle_range?(skill.range) and skill.sp_cost <= sp
                 battle_method.method = skill
                 return battle_method
               end
             end
           elsif battle_method.type_symbol == :buff or battle_method.type_symbol == :other
             skills.shuffle.each do |skill|
-              if (skill.type_symbol == :buff.to_s or skill.type_symbol == :other.to_s) and friend_mobs_in_battle_range?(skill.range)
+              if (skill.type_symbol == :buff.to_s or skill.type_symbol == :other.to_s) and friend_mobs_in_battle_range?(skill.range) and skill.sp_cost <= sp
                 battle_method.method = skill
                 return battle_method
               end
@@ -339,33 +346,35 @@ class Mob < ActiveRecord::Base
     end
   end
 
-  # Return target friend mobs which are selected rondomly in battle range.
+  # Return target friend mobs which are selected randomly in battle range.
   # @return [Array].
   def target_random_friend_mobs(range, num)
+
+    return [self] if range == 0
+
+    friend_mobs_in_battle_range = friend_mobs_in_battle_range(range)
     
-    if range == 0
-      return [self]
-    elsif friend_mobs_in_battle_range.length <= num
+    if friend_mobs_in_battle_range.length <= num
       return friend_mobs_in_battle_range.shuffle
     else
       return friend_mobs_in_battle_range.shuffle.slice(0..(num - 1))
     end
   end
 
-  # Add exp for used wepon in battle.
+  # Add exp for used weapon in battle.
   # @param [Integer] exp
-  def add_wepon_exp(exp)
-    if item_info_exp_invs.blank? or item_info_exp_invs.find_by_owner_id(wepon.item_info_id).blank?
-      wepon_exp = ItemInfoExpInv.new
-      wepon_exp.mob_id = id
-      wepon_exp.owner_id = wepon.item_info_id
-      wepon_exp.level = 1
-      wepon_exp.exp = exp
-      wepon_exp.save
+  def add_weapon_exp(exp)
+    if item_info_exp_invs.blank? or item_info_exp_invs.find_by_owner_id(weapon.item_info_id).blank?
+      weapon_exp = ItemInfoExpInv.new
+      weapon_exp.mob_id = id
+      weapon_exp.owner_id = weapon.item_info_id
+      weapon_exp.level = 1
+      weapon_exp.exp = exp
+      weapon_exp.save
     else
-      wepon_exp = item_info_exp_invs.find_by_owner_id(wepon.item_info_id)
-      wepon_exp.exp += exp
-      wepon_exp.save
+      weapon_exp = item_info_exp_invs.find_by_owner_id(weapon.item_info_id)
+      weapon_exp.exp += exp
+      weapon_exp.save
     end
   end
 
@@ -395,7 +404,7 @@ class Mob < ActiveRecord::Base
   def add_effect(caused_mob, method)
     @battle_effect_invs = Array.new if @battle_effect_invs.blank?
     @battle_effect_invs.each do |battle_effect_inv|
-      return if battle_effect_inv.method == method
+      return if battle_effect_inv.method.id == method.id
     end
     @battle_effect_invs << BattleEffectInv.new(caused_mob, method, method.duration)
   end

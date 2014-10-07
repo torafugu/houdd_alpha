@@ -16,6 +16,8 @@
   <%= form_tag({:action => 'update_mutation_rate'}, {:method => :put}) do %>
   突然変異率：<%= text_field_tag "mypage_mutation_rate", @specie.mutation_rate,:class=>'number3' %><br />
   <br />
-  <%= submit_tag "変更" %>
+  <%= submit_tag "変更" %><br />
   <% end %>
+  <br />
+  <%= link_to '戻る', "/admin_page/mob_maintenance" %>
 </div>

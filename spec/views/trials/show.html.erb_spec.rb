@@ -7,7 +7,7 @@ describe "trials/show" do
       :map_name => "Map Name",
       :guard_mission_id => 1,
       :intruder_mission_id => 2,
-      :occured_at => 3
+      :occurred_at => 3
     ))
   end
 

@@ -6,7 +6,7 @@
 <title>
   Class: TrialUpdater
   
-    &mdash; Documentation by YARD 0.8.6.2
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!TrialUpdater.html";
 </script>
 
 
@@ -115,6 +115,16 @@
   
     <dl class="constants">
       
+        <dt id="NORMAL_END-constant" class="">NORMAL_END =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="ABNORMAL_END-constant" class="">ABNORMAL_END =
+          
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>1</span></pre></dd>
+      
         <dt id="FLAG_CELL_OFFSET_SIZE_RATE-constant" class="">FLAG_CELL_OFFSET_SIZE_RATE =
           
         </dt>
@@ -155,7 +165,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>execute trial updation.</p>
+<p>execute trial updating.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_debug-class_method" title="execute_debug (class method)">+ (Object) <strong>execute_debug</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>execute trial updating.</p>
 </div></span>
   
 </li>
@@ -182,7 +216,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>execute trial updation.</p>
+<p>execute trial updating.</p>
 
 
   </div>
@@ -196,35 +230,94 @@
       <pre class="lines">
 
 
-7
-8
-9
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/trial_updater.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+  <span class='const'>Trial</span><span class='period'>.</span><span class='id identifier rubyid_find_all_by_occurred_at'>find_all_by_occurred_at</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_trial'>trial</span><span class='op'>|</span>
+    <span class='id identifier rubyid_prepare'>prepare</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_turn_num'>turn_num</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='kw'>until</span> <span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='period'>.</span><span class='id identifier rubyid_guard_defeated?'>guard_defeated?</span> <span class='kw'>or</span> <span class='id identifier rubyid_trial'>trial</span><span class='period'>.</span><span class='id identifier rubyid_intruder_defeated?'>intruder_defeated?</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='int'>2</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_turn_num'>turn_num</span>
+    <span class='comment'>#5.times do |turn_num|
+</span>      <span class='id identifier rubyid_squad_setup'>squad_setup</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
+      <span class='comment'>#break if trial.active_squads.blank?
+</span>      <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-- proceed_turn </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_turn_num'>turn_num</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> --</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_proceed_turn'>proceed_turn</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_turn_num'>turn_num</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_turn_num'>turn_num</span> <span class='op'>&gt;</span> <span class='int'>100</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="execute_debug-class_method">
+  
+    + (<tt>Object</tt>) <strong>execute_debug</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>TrialDeleter is called before executing.</p>
+</div>
+  </div>
+
+
+<p>execute trial updating.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 10
 11
 12
 13
 14
-15
-16
-17
-18
-19</pre>
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/trial_updater.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'app/models/trial_updater.rb', line 10</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
-  <span class='const'>Trial</span><span class='period'>.</span><span class='id identifier rubyid_find_all_by_occured_at'>find_all_by_occured_at</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_trial'>trial</span><span class='op'>|</span>
-    <span class='id identifier rubyid_prepare'>prepare</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
-    <span class='comment'>#squad_setup(trial)
-</span>    <span class='comment'>#until trial.def_defeated? and trial.atk_defeated?
-</span>    <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_turn_num'>turn_num</span><span class='op'>|</span>
-      <span class='id identifier rubyid_squad_setup'>squad_setup</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
-      <span class='comment'>#break if trial.active_squads.blank?
-</span>      <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-- proceed_turn </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_turn_num'>turn_num</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> --</span><span class='tstring_end'>&quot;</span></span>
-      <span class='id identifier rubyid_proceed_turn'>proceed_turn</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute_debug'>execute_debug</span>
+  <span class='const'>Trial</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_trial'>trial</span><span class='op'>|</span>
+    <span class='const'>TrialDeleter</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_trial'>trial</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_execute'>execute</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -236,9 +329,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 30 18:32:16 2014 by
+  Generated on Sat May  3 18:12:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.2 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

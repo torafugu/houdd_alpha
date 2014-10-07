@@ -249,8 +249,10 @@ ja:
         level: 'レベル'
         allotment: '割り当てポイント'
         invested_point: '投入済みポイント'
-        wepon: '武器'
+        weapon: '武器'
+        natural_weapon: '自然武器'
         armor: '防具'
+        natural_armor: '自然防具'
         potion: 'ポーション'
         trap: '罠'
       mini_map:
@@ -342,8 +344,8 @@ ja:
         rq_prod_point: '必要生産工数'
         atk_cycle: '攻撃間隔'
         research_level: '必要研究レベル'
-        wepon: '武器'
-        natural_wepon: '天然武器'
+        weapon: '武器'
+        natural_weapon: '天然武器'
         armor: '防具'
         natural_armor: '天然防具'
         potion: 'ポーション'
@@ -442,7 +444,7 @@ ja:
         type_symbol: '職業タイプ'
         name: '名前'
         growth_penalty: '成長修正'
-        wepon_lvl: '武器レベル'
+        weapon_lvl: '武器レベル'
         armor_lvl: '防具レベル'
         tank: '盾'
         healer: '回復'
@@ -504,11 +506,34 @@ ja:
         move: '移動'
       trial:
         mini_map: 'マップ'
-        map_name: 'マップ名'
+        map_name: 'トライアルマップ名'
         guard_mission_id: '防衛側ミッション'
         intruder_mission_id: '侵入側ミッション'
-        occured_at: '発生日時'
-
+        occurred_at: '発生日時'
+    messages:
+      goal_occupied: '重要拠点が占領されました。'
+      move_turn_end_time_out: '時間切れで移動ターンが終了しました。'
+      move_turn_end_movement: '移動終了により移動ターンが終了しました。'
+      move_turn_end_guards_defeated: '防御側敗退で移動ターンが終了しました。'
+      move_turn_end_intruders_defeated: '防御側敗退で移動ターンが終了しました。'
+      move_turn_end_battle_start: '戦闘発生で移動ターンが終了しました。'
+      retreated_from_fortress: "%{name}は要塞から撤退しました。"
+      battle_encounter: "%{name1}は%{name2}と戦闘を開始しました。"
+      trap_disarmed: "%{name}は罠に遭遇、しかし解除しました。"
+      trap_not_disarmed: "%{name}は罠に遭遇しました。"
+      intruder: '攻撃側'
+      guards: '防衛側'
+    battle_logs:
+      atk_hit_log: "%{name1}は%{name2}へ%{name3}で攻撃。\n→%{damage}のダメージを与えました。"
+      atk_miss_log: "%{name1}は%{name2}へ%{name3}で攻撃。\n→しかし命中しませんでした。"
+      dot_log: "%{name1}は%{name2}の効果により、%{damage}のダメージを受けました。"
+      hot_log: "%{name1}は%{name2}の効果により、%{heal}のダメージを回復しました。"
+      heal_log: "%{name1}は%{name2}へ%{name3}でヒール。\n→%{heal}のダメージを回復しました。"
+      buff_log: "%{name1}は%{name2}へ%{name3}を使いました。"
+      other_log: "%{name1}は%{name2}を使いました。"
+      target_dead: "→%{name1}は死にました。"
+      battle_turn_end_annihilated: "%{name}は全滅しました。\n戦闘が終了しました。"
+      battle_turn_end_retreated: "%{name}は撤退しました。\n戦闘が終了しました。"
     symbols:
 
 

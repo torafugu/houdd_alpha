@@ -1,7 +1,7 @@
 <%= render 'admin_page_menu' %>
 <div id="contents">
   <h3 class="admin_normal">MOB管理</h3>
-  科：<%= collection_select(:my_page, :family_id, Family.find(:all), :id, :name, :selected => @family_id, :include_blank => true) %><br />
+  科：<%= collection_select(:my_page, :family_id, Family.find(:all), :id, :name, :selected => :family_id, :include_blank => true) %><br />
   <br />
   <%= render 'select_specie' %><br />
   <br />

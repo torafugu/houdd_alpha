@@ -8,5 +8,8 @@ FactoryGirl.define do
     job_name "MyString"
     max_hp 1
     max_sp 1
+    hp 1
+    sp 1
+    job_name "MyString"
   end
 end

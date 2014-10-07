@@ -6,7 +6,7 @@
 <title>
   Class: TrialBattleUpdater
   
-    &mdash; Documentation by YARD 0.8.6.2
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!TrialBattleUpdater.html";
 </script>
 
 
@@ -111,6 +111,29 @@
   
 
 </div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BASE_MOD-constant" class="">BASE_MOD =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Modifier value if no parameter is provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -171,10 +194,6 @@
       <pre class="lines">
 
 
-3
-4
-5
-6
 7
 8
 9
@@ -249,10 +268,18 @@
 78
 79
 80
-81</pre>
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/trial_battle_updater.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'app/models/trial_battle_updater.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_move_turn'>move_turn</span><span class='comma'>,</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='comma'>,</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='comma'>,</span> <span class='id identifier rubyid_distance'>distance</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Battle of </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_distance'>distance</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -261,7 +288,7 @@
 </span>  <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mob'>mob</span><span class='op'>|</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_enemy_mobs'>enemy_mobs</span> <span class='op'>=</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_friend_mobs'>friend_mobs</span> <span class='op'>=</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span>
-    <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_divide_to_attacker'>divide_to_attacker</span>
+    <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_attacker'>attacker</span> <span class='op'>=</span> <span class='kw'>true</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_hate'>hate</span> <span class='op'>=</span> <span class='int'>0</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_forward_job?'>forward_job?</span>
@@ -274,7 +301,7 @@
   <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mob'>mob</span><span class='op'>|</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_enemy_mobs'>enemy_mobs</span> <span class='op'>=</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_friend_mobs'>friend_mobs</span> <span class='op'>=</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span>
-    <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_divide_to_defender'>divide_to_defender</span>
+    <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_attacker'>attacker</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_hate'>hate</span> <span class='op'>=</span> <span class='int'>0</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_forward_job?'>forward_job?</span>
@@ -290,6 +317,16 @@
     <span class='id identifier rubyid_sorted_by_dex_mobs'>sorted_by_dex_mobs</span> <span class='op'>=</span> <span class='const'>Tools</span><span class='period'>.</span><span class='id identifier rubyid_sort_by_dex'>sort_by_dex</span><span class='lparen'>(</span><span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span> <span class='op'>+</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_mobs'>mobs</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_sorted_by_dex_mobs'>sorted_by_dex_mobs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mob'>mob</span><span class='op'>|</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_dead?'>dead?</span> <span class='kw'>or</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_retreated_from_battle?'>retreated_from_battle?</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_annihilated?'>annihilated?</span> <span class='kw'>or</span> <span class='id identifier rubyid_atk_squad'>atk_squad</span><span class='period'>.</span><span class='id identifier rubyid_retreated_from_battle?'>retreated_from_battle?</span>
+        <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>atk_squad was defeated.</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_battle_ended_flg'>battle_ended_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>break</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_annihilated?'>annihilated?</span> <span class='kw'>or</span> <span class='id identifier rubyid_def_squad'>def_squad</span><span class='period'>.</span><span class='id identifier rubyid_retreated_from_battle?'>retreated_from_battle?</span>
+        <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>def_squad was defeated.</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_battle_ended_flg'>battle_ended_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>break</span>
+      <span class='kw'>end</span>
+
       <span class='comment'># DoT / HoT execution phase
 </span>
       <span class='comment'># Battle phase
@@ -297,14 +334,14 @@
         <span class='comment'># Ranged attack
 </span>      <span class='kw'>else</span>
         <span class='comment'># Vertical move
-</span>        <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_attacker?'>attacker?</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_name_with_job'>name_with_job</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> pre-move:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+</span>        <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_attacker'>attacker</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_name_with_job'>name_with_job</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> pre-move:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
         <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_vpos_move'>vpos_move</span>
         <span class='id identifier rubyid_print'>print</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> post-move:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_vpos'>vpos</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
 
         <span class='id identifier rubyid_battle_method'>battle_method</span> <span class='op'>=</span> <span class='id identifier rubyid_mob'>mob</span><span class='period'>.</span><span class='id identifier rubyid_battle_action'>battle_action</span>
         <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
 
-        <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:wepon</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_battle_type'>battle_type</span> <span class='op'>==</span> <span class='symbol'>:weapon</span>
           <span class='id identifier rubyid_phys_attack'>phys_attack</span><span class='lparen'>(</span><span class='id identifier rubyid_move_turn'>move_turn</span><span class='comma'>,</span> <span class='id identifier rubyid_mob'>mob</span><span class='rparen'>)</span>
         <span class='kw'>else</span>
           <span class='kw'>if</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dd</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>or</span> <span class='id identifier rubyid_battle_method'>battle_method</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='period'>.</span><span class='id identifier rubyid_type_symbol'>type_symbol</span> <span class='op'>==</span> <span class='symbol'>:dot</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -323,15 +360,9 @@
 
     <span class='kw'>end</span>
 
-
-    <span class='id identifier rubyid_battle_ended_flg'>battle_ended_flg</span> <span class='op'>=</span> <span class='kw'>true</span>
-
-
-
-
+    <span class='id identifier rubyid_loop_index'>loop_index</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_battle_ended_flg'>battle_ended_flg</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_loop_index'>loop_index</span> <span class='op'>&gt;</span> <span class='int'>100</span>
   <span class='kw'>end</span>
-
-
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -343,9 +374,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 30 18:32:16 2014 by
+  Generated on Sat May  3 18:12:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.2 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

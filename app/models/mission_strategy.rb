@@ -30,11 +30,11 @@ class MissionStrategy < ActiveRecord::Base
         @battle_methods = Array.new
       end
 
-      # Set battle method as wepon.
+      # Set battle method as weapon.
       # @param [String] symbol
       # @param [Integer] priority
-      def wepon(symbol, priority)
-        @battle_methods << BattleMethod.new(:wepon, symbol, nil, priority)
+      def weapon(symbol, priority)
+        @battle_methods << BattleMethod.new(:weapon, symbol, nil, priority)
       end
 
       # Set battle method as skill.

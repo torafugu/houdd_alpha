@@ -14,7 +14,7 @@ class Params
   RESEARCH_COST_BASE = 1000
 
   # Symbols of research.
-  RESEARCH_SYMBOLS = [:wepon, :armor, :potion, :trap]
+  RESEARCH_SYMBOLS = [:weapon, :armor, :potion, :trap]
 
   # Maximum distance between mini maps.
   MAP_DISTANCE_MAX = 100
@@ -27,20 +27,20 @@ class Params
 
   # Description of item.(Internationalized)
   ITEM_SYMBOL_DESCRIPTIONS = Hash.new
-  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.wepon')] = :wepon.to_s
-  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.natural_wepon')] = :natural_wepon.to_s
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.weapon')] = :weapon.to_s
+  ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.natural_weapon')] = :natural_weapon.to_s
   ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.armor')] = :armor.to_s
   ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.natural_armor')] = :natural_armor.to_s
   ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.potion')] = :potion.to_s
   ITEM_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.research.trap')] = :trap.to_s
 
   # Description of element.(Internationalized)
-  ELEMRNT_SYMBOL_DESCRIPTIONS = Hash.new
-  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.fire')] = :fire.to_s
-  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.water')] = :water.to_s
-  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.light')] = :light.to_s
-  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.darkness')] = :darkness.to_s
-  ELEMRNT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.nothing')] = :nothing.to_s
+  ELEMENT_SYMBOL_DESCRIPTIONS = Hash.new
+  ELEMENT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.fire')] = :fire.to_s
+  ELEMENT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.water')] = :water.to_s
+  ELEMENT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.light')] = :light.to_s
+  ELEMENT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.darkness')] = :darkness.to_s
+  ELEMENT_SYMBOL_DESCRIPTIONS[I18n.t('activerecord.attributes.element.nothing')] = :nothing.to_s
 
   # Description of skill.(Internationalized)
   SKILL_TYPE_DESCRIPTIONS = Hash.new
@@ -66,9 +66,9 @@ class Params
 
   # Multiplier of destroying production queue item.
   # @note Destroying is faster than creating.
-  PRODUCTION_QUEUE_DESTORY_MULTIPLIER = 10
+  PRODUCTION_QUEUE_DESTROY_MULTIPLIER = 10
 
-  # Ratio percentageof finding new root to another mini map.
+  # Ratio percentage of finding new root to another mini map.
   NEW_ROOT_FIND_PERCENTAGE = 30
 
   # Symbol of female gender.
@@ -161,6 +161,12 @@ class Params
   # Job IDs.
   JOBS = {:war=>1, :wiz=>2, :pri=>3, :thf=>4, :rng=>5}
 
+  # Hate increase value by taunt.
+  # TODO hate increase value should be changeable.
+  TAUNT_HATE_INCREASE = 1000
+
+  # HP Rate of evac skill is happen
+  EVAC_HP_RATE = 0.2
 
   # ITEM_ARMOR_SYMBOLS = ['HELM', 'B-ARMOR', 'L-ARMOR']
   # ITEM_WEPON_SYMBOLS = ['SWORD', 'BOW']

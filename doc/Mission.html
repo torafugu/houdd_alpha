@@ -6,7 +6,7 @@
 <title>
   Class: Mission
   
-    &mdash; Documentation by YARD 0.8.6.2
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Mission.html";
 </script>
 
 
@@ -328,7 +328,7 @@
       <pre class="code"><span class="info file"># File 'app/models/mission.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_symbol_txt'>category_symbol_txt</span>
-  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.mission.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_category_symbol'>category_symbol</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activerecord.attributes.mission.</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_category_symbol'>category_symbol</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -374,7 +374,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_end_houdd_time_is_earlier_than_start_houdd_time'>end_houdd_time_is_earlier_than_start_houdd_time</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_start_houdd_time'>start_houdd_time</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='kw'>or</span> <span class='id identifier rubyid_end_houdd_time'>end_houdd_time</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_end_houdd_time'>end_houdd_time</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_start_houdd_time'>start_houdd_time</span>
-    <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.errors.models.mission.attributes.end_houdd_time_is_earlier_than_start_houdd_time</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activerecord.errors.models.mission.attributes.end_houdd_time_is_earlier_than_start_houdd_time</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -429,7 +429,7 @@
       <pre class="code"><span class="info file"># File 'app/models/mission.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>(</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_category_symbol_txt'>category_symbol_txt</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>)</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_mini_map'>mini_map</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>(</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_category_symbol_txt'>category_symbol_txt</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -496,14 +496,14 @@
       <pre class="code"><span class="info file"># File 'app/models/mission.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_squads_txt'>squads_txt</span>
-  <span class='id identifier rubyid_squads_txt'>squads_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_squads_txt'>squads_txt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_squads'>squads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_squad'>squad</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
       <span class='id identifier rubyid_squads_txt'>squads_txt</span> <span class='op'>+=</span> <span class='id identifier rubyid_squad'>squad</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
-      <span class='id identifier rubyid_squads_txt'>squads_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+      <span class='id identifier rubyid_squads_txt'>squads_txt</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_squads_txt'>squads_txt</span><span class='period'>.</span><span class='id identifier rubyid_chop!'>chop!</span> <span class='kw'>if</span> <span class='id identifier rubyid_squads_txt'>squads_txt</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_squads_txt'>squads_txt</span><span class='period'>.</span><span class='id identifier rubyid_chop!'>chop!</span> <span class='kw'>if</span> <span class='id identifier rubyid_squads_txt'>squads_txt</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>return</span> <span class='id identifier rubyid_squads_txt'>squads_txt</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -558,7 +558,7 @@
       <pre class="code"><span class="info file"># File 'app/models/mission.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status_symbol_txt'>status_symbol_txt</span>
-  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>activerecord.attributes.mission.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_status_symbol'>status_symbol</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activerecord.attributes.mission.</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_status_symbol'>status_symbol</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -638,9 +638,9 @@ called when the mission strategy is not initialized.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 30 18:32:13 2014 by
+  Generated on Sat May  3 18:12:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.2 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

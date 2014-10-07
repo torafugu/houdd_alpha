@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140330070045) do
+ActiveRecord::Schema.define(:version => 20140921223218) do
 
   create_table "constructions", :force => true do |t|
     t.integer  "terrain_id"
@@ -95,6 +95,14 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
   end
 
   add_index "genes", ["specie_id"], :name => "index_genes_on_specie_id"
+
+  create_table "houdd_histories", :force => true do |t|
+    t.string   "exp_inv"
+    t.integer  "day"
+    t.text     "log"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "houdd_users", :force => true do |t|
     t.string   "name"
@@ -182,7 +190,7 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
     t.string   "type_symbol"
     t.string   "name"
     t.float    "growth_penalty"
-    t.integer  "wepon_lvl"
+    t.integer  "weapon_lvl"
     t.integer  "armor_lvl"
     t.float    "str_mod"
     t.float    "dex_mod"
@@ -447,20 +455,27 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
     t.datetime "updated_at",     :null => false
   end
 
-  create_table "trial_battle_logs", :force => true do |t|
+  create_table "trial_battle_sets", :force => true do |t|
     t.integer  "trial_move_turn_id"
-    t.integer  "trial_mob_id"
-    t.integer  "vpos"
-    t.integer  "target_mob_id"
-    t.boolean  "target_dead_flg"
-    t.integer  "damage"
-    t.string   "method_txt"
+    t.integer  "attacker_squad_id"
+    t.integer  "defender_squad_id"
+    t.integer  "distance"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
 
-  add_index "trial_battle_logs", ["trial_mob_id"], :name => "index_trial_battle_logs_on_trial_mob_id"
-  add_index "trial_battle_logs", ["trial_move_turn_id"], :name => "index_trial_battle_logs_on_trial_move_turn_id"
+  add_index "trial_battle_sets", ["attacker_squad_id"], :name => "index_trial_battle_sets_on_attacker_squad_id"
+  add_index "trial_battle_sets", ["defender_squad_id"], :name => "index_trial_battle_sets_on_defender_squad_id"
+  add_index "trial_battle_sets", ["trial_move_turn_id"], :name => "index_trial_battle_sets_on_trial_move_turn_id"
+
+  create_table "trial_battle_turns", :force => true do |t|
+    t.integer  "trial_battle_set_id"
+    t.text     "log"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "trial_battle_turns", ["trial_battle_set_id"], :name => "index_trial_battle_turns_on_trial_battle_set_id"
 
   create_table "trial_fortress_cells", :force => true do |t|
     t.integer  "trial_id"
@@ -476,17 +491,21 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
   add_index "trial_fortress_cells", ["trial_id"], :name => "index_trial_fortress_cells_on_trial_id"
 
   create_table "trial_mob_statuses", :force => true do |t|
-    t.integer  "trial_move_turn_id"
+    t.integer  "trial_battle_turn_id"
     t.integer  "trial_mob_id"
+    t.integer  "vpos"
+    t.integer  "start_hp"
     t.integer  "end_hp"
+    t.integer  "start_sp"
     t.integer  "end_sp"
+    t.string   "start_status"
     t.string   "end_status"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
+  add_index "trial_mob_statuses", ["trial_battle_turn_id"], :name => "index_trial_mob_statuses_on_trial_battle_turn_id"
   add_index "trial_mob_statuses", ["trial_mob_id"], :name => "index_trial_mob_statuses_on_trial_mob_id"
-  add_index "trial_mob_statuses", ["trial_move_turn_id"], :name => "index_trial_mob_statuses_on_trial_move_turn_id"
 
   create_table "trial_mobs", :force => true do |t|
     t.integer  "trial_squad_id"
@@ -495,6 +514,8 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
     t.string   "job_name"
     t.integer  "max_hp"
     t.integer  "max_sp"
+    t.integer  "hp"
+    t.integer  "sp"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -528,8 +549,9 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
     t.integer  "trial_id"
     t.integer  "squad_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "intruder_flg"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "trial_squads", ["trial_id"], :name => "index_trial_squads_on_trial_id"
@@ -539,7 +561,7 @@ ActiveRecord::Schema.define(:version => 20140330070045) do
     t.string   "map_name"
     t.integer  "guard_mission_id"
     t.integer  "intruder_mission_id"
-    t.integer  "occured_at"
+    t.integer  "occurred_at"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

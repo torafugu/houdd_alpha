@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :mini_map %><br />
-    <%= f.text_field :mini_map %>
+    <%= f.collection_select(:mini_map_id, MiniMap.find(:all), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :map_name %><br />
@@ -28,8 +28,8 @@
     <%= f.number_field :intruder_mission_id %>
   </div>
   <div class="field">
-    <%= f.label :occured_at %><br />
-    <%= f.number_field :occured_at %>
+    <%= f.label :occurred_at %><br />
+    <%= f.number_field :occurred_at %>
   </div>
   <div class="actions">
     <%= f.submit %>

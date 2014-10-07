@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :type_symbol
       t.string :name
       t.float :growth_penalty
-      t.integer :wepon_lvl
+      t.integer :weapon_lvl
       t.integer :armor_lvl
       t.float :str_mod
       t.float :dex_mod

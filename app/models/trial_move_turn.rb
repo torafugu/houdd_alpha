@@ -2,6 +2,5 @@
 class TrialMoveTurn < ActiveRecord::Base
   belongs_to :trial
   has_many :trial_squad_trails, :dependent => :delete_all
-  has_many :trial_mob_statuses, :dependent => :delete_all
-  has_many :trial_battle_logs, :dependent => :delete_all
+  has_many :trial_battle_sets, :dependent => :delete_all
 end

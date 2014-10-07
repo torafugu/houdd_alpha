@@ -82,7 +82,7 @@ HouddAlpha::Application.routes.draw do
   match '/my_page/:user_id/:mini_map_id/take_trap' => 'my_page#take_trap', :via => :put
   match '/my_page/:user_id/mini_map_index' => 'my_page#mini_map_index'
 
-  # my_page - reserach
+  # my_page - research
   match '/my_page/:user_id/research_index' => 'my_page#research_index'
   match '/my_page/:user_id/update_researches' => 'my_page#update_researches', :via => :put
 
@@ -120,6 +120,8 @@ HouddAlpha::Application.routes.draw do
   match '/my_page/:user_id/:mission_id/edit_mission' => 'my_page#edit_mission'
   match '/my_page/:user_id/:mission_id/update_mission' => 'my_page#update_mission', :via => :put
   match '/my_page/:user_id/:mission_id/delete_mission' => 'my_page#delete_mission', :via => :delete
+  match '/my_page/:user_id/:mission_id/:trial_id/:turn_index/mission_result' => 'my_page#mission_result'
+  match '/my_page/:user_id/:mission_id/:trial_id/:turn_index/:battle_set_index/:battle_turn_index/select_battle_turn' => 'my_page#select_battle_turn'
 
   # my_page - strategy
   match '/my_page/:user_id/strategy_index' => 'my_page#strategy_index'

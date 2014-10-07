@@ -18,6 +18,8 @@
   <%= form_tag :action => 'create_seed_mobs' do %>
   追加数：<%= text_field_tag 'seed_mobs_volume','',:class=>'number3' %><br />
   <br />
-  <%= submit_tag "追加" %>
+  <%= submit_tag "追加" %><br />
   <% end %>
+  <br />
+  <%= link_to '戻る', "/admin_page/mob_maintenance" %>
 </div>

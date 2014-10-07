@@ -5,5 +5,6 @@ FactoryGirl.define do
     trial nil
     squad_id 1
     name "MyString"
+    intruder_flg false
   end
 end

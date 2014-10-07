@@ -63,4 +63,10 @@ class Mission < ActiveRecord::Base
     end
     return mission_strategy
   end
+
+  # Return all the completed trials which related with this mission.
+  # @return [Array] trials
+  def completed_trials
+    return Trial.where("(guard_mission_id = ? or intruder_mission_id = ?) and occurred_at is not null", id, id)
+  end
 end

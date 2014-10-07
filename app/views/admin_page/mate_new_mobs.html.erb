@@ -24,6 +24,8 @@
   ユーザー：<%= collection_select(:user, :id, HouddUser.find(:all), :id, :name) %><br />
   交配数：<%= text_field_tag 'new_mobs_volume','',:class=>'number3' %><br />
   <br />
-  <%= submit_tag "交配" %>
+  <%= submit_tag "交配" %><br />
   <% end %>
+  <br />
+  <%= link_to '戻る', "/admin_page/mob_maintenance" %>
 </div>

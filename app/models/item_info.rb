@@ -4,7 +4,6 @@ class ItemInfo < ActiveRecord::Base
   belongs_to :family
   has_many :item_sp_resource_invs
 
-  validates :family_id, :presence => true
   validates :weight_level, :numericality => {:only_integer => true, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 10}
   validates :name, :presence => true, :uniqueness => true
   validates :max_dp, :numericality => {:only_integer => true, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 100000}

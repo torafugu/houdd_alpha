@@ -6,6 +6,6 @@ FactoryGirl.define do
     map_name "MyString"
     guard_mission_id 1
     intruder_mission_id 1
-    occured_at 1
+    occurred_at 1
   end
 end

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :element_symbol %><br />
-    <%= f.select :element_symbol, Params::ELEMRNT_SYMBOL_DESCRIPTIONS %>
+    <%= f.select :element_symbol, Params::ELEMENT_SYMBOL_DESCRIPTIONS %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -89,7 +89,7 @@
   </div>
   <div class="field">
     <%= f.label :family %><br />
-    <%= f.collection_select(:family_id, Family.find(:all), :id, :name) %>
+    <%= f.collection_select(:family_id, Family.find(:all), :id, :name, :include_blank => true) %>
   </div>
   <div class="field">
     <%= f.label :weight_level %><br />

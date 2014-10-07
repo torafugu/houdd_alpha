@@ -1,0 +1,207 @@
+*houdd_history
+
+rails g model houdd_history exp_inv day:integer log:text
+
+*exp_inv
+
+rails g model exp_inv type:string mob:references owner_id:integer level:integer exp:integer
+
+*battle_effect_inv
+
+rails g model battle_effect_inv mob:references caused_mob_id:integer element_symbol:string damage:integer duration:integer
+
+*trial_battle_set
+
+rails g model trial_battle_set trial_move_turn:references attacker_squad:references defender_squad:references distance:integer
+
+*trial_battle_turn
+
+rails g model trial_battle_turn trial_battle_set:references log:text
+
+*trial_mob_status
+
+rails g model trial_mob_status trial_battle_turn:references trial_mob:references vpos:integer start_hp:integer end_hp:integer start_sp:integer end_sp:integer start_status:string end_status:string
+
+*trial_squad_trail
+
+rails generate model trial_squad_trail trial_move_turn:references trial_squad:references from_x:integer from_y:integer to_x:integer to_y:integer
+
+*trial_move_turn
+
+rails generate model trial_move_turn trial:references log:text
+
+*trial_fortress_cell
+
+rails g model trial_fortress_cell trial:references symbol:string x:integer y:integer trap_flg:boolean  goal_flg:boolean
+
+*trial_mob
+
+rails g model trial_mob trial_squad:references mob_id:integer name:string job_name:string max_hp:integer max_sp:integer hp:integer sp:integer job_name:string
+
+*trial_squad
+
+rails g model trial_squad trial:references squad_id:integer name:string intruder_flg:boolean
+
+*trial
+
+rails generate scaffold trial mini_map:references map_name:string guard_mission_id:integer intruder_mission_id:integer occurred_at:integer
+
+*mission_queue
+
+rails generate model mission_queue mission:references squad:references priority:integer
+
+*mission
+
+rails generate scaffold mission houdd_user:references mini_map:references category_symbol:string mission_strategy:references status_symbol:string start_houdd_time:decimal{10,3} end_houdd_time:decimal{10,3}
+
+*mission_strategy
+
+rails generate scaffold mission_strategy houdd_user:references name:string script:text
+
+*squad
+
+rails generate scaffold squad houdd_user:references mini_map:references name:string
+
+*mob
+
+rails generate scaffold mob houdd_user:references specie:references father_id:integer mother_id:integer generation:integer job:references squad:references name:string gender_sym:string age:integer hp:integer sp:integer str:integer dex:integer con:integer int:integer wis:integer cha:integer phys_def:integer skill_def:integer ele_fw:integer ele_ld:integer natural_death_flg:boolean
+
+*specie_job_inv
+
+rails generate scaffold specie_job_inv specie:references job:references frequency_rate:integer
+
+*job
+
+rails generate scaffold job type_symbol:string name:string growth_penalty:float wepon_lvl:integer armor_lvl:integer str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float
+
+*job_skill_inv
+
+rails g scaffold job_skill_inv skill:references job:references
+
+*skill
+
+rails generate scaffold skill type_symbol:string element_symbol:string name:string sp_cost:integer num_of_tgt:integer hit_accuracy:integer range:integer damage:integer heal:integer str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float duration:integer cast_cycle:integer research_level:integer
+
+*dna
+
+rails g scaffold dna mob:references gene:references
+
+*gene
+
+rails generate scaffold gene specie:references dominance_flg:boolean prolificacy_mod:float longevity_mod:float growth_mod:float food_cost_mod:float str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float
+
+*specie
+
+rails g scaffold specie family:references name:string longevity:integer prolificacy:float growth_rate:float food_cost:integer str:integer dex:integer con:integer int:integer wis:integer cha:integer mutation_rate:float phys_def:integer skill_def:integer ele_fw:integer ele_ld:integer skill:references
+
+*family
+
+rails g scaffold family name:string asexual_flg:boolean skill:references
+
+*item_sp_resource_inv
+
+rails g scaffold item_sp_resource_inv item_info:references sp_resource:references
+
+*item_info
+
+rails g scaffold item_info type_symbol:string element_symbol:string name:string num_of_tgt:integer hit_accuracy:integer range:integer damage:integer heal:integer str_mod:float dex_mod:float con_mod:float int_mod:float wis_mod:float cha_mod:float ele_fw_mod:float ele_ld_mod:float phys_def_mod:float skill_def_mod:float duration:integer family:references weight_level:integer max_dp:integer rq_prod_point:integer atk_cycle:integer research_level:integer
+
+*item
+
+rails g scaffold item item_info:references houdd_user:references mob:references dp:integer quality:integer built_point:integer active_flg:boolean
+
+*map_item_inv 
+
+rails g scaffold map_item_inv mini_map:references item:references
+
+*production_queue
+
+rails g model production_queue houdd_user:references symbol:string queue_id:integer priority:integer allotment:integer destroy_flg:boolean
+
+*fortress_cell
+
+rails g scaffold fortress_cell mini_map:references symbol:string x:integer y:integer trap_id:integer squad_id:integer
+
+*construction
+
+rails g scaffold construction terrain:references symbol:string name:string food:integer production:integer money:integer rq_prod_point:integer rq_days:integer
+
+*sp_resource
+
+rails g scaffold sp_resource terrain:references symbol:string name:string food:integer production:integer money:integer frequency_rate:integer
+
+*terrain
+
+rails g scaffold terrain symbol:string name:string food:integer production:integer money:integer frequency_rate:integer continuity_mod:integer
+rails g rspec:model terrain
+
+*mini_map_creator
+
+MiniMapCreator.random_cell(1)
+MiniMap.find(1).mini_map_cells
+
+bundle exec rspec spec/models/mini_map_creator_spec.rb
+
+
+*mini_map_road
+
+rails g scaffold mini_map_road start_mini_map_id:integer end_mini_map_id:integer distance:integer level:integer built_point:integer active_flg:boolean
+
+*mini_map_cell
+
+rails g scaffold mini_map_cell mini_map:references x:integer y:integer terrain:references sp_resource:references construction:references built_point:integer active_flg:boolean capital_flg:boolean
+
+*mini_map
+
+rails g scaffold mini_map houdd_user:references name:string size:integer hq_flg:boolean type_symbol:string find_root_flg:boolean
+
+rails g rspec:model mini_map
+rails destroy scaffold "mini_map"
+
+bundle exec rspec spec/models/mini_map_spec.rb
+
+*research
+
+rails g scaffold research houdd_user:references symbol:string level:integer allotment:integer invested_point:integer
+
+
+*houdd_user
+
+rails g scaffold houdd_user name:string admin_flg:boolean login_id:string login_pw:string last_login_at:datetime active_flg:boolean allot_for_item:integer allot_for_const:integer allot_for_research:integer
+
+rails g rspec:model houdd_user
+
+
+*admin_page
+
+rails generate controller admin_page
+
+*my_page
+
+rails generate controller my_page
+
+*DESTROY
+
+rails destroy scaffold "specie"
+rails destroy model "trial_mob_status"
+rails destroy controller "job_skill_invs"
+
+drop_table :body_part_invs
+drop_table :body_parts
+drop_table :item_equip_invs
+drop_table :item_categories
+drop_table :item_infos
+drop_table :skill_categories
+drop_table :status_mod_invs
+drop_table :skill_invs
+drop_table :status_mod
+
+drop_table :trial_battle_turn
+
+
+rails generate controller family_skill_invs
+rails generate controller specie_skill_invs
+rails generate controller item_info_status_mod_invs
+rails generate controller specie_status_mod_invs
+
+rails generate controller job_skill_invs
