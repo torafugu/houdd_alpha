@@ -464,7 +464,7 @@ ja:
         squad: '部隊'
         name: '名前'
         gender_sym: '性別'
-        age: '年齢'
+        age: '日齢'
         hp: 'HP'
         sp: 'SP'
         str: 'STR'

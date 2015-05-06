@@ -165,9 +165,9 @@ HouddAlpha::Application.routes.draw do
   # admin_page - data maintenance
   match '/admin_page/data_maintenance' => 'admin_page#data_maintenance'
 
-  # admin_page - queue maintenance
-  match '/admin_page/queue_maintenance' => 'admin_page#queue_maintenance'
-  match '/admin_page/update_queue' => 'admin_page#update_queue', :via => :put
+  # admin_page - time forward
+  match '/admin_page/time_forward' => 'admin_page#time_forward'
+  match '/admin_page/add_history_days' => 'admin_page#add_history_days', :via => :put
 
   # admin_page - top
   match '/admin_page/top' => 'admin_page#top'

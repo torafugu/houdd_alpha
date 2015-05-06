@@ -1,0 +1,12 @@
+<%= render 'admin_page_menu' %>
+<div id="contents">
+  <%= render :partial => 'layouts/edit_messages' %>
+
+  <h3 class="admin_normal">時間進行</h3>
+  現在の日付：<%= HouddHistory.maximum('day') %><br />
+  現在のキュー内アイテム数：<%= ProductionQueue.all.length %><br />
+  <br />
+  <%= form_tag({:action => 'add_history_days'}, {:method => :put}) do %>
+  時間進行：<%= text_field_tag "days",'',:class=>'number3' %> 日分 <%= submit_tag "進行" %>
+  <% end %>
+</div>

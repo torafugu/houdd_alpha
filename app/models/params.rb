@@ -93,7 +93,7 @@ class Params
   MOB_ADULT_AGE_RATE = 0.1875
 
   # Maximum age of mob.
-  MOB_AGE_MAX = 1000
+  MOB_AGE_MAX = 365000
 
   # Maximum status value of mob.
   MOB_STATUS_MAX = 100000

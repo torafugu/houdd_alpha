@@ -318,25 +318,35 @@ class AdminPageController < ApplicationController
     end
   end
 
-  # admin_page - queue maintenance
-  # GET /admin_page/queue_maintenance
-  def queue_maintenance
+  # admin_page - time forward
+  # GET /admin_page/time_forward
+  def time_forward
     respond_to do |format|
-      format.html # queue_maintenance.html.erb
+      format.html # time_forward.html.erb
     end
   end
 
-  # GET /admin_page/update_queue
-  def update_queue
+  # GET /admin_page/add_history_days
+  def add_history_days
     respond_to do |format|
-      if ProductionQueueUpdater.execute(params[:queue_update_times].to_i)
-        flash[:success] = 'OK'
-        format.html { redirect_to action: "queue_maintenance" }
-        format.json { head :no_content }
+      begin
+        days = params[:days].to_i
+        days.times do
+          history = HouddHistory.new
+          history.day = HouddHistory.maximum('day') + 1
+          history.save
+        end
+        ProductionQueueUpdater.execute(days)
+        TrialUpdater.execute
+        MobUpdater.age_all_mobs(days)
+      rescue
+        flash[:errors] = 'add_history_days failed.'
+        format.html { redirect_to action: "time_forward" }
+        format.json { render json: 'add_history_days failed.', status: :unprocessable_entity }
       else
-        flash[:errors] = 'update_queue failed.'
-        format.html { redirect_to action: "queue_maintenance" }
-        format.json { render json: 'update_queue failed.', status: :unprocessable_entity }
+        flash[:success] = 'OK'
+        format.html { redirect_to action: "time_forward" }
+        format.json { head :no_content }
       end
     end
   end

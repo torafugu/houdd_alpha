@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails houdd_alpha: development" uuid="81b6ddfc-70a3-4fc7-b7ef-0618d67945e5" />
+    <data-source name="Rails kenkan: development" uuid="12eec2fb-b5a4-4506-87b9-596eac75f5fe">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

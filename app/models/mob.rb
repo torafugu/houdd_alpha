@@ -51,6 +51,14 @@ class Mob < ActiveRecord::Base
   # Maximum priority of battle method.
   MAX_PRIORITY = 5
 
+  # Return random status value.
+  # @param [Integer] base
+  # @param [Integer] mod
+  # @return [Integer].
+  def self.status_from_gene(base, mod)
+    return base * (1 + mod * Tools.gaussian_rand(0, Params::GENE_SEED_VARIANCE).round(2))
+  end
+
   # Return name with job name.
   # @return [String]
   def name_with_job

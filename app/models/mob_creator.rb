@@ -294,10 +294,6 @@ class MobCreator
 
   private
 
-  def self.status_from_gene(base, mod)
-    return base * (1 + mod * Tools.gaussian_rand(0, Params::GENE_SEED_VARIANCE).round(2))
-  end
-
   def self.random_gender_sym(asexual_flg)
     if asexual_flg
       return Params::GENDER_ASEXUAL.to_s
@@ -333,17 +329,17 @@ class MobCreator
     # Create starting status.
     mob.name = mob.specie.name + ((0..9).to_a).shuffle[0..9].join
     mob.gender_sym = random_gender_sym(mob.specie.family.asexual_flg)
-    mob.age = (status_from_gene(mob.specie.longevity, mod_gene.longevity_mod) * Params::MOB_ADULT_AGE_RATE).round
-    mob.str = status_from_gene(mob.specie.str, mod_gene.str_mod).round
-    mob.dex = status_from_gene(mob.specie.dex, mod_gene.dex_mod).round
-    mob.con = status_from_gene(mob.specie.con, mod_gene.con_mod).round
-    mob.int = status_from_gene(mob.specie.int, mod_gene.int_mod).round
-    mob.wis = status_from_gene(mob.specie.wis, mod_gene.wis_mod).round
-    mob.cha = status_from_gene(mob.specie.cha, mod_gene.cha_mod).round
-    mob.phys_def = status_from_gene(mob.specie.phys_def, mod_gene.phys_def_mod).round
-    mob.skill_def = status_from_gene(mob.specie.skill_def, mod_gene.skill_def_mod).round
-    mob.ele_fw = status_from_gene(mob.specie.ele_fw, mod_gene.ele_fw_mod).round
-    mob.ele_ld = status_from_gene(mob.specie.ele_ld, mod_gene.ele_ld_mod).round
+    mob.age = (Mob.status_from_gene(mob.specie.longevity, mod_gene.longevity_mod) * Params::MOB_ADULT_AGE_RATE).round
+    mob.str = Mob.status_from_gene(mob.specie.str, mod_gene.str_mod).round
+    mob.dex = Mob.status_from_gene(mob.specie.dex, mod_gene.dex_mod).round
+    mob.con = Mob.status_from_gene(mob.specie.con, mod_gene.con_mod).round
+    mob.int = Mob.status_from_gene(mob.specie.int, mod_gene.int_mod).round
+    mob.wis = Mob.status_from_gene(mob.specie.wis, mod_gene.wis_mod).round
+    mob.cha = Mob.status_from_gene(mob.specie.cha, mod_gene.cha_mod).round
+    mob.phys_def = Mob.status_from_gene(mob.specie.phys_def, mod_gene.phys_def_mod).round
+    mob.skill_def = Mob.status_from_gene(mob.specie.skill_def, mod_gene.skill_def_mod).round
+    mob.ele_fw = Mob.status_from_gene(mob.specie.ele_fw, mod_gene.ele_fw_mod).round
+    mob.ele_ld = Mob.status_from_gene(mob.specie.ele_ld, mod_gene.ele_ld_mod).round
 
     # set job
     job_roll = rand(100) + 1
